@@ -19,6 +19,7 @@ get_header();
 			if ( has_post_thumbnail() ) {
 			the_post_thumbnail( array(800,3200) );
 			}  ?>
+			
 			</div>
             	<div class="col-md-8">
 
@@ -38,9 +39,7 @@ get_header();
             	    <a href="<?php the_field('fnac'); ?>"> <img src="<?php the_field('buy3'); ?>" alt="" /> </a>
 				</div>
 
-            <div class="content">
-            	<?php the_content(); ?>	
-            </div> <!-- end row -->
+            <!-- end row -->
 
         </div><!-- end container -->
 </div><!-- end main-content-area -->
