@@ -27,7 +27,7 @@ get_header();
 			$book_author = get_post_meta( $book_page_id, 'author', true);
 			$book_summary = get_post_meta( $book_page_id, 'summary', true);
 
-			$book_recommender = get_the_tags( $book_page_id )[0];
+			$book_recommender = get_the_tags( $book_page_id )[0]->name;
 			$book_recommendation = get_post_meta( $book_page_id, 'recommendation', true);
 
 			$book_amazon_url = get_post_meta( $book_page_id, 'amazon_url', true);
@@ -44,8 +44,8 @@ get_header();
 			</div>
             	<div class="col-md-8">
 
-            		<h1 class="booktitle">Titre : <?php echo $book_title; ?> </br>
-            	    Auteur : <?php echo $book_author; ?></h1>
+            		<h1 class="booktitle"><?php echo $book_title; ?></br>
+            	    de <?php echo $book_author; ?></h1>
             		
             		<?php
             		if ( $book_summary ) : ?>
@@ -54,7 +54,7 @@ get_header();
 	            	endif;
 	            	
             		if ( $book_recommendation && $book_recommender ) : ?>	
-            			<p class="rec"><b>Recommandation de <?php echo $book_recommender ?> : </b><?php echo $book_recommendation; ?></p>
+            			<p class="rec"><b>Recommandation de <?php echo $book_recommender; ?> : </b><?php echo $book_recommendation; ?></p>
             		<?php 
 	            	endif; ?>
 
