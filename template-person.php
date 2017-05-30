@@ -288,7 +288,7 @@ if ( $wp_query->have_posts() ) : ?>
 
                 <div class="button-effect">
 
-                    <a target="_blank" href="<?php echo $affiliation_url ?>" class="portfolio-link" title="<?php the_title() ?>">
+                    <a target="_blank" href="<?php echo $affiliation_url ?>" class="portfolio-link">
 
                         <img src="<?php echo $previewImage[0] ?>" class="image-style" alt="<?php the_title(); ?>" />
 
