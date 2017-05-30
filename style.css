@@ -1,212 +1,464 @@
-/*
-
-Theme Name: oren_child
-
-Template: oren
-
-Author: toursidou
-
-Description: WP adaptation
-
-*/
-
-/*
-
-@import url("../oren/style.css");
-
-*/
-
-/* Person Page Template : modification de l'intro de la page personnalité GUILHEM 24.04.17*/
-
-
-/* Bandeau du haut qui contient l'image et la description de la personne */
-.single-portfolio {
-    padding: 0;
-    background-color : #d7dff1;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 9px 20px 0 rgba(0, 0, 0, 0.25);
-}
-
-
-/* Thumbnail de la personnalité */
-.single-portfolio-featured-image {
-    margin: 100px;
-    background-color:red;
-}
-
-/* Texte descriptif de la personnalité */
-.post-content {
-font-family: 'Source Sans Pro', sans-serif;
-}
-
-/* Titre : *nom de la personne* et *Livre recommandé par *nom de la personne**  */
-.text-center  {
-font-family: 'Source Sans Pro', sans-serif;
-}
-
-/* Person Page Template : fin de modification GUILHEM 20.04.17*/
-
-/* Contact page Template : modification du bandeau supérieur GUILHEM 26.04.17*/
-
-/* bandeau du haut sur les pages template-contact */
-.welcome-screen {
-    background-color : #829fd8;
-}
-
-/* Contact page Template : fin de modification du bandeau supérieur GUILHEM 26.04.17*/
-
-
-/* Home Page Template : modification de l'aspect. NB : Pour créer des images rondes il suffit de rajouter
-class img-circle au home Page template (fonctionnalité bootstrap)
-sinon j'ai créé la class "img-adapt" pour modifier les images des pages qui utilisent le Home Page Template GUILHEM 20.04.17*/
-
-
-/* Bannière : Modif par Damien*/
-header.full-width-container {
-	background-size: cover;
-}
-
-
-/* Titre principal NB: impossible de modifier la couleur, je ne sais pas pq.*/
-header.welcome-screen h1 {
-    font-size: 1.5em;
-    margin: 0px 0 0px 0;
-    font-family: 'Oswald';
-}
-
-/* Titre secondaire */
-header.welcome-screen h2 {
-    font-size: 0.8em;
-    margin: 0px 0 0px 0;
-    font-family: 'Raleway';
-}
-
-
-/* Texte qui apparait sur les images de portofolio*/
-.details-text {
-	font-family: 'Source Sans Pro', sans-serif;
-	color: black;
-	vertical-align: top;
-}
-
-/* Image de portfolio */
-.img-adapt {
-	padding:0;
-}
-
-.img-adapt:hover {
-
-    animation-name: fade;
-
-    animation-duration: 0.5s;
-
-    animation-fill-mode: forwards;
-}
-
-/* animation : effet de transparence */
-
-@keyframes fade {
-from {opacity: 1;} to {opacity: 0.5;}
-}
-
-/* Conteneur : du titre H1 au footer */
-.row {
-	margin: 0;
-	padding: 0;
-}
-
-/* Home Page Template : modification de l'aspect. GUILHEM 20.04.17*/
-
-
-.masonry-item {
-    display: block;
-    float: left;
-    font-family: 'Gidugu';
-    color: red;
-    padding: 0px;
-    width: 33.33%; /* default width for 3 cols */
-}
-
-
-
-/* Theme footer : menu du bas
-Je change le "customized widget" de menu vertical a menu horizontal + effets de style 
-GUILHEM 19.04.17*/
-
-
-/* Menu du bas */
-#widget-area li {
-	display:inline-block;
-	padding-right: 10px;
-	text-align: right;
-	font-family: 'Oswald';
-	font-size:1.2em;
-	text-decoration:none;
-	margin: none;
-	padding: none;
-}
-
-#widget-area li :hover {
-	text-decoration:none;
-}
-
-/* Theme footer : menu du bas Fin du changement*/
-
-
-
-/* Theme header - Changement du style des textes 19.04.17 GUILHEM */
-
-
-/* menu du haut*/
-nav.primary-navigation {
-    font-family: 'Oswald';
-    font-size:1.2em;
-}
-
-/* Theme header - Changement du style des textes - Fin du changement*/
-
-
-/* Book Page Template - Mise en forme des livres : centrés + ombre + bonne taille + animation hover  20.04.17 GUILHEM 
-
---> J'ai rajouté dans le Person Page Template, 
-la class image-style et un div avant l'image pour 
-instaurer la classe button-effect (effet d'animation 
-sur l'image) + j'ai changé la taille des images
-
-*/
-
-
-/* image du livre */
-.image-style {
-    height: 320px;
-    margin-top: 20px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 20px;
-    border-radius: 3px;
-    vertical-align: center;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 9px 20px 0 rgba(0, 0, 0, 0.25);
-}
-
-/* animation : effet bouton sur le livre */
-
-@keyframes anim {
-    from {transform: scale(1,1)}
-    to {transform: scale(0.95,0.95)}
-}
-
-
-.image-style:hover {
-    animation-name: anim;
-    animation-iteration-count: 1;
-    animation-duration: 0.3s;
-    animation-fill-mode: forwards;
-}
-
-.button-effect:hover {
-    animation-name: anim;
-    animation-duration: 500ms;
-    animation-fill-mode: forwards;
-}
-
+/*
+
+
+
+Theme Name: oren_child
+
+
+
+Template: oren
+
+
+
+Author: toursidou
+
+
+
+Description: WP adaptation
+
+
+
+*/
+
+
+
+/*
+
+
+
+@import url("../oren/style.css");
+
+
+
+*/
+
+
+
+/* Person Page Template : modification de l'intro de la page personnalité GUILHEM 24.04.17*/
+
+
+/* Bandeau du haut qui contient l'image et la description de la personne */
+
+.single-portfolio {
+
+    padding: 0;
+
+    background-color : #d7dff1;
+
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 9px 20px 0 rgba(0, 0, 0, 0.25);
+
+}
+
+
+
+
+
+/* Thumbnail de la personnalité */
+
+.single-portfolio-featured-image {
+
+    margin: 100px;
+
+    background-color:red;
+
+}
+
+
+
+/* Texte descriptif de la personnalité */
+
+.post-content {
+
+font-family: 'Source Sans Pro', sans-serif;
+
+}
+
+
+
+/* Titre : *nom de la personne* et *Livre recommandé par *nom de la personne**  */
+
+.text-center  {
+
+font-family: 'Source Sans Pro', sans-serif;
+
+}
+
+
+
+/* Person Page Template : fin de modification GUILHEM 20.04.17*/
+
+
+
+/* Contact page Template : modification du bandeau supérieur GUILHEM 26.04.17*/
+
+
+
+/* bandeau du haut sur les pages template-contact */
+
+.welcome-screen {
+
+    background-color : #829fd8;
+
+}
+
+
+
+/* Contact page Template : fin de modification du bandeau supérieur GUILHEM 26.04.17*/
+
+
+
+
+
+/* Home Page Template : modification de l'aspect. NB : Pour créer des images rondes il suffit de rajouter
+
+class img-circle au home Page template (fonctionnalité bootstrap)
+
+sinon j'ai créé la class "img-adapt" pour modifier les images des pages qui utilisent le Home Page Template GUILHEM 20.04.17*/
+
+
+
+
+
+/* Bannière : Modif par Damien*/
+
+header.full-width-container {
+
+	background-size: cover;
+
+}
+
+
+
+
+
+/* Titre principal NB: impossible de modifier la couleur, je ne sais pas pq.*/
+
+header.welcome-screen h1 {
+
+    font-size: 1.5em;
+
+    margin: 0px 0 0px 0;
+
+    font-family: 'Oswald';
+
+}
+
+
+
+/* Titre secondaire */
+
+header.welcome-screen h2 {
+
+    font-size: 0.8em;
+
+    margin: 0px 0 0px 0;
+
+    font-family: 'Raleway';
+
+}
+
+
+
+
+
+/* Texte qui apparait sur les images de portofolio*/
+
+.details-text {
+
+	font-family: 'Source Sans Pro', sans-serif;
+
+	color: black;
+
+	vertical-align: top;
+
+}
+
+
+
+/* Image de portfolio */
+
+.img-adapt {
+
+	padding:0;
+
+}
+
+
+
+.img-adapt:hover {
+
+
+
+    animation-name: fade;
+
+
+
+    animation-duration: 0.5s;
+
+
+
+    animation-fill-mode: forwards;
+
+}
+
+
+
+/* animation : effet de transparence */
+
+
+
+@keyframes fade {
+
+from {opacity: 1;} to {opacity: 0.5;}
+
+}
+
+
+
+/* Conteneur : du titre H1 au footer */
+
+.row {
+
+	margin: 0;
+
+	padding: 0;
+
+}
+
+
+
+/* Home Page Template : modification de l'aspect. GUILHEM 20.04.17*/
+
+
+
+
+
+.masonry-item {
+
+    display: block;
+
+    float: left;
+
+    font-family: 'Gidugu';
+
+    color: red;
+
+    padding: 0px;
+
+    width: 33.33%; /* default width for 3 cols */
+
+}
+
+
+
+
+
+
+
+/* Theme footer : menu du bas
+
+Je change le "customized widget" de menu vertical a menu horizontal + effets de style 
+
+GUILHEM 19.04.17*/
+
+
+
+
+
+/* Menu du bas */
+
+#widget-area li {
+
+	display:inline-block;
+
+	padding-right: 10px;
+
+	text-align: right;
+
+	font-family: 'Oswald';
+
+	font-size:1.2em;
+
+	text-decoration:none;
+
+	margin: none;
+
+	padding: none;
+
+}
+
+
+
+#widget-area li :hover {
+
+	text-decoration:none;
+
+}
+
+
+
+/* Theme footer : menu du bas Fin du changement*/
+
+
+
+
+
+
+
+/* Theme header - Changement du style des textes 19.04.17 GUILHEM */
+
+
+
+
+
+/* menu du haut*/
+
+nav.primary-navigation {
+
+    font-family: 'Oswald';
+
+    font-size:1.2em;
+
+}
+
+
+
+/* Theme header - Changement du style des textes - Fin du changement*/
+
+
+
+
+
+/* Person Page Template - Mise en forme des livres : centrés + ombre + bonne taille + animation hover  20.04.17 GUILHEM 
+
+
+
+--> J'ai rajouté dans le Person Page Template, 
+
+la class image-style et un div avant l'image pour 
+
+instaurer la classe button-effect (effet d'animation 
+
+sur l'image) + j'ai changé la taille des images
+
+
+
+*/
+
+
+
+
+
+/* image du livre */
+
+.image-style {
+
+    height: 320px;
+
+    margin-top: 20px;
+
+    display: block;
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+    margin-bottom: 20px;
+
+    border-radius: 3px;
+
+    vertical-align: center;
+
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 9px 20px 0 rgba(0, 0, 0, 0.25);
+
+}
+
+
+
+/* animation : effet bouton sur le livre */
+
+
+
+@keyframes anim {
+
+    from {transform: scale(1,1)}
+
+    to {transform: scale(0.95,0.95)}
+
+}
+
+
+
+
+
+.image-style:hover {
+
+    animation-name: anim;
+
+    animation-iteration-count: 1;
+
+    animation-duration: 0.3s;
+
+    animation-fill-mode: forwards;
+
+}
+
+
+
+.button-effect:hover {
+
+    animation-name: anim;
+
+    animation-duration: 500ms;
+
+    animation-fill-mode: forwards;
+
+}
+
+
+
+/* Person Page Template - Mise en forme des livres FIN du changement */
+
+/* Book Page Template */
+
+/* modification sur tous les customs fields */
+
+.post-meta {
+
+font-family: 'Source Sans Pro', sans-serif;
+text-decoration: none;
+list-style-type: none;
+
+}
+
+.h4
+
+{
+
+font-family: 'Source Sans Pro', sans-serif;
+
+}
+
+.booktitle
+
+
+{
+
+padding-top: 0;
+margin-top: 0;
+font-family: 'Oswald';
+line-height: 120%;
+
+}
+
+/* enlève la marge du haut */
+
+.full-width-container
+
+{
+padding: 20px 0 0 0;
+margin : 0 0 0 0;
+}
+
+
 /* Book Page Template - Mise en forme des livres FIN du changement */
