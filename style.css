@@ -329,7 +329,7 @@ nav.primary-navigation {
 
 
 
-/* Book Page Template - Mise en forme des livres : centrés + ombre + bonne taille + animation hover  20.04.17 GUILHEM 
+/* Person Page Template - Mise en forme des livres : centrés + ombre + bonne taille + animation hover  20.04.17 GUILHEM 
 
 
 
@@ -415,6 +415,50 @@ sur l'image) + j'ai changé la taille des images
 
 }
 
+
+
+/* Person Page Template - Mise en forme des livres FIN du changement */
+
+/* Book Page Template */
+
+/* modification sur tous les customs fields */
+
+.post-meta {
+
+font-family: 'Source Sans Pro', sans-serif;
+text-decoration: none;
+list-style-type: none;
+
+}
+
+.h4
+
+{
+
+font-family: 'Source Sans Pro', sans-serif;
+
+}
+
+.booktitle
+
+
+{
+
+padding-top: 0;
+margin-top: 0;
+font-family: 'Oswald';
+line-height: 120%;
+
+}
+
+/* enlève la marge du haut */
+
+.full-width-container
+
+{
+padding: 20px 0 0 0;
+margin : 0 0 0 0;
+}
 
 
 /* Book Page Template - Mise en forme des livres FIN du changement */

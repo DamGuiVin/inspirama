@@ -28,10 +28,10 @@ add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 //		as the $wp_rewrite->category_structure should return the category name
 //		for Posts, but does not seem to work here
 //		https://codex.wordpress.org/Class_Reference/WP_Rewrite
-function custom_page_rules() {
-    global $wp_rewrite;
-    $wp_rewrite->page_structure = $wp_rewrite->root . $wp_rewrite->category_structure . '/%pagename%/';
-}
-add_action( 'init', 'custom_page_rules' );
+// custom_page_rules() {
+//    global $wp_rewrite;
+//    $wp_rewrite->page_structure = $wp_rewrite->root . $wp_rewrite->category_structure . '/%pagename%/';
+//}
+//add_action( 'init', 'custom_page_rules' );
 
 ?>
