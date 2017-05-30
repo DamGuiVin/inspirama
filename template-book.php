@@ -23,7 +23,7 @@ get_header();
 
 			$book_page_id = get_the_id();
 
-			$book_title = get_post_meta( $book_page_id, 'title', true);
+			$book_title = get_the_title();
 			$book_author = get_post_meta( $book_page_id, 'author', true);
 			$book_summary = get_post_meta( $book_page_id, 'summary', true);
 
