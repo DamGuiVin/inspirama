@@ -34,4 +34,34 @@ function custom_page_rules() {
 }
 add_action( 'init', 'custom_page_rules' );
 
+
+/*
+// Create a custom post type for Livre
+function create_post_type_ywk_livre() {
+    register_post_type('ywk_livre',
+        
+        array(
+            'labels' => array(
+                'name' => __( 'Livres' ),
+                'singular_name' => __( 'Livre' ),
+                'tralala' => __( 'mytralala' )
+            ),
+        
+        'public' => true,
+        'has_archive' => true,
+        )
+
+  );
+}
+add_action( 'init', 'create_post_type_ywk_livre' );
+*/
+
+
+
+
+
+
+
+
+
 ?>
