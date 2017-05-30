@@ -276,8 +276,6 @@ if ( $wp_query->have_posts() ) : ?>
 
             $previewImage = wp_get_attachment_image_src( get_post_thumbnail_id( $wp_query->post->ID ), $img_size );
 
-            $affiliation_url = get_post_meta( $wp_query->post->ID, 'affiliation_url', true );
-
             ?>
 
                 <li class="masonry-item">
@@ -288,7 +286,7 @@ if ( $wp_query->have_posts() ) : ?>
 
                 <div class="button-effect">
 
-                    <a target="_blank" href="<?php echo $affiliation_url ?>" class="portfolio-link">
+                    <a href="<?php the_permalink(); ?>" class="portfolio-link">
 
                         <img src="<?php echo $previewImage[0] ?>" class="image-style" alt="<?php the_title(); ?>" />
 
