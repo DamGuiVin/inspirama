@@ -28,16 +28,16 @@ get_header();
 			$book_summary = get_post_meta( $book_page_id, 'summary', true);
 
 			$book_recommender = get_the_tags( $book_page_id )[0];
-			$book_recommendation = get_post_meta( $book_page_id, 'rec', true);
+			$book_recommendation = get_post_meta( $book_page_id, 'recommendation', true);
 
-			$book_amazon_url = get_post_meta( $book_page_id, 'amazon', true);
-			$book_amazon_logo = get_post_meta( $book_page_id, 'buy1', true);
+			$book_amazon_url = get_post_meta( $book_page_id, 'amazon_url', true);
+			$book_amazon_logo = get_post_meta( $book_page_id, 'amazon_logo', true);
 
-			$book_leslibraires_url = get_post_meta( $book_page_id, 'leslibraires', true);
-			$book_leslibraires_logo = get_post_meta( $book_page_id, 'buy2', true);
+			$book_leslibraires_url = get_post_meta( $book_page_id, 'leslibraires_url', true);
+			$book_leslibraires_logo = get_post_meta( $book_page_id, 'leslibraires_logo', true);
 
-			$book_fnac_url = get_post_meta( $book_page_id, 'fnac', true);
-			$book_fnac_logo = get_post_meta( $book_page_id, 'buy3', true);
+			$book_fnac_url = get_post_meta( $book_page_id, 'fnac_url', true);
+			$book_fnac_logo = get_post_meta( $book_page_id, 'fnac_logo', true);
 			
 			?>
 
