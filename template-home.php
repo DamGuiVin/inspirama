@@ -235,7 +235,7 @@ if ( $wp_query->have_posts() ) : ?>
             // Recover useful attributes from the Person
             $person_page_id = $wp_query->post->ID;
             $person_name = get_the_title();
-            $person_intoduction = get_post_meta( $book_page_id, 'introduction', true);
+            $person_intoduction = get_post_meta( $person_page_id, 'introduction', true);
 
             // Check if the portfolio has an image. Only load the item if it does
             if ( has_post_thumbnail( $person_page_id ) ) :
