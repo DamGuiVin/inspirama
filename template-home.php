@@ -232,11 +232,15 @@ if ( $wp_query->have_posts() ) : ?>
 
         <?php while ( $wp_query->have_posts() ) : $wp_query->the_post();
 
+            // Recover useful attributes from the Person
+            $person_page_id = $wp_query->post->ID;
+            $person_name = get_the_title();
+            $person_intoduction = get_post_meta( $book_page_id, 'introduction', true);
+
             // Check if the portfolio has an image. Only load the item if it does
+            if ( has_post_thumbnail( $person_page_id ) ) :
 
-            if ( has_post_thumbnail( $wp_query->post->ID ) ) :
-
-                $previewImage = wp_get_attachment_image_src( get_post_thumbnail_id( $wp_query->post->ID ), $img_size ); ?>
+                $previewImage = wp_get_attachment_image_src( get_post_thumbnail_id( $person_page_id ), $img_size ); ?>
 
                 <li class="masonry-item">
 
@@ -244,13 +248,27 @@ if ( $wp_query->have_posts() ) : ?>
 
                         <a href="<?php the_permalink(); ?>" class="portfolio-link">
 
-                            <img src="<?php echo $previewImage[0] ?>" class="img-adapt" alt="<?php the_title(); ?>" />
+                            <img src="<?php echo $previewImage[0] ?>" class="img-adapt" alt="<?php echo $person_name; ?>" />
 
                             <div class="portfolio-details">
 
-                                <div class="details-text">
+                                <div class="details-person-name">
 
-                                    <h2><?php the_title(); ?></h2>
+                                    <h2><?php echo $person_name; ?></h2>
+
+                                </div>
+
+                                <?php if ( $person_intoduction ) : ?>
+                                    <div class="details-person-introduction">
+
+                                        <h4><?php echo $person_intoduction; ?></h4>
+
+                                    </div>
+                                <?php endif; ?>
+
+                                <div class="details-person-invitation">
+
+                                    <h4>Découvrez ses recommandations de lecture</h4>
 
                                 </div>
 

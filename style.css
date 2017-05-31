@@ -161,16 +161,39 @@ header.welcome-screen h2 {
 
 /* Texte qui apparait sur les images de portofolio*/
 
-.details-text {
+.portfolio-details .details-person-name {
 
 	font-family: 'Source Sans Pro', sans-serif;
 
 	color: black;
 
-	vertical-align: top;
+	vertical-align: center;
 
 }
 
+
+.portfolio-details .details-person-introduction {
+
+    font-family: 'Source Sans Pro', sans-serif;
+
+    color: black;
+
+    vertical-align: center;
+
+}
+
+
+.portfolio-details .details-person-invitation {
+
+    font-family: 'Source Sans Pro', sans-serif;
+
+    font-style : italic;
+
+    color: black;
+
+    vertical-align: center;
+
+}
 
 
 /* Image de portfolio */
