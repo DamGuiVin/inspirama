@@ -59,8 +59,6 @@ Description: WP adaptation
 
     margin: 100px;
 
-    background-color:red;
-
 }
 
 
@@ -241,8 +239,6 @@ from {opacity: 1;} to {opacity: 0.5;}
 
     font-family: 'Gidugu';
 
-    color: red;
-
     padding: 0px;
 
     width: 33.33%; /* default width for 3 cols */
@@ -335,7 +331,7 @@ nav.primary-navigation {
 
 --> J'ai rajouté dans le Person Page Template, 
 
-la class image-style et un div avant l'image pour 
+la class portfolio-image-book et un div avant l'image pour 
 
 instaurer la classe button-effect (effet d'animation 
 
@@ -351,7 +347,7 @@ sur l'image) + j'ai changé la taille des images
 
 /* image du livre */
 
-.image-style {
+.portfolio-image-book {
 
     height: 320px;
 
@@ -373,6 +369,18 @@ sur l'image) + j'ai changé la taille des images
 
 }
 
+.portfolio-book-subtitle {
+
+    text-align: center;
+
+    font-size: 1.8em;
+
+    line-height: 70%;
+
+    margin-left: 10%;
+
+    margin-right: 10%;
+}
 
 
 /* animation : effet bouton sur le livre */
@@ -381,9 +389,9 @@ sur l'image) + j'ai changé la taille des images
 
 @keyframes anim {
 
-    from {transform: scale(1,1)}
+    from {transform: scale(1,1);}
 
-    to {transform: scale(0.95,0.95)}
+    to {transform: scale(0.95,0.95);}
 
 }
 
@@ -391,7 +399,7 @@ sur l'image) + j'ai changé la taille des images
 
 
 
-.image-style:hover {
+.portfolio-image-book:hover {
 
     animation-name: anim;
 
