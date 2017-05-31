@@ -254,17 +254,15 @@ if ( $wp_query->have_posts() ) : ?>
 
                                 <div class="details-person-name">
 
-                                    <h2><?php echo $person_name; ?></h2>
+                                    <h2 class="details-person-name"><?php echo $person_name; ?></h2>
 
                                 </div>
 
-                                <?php if ( $person_intoduction ) : ?>
-                                    <div class="details-person-introduction">
-
+                                <div class="details-person-introduction">
+                                    <?php if ( $person_intoduction ) : ?>
                                         <h4><?php echo $person_intoduction; ?></h4>
-
-                                    </div>
-                                <?php endif; ?>
+                                    <?php endif; ?>
+                                </div>
 
                                 <div class="details-person-invitation">
 

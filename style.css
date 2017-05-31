@@ -163,11 +163,18 @@ header.welcome-screen h2 {
 
 .portfolio-details .details-person-name {
 
+    height: 40%
+
+
+}
+
+.portfolio-details .details-person-name h2 {
+
 	font-family: 'Source Sans Pro', sans-serif;
 
-	color: black;
-
 	vertical-align: center;
+
+    padding-top: 15%;
 
 }
 
@@ -179,6 +186,8 @@ header.welcome-screen h2 {
     color: black;
 
     vertical-align: center;
+
+    height: 30%
 
 }
 
@@ -192,6 +201,8 @@ header.welcome-screen h2 {
     color: black;
 
     vertical-align: center;
+
+    height: 30%
 
 }
 
