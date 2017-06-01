@@ -387,10 +387,11 @@ header.full-width-container-category {
 /* Container of the welcome message */
 
 .welcome-container-home {
-    padding-top: 15%;
+    padding-top: 12%;
     font-size: 1.3em;
     font-color: white; 
     text-shadow: 1px 1px black;
+    text-align: center;
 }
 
 .welcome-container-category {
@@ -404,15 +405,17 @@ header.full-width-container-category {
 /* Container for the button to go to the portfolio of people on homepage and category pages */
 
 .go-to-portfolio-link-container {
-    padding-top: 20%;
+    padding-top: 15%;
     margin-right: 30%;
     margin-left: 30%;
+    text-align: center;
 }
 
 /* Button to go to the portfolio of people on homepage and category pages */
 
 .go-to-portfolio-link-button a{
     color: white;
+    text-align: center;
 }
 
 .go-to-portfolio-link-button div{
@@ -421,6 +424,7 @@ header.full-width-container-category {
     font-size: 1.3em;
     font-family: 'Raleway';
     text-decoration: none;
+    text-align: center;
 }
 
 /* Person Page Template - Mise en forme des livres : centrés + ombre + bonne taille + animation hover  20.04.17 GUILHEM 

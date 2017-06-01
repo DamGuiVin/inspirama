@@ -8,17 +8,18 @@
                     <p></p>
                     <p class="about"><label> Yeswekant.com est une librairie en ligne. Découvrez sur ce site les livres qui ont marqué les personnalités qui vous inspirent. </label></p>
             </div>
+            
             <?php if ( is_active_sidebar( 'footer-widget' ) ) : ?>
-            <div id="widget-area" class="widget-area col-md-4">
-            <i class="fa fa-envelope fa-3x"></i> 
-            </br>
-            <p>
-            <label> Nous contacter </label>
-            </br>
-            Des remarques, des commentaires ?
-            contact@yeswekant.com
-            <?php dynamic_sidebar( 'footer-widget' ); ?>
-            </div><!-- .widget-area -->
+                <div id="widget-area" class="widget-area col-md-4">
+                <i class="fa fa-envelope fa-3x"></i> 
+                </br>
+                <p>
+                <label> Nous contacter </label>
+                </br>
+                Des remarques, des commentaires ?
+                contact@yeswekant.com
+                <?php dynamic_sidebar( 'footer-widget' ); ?>
+                </div><!-- .widget-area -->
             <?php endif; ?>
             <div class="column3 col-md-4" > <!-- beginning column1-->
                     <i class="fa fa-telegram fa-3x"></i> 

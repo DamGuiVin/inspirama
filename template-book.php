@@ -82,19 +82,19 @@ $book_fnac_logo = get_post_meta( $book_page_id, 'fnac_logo', true);
             	    
             	    <?php 
             	    if ( $book_amazon_logo && $book_amazon_url ) : ?>	
-            	    	<a href="<?php echo $book_amazon_url; ?>" title="Amazon"> <img src="<?php echo $book_amazon_logo; ?>" alt="" /> </a>
+            	    	<a href="<?php echo $book_amazon_url; ?>" title="Amazon"> <img src="<?php echo $book_amazon_logo; ?>" alt="" height="32" width="32"/> </a>
             	    <?php 
             	    endif; ?>
 
             	    <?php 
             	    if ( $book_leslibraires_logo && $book_leslibraires_url ) : ?>
-                	    <a href="<?php echo $book_leslibraires_url; ?>" title="Les Libraires"> <img src="<?php echo $book_leslibraires_logo; ?>" alt="" /> </a>
+                	    <a href="<?php echo $book_leslibraires_url; ?>" title="Les Libraires"> <img src="<?php echo $book_leslibraires_logo; ?>" alt="" height="32" width="32"/> </a>
             	    <?php 
             	    endif; ?>
 
             	    <?php 
             	    if ( $book_fnac_logo && $book_fnac_url ) : ?>
-                	    <a href="<?php echo $book_fnac_url; ?>" title="La Fnac"> <img src="<?php echo $book_fnac_logo; ?>" alt="" /> </a>
+                	    <a href="<?php echo $book_fnac_url; ?>" title="La Fnac"> <img src="<?php echo $book_fnac_logo; ?>" alt="" height="32" width="32"/> </a>
                 	<?php 
             	    endif; ?>
 
