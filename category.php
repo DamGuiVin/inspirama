@@ -178,81 +178,31 @@ $pagination = false;
 
 if ( $paged === 1 ) : ?>
 
+    <header class=  "full-width-container-category center-page welcome-screen <?php $background_image != '' ? print 'header-with-background' : '' ?> <?php has_excerpt() ? print 'header-with-excerpt ' : print 'header-without-excerpt'; ?>" role="banner" data-welcome-background="<?php echo $background_image; ?>" >
 
+        <div class="container welcome-container-category">
 
-    
+            <div class="row welcome-row">
 
+                 <div class="col-md-10 col-md-offset-1">
 
+                    <h1 class=""><?php echo $category_name ?></h1>
 
-        <header class=  "full-width-container center-page welcome-screen 
+                    <?php /*
+                    if ( has_excerpt() ) {
+                        the_excerpt();
+                    }*/
+                    ?>
 
-                        <?php $background_image != '' ? print 'header-with-background' : '' ?> 
+             </div><!-- end col-md-10 -->
 
-                        <?php has_excerpt() ? print 'header-with-excerpt ' : print 'header-without-excerpt'; ?>" 
+            </div><!-- end row -->
 
-                role="banner" 
+        </div><!-- end container -->
 
-                data-welcome-background="<?php echo $background_image; ?>" >
+    </header><!-- end header - full width container -->
 
-
-
-            <div class="container welcome-container">
-
-
-
-                <div class="row welcome-row">
-
-
-
-                     <div class="col-md-10 col-md-offset-1">
-
-
-
-                        <h1 class=""><?php echo $category_name ?></h1>
-
-
-
-                        <?php /*
-
-
-
-                        if ( has_excerpt() ) {
-
-
-
-                            the_excerpt();
-
-
-
-                        }*/
-
-
-
-                        ?>
-
-
-
-                 </div><!-- end col-md-10 -->
-
-
-
-                </div><!-- end row -->
-
-
-
-            </div><!-- end container -->
-
-
-
-        </header><!-- end header - full width container -->
-
-
-
-        <?php wp_reset_query(); ?>
-
-
-
-
+    <?php wp_reset_query(); ?>
 
 <?php endif; ?>
 

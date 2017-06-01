@@ -154,8 +154,6 @@ header.welcome-screen h2 {
 
 
 
-
-
 /* Texte qui apparait sur les images de portofolio*/
 
 .portfolio-details .details-person-name {
@@ -332,36 +330,98 @@ GUILHEM 19.04.17*/
 
 
 
-/* Theme header - Changement du style des textes 19.04.17 GUILHEM */
+/* HEADER and BANNER */
 
 
+/* Titre principal NB: impossible de modifier la couleur, je ne sais pas pq.*/
 
-
-
-/* menu du haut*/
-
-nav.primary-navigation {
-
+header.welcome-screen h1 {
+    font-size: 1.5em;
+    margin: 0px 0 0px 0;
     font-family: 'Oswald';
-
-    font-size:1.2em;
-
-    padding: 0 0 0 0;
-
-    border: none;
-
-    height:48px;
-
-    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 10px 0 rgba(0, 0, 0, 0.25);
-
 }
 
 
-/* Theme header - Changement du style des textes - Fin du changement*/
+/* Titre secondaire */
+
+header.welcome-screen h2 {
+    font-size: 0.8em;
+    margin: 0px 0 0px 0;
+    font-family: 'Raleway';
+}
 
 
+/* Navigation Menu */
+
+nav.primary-navigation {
+    font-family: 'Oswald';
+    font-size:1.2em;
+    height: 5vh;
+    padding: 0 0 0 0;
+    border: none;
+    height:48px;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 10px 0 rgba(0, 0, 0, 0.25);
+}
 
 
+/* Welcome banner : make the height 90% of the screen to leave space for the above Navigation bar */
+
+header.full-width-container-home {
+    background-size: cover;
+    height: 95vh;
+    padding: 0;
+}
+
+header.full-width-container-category {
+    background-size: cover;
+    height: 25vh;
+    padding: 0;
+}
+
+.full-width-container-book {
+    height: 80vh;
+    padding: 0;
+    padding-top: 10%;
+}
+
+/* Container of the welcome message */
+
+.welcome-container-home {
+    padding-top: 15%;
+    font-size: 1.3em;
+    font-color: white; 
+    text-shadow: 1px 1px black;
+}
+
+.welcome-container-category {
+    padding-top: 5%;
+    font-size: 1.3em;
+    font-color: white; 
+    text-shadow: 1px 1px black;
+    text-align: center;
+}
+
+/* Container for the button to go to the portfolio of people on homepage and category pages */
+
+.go-to-portfolio-link-container {
+    padding-top: 20%;
+    margin-right: 30%;
+    margin-left: 30%;
+}
+
+/* Button to go to the portfolio of people on homepage and category pages */
+
+.go-to-portfolio-link-button a{
+    color: white;
+}
+
+.go-to-portfolio-link-button div{
+    font-color: white; 
+    text-shadow: 1px 1px black;
+    font-size: 1.3em;
+    font-family: 'Raleway';
+    text-decoration: none;
+}
 
 /* Person Page Template - Mise en forme des livres : centrés + ombre + bonne taille + animation hover  20.04.17 GUILHEM 
 
@@ -576,7 +636,10 @@ display: inline-block;
 /* Éléments de liste du menu
 -------------------------------------------------------------- */
 
-nav.primary-navigation ul {
+nav.
+
+
+ul {
     margin: none;
     list-style: none;
 }
