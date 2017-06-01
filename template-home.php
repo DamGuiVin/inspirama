@@ -81,9 +81,9 @@ if ( $paged === 1 ) : ?>
 
     <?php if ( have_posts() ) : ?>
 
-        <header class="full-width-container center-page welcome-screen <?php $background_image != '' ? print 'header-with-background' : '' ?> <?php has_excerpt() ? print 'header-with-excerpt ' : print 'header-without-excerpt'; ?>" role="banner" data-welcome-background="<?php echo $background_image; ?>" >
+        <header class="full-width-container-home center-page welcome-screen <?php $background_image != '' ? print 'header-with-background' : '' ?> <?php has_excerpt() ? print 'header-with-excerpt ' : print 'header-without-excerpt'; ?>" role="banner" data-welcome-background="<?php echo $background_image; ?>" >
 
-            <div class="container welcome-container">
+            <div class="container welcome-container-home">
 
                 <div class="row welcome-row">
 

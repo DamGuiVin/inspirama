@@ -296,7 +296,7 @@ GUILHEM 19.04.17*/
 
 
 
-/* HEADER */
+/* HEADER and BANNER */
 
 
 /* Titre principal NB: impossible de modifier la couleur, je ne sais pas pq.*/
@@ -328,19 +328,33 @@ nav.primary-navigation {
 
 /* Welcome banner : make the height 90% of the screen to leave space for the above Navigation bar */
 
-header.full-width-container {
+header.full-width-container-home {
     background-size: cover;
     height: 95vh;
     padding: 0;
 }
 
+header.full-width-container-category {
+    background-size: cover;
+    height: 25vh;
+    padding: 0;
+}
+
 /* Container of the welcome message */
 
-.welcome-container {
+.welcome-container-home {
     padding-top: 15%;
     font-size: 1.3em;
     font-color: white; 
     text-shadow: 1px 1px black;
+}
+
+.welcome-container-category {
+    padding-top: 5%;
+    font-size: 1.3em;
+    font-color: white; 
+    text-shadow: 1px 1px black;
+    text-align: center;
 }
 
 /* Container for the button to go to the portfolio of people on homepage and category pages */
