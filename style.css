@@ -45,7 +45,7 @@ Description: WP adaptation
 
     background-color : #d7dff1;
 
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 9px 20px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.25);
 
 }
 
@@ -117,6 +117,40 @@ sinon j'ai créé la class "img-adapt" pour modifier les images des pages qui ut
 
 
 
+/* Bannière : Modif par Damien*/
+
+header.full-width-container {
+	background-size: cover;
+}
+
+
+
+
+/* Titre principal NB: impossible de modifier la couleur, je ne sais pas pq.*/
+
+header.welcome-screen h1 {
+
+    font-size: 1.5em;
+
+    margin: 0px 0 0px 0;
+
+    font-family: 'Oswald';
+
+}
+
+
+
+/* Titre secondaire */
+
+header.welcome-screen h2 {
+
+    font-size: 0.8em;
+
+    margin: 0px 0 0px 0;
+
+    font-family: 'Raleway';
+
+}
 
 
 
@@ -323,6 +357,10 @@ nav.primary-navigation {
     font-family: 'Oswald';
     font-size:1.2em;
     height: 5vh;
+    padding: 0 0 0 0;
+    border: none;
+    height:48px;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 10px 0 rgba(0, 0, 0, 0.25);
 }
 
 
@@ -425,7 +463,7 @@ sur l'image) + j'ai changé la taille des images
 
     vertical-align: center;
 
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 9px 20px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 10px 0 rgba(0, 0, 0, 0.25);
 
 }
 
@@ -519,14 +557,374 @@ line-height: 120%;
 
 }
 
+
+/* Book Page Template - Mise en forme des livres FIN du changement */
+
+
+
 /* enlève la marge du haut */
 
 .full-width-container
 
 {
-padding: 20px 0 0 0;
+padding: 0 0 0 0;
 margin : 0 0 0 0;
 }
 
 
-/* Book Page Template - Mise en forme des livres FIN du changement */
+/* search box */
+
+.search-form {
+    max-width: 200px;
+    height: 10px;
+    outline:none;
+}
+
+.search-form button {
+    position: absolute;
+    top: 7px;
+    right: 5px;
+    line-height: 15px;
+    padding: 10px 18px;
+}
+
+.search-form button i {
+    font-size: 14px;
+}
+
+.widget_search {
+    padding: 0;
+}
+
+.search-form input[type="text"] {
+}
+
+input {
+outline: none;
+padding: 0 0 0 0;
+margin: 0 0 0 0;
+}
+
+.search-website {
+background-color: white;
+display: inline-block;
+vertical-align: center;
+float: right;
+padding: 10px 0 0 0;
+margin: 0 0 0 0;
+
+}
+
+.icon{
+display: inline-block;
+}
+
+.search-form-menu{
+display: inline-block;
+}
+/* =Primary navigation MODIFS du 31 MAI 2017
+-------------------------------------------------------------- */
+
+/* Sous menu
+-------------------------------------------------------------- */
+
+.nav-wrap {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Éléments de liste du menu
+-------------------------------------------------------------- */
+
+nav.
+
+
+ul {
+    margin: none;
+    list-style: none;
+}
+
+@media screen and ( max-width:760px ) {
+    nav.primary-navigation ul {
+        margin-top: 20px;
+    }
+}
+
+nav.primary-navigation ul li {
+    display: inline-block;
+    width: 120px;
+    text-align: center;
+    padding : 14px 0px 14px 0px ;
+    background-color:white;
+    margin: 0 0 0 0 ;
+}
+
+
+nav.primary-navigation ul li a:hover {
+    background-color:#99B6E0;
+    padding: 15px 0px 16px 0px;
+    margin: -15px 0 -16px 0;
+}
+
+/* current and active states */
+
+nav.primary-navigation .current-menu-item a {
+    background-color: #99B6E0;
+    padding: 15px 0px 16px 0px;
+    margin: -15px 0 -16px 0;
+}
+
+nav.primary-navigation .navbar-nav > .active > a, 
+nav.primary-navigation .navbar-nav > .active > a:hover, 
+nav.primary-navigation .navbar-nav > .active > a:focus {
+    color: #000;
+}
+
+/* quand on passe la souris sur le menu */
+
+nav.primary-navigation .nav > li > a:hover, 
+nav.primary-navigation .nav > li > a:focus {
+    background-color: #99b6e0;
+}
+
+@media screen and ( max-width:760px ) {
+    nav.primary-navigation .nav li a:hover, 
+    nav.primary-navigation .nav li a:focus {
+        color: #000;
+    }
+}
+
+@media screen and ( max-width:760px ) {
+   
+    .navbar-nav .open .dropdown-menu > li > a {
+        padding: 10px 17px;
+        
+    }
+}
+
+nav.primary-navigation .nav > li.open > a.dropdown:hover, 
+nav.primary-navigation .nav > li.open > a.dropdown:focus {
+    border-color: transparent !important;
+}
+
+nav.primary-navigation ul li a {
+    color: #8c8c8c;
+    padding: 0;
+}
+
+nav.primary-navigation .nav .caret {
+    margin-left: 8px;
+}
+
+/* dropdown */
+
+.navbar-nav > .open > a, 
+.
+navbar-nav > .open > a:hover, 
+.navbar-nav > .open > a:focus {
+    background: none;
+    color: #000;
+    border-color: transparent;
+    border: none;
+}
+
+.dropdown-menu {
+    box-shadow: none;
+    font-size: inherit;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    top: 218%;
+}
+
+.dropdown-menu > li > a:hover, 
+.dropdown-menu > li > a:focus {
+    background: none;
+    color: #000;
+    text-decoration: none;
+}
+
+nav.primary-navigation .dropdown-menu li {
+    display: block;
+    float: none;
+    margin: 0;
+}
+
+nav.primary-navigation .dropdown-menu li a {
+    padding: 10px 15px;
+    border: none;
+}
+
+
+
+nav.primary-navigation .dropdown-menu li a:hover {
+    border: none;
+    text-decoration: none;
+}
+
+.navbar .nav > li > .dropdown-menu::before {
+  position: absolute;
+  top: -7px;
+  left: 9px;
+  display: inline-block;
+  border: none;
+}
+
+.navbar .nav > li > .dropdown-menu::after {
+  position: absolute;
+  top: -6px;
+  left: 10px;
+  display: inline-block;
+  border: none;
+}
+
+/* Navbar toggle and header */
+
+/* Menu hamburger */
+
+.navbar-toggle {
+    padding: 0;
+    margin: 0 0 0 0;
+    background: none;
+    background-color: pink;
+    border: none;
+    font-size: 30px;
+    color: #000;
+    position: absolute;
+    top: 50%;
+    right: 200px;
+}
+
+nav.primary-navigation .navbar-header {
+    margin:0;
+    padding-right: 50px;
+    position: relative;
+    border: 0 0 0 0;
+}
+
+.menu-text {
+    text-transform: uppercase;
+    font-size: 18px;
+    margin-right: 6px;
+}
+
+nav  {
+    border-bottom: 5px black;
+    height: 48px;
+    position: fixed;
+}
+
+
+.primary-navigation #nav-spy {
+
+    height:48px;
+    float: none;
+
+}
+
+
+.search-form input[type="text"] {
+margin: 0 0 0 0;
+padding: 0 0 0 0;
+}
+
+/* =Logo
+-------------------------------------------------------------- */
+
+/* =je centre le logo et j'y crée du padding
+-------------------------------------------------------------- */
+
+.logo-uploaded, 
+.footer-logo-uploaded, 
+.logo-text {
+    -webkit-transition: opacity .2s;
+       -moz-transition: opacity .2s;
+        -ms-transition: opacity .2s;       
+         -o-transition: opacity .2s;
+         padding:10px;
+         display: inline-block;
+         vertical-align: center;
+}
+
+.logo-uploaded:hover, 
+.footer-logo-uploaded:hover, 
+.logo-text:hover {
+    opacity: .4;
+}
+
+/* Modifications du footer     box-shadow: 0px 0px 10px 0px black inset;
+-------------------------------------------------------------- */
+
+
+footer.full-width-container {
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 10px 0 rgba(0, 0, 0, 0.25) inset;
+    padding: 2em 0 100px 0 ;
+    max-height: 250px;
+}
+
+footer.container{
+
+    padding: 0 0 0 0;
+    max-height: 10px;
+}
+
+.news{
+    padding: 0 0 0 0;
+}
+
+input[type="email"]{
+    width: 200px;
+    padding: 0 0 0 0;
+    border: 2px 2px 2px 2px;
+    border-color: black;
+}
+
+.fa {
+margin: 0px 0 10px 0;
+    }
+
+.fa-envelope {
+margin: 0px 0 10px 0;
+    }
+
+input[type="submit"]{
+    border-top:         1px solid #99B6E0;
+    border-left:        1px solid #99B6E0;
+    border-right:       1px solid #99B6E0;
+    border-bottom:      1px solid #99B6E0;
+    background-color: #99B6E0;
+    width: 110px;
+    padding:        5px 5px;
+    font-size:      14px;
+    font-style: black;
+    font-weight: bold;
+    border-radius:2px;
+    color:white;
+    }
+
+header.container{
+    background-color: black;
+    }
+
+.nav{
+    background-color: black;
+    }
+
+#masonry-wrapper {
+padding-bottom: 30px;
+    }
+
+
+a,
+
+a:visited, 
+
+a:active,
+
+a:focus,
+
+a:hover  {
+
+    color: grey;
+
+}
