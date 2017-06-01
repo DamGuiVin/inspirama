@@ -45,7 +45,7 @@ Description: WP adaptation
 
     background-color : #d7dff1;
 
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 9px 20px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.25);
 
 }
 
@@ -120,11 +120,8 @@ sinon j'ai créé la class "img-adapt" pour modifier les images des pages qui ut
 /* Bannière : Modif par Damien*/
 
 header.full-width-container {
-
 	background-size: cover;
-
 }
-
 
 
 
@@ -354,6 +351,9 @@ nav.primary-navigation {
     border: none;
 
     height:48px;
+
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 10px 0 rgba(0, 0, 0, 0.25);
+
 }
 
 
@@ -403,7 +403,7 @@ sur l'image) + j'ai changé la taille des images
 
     vertical-align: center;
 
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 9px 20px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 10px 0 rgba(0, 0, 0, 0.25);
 
 }
 
@@ -746,7 +746,7 @@ nav.primary-navigation .navbar-header {
 }
 
 nav  {
-    border: none;
+    border-bottom: 5px black;
     height: 48px;
     position: fixed;
 }
@@ -789,16 +789,14 @@ padding: 0 0 0 0;
     opacity: .4;
 }
 
-/* Modifications du footer
+/* Modifications du footer     box-shadow: 0px 0px 10px 0px black inset;
 -------------------------------------------------------------- */
 
 
 footer.full-width-container {
-
-    border-top: 1px solid lightgrey;
-    box-shadow: 4px 0px 0px 0px black ;
-    padding: 1em 0 100px 0 ;
-    max-height: 100px;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 10px 0 rgba(0, 0, 0, 0.25) inset;
+    padding: 2em 0 100px 0 ;
+    max-height: 250px;
 }
 
 footer.container{
@@ -839,4 +837,12 @@ input[type="submit"]{
     font-weight: bold;
     border-radius:2px;
     color:white;
+    }
+
+header.container{
+    background-color: black;
+    }
+
+.nav{
+    background-color: black;
     }
