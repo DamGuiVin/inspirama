@@ -134,13 +134,13 @@
 
                 <div class="search-website"> 
 
-                    <div class="search-website">
+                    <div class="icon">
 
                         <i class="fa fa-search"></i>
                     
                     </div>   
 
-                    <div class="search-website">
+                    <div class="search-form-menu">
 
                         <?php get_search_form(); ?> 
 

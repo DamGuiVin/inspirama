@@ -557,11 +557,20 @@ margin: 0 0 0 0;
 .search-website {
 background-color: white;
 display: inline-block;
-padding: 0 0 0 0;
+vertical-align: center;
+float: right;
+padding: 10px 0 0 0;
 margin: 0 0 0 0;
+
 }
 
+.icon{
+display: inline-block;
+}
 
+.search-form-menu{
+display: inline-block;
+}
 /* =Primary navigation MODIFS du 31 MAI 2017
 -------------------------------------------------------------- */
 
