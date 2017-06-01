@@ -13,35 +13,37 @@ get_header();
 <div class="full-width-container main-content-area">
     
     <div class="container">
+
         <div class="row">
+
             <div class="col-md-3 img-responsive center-block">
-            <?php 
 
-			if ( has_post_thumbnail() ) {
-			the_post_thumbnail( array(800,3200) );
-			}  
+                <?php 
 
-			$book_page_id = get_the_id();
+    			if ( has_post_thumbnail() ) {
+    			the_post_thumbnail( array(800,3200) );
+    			}  
 
-			$book_title = get_the_title();
-			$book_author = get_post_meta( $book_page_id, 'author', true);
-			$book_summary = get_post_meta( $book_page_id, 'summary', true);
+    			$book_page_id = get_the_id();
 
-			$book_recommender = get_the_tags( $book_page_id )[0]->name;
-			$book_recommendation = get_post_meta( $book_page_id, 'recommendation', true);
+    			$book_title = get_the_title();
+    			$book_author = get_post_meta( $book_page_id, 'author', true);
+    			$book_summary = get_post_meta( $book_page_id, 'summary', true);
 
-			$book_amazon_url = get_post_meta( $book_page_id, 'amazon_url', true);
-			$book_amazon_logo = get_post_meta( $book_page_id, 'amazon_logo', true);
+    			$book_recommender = get_the_tags( $book_page_id )[0]->name;
+    			$book_recommendation = get_post_meta( $book_page_id, 'recommendation', true);
 
-			$book_leslibraires_url = get_post_meta( $book_page_id, 'leslibraires_url', true);
-			$book_leslibraires_logo = get_post_meta( $book_page_id, 'leslibraires_logo', true);
+    			$book_amazon_url = get_post_meta( $book_page_id, 'amazon_url', true);
+    			$book_amazon_logo = get_post_meta( $book_page_id, 'amazon_logo', true);
 
-			$book_fnac_url = get_post_meta( $book_page_id, 'fnac_url', true);
-			$book_fnac_logo = get_post_meta( $book_page_id, 'fnac_logo', true);
-			
-			?>
+    			$book_leslibraires_url = get_post_meta( $book_page_id, 'leslibraires_url', true);
+    			$book_leslibraires_logo = get_post_meta( $book_page_id, 'leslibraires_logo', true);
 
-			</div>
+    			$book_fnac_url = get_post_meta( $book_page_id, 'fnac_url', true);
+    			$book_fnac_logo = get_post_meta( $book_page_id, 'fnac_logo', true);
+    			
+    			?>
+
             	<div class="col-md-8">
 
             		<h1 class="booktitle"><?php echo $book_title; ?></br>
@@ -80,9 +82,12 @@ get_header();
 
 				</div>
 
-            <!-- end row -->
+            </div>
 
-        </div><!-- end container -->
+        </div><!-- end row -->
+
+    </div><!-- end container -->
+    
 </div><!-- end main-content-area -->
 
 
