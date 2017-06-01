@@ -228,7 +228,7 @@ if ( $wp_query->have_posts() ) : ?>
 
                     <div class="person">
 
-                        <a href="<?php the_permalink(); ?>" class="portfolio-link">
+                        <a href="<?php echo the_permalink($person_page_id); ?>" class="portfolio-link">
 
                             <img src="<?php echo $previewImage[0] ?>" class="img-adapt" alt="<?php echo $person_name; ?>" />
 

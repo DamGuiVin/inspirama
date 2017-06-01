@@ -340,7 +340,7 @@ if ( $num_people > 0 ) : ?>
             // Declaration of the useful variables to build an individual tile of the mosaic
             $person_name = $current_person->post_title;
             $person_page_id = $current_person->ID;
-            $person_url = get_post_permalink( $current_person->ID );   
+            $person_url = get_post_permalink( $person_page_id );   
             $person_intoduction = get_post_meta( $person_page_id, 'introduction', true);
 
             // Only create the tile if the Person has an associated thumbnail
@@ -352,7 +352,7 @@ if ( $num_people > 0 ) : ?>
 
                     <div class="person">
 
-                        <a href="<?php the_permalink(); ?>" class="portfolio-link">
+                        <a href="<?php echo $person_url; ?>" class="portfolio-link">
 
                             <img src="<?php echo $previewImage[0] ?>" class="img-adapt" alt="<?php echo $person_name; ?>" />
 

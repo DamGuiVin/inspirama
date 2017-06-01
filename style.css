@@ -473,15 +473,17 @@ sur l'image) + j'ai changé la taille des images
 
 .portfolio-book-subtitle {
 
+    height: 90px;
+
     text-align: center;
 
     font-size: 1.8em;
 
     line-height: 70%;
 
-    margin-left: 10%;
+    padding-left: 10%;
 
-    margin-right: 10%;
+    padding-right: 10%;
 }
 
 
