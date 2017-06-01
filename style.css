@@ -340,6 +340,12 @@ header.full-width-container-category {
     padding: 0;
 }
 
+.full-width-container-book {
+    height: 80vh;
+    padding: 0;
+    padding-top: 10%;
+}
+
 /* Container of the welcome message */
 
 .welcome-container-home {

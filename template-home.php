@@ -241,9 +241,11 @@ if ( $wp_query->have_posts() ) : ?>
                                 </div>
 
                                 <div class="details-person-introduction">
+
                                     <?php if ( $person_intoduction ) : ?>
                                         <h4><?php echo $person_intoduction; ?></h4>
                                     <?php endif; ?>
+                                    
                                 </div>
 
                                 <div class="details-person-invitation">
