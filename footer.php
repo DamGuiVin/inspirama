@@ -4,7 +4,8 @@
             <div class="column1 col-md-4" > <!-- beginning column1-->
                     <a href="<?php echo home_url( '/' ); ?>">
                     <img class="logo-uploaded" style="max-width:<?php echo esc_attr( get_theme_mod( 'themeora-img-upload-logo-width', '200' ) ); ?>px" src="<?php echo esc_url( get_theme_mod( 'themeora-img-upload-logo' ) );?>" alt="<?php the_title(); ?>" />
-                    </a>            
+                    </a>  
+                    <p></p>
                     <p class="about"><label> Yeswekant.com est une librairie en ligne. Découvrez sur notre site les livres qui ont marqué les personnalités qui vous inspirent. </label></p>
             </div>
             <?php if ( is_active_sidebar( 'footer-widget' ) ) : ?>
@@ -15,7 +16,7 @@
             <label> Nous contacter </label>
             </br>
             Des remarques, des commentaires ?
-            Envoyez nous un mail à contact@yeswekant.com
+            contact@yeswekant.com
             <?php dynamic_sidebar( 'footer-widget' ); ?>
             </div><!-- .widget-area -->
             <?php endif; ?>
@@ -23,17 +24,17 @@
                     <i class="fa fa-telegram fa-3x"></i> 
                     </br>
                     <p>
-                    <label>Toutes les semaines, une nouvelle personnalité dans votre boite mail</label>
-                    <input class="news" type="email" name="EMAIL" placeholder="Entrez votre mail" required />
+                    <label>Toutes les semaines, de nouvelles recommendations :</label>
+                    <input class="news" type="email" name="EMAIL" placeholder="Mon mail " required />
                     </br>
-                    <input type="submit" value="> Je m'inscris"/>
+                    <input type="submit" value="Je m'inscris"/>
                     </p>
             </div>
         
         </div><!-- end row -->
 
         <div >
-<p>© 2017 - YesWeKant | Home | Mentions légales | Conditions d’utilisation | Utilisation des cookies | Plan du site </p>
+<p>© 2017 - YesWeKant | Home | Mentions légales | A propos | Utilisation des cookies | Plan du site </p>
             </div>
         
         <?php if ( has_nav_menu( 'social_menu' ) ) : ?>

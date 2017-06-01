@@ -795,7 +795,8 @@ padding: 0 0 0 0;
 
 footer.full-width-container {
 
-    border-top: 1px solid grey;
+    border-top: 1px solid lightgrey;
+    box-shadow: 4px 0px 0px 0px black ;
     padding: 1em 0 100px 0 ;
     max-height: 100px;
 }
@@ -831,11 +832,11 @@ input[type="submit"]{
     border-right:       1px solid #99B6E0;
     border-bottom:      1px solid #99B6E0;
     background-color: #99B6E0;
-    width: 100px;
-    padding:        3px 3px;
+    width: 110px;
+    padding:        5px 5px;
     font-size:      14px;
     font-style: black;
-    }
-
-.primary-footer{
+    font-weight: bold;
+    border-radius:2px;
+    color:white;
     }
