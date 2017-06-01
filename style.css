@@ -326,18 +326,44 @@ nav.primary-navigation {
 }
 
 
-/* Welcome banner : make the height 90% of the screen to leave space for the above Navigation bar*/
+/* Welcome banner : make the height 90% of the screen to leave space for the above Navigation bar */
 
 header.full-width-container {
     background-size: cover;
     height: 95vh;
-    padding: 20% 0;
+    padding: 0;
 }
 
+/* Container of the welcome message */
 
+.welcome-container {
+    padding-top: 15%;
+    font-size: 1.3em;
+    font-color: white; 
+    text-shadow: 1px 1px black;
+}
 
+/* Container for the button to go to the portfolio of people on homepage and category pages */
 
+.go-to-portfolio-link-container {
+    padding-top: 20%;
+    margin-right: 30%;
+    margin-left: 30%;
+}
 
+/* Button to go to the portfolio of people on homepage and category pages */
+
+.go-to-portfolio-link-button a{
+    color: white;
+}
+
+.go-to-portfolio-link-button div{
+    font-color: white; 
+    text-shadow: 1px 1px black;
+    font-size: 1.3em;
+    font-family: 'Raleway';
+    text-decoration: none;
+}
 
 /* Person Page Template - Mise en forme des livres : centrés + ombre + bonne taille + animation hover  20.04.17 GUILHEM 
 

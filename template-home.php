@@ -111,6 +111,27 @@ if ( $paged === 1 ) : ?>
 
             </div><!-- end container -->
 
+            <!-- Button section beginning -->
+            <div class="go-to-portfolio-link-container">
+
+                <div class="go-to-portfolio-link-button">
+
+                    <div class = "go-to-portfolio-link-button">
+
+                            Découvrir les personnalités
+
+                    </div>
+
+                    <a href="#masonry-wrapper" class="go-to-portfolio-link-button">
+                        
+                        <i class = "fa fa-chevron-down fa-4x"></i>
+
+                    </a>
+
+                </div>
+
+            </div><!-- Button section end -->
+
         </header><!-- end header - full width container -->
 
         <?php wp_reset_query(); ?>
