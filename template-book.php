@@ -53,11 +53,17 @@ get_header();
             		if ( $book_summary ) : ?>
 	            		<p class="summary"><b>Résumé : </b><?php echo $book_summary; ?></p>
 	            	<?php 
+                    else : ?>
+                        <p class="summary"><b>Résumé : </b>Désolé, nous n'avons pas encore de résumé pour ce livre dans notre base de données.</p>
+                    <?php 
 	            	endif;
 	            	
             		if ( $book_recommendation && $book_recommender ) : ?>	
             			<p class="rec"><b>Recommandation de <?php echo $book_recommender; ?> : </b><?php echo $book_recommendation; ?></p>
             		<?php 
+                    else : ?>
+                        <p class="rec"><b>Recommandation de <?php echo $book_recommender; ?>  : </b>Désolé, nous n'avons pas encore la recommandation de <?php echo $book_recommender; ?> pour ce livre dans notre base de données.</p>
+                    <?php 
 	            	endif; ?>
 
             		<h4> Acheter ce livre : </h4>
@@ -87,7 +93,7 @@ get_header();
         </div><!-- end row -->
 
     </div><!-- end container -->
-    
+
 </div><!-- end main-content-area -->
 
 
