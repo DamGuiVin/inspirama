@@ -1,19 +1,10 @@
 <?php
 
-
-
 /*
 
 * Template Name: Home
 
 */
-
-
-
-
-
-
-
 
 
 
@@ -28,16 +19,7 @@ get_header();
 
 
 
-
-
-
-
-
-
-
-
 // Get theme options  
-
 
 
 
@@ -46,29 +28,18 @@ get_header();
 
 $background_image = '';
 
-
-
 if ( wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full-size' ) ) {
-
     $background_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full-size' );
-
     $background_image = $background_image[0];
-
 }
-
-
 
 if ( get_header_image() ) {
-
     $background_image = get_header_image();
-
 }
 
 
 
-
-
-// Setup paging for portfolio pagaination
+// Setup paging for portfolio pagination
 
 if ( get_query_var('paged') ) {
 
@@ -86,21 +57,11 @@ if ( get_query_var('paged') ) {
 
 
 
-
-
 // Set a variable to tell us if there are pagination links to we can take care of spacing issues
 
 $pagination = false;
 
 ?>
-
-
-
-
-
-
-
-
 
 
 
@@ -110,7 +71,7 @@ $pagination = false;
 
     Building the title section of the homepage
 
-    NB : the homeage may have a Title and an Excerpt (optional)
+    NB : the homepage may have a Title and an Excerpt (optional)
 
 --------------------------------------------------------------------------------------- */
 

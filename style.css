@@ -117,45 +117,6 @@ sinon j'ai créé la class "img-adapt" pour modifier les images des pages qui ut
 
 
 
-/* Bannière : Modif par Damien*/
-
-header.full-width-container {
-
-	background-size: cover;
-
-}
-
-
-
-
-
-/* Titre principal NB: impossible de modifier la couleur, je ne sais pas pq.*/
-
-header.welcome-screen h1 {
-
-    font-size: 1.5em;
-
-    margin: 0px 0 0px 0;
-
-    font-family: 'Oswald';
-
-}
-
-
-
-/* Titre secondaire */
-
-header.welcome-screen h2 {
-
-    font-size: 0.8em;
-
-    margin: 0px 0 0px 0;
-
-    font-family: 'Raleway';
-
-}
-
-
 
 
 
@@ -335,25 +296,44 @@ GUILHEM 19.04.17*/
 
 
 
-/* Theme header - Changement du style des textes 19.04.17 GUILHEM */
+/* HEADER */
 
 
+/* Titre principal NB: impossible de modifier la couleur, je ne sais pas pq.*/
 
-
-
-/* menu du haut*/
-
-nav.primary-navigation {
-
+header.welcome-screen h1 {
+    font-size: 1.5em;
+    margin: 0px 0 0px 0;
     font-family: 'Oswald';
-
-    font-size:1.2em;
-
 }
 
 
+/* Titre secondaire */
 
-/* Theme header - Changement du style des textes - Fin du changement*/
+header.welcome-screen h2 {
+    font-size: 0.8em;
+    margin: 0px 0 0px 0;
+    font-family: 'Raleway';
+}
+
+
+/* Navigation Menu */
+
+nav.primary-navigation {
+    font-family: 'Oswald';
+    font-size:1.2em;
+    height: 5vh;
+}
+
+
+/* Welcome banner : make the height 90% of the screen to leave space for the above Navigation bar*/
+
+header.full-width-container {
+    background-size: cover;
+    height: 95vh;
+    padding: 20% 0;
+}
+
 
 
 
