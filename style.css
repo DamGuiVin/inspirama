@@ -497,15 +497,6 @@ line-height: 120%;
 
 }
 
-/* enlève la marge du haut */
-
-.full-width-container
-
-{
-padding: 20px 0 0 0;
-margin : 0 0 0 0;
-}
-
 
 /* Book Page Template - Mise en forme des livres FIN du changement */
 
@@ -516,7 +507,7 @@ margin : 0 0 0 0;
 .full-width-container
 
 {
-padding: 20px 0 0 0;
+padding: 0 0 0 0;
 margin : 0 0 0 0;
 }
 
@@ -615,7 +606,7 @@ nav.primary-navigation ul li a:hover {
 /* current and active states */
 
 nav.primary-navigation .current-menu-item a {
-    background-color: #FFFFFF;
+    background-color: #99B6E0;
     padding: 15px 0px 16px 0px;
     margin: -15px 0 -16px 0;
 }
@@ -797,3 +788,54 @@ padding: 0 0 0 0;
 .logo-text:hover {
     opacity: .4;
 }
+
+/* Modifications du footer
+-------------------------------------------------------------- */
+
+
+footer.full-width-container {
+
+    border-top: 1px solid grey;
+    padding: 1em 0 100px 0 ;
+    max-height: 100px;
+}
+
+footer.container{
+
+    padding: 0 0 0 0;
+    max-height: 10px;
+}
+
+.news{
+    padding: 0 0 0 0;
+}
+
+input[type="email"]{
+    width: 200px;
+    padding: 0 0 0 0;
+    border: 2px 2px 2px 2px;
+    border-color: black;
+}
+
+.fa {
+margin: 0px 0 10px 0;
+    }
+
+.fa-envelope {
+margin: 0px 0 10px 0;
+    }
+
+input[type="submit"]{
+    border-top:         1px solid #99B6E0;
+    border-left:        1px solid #99B6E0;
+    border-right:       1px solid #99B6E0;
+    border-bottom:      1px solid #99B6E0;
+    background-color: #99B6E0;
+    width: 100px;
+    padding:        3px 3px;
+    font-size:      14px;
+    font-style: black;
+    }
+
+.primary-footer{
+    }
