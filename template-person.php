@@ -44,7 +44,7 @@
 
                             <div class="featured-image single-portfolio-featured-image">
 
-			<?php echo get_the_post_thumbnail( $post->ID, 'themeora-thumbnail-span-8' ); ?>
+                                <?php echo get_the_post_thumbnail( $post->ID, 'themeora-thumbnail-span-8' ); ?>
 
                             </div>
 
@@ -270,45 +270,50 @@ if ( $wp_query->have_posts() ) : ?>
 
             <?php
 
+            // Recover useful attributes from the Book
+            $book_page_id = $wp_query->post->ID;
+            $book_title = get_the_title();
+            $book_author = get_post_meta( $book_page_id, 'author', true);
+
             // Check if the Book has an image. Only load the Book if it does
+            if ( has_post_thumbnail( $book_page_id ) ) {
 
-            if ( has_post_thumbnail( $wp_query->post->ID ) ) {
-
-            $previewImage = wp_get_attachment_image_src( get_post_thumbnail_id( $wp_query->post->ID ), $img_size );
-
-            $affiliation_url = get_post_meta( $wp_query->post->ID, 'affiliation_url', true );
+            $previewImage = wp_get_attachment_image_src( get_post_thumbnail_id( $book_page_id ), $img_size );
 
             ?>
 
                 <li class="masonry-item">
 
+                    <!--  Classe button-effect permet d'agir sur l'affichage de l'image -->
+                    <div class="button-effect">
 
+                        <a href="<?php the_permalink(); ?>" class="portfolio-link">
 
-            <!--  Rajout de la classe button-effect pour pouvoir agir sur l'affichage de l'image -->
+                            <img src="<?php echo $previewImage[0] ?>" class="portfolio-image-book" alt="<?php the_title(); ?>" />
+                            
+                            <!--      enlève l'affichage du titre des livres         
+                            	<div class="portfolio-details">
+                                    <div class="details-text">
+                                        <h2><?php the_title(); ?></h2>
+                                    </div> 
+                                </div>
+                            -->
 
-                <div class="button-effect">
+                        </a>
 
-                    <a target="_blank" href="<?php echo $affiliation_url ?>" class="portfolio-link" title="<?php the_title() ?>">
+                    </div>
 
-                        <img src="<?php echo $previewImage[0] ?>" class="image-style" alt="<?php the_title(); ?>" />
+                    <div class="portfolio-book-subtitle">
 
- <!--      enlève l'affichage du titre des livres         
+                        <div >
+                            <?php echo $book_title; ?>,
+                        </div>
 
-		<div class="portfolio-details">
+                        <div >
+                            de <?php echo $book_author; ?>
+                        </div>
 
-                <div class="details-text">
-
-                <h2><?php the_title(); ?></h2>
-
-                </div> 
-
-                </div>
-
- -->
-
-                      </div>
-
-                    </a>
+                    </div>
 
                 </li><!-- masonry-item -->
 
