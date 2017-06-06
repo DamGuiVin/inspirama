@@ -684,7 +684,7 @@ nav.primary-navigation .navbar-nav > .active > a:focus {
     color: #000;
 }
 
-/* quand on passe la souris sur le menu */
+/* hover on menu */
 
 nav.primary-navigation .nav > li > a:hover, 
 nav.primary-navigation .nav > li > a:focus {
@@ -821,12 +821,9 @@ nav  {
 
 
 .primary-navigation #nav-spy {
-
     height:48px;
     float: none;
-
 }
-
 
 .search-form input[type="text"] {
 margin: 0 0 0 0;
