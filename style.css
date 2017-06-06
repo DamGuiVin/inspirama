@@ -582,27 +582,11 @@ margin : 0 0 0 0;
 
 .search-form {
     max-width: 200px;
-    height: 10px;
-    outline:none;
-}
-
-.search-form button {
-    position: absolute;
-    top: 7px;
-    right: 5px;
-    line-height: 15px;
-    padding: 10px 18px;
-}
-
-.search-form button i {
-    font-size: 14px;
+    height: 30px;
 }
 
 .widget_search {
     padding: 0;
-}
-
-.search-form input[type="text"] {
 }
 
 input {
@@ -628,6 +612,18 @@ display: inline-block;
 .search-form-menu{
 display: inline-block;
 }
+
+input[type="text"] {
+    border: 2px solid #dadada;
+    border-radius: 7px;
+}
+
+input[type="text"]:focus { 
+    outline: none;
+    border-color: #99B6E0;
+    box-shadow: 0 0 5px #99B6E0;
+}
+
 /* =Primary navigation MODIFS du 31 MAI 2017
 -------------------------------------------------------------- */
 
@@ -784,6 +780,7 @@ nav.primary-navigation .dropdown-menu li a:hover {
   border: none;
 }
 
+
 /* Navbar toggle and header */
 
 /* Menu hamburger */
@@ -858,9 +855,8 @@ padding: 0 0 0 0;
     opacity: .4;
 }
 
-/* Modifications du footer     box-shadow: 0px 0px 10px 0px black inset;
+/* Modifications du footer
 -------------------------------------------------------------- */
-
 
 footer.full-width-container {
     box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 10px 0 rgba(0, 0, 0, 0.25) inset;
@@ -869,21 +865,45 @@ footer.full-width-container {
 }
 
 footer.container{
-
     padding: 0 0 0 0;
     max-height: 10px;
 }
 
-.news{
-    padding: 0 0 0 0;
-}
+/* Newsletter : space before the placeholder / glowing effect;
+-------------------------------------------------------------- */
 
 input[type="email"]{
     width: 200px;
+    text-indent: 10px;
     padding: 0 0 0 0;
-    border: 2px 2px 2px 2px;
-    border-color: black;
+    border: 2px solid #99B6E0;
+    border-radius: 5px;
 }
+
+input[type="email"]:focus{
+    outline: none;
+    border-color: #99B6E0;
+    box-shadow: 0 0 5px #99B6E0;
+}
+
+
+/* Newsletter : Button to register mail
+-------------------------------------------------------------- */
+
+input[type="submit"]{
+    border : 1px solid #99B6E0;
+    background-color: #99B6E0;
+    width: 110px;
+    padding: 5px 5px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius:5px;
+    color:white;
+    }
+
+
+/* Font awesome Icons
+-------------------------------------------------------------- */
 
 .fa {
 margin: 0px 0 10px 0;
@@ -893,33 +913,8 @@ margin: 0px 0 10px 0;
 margin: 0px 0 10px 0;
     }
 
-input[type="submit"]{
-    border-top:         1px solid #99B6E0;
-    border-left:        1px solid #99B6E0;
-    border-right:       1px solid #99B6E0;
-    border-bottom:      1px solid #99B6E0;
-    background-color: #99B6E0;
-    width: 110px;
-    padding:        5px 5px;
-    font-size:      14px;
-    font-style: black;
-    font-weight: bold;
-    border-radius:2px;
-    color:white;
-    }
-
-header.container{
-    background-color: black;
-    }
-
-.nav{
-    background-color: black;
-    }
-
-#masonry-wrapper {
-padding-bottom: 30px;
-    }
-
+/* Turns off the greenish color on the links
+-------------------------------------------------------------- */
 
 a,
 
