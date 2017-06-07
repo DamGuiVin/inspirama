@@ -37,6 +37,10 @@ add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 
 
 
+//.......................................................................................................
+// Custom Recommendation Taxonomy
+//.......................................................................................................
+
 
 // Create a custom Taxonomy called Recommendation
 function recommendation_taxonomy() {
@@ -69,6 +73,66 @@ function recommendation_taxonomy() {
 
 add_action('init', 'recommendation_taxonomy');
 
+function display_new_recommendation_meta () {
+    ?>
+    <div class="form-field">
+        <label>
+            <?php _e( 'Source' ); ?>
+        </label>
+        <input type="text" name="recommendation_source" id="recommendation_source" value="">
+        <p class="description"><?php _e( 'Enter the URL to the Recommendation Source' ); ?></p>
+    </div>
+    <?php
+}
+
+add_action( 'recommendation_add_form_fields', 'display_new_recommendation_meta', 10, 2 );
+
+function display_edit_recommendation_meta ($recommendation) {
+    // Retrieve the Recommendation ID
+    $recommendation_id = $recommendation->term_id;
+ 
+    // Retrieve the existing meta value
+    $recommendation_source = get_term_meta( $recommendation_id, 'source', true );
+    ?>
+
+    <tr class="form-field">
+        <th scope="row" valign="top">
+            <label>
+                <?php _e( 'Source' ); ?>
+            </label>
+        </th>
+        <td>
+            <input type="text" name="recommendation_source" id="recommendation_source" value="<?php echo $recommendation_source ?>">
+            <p class="description"><?php _e( 'Enter the URL to the Recommendation Source' ); ?></p>
+        </td>
+    </tr>
+<?php
+}
+
+add_action( 'recommendation_edit_form_fields', 'display_edit_recommendation_meta', 10, 2 );
+
+function recommendation_save_meta ( $recommendation_id, $recommendation ) {
+    // Retrieve the existing meta value
+    $recommendation_source = get_term_meta( $recommendation_id, 'source', true );
+    
+    // Store needed data in the post meta table
+    if ( isset ( $_POST['recommendation_source']) && $_POST['recommendation_source'] != '' ) {
+            $recommendation_source = $_POST['recommendation_source'];
+        }
+
+    // Save the new value
+    update_term_meta( $recommendation_id, 'source', $recommendation_source );
+}  
+
+add_action( 'edited_recommendation', 'recommendation_save_meta', 10, 2 );  
+add_action( 'created_recommendation', 'recommendation_save_meta', 10, 2 );
+
+
+
+
+//.......................................................................................................
+// Custom Person and Book Post Types
+//.......................................................................................................
 
 
 // Create a custom post type for Person
@@ -125,6 +189,60 @@ function person_cpt() {
 
 add_action( 'init', 'person_cpt' );
 
+
+// Create a custom post type for Book
+function book_cpt() {
+    register_post_type('book',
+        
+        array(
+
+            'labels' => array(
+
+                // The plural name
+                'name' => __( 'Books' ),
+                // The singular name
+                'singular_name' => __( 'Book' ),
+                // The Wp-Admin menu text for creating a new CPT
+                'add_new' => __('Add New Book'),
+                // The Wp-Admin text when creating a new CPT
+                'add_new_item' => __('Create a new Book'),   
+                // The message when searching
+                'search_items' => __( 'Look for a Book' ), 
+                // The message after failed search
+                'not_found' => __( 'Book not found' )
+
+
+                //'' => __( '' )
+                ),
+        
+            // Public status implies certain functionalities. Keep at true
+            'public' => true,
+
+            // Hierarchical posts have parent/child abilities (Pages butnot Posts)
+            'hierarchical' => true,
+
+            // Enables the archives
+            'has_archive' => true,
+
+            // Main fields 
+            'supports' => array(
+                'title',
+                'thumbnail',
+                'page-attributes',
+                ),
+
+            // Declares the taxonomies that can be used on the CPT
+            'taxonomies' => array(
+                'category',
+                'post_tag',
+                'recommendation'
+                ),
+        )
+
+  );
+}
+
+add_action( 'init', 'book_cpt' );
 
 
 // Add Meta Fields for the Person and Book pages on Wp-Admin
@@ -333,60 +451,6 @@ function add_book_meta_fields( $book_id, $book_page ) {
 }
 
 
-
-// Create a custom post type for Book
-function book_cpt() {
-    register_post_type('book',
-        
-        array(
-
-            'labels' => array(
-
-                // The plural name
-                'name' => __( 'Books' ),
-                // The singular name
-                'singular_name' => __( 'Book' ),
-                // The Wp-Admin menu text for creating a new CPT
-                'add_new' => __('Add New Book'),
-                // The Wp-Admin text when creating a new CPT
-                'add_new_item' => __('Create a new Book'),   
-                // The message when searching
-                'search_items' => __( 'Look for a Book' ), 
-                // The message after failed search
-                'not_found' => __( 'Book not found' )
-
-
-                //'' => __( '' )
-                ),
-        
-            // Public status implies certain functionalities. Keep at true
-            'public' => true,
-
-            // Hierarchical posts have parent/child abilities (Pages butnot Posts)
-            'hierarchical' => true,
-
-            // Enables the archives
-            'has_archive' => true,
-
-            // Main fields 
-            'supports' => array(
-                'title',
-                'thumbnail',
-                'page-attributes',
-                ),
-
-            // Declares the taxonomies that can be used on the CPT
-            'taxonomies' => array(
-                'category',
-                'post_tag',
-                'recommendation'
-                ),
-        )
-
-  );
-}
-
-add_action( 'init', 'book_cpt' );
 
 
 
