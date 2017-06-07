@@ -8,10 +8,14 @@
                     <p></p>
                     <p class="about"><label> Yeswekant.com est une librairie en ligne. Découvrez sur ce site les livres qui ont marqué les personnalités qui vous inspirent. </label></p>
             </div>
+            <div class="emailpage">
+        <script type="text/javascript">
+        <!-- emailpage();//-->
+        </script>
             
             <?php if ( is_active_sidebar( 'footer-widget' ) ) : ?>
                 <div id="widget-area" class="widget-area col-md-4">
-                <i class="fa fa-envelope fa-3x"></i> 
+                <img src="http://localhost/current/wp-content/uploads/2017/06/mail1.png" height="50" width="50" class="mail-icon" alt="Mail">
                 </br>
                 <p>
                 <label> Nous contacter </label>
@@ -22,9 +26,8 @@
                 </div><!-- .widget-area -->
             <?php endif; ?>
             <div class="column3 col-md-4" > <!-- beginning column1-->
-                    <i class="fa fa-telegram fa-3x"></i> 
+                    <img src="http://localhost/current/wp-content/uploads/2017/06/paperplane1.png" height="40" width="40" class="newsletter-icon" alt="Mail">
                     </br>
-                    <p>
                     <label>Toutes les semaines, de nouvelles recommendations :</label>
                     <input class="news" type="email" name="EMAIL" placeholder="Mon mail " required />
                     </br>

@@ -14,6 +14,16 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 
+    <script src="typed.js"></script>
+    <script>
+     document.addEventListener('DOMContentLoaded', function(){
+         Typed.new('.element', {
+         strings: ["First sentence.", "Second sentence."],
+         typeSpeed: 0
+          });
+     });
+    </script>
+
     <link rel="profile" href="http://gmpg.org/xfn/11">
 
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
