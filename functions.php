@@ -68,7 +68,7 @@ function recommendation_taxonomy() {
         'show_ui' => true,
     );
 
-    register_taxonomy('recommendation', array('books', 'people'), $args);
+    register_taxonomy('recommendation', array('people'), $args);
 }
 
 add_action('init', 'recommendation_taxonomy');
@@ -155,8 +155,6 @@ function person_cpt() {
                 'search_items' => __( 'Look for a Person' ), 
                 // The message after failed search
                 'not_found' => __( 'Person not found' )
-
-                //'' => __( '' )
                 ),
         
             // Public status implies certain functionalities. Keep at true
@@ -210,9 +208,6 @@ function book_cpt() {
                 'search_items' => __( 'Look for a Book' ), 
                 // The message after failed search
                 'not_found' => __( 'Book not found' )
-
-
-                //'' => __( '' )
                 ),
         
             // Public status implies certain functionalities. Keep at true
@@ -235,7 +230,6 @@ function book_cpt() {
             'taxonomies' => array(
                 'category',
                 'post_tag',
-                'recommendation'
                 ),
         )
 
