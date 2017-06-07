@@ -14,14 +14,18 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 
-    <script src="typed.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="http://localhost/current/wp-content/themes/oren_child/js/dist/typed.min.js"></script>
     <script>
-     document.addEventListener('DOMContentLoaded', function(){
-         Typed.new('.element', {
-         strings: ["First sentence.", "Second sentence."],
-         typeSpeed: 0
+
+        $(function(){
+          $(".element").typed({
+            strings: ["recommandations", "découvertes", "lectures"],
+            typeSpeed: 100,
+            backDelay: 1000,
+            loop: true
           });
-     });
+        });
     </script>
 
     <link rel="profile" href="http://gmpg.org/xfn/11">
