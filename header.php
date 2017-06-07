@@ -74,7 +74,7 @@
 
                 <?php if ( get_theme_mod( 'themeora-img-upload-logo' ) ) { ?>
 
-                    <a href="<?php echo home_url( '/' ); ?>">
+                    <a href="<?php echo home_url( '#masonry-wrapper' ); ?>">
 
                         <img class="logo-uploaded" style="max-width:<?php echo esc_attr( get_theme_mod( 'themeora-img-upload-logo-width', '200' ) ); ?>px" src="<?php echo esc_url( get_theme_mod( 'themeora-img-upload-logo' ) );?>" alt="<?php the_title(); ?>" />
 
