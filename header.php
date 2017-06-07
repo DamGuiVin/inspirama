@@ -1,161 +1,94 @@
 <!DOCTYPE html >
-
 <!--[if lt IE 7 ]> <html class="no-js ie6" <?php language_attributes(); ?>> <![endif]-->
-
 <!--[if IE 7 ]>    <html class="no-js ie7" <?php language_attributes(); ?>> <![endif]-->
-
 <!--[if IE 8 ]>    <html class="no-js ie8" <?php language_attributes(); ?>> <![endif]-->
-
 <!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" <?php language_attributes(); ?>> <!--<![endif]-->
 
 <head>
-
     <meta charset="<?php bloginfo( 'charset' ); ?>">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-
     <link rel="profile" href="http://gmpg.org/xfn/11">
-
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
-    
-
     <!--[if lt IE 9]>
-
     <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/html5shiv.min.js"></script>
-
     <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/respond.js"></script>
-
     <![endif]-->
 
     <?php wp_head(); ?>
-
 </head>
-
 
 
 <!-- Appel des polices utilisees : TEMPORAIRE. Sauvegarde dans notre base a plus long terme -->
 <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Source+Sans+Pro|Gidugu|Oswald|Raleway" rel="stylesheet">
 
 <!-- Appel du catalogue d'icones AwesomeFonts : TEMPORAIRE. Sauvegarde dans notre base a plus long terme -->
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 
 <body <?php body_class(); ?>>
 
 
-
 <div class="page-wrapper" data-scroll-speed="500">
-
     <!-- BEGIN NAV -->
-
     <nav class="primary-navigation navbar" role="navigation">
-
         <div class="container">
 
-
-
+            <!-- Logo Section -->
             <div class="navbar-header">
-
                 <?php if ( get_theme_mod( 'themeora-img-upload-logo' ) ) { ?>
-
                     <a href="<?php echo home_url( '/' ); ?>">
-
                         <img class="logo-uploaded" style="max-width:<?php echo esc_attr( get_theme_mod( 'themeora-img-upload-logo-width', '200' ) ); ?>px" src="<?php echo esc_url( get_theme_mod( 'themeora-img-upload-logo' ) );?>" alt="<?php the_title(); ?>" />
-
                     </a>
 
                 <?php } else { ?>
-
                     <h1 class="site-title"><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+                <?php }
 
-                <?php } ?>
-
-                <?php if ( get_theme_mod( 'themeora-show-description-header' ) == 'Yes' ) : ?>
-
+                if ( get_theme_mod( 'themeora-show-description-header' ) == 'Yes' ) : ?>
                     <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
-
                 <?php endif; ?>
 
-                    
-
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-
                     <span class="menu-text sr-only"><?php _e('Menu', 'oren'); ?></span>
-
                     <span class="fa fa-bars"></span>
-
                 </button>
-
-            </div><!-- end navbar-header -->
-
-
+            </div>
+            <!-- End Logo Section -->
 
             <div class="navbar-collapse collapse" id="nav-spy" style="padding: <?php echo esc_html( get_theme_mod('themeora-img-upload-logo-padding', '0') ) ?>px 0px;">
-
+                <!-- Navigation Menu -->
                 <div class="nav-wrap">
-
-                    <!-- primary nav -->
-
-                    <?php 
-
-                        if ( has_nav_menu('primary_menu') ) {
-
-                            wp_nav_menu(array(
-
-                            'container' =>false,
-
-                            'theme_location' => 'primary_menu',
-
-                            'menu_class' => 'nav navbar-nav',
-
-                            'echo' => true,
-
-                            'before' => '',
-
-                            'after' => '',
-
-                            'link_before' => '',
-
-                            'link_after' => '',
-
-                            'depth' => 0,
-
-                            'walker' => new themeora_Walker_Nav_Menu()
-
-                            )); 
-
-                        }
-
-                    ?>
-
-                </div><!--end nav-wrap -->
+                    <?php if ( has_nav_menu('primary_menu') ) {
+                        wp_nav_menu(array(
+                        'container' =>false,
+                        'theme_location' => 'primary_menu',
+                        'menu_class' => 'nav navbar-nav',
+                        'echo' => true,
+                        'before' => '',
+                        'after' => '',
+                        'link_before' => '',
+                        'link_after' => '',
+                        'depth' => 0,
+                        'walker' => new themeora_Walker_Nav_Menu()
+                        )); 
+                    } ?>
+                </div>
+                <!--End Navigation Menu -->
 
                 <!--Beginning search -->
-
                 <div class="search-website"> 
-
                     <div class="icon">
-
-                        <i class="fa fa-search"></i>
-                    
+                        <i class="fa fa-search"></i>                  
                     </div>   
-
                     <div class="search-form-menu">
-
                         <?php get_search_form(); ?> 
-
-                    </div>   
-                    
-                </div>   <!--End search -->
-
-            </div><!-- end .navbar-collapse #nav-spy -->
+                    </div>                      
+                </div>
+                <!--End search -->
+            </div>
 
         </div>
-
-        
-
     </nav>
-
     <!-- END NAV -->
+
+</div>
