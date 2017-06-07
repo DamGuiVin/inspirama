@@ -88,7 +88,7 @@ $layout = get_theme_mod('themeora_blog_layout', 'full-width');
 
                     <p>
 
-                    <?php _e('Désolé ! Nous n\'avons trouvé aucun résutat, peut être voulez-vous rechercher autre chose ?' , 'oren'); ?>
+                    <?php _e('Désolé ! Nous n\'avons trouvé aucun résutat. Peut être voulez-vous rechercher autre chose ?' , 'oren'); ?>
 
                     </p>
 
