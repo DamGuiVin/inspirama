@@ -611,6 +611,8 @@ display: inline-block;
 
 .search-form-menu{
 display: inline-block;
+max-height: 30px;
+max-width: 100px;
 }
 
 input[type="text"] {
@@ -625,6 +627,27 @@ input[type="text"]:focus {
     border-color: #99B6E0;
     box-shadow: 0 0 5px #99B6E0;
 }
+
+
+/* =Pas de résultats de recherche
+-------------------------------------------------------------- */
+
+.search-no-results .search-form {
+
+    margin: auto;
+
+}
+
+
+.search-no-results .text-center {
+
+    margin-top: 46px;
+    padding-bottom: 20px;
+    margin-bottom: 46px;
+
+}
+
+
 
 /* =Primary navigation MODIFS du 31 MAI 2017
 -------------------------------------------------------------- */
