@@ -10,8 +10,6 @@ get_header();
 
     <div class="container">
 
-        <div class="col-md-10 col-md-offset-1">
-
             <h1 class="archive-title no-bottom-margin">
 
                 <span>
@@ -20,22 +18,25 @@ get_header();
 
                     <?php if ( is_search() ) :	?>
 
+                        <p>
+
                         <?php _e('Résultats de recherche pour', 'oren'); ?> 
 
                         '<?php the_search_query() ?>'
 
-                    <?php endif; ?>
+                        </p>
 
+                    <?php endif; ?>
 
 
                     <!-- tag title -->
 
-                    <?php if ( is_tag() ) :	?>
+
+                    <?php if ( is_tag() ) : ?>
 
                         <?php single_tag_title(); ?>
 
                     <?php endif; ?>
-
 
 
                     <!-- category title -->
@@ -49,8 +50,6 @@ get_header();
                 </span>
 
             </h1>
-
-        </div><!-- end col-md-10 -->
 
     </div><!-- end container -->
 
@@ -72,7 +71,7 @@ $layout = get_theme_mod('themeora_blog_layout', 'full-width');
 
     
 
-    <?php get_template_part( 'templates/blog-sidebar' ); ?>
+    <?php get_template_part( 'template-search' ); ?>
 
    
 
