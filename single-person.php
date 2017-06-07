@@ -55,11 +55,12 @@
 
 
 //........................................................................
-// PERSON RECOMMENDATIONS SECTION 
+// PERSON RECOMMENDATIONS SECTION : RECOVERING BOOKS
 //........................................................................
 
 // Retrieving the slug book titles from the Recommendations
 $person_id = $post->ID;
+$person_name = $post->post_title;
 $recommendations_array = get_the_terms( $person_id, 'recommendation' );
 $slug_book_titles_array = array();
 if( $recommendations_array && !is_wp_error( $recommendations_array ) ) {
@@ -91,7 +92,12 @@ maintenant ce sera $img_size = '( 200, 800, false )''
 ce qui permet de la redimensionner au format livre  */
 $img_size = '(200,800,false)';
 
-// Building the Book mosaic
+
+
+//........................................................................
+// PERSON RECOMMENDATIONS SECTION : BOOK MOSAIC
+//........................................................................
+
 if ( $wp_query->have_posts() ) : ?>
     
     <!-- Books Mosaic -->  
@@ -102,12 +108,23 @@ if ( $wp_query->have_posts() ) : ?>
     </div>
 
     <ul id="masonry-wrapper" class="portfolio-cols-4">
-        <?php while ( $wp_query->have_posts() ) : $wp_query->the_post();
+        <?php 
+
+        // The iterator will let us keep track of at which Book in the Recommendation array we are
+        $iterator = 0;
+
+        while ( $wp_query->have_posts() ) : $wp_query->the_post();
 
             // Recover useful attributes from the Book
             $book_page_id = $wp_query->post->ID;
             $book_title = get_the_title();
             $book_author = get_post_meta( $book_page_id, 'author', true);
+
+            // Recover useful attributes from the Recommendation
+            $recommendation_object = $recommendations_array[ $iterator ];
+            $recommendation_id = $recommendation_object->term_id;
+            $recommendation_text = $recommendation_object->description;
+            $recommendation_source = get_term_meta( $recommendation_id, 'source', true);
 
             // Check if the Book has an image. Only load the Book if it does
             if ( has_post_thumbnail( $book_page_id ) ) {
@@ -131,13 +148,22 @@ if ( $wp_query->have_posts() ) : ?>
                         <div >
                             de <?php echo $book_author; ?>
                         </div>
+                        <div >
+                            La recommandation : <?php echo $recommendation_text; ?>
+                        </div>
+                        <div >
+                            Source : <?php echo $recommendation_source; ?>
+                        </div>
                     </div>
 
                 </li>
                 <!-- End Book Frame -->
 
-            <?php } ?>
-        <?php endwhile; ?>
+            <?php } 
+
+            ++$iterator; 
+
+        endwhile; ?>
     </ul>
     <!-- Books Mosaic -->  
 
