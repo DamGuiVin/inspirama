@@ -67,18 +67,17 @@ $layout = get_theme_mod('themeora_blog_layout', 'full-width');
 
 ?>
 
+<!-- begin to show search answers -->
 
 
 <?php if ( have_posts() ) : ?>
-    
+
 
 <div class="full-width-container main-content-area">
 
     <div class="container">
 
         <div class="row">
-
-            <div class="col-md-6 col-md-offset-3">
 
                 <?php if ( have_posts() ) : ?>
 
@@ -96,7 +95,6 @@ $layout = get_theme_mod('themeora_blog_layout', 'full-width');
 
                 <?php themeora_paging(); ?>
 
-            </div><!-- col-md-8 -->
 
             <?php get_sidebar(); ?>
 
