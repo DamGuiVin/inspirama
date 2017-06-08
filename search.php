@@ -26,6 +26,8 @@ get_header();
 
                         </p>
 
+                        <br>
+
                     <?php endif; ?>
 
 
