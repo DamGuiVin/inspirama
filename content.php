@@ -40,9 +40,10 @@ $post_classes = array('post-teaser');
                     <h2 class="title"><a href="<?php echo the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
                 <?php endif; ?>
-    </div>
 
                 <?php themeora_entry_meta(); ?>
+
+    </div>
 
             </header>
 

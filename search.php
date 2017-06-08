@@ -85,7 +85,26 @@ $layout = get_theme_mod('themeora_blog_layout', 'full-width');
 
                         <?php while ( have_posts() ) : the_post(); ?>
 
-                            <?php get_template_part( 'content', get_post_format() ); ?>
+                            <div class="row">                            
+
+                            <div class="col-md-6">
+
+                           <?php themeora_post_media( $post->ID, 'themeora-thumbnail-span-9' ); ?>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                            <h2 class="title"><a href="<?php echo the_permalink(); ?>"><?php the_title(); ?></a></h2>
+
+                            <?php the_excerpt(); ?>
+
+                            </div>
+
+                            </div>
+
+                            </p>
+
 
                         <?php endwhile; ?>
 
@@ -138,3 +157,5 @@ $layout = get_theme_mod('themeora_blog_layout', 'full-width');
 
 
 <?php get_footer(); ?>
+
+  <!--                           <?php get_template_part( 'content', get_post_format() ); ?> -->
