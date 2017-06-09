@@ -956,9 +956,10 @@ a:focus,
 
 a:hover  {
 
-    color: grey;
+    color: black;
 
 }
+
 
 /* Animated cursor for text animation typed.js
 -------------------------------------------------------------- */

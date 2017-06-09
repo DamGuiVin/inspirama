@@ -87,7 +87,7 @@ $layout = get_theme_mod('themeora_blog_layout', 'full-width');
 
                         <?php while ( have_posts() ) : the_post(); ?>
 
-                            <div class="row result">                            
+                            <div onclick="location.href='<?php echo the_permalink(); ?>';" class="row result">  
 
                                 <div class="col-md-3">
 
@@ -101,7 +101,7 @@ $layout = get_theme_mod('themeora_blog_layout', 'full-width');
 
                                     <h2 class="search-title"><a href="<?php echo the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
-                                    <?php the_excerpt(); ?>
+                                    <h5><a href="<?php echo the_permalink(); ?>"><?php the_excerpt(); ?></a></h5>
 
                                     <br>
 
