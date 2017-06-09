@@ -14,6 +14,20 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="http://localhost/current/wp-content/themes/oren_child/js/dist/typed.min.js"></script>
+    <script>
+
+        $(function(){
+          $(".element").typed({
+            strings: ["recommandations", "découvertes", "lectures"],
+            typeSpeed: 100,
+            backDelay: 1000,
+            loop: true
+          });
+        });
+    </script>
+
     <link rel="profile" href="http://gmpg.org/xfn/11">
 
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
@@ -33,7 +47,12 @@
 </head>
 
 
+
+<!-- Appel des polices utilisees : TEMPORAIRE. Sauvegarde dans notre base a plus long terme -->
 <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Source+Sans+Pro|Gidugu|Oswald|Raleway" rel="stylesheet">
+
+<!-- Appel du catalogue d'icones AwesomeFonts : TEMPORAIRE. Sauvegarde dans notre base a plus long terme -->
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
@@ -55,7 +74,7 @@
 
                 <?php if ( get_theme_mod( 'themeora-img-upload-logo' ) ) { ?>
 
-                    <a href="<?php echo home_url( '/' ); ?>">
+                    <a href="<?php echo home_url( '#masonry-wrapper' ); ?>">
 
                         <img class="logo-uploaded" style="max-width:<?php echo esc_attr( get_theme_mod( 'themeora-img-upload-logo-width', '200' ) ); ?>px" src="<?php echo esc_url( get_theme_mod( 'themeora-img-upload-logo' ) );?>" alt="<?php the_title(); ?>" />
 

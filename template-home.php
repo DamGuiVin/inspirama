@@ -1,19 +1,10 @@
 <?php
 
-
-
 /*
 
 * Template Name: Home
 
 */
-
-
-
-
-
-
-
 
 
 
@@ -28,16 +19,7 @@ get_header();
 
 
 
-
-
-
-
-
-
-
-
 // Get theme options  
-
 
 
 
@@ -46,29 +28,18 @@ get_header();
 
 $background_image = '';
 
-
-
 if ( wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full-size' ) ) {
-
     $background_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full-size' );
-
     $background_image = $background_image[0];
-
 }
-
-
 
 if ( get_header_image() ) {
-
     $background_image = get_header_image();
-
 }
 
 
 
-
-
-// Setup paging for portfolio pagaination
+// Setup paging for portfolio pagination
 
 if ( get_query_var('paged') ) {
 
@@ -86,21 +57,11 @@ if ( get_query_var('paged') ) {
 
 
 
-
-
 // Set a variable to tell us if there are pagination links to we can take care of spacing issues
 
 $pagination = false;
 
 ?>
-
-
-
-
-
-
-
-
 
 
 
@@ -110,7 +71,7 @@ $pagination = false;
 
     Building the title section of the homepage
 
-    NB : the homeage may have a Title and an Excerpt (optional)
+    NB : the homepage may have a Title and an Excerpt (optional)
 
 --------------------------------------------------------------------------------------- */
 
@@ -120,9 +81,9 @@ if ( $paged === 1 ) : ?>
 
     <?php if ( have_posts() ) : ?>
 
-        <header class="full-width-container center-page welcome-screen <?php $background_image != '' ? print 'header-with-background' : '' ?> <?php has_excerpt() ? print 'header-with-excerpt ' : print 'header-without-excerpt'; ?>" role="banner" data-welcome-background="<?php echo $background_image; ?>" >
+        <header class="full-width-container-home center-page welcome-screen <?php $background_image != '' ? print 'header-with-background' : '' ?> <?php has_excerpt() ? print 'header-with-excerpt ' : print 'header-without-excerpt'; ?>" role="banner" data-welcome-background="<?php echo $background_image; ?>" >
 
-            <div class="container welcome-container">
+            <div class="container welcome-container-home">
 
                 <div class="row welcome-row">
 
@@ -149,6 +110,27 @@ if ( $paged === 1 ) : ?>
                 </div><!-- end row -->
 
             </div><!-- end container -->
+
+            <!-- Button section beginning -->
+            <div class="go-to-portfolio-link-container">
+
+                <div class="go-to-portfolio-link-button">
+
+                    <div class = "go-to-portfolio-link-button">
+
+                            Découvrir les personnalités
+
+                    </div>
+
+                    <a href="#masonry-wrapper" class="go-to-portfolio-link-button">
+                        
+                        <i class = "fa fa-chevron-down fa-4x"></i>
+
+                    </a>
+
+                </div>
+
+            </div><!-- Button section end -->
 
         </header><!-- end header - full width container -->
 
@@ -246,7 +228,7 @@ if ( $wp_query->have_posts() ) : ?>
 
                     <div class="person">
 
-                        <a href="<?php the_permalink(); ?>" class="portfolio-link">
+                        <a href="<?php echo the_permalink($person_page_id); ?>" class="portfolio-link">
 
                             <img src="<?php echo $previewImage[0] ?>" class="img-adapt" alt="<?php echo $person_name; ?>" />
 
@@ -259,9 +241,11 @@ if ( $wp_query->have_posts() ) : ?>
                                 </div>
 
                                 <div class="details-person-introduction">
+
                                     <?php if ( $person_intoduction ) : ?>
                                         <h4><?php echo $person_intoduction; ?></h4>
                                     <?php endif; ?>
+                                    
                                 </div>
 
                                 <div class="details-person-invitation">
