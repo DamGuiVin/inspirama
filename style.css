@@ -956,11 +956,12 @@ a:focus,
 
 a:hover  {
 
-    color: grey;
+    color: black;
 
 }
 
-/* Animated cursor
+
+/* Animated cursor for text animation typed.js
 -------------------------------------------------------------- */
 
 .typed-cursor{
@@ -983,4 +984,29 @@ a:hover  {
     0% { opacity:1; }
     50% { opacity:0; }
     100% { opacity:1; }
+}
+
+
+/* Search.php
+-------------------------------------------------------------- */
+
+/* div containing search result*/
+
+.result {
+    margin-bottom: 20px;
+}
+
+/* search result image */
+
+.size-150x800 {
+    display: block;
+    margin: auto;
+}
+
+/* search result title */
+
+.search-title {
+margin: 0;
+padding: 0;
+padding-bottom: 10px;
 }

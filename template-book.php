@@ -41,7 +41,7 @@ $book_fnac_logo = get_post_meta( $book_page_id, 'fnac_logo', true);
 
                 <?php if ( has_post_thumbnail() ) {
                 the_post_thumbnail( array(800,3200) );
-                } ?>
+                } ?> >
                 
             </div>
         	

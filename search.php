@@ -26,6 +26,8 @@ get_header();
 
                         </p>
 
+                        <br>
+
                     <?php endif; ?>
 
 
@@ -65,14 +67,66 @@ $layout = get_theme_mod('themeora_blog_layout', 'full-width');
 
 ?>
 
+<!-- begin to show search answers -->
 
 
 <?php if ( have_posts() ) : ?>
 
-    
 
-    <?php get_template_part( 'template-search' ); ?>
+<div class="full-width-container main-content-area">
 
+    <div class="container">
+
+        <div class="row">
+
+            <hr>
+
+                <?php if ( have_posts() ) : ?>
+
+                    <div id="posts-wrapper">
+
+                        <?php while ( have_posts() ) : the_post(); ?>
+
+                            <div onclick="location.href='<?php echo the_permalink(); ?>';" class="row result">  
+
+                                <div class="col-md-3">
+
+                                    <a href="<?php echo the_permalink(); ?>"><?php if ( has_post_thumbnail() ) {
+                                    the_post_thumbnail( array(150,800) );
+                                    } ?></a>
+
+                                </div>
+
+                                <div class="col-md-4">
+
+                                    <h2 class="search-title"><a href="<?php echo the_permalink(); ?>"><?php the_title(); ?></a></h2>
+
+                                    <h5><a href="<?php echo the_permalink(); ?>"><?php the_excerpt(); ?></a></h5>
+
+                                    <br>
+
+                                </div>
+
+                            </div>
+
+                            <hr>
+
+                        <?php endwhile; ?>
+
+                    </div>
+
+                <?php endif; ?>
+
+                <?php themeora_paging(); ?>
+
+
+            <?php get_sidebar(); ?>
+
+        </div><!-- row -->
+
+    </div><!-- container -->
+
+</div>
    
 
 <?php else : ?>
