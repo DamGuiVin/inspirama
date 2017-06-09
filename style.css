@@ -1,41 +1,17 @@
 /*
-
-
-
 Theme Name: oren_child
-
-
-
 Template: oren
-
-
-
 Author: toursidou
-
-
-
 Description: WP adaptation
-
-
-
 */
-
-
 
 /*
-
-
-
 @import url("../oren/style.css");
-
-
-
 */
 
 
-
-/* Person Page Template : modification de l'intro de la page personnalité GUILHEM 24.04.17*/
-
+/* Person Page Template
+-------------------------------------------------------------- */
 
 /* Bandeau du haut qui contient l'image et la description de la personne */
 
@@ -48,8 +24,6 @@ Description: WP adaptation
     box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.25);
 
 }
-
-
 
 
 
@@ -82,39 +56,23 @@ font-family: 'Source Sans Pro', sans-serif;
 }
 
 
-
-/* Person Page Template : fin de modification GUILHEM 20.04.17*/
-
-
-
-/* Contact page Template : modification du bandeau supérieur GUILHEM 26.04.17*/
-
-
+/* Contact page Template
+-------------------------------------------------------------- */
 
 /* bandeau du haut sur les pages template-contact */
 
 .welcome-screen {
 
     background-color : #829fd8;
-
 }
 
 
+/* Home Page Template
+-------------------------------------------------------------- */
 
-/* Contact page Template : fin de modification du bandeau supérieur GUILHEM 26.04.17*/
-
-
-
-
-
-/* Home Page Template : modification de l'aspect. NB : Pour créer des images rondes il suffit de rajouter
-
+/* NB : Pour créer des images rondes il suffit de rajouter
 class img-circle au home Page template (fonctionnalité bootstrap)
-
-sinon j'ai créé la class "img-adapt" pour modifier les images des pages qui utilisent le Home Page Template GUILHEM 20.04.17*/
-
-
-
+sinon j'ai créé la class "img-adapt" pour modifier les images des pages qui utilisent le Home Page*/
 
 
 /* Bannière : Modif par Damien*/
@@ -122,9 +80,6 @@ sinon j'ai créé la class "img-adapt" pour modifier les images des pages qui ut
 header.full-width-container {
 	background-size: cover;
 }
-
-
-
 
 /* Titre principal NB: impossible de modifier la couleur, je ne sais pas pq.*/
 
@@ -138,8 +93,6 @@ header.welcome-screen h1 {
 
 }
 
-
-
 /* Titre secondaire */
 
 header.welcome-screen h2 {
@@ -152,15 +105,11 @@ header.welcome-screen h2 {
 
 }
 
-
-
 /* Texte qui apparait sur les images de portofolio*/
 
 .portfolio-details .details-person-name {
 
     height: 40%
-
-
 }
 
 .portfolio-details .details-person-name h2 {
@@ -198,7 +147,6 @@ header.welcome-screen h2 {
     vertical-align: center;
 
     height: 30%
-
 }
 
 
@@ -213,34 +161,18 @@ header.welcome-screen h2 {
 
 
 .img-adapt:hover {
-
-
-
     animation-name: fade;
-
-
-
     animation-duration: 0.5s;
-
-
-
     animation-fill-mode: forwards;
-
 }
 
-
-
 /* animation : effet de transparence */
-
-
 
 @keyframes fade {
 
 from {opacity: 1;} to {opacity: 0.5;}
 
 }
-
-
 
 /* Conteneur : du titre H1 au footer */
 
@@ -251,14 +183,6 @@ from {opacity: 1;} to {opacity: 0.5;}
 	padding: 0;
 
 }
-
-
-
-/* Home Page Template : modification de l'aspect. GUILHEM 20.04.17*/
-
-
-
-
 
 .masonry-item {
 
@@ -275,19 +199,9 @@ from {opacity: 1;} to {opacity: 0.5;}
 }
 
 
-
-
-
-
-
-/* Theme footer : menu du bas
-
-Je change le "customized widget" de menu vertical a menu horizontal + effets de style 
-
-GUILHEM 19.04.17*/
-
-
-
+/* Footer footer.php
+-------------------------------------------------------------- */
+/* NB : Ai changé le "customized widget" de menu vertical a menu horizontal + effets de style GUILHEM 19.04.17*/
 
 
 /* Menu du bas */
@@ -312,26 +226,29 @@ GUILHEM 19.04.17*/
 
 }
 
-
-
 #widget-area li :hover {
 
 	text-decoration:none;
 
 }
 
+footer.full-width-container {
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 10px 0 rgba(0, 0, 0, 0.25) inset;
+    padding: 2em 0 100px 0 ;
+    max-height: 250px;
+}
 
+footer.container{
+    padding: 0 0 0 0;
+}
 
-/* Theme footer : menu du bas Fin du changement*/
+.fat-footer{
+    max-height: 200px;
+    margin-bottom: 20px;
+}
 
-
-
-
-
-
-
-/* HEADER and BANNER */
-
+/* Header & Banner header.php
+-------------------------------------------------------------- */
 
 /* Titre principal NB: impossible de modifier la couleur, je ne sais pas pq.*/
 
@@ -427,24 +344,15 @@ header.full-width-container-category {
     text-align: center;
 }
 
-/* Person Page Template - Mise en forme des livres : centrés + ombre + bonne taille + animation hover  20.04.17 GUILHEM 
 
+/* Person Page Template template-person.php
+-------------------------------------------------------------- */
 
-
---> J'ai rajouté dans le Person Page Template, 
-
-la class portfolio-image-book et un div avant l'image pour 
-
-instaurer la classe button-effect (effet d'animation 
-
+/* NB : Mise en forme des livres : centrés + ombre + bonne taille + animation hover  20.04.17 GUILHEM 
+J'ai rajouté dans le Person Page Template, la class portfolio-image-book 
+et un div avant l'image pour instaurer la classe button-effect (effet d'animation 
 sur l'image) + j'ai changé la taille des images
-
-
-
 */
-
-
-
 
 
 /* image du livre */
@@ -490,7 +398,6 @@ sur l'image) + j'ai changé la taille des images
 /* animation : effet bouton sur le livre */
 
 
-
 @keyframes anim {
 
     from {transform: scale(1,1);}
@@ -498,9 +405,6 @@ sur l'image) + j'ai changé la taille des images
     to {transform: scale(0.95,0.95);}
 
 }
-
-
-
 
 
 .portfolio-image-book:hover {
@@ -516,7 +420,6 @@ sur l'image) + j'ai changé la taille des images
 }
 
 
-
 .button-effect:hover {
 
     animation-name: anim;
@@ -529,11 +432,10 @@ sur l'image) + j'ai changé la taille des images
 
 
 
-/* Person Page Template - Mise en forme des livres FIN du changement */
+/* Book Page Template template-book.php
+-------------------------------------------------------------- */
 
-/* Book Page Template */
-
-/* modification sur tous les customs fields */
+/* NB : modification sur tous les customs fields */
 
 .post-meta {
 
@@ -563,22 +465,25 @@ line-height: 120%;
 
 }
 
-
-/* Book Page Template - Mise en forme des livres FIN du changement */
-
-
-
 /* enlève la marge du haut */
 
 .full-width-container
 
 {
-padding: 0 0 0 0;
-margin : 0 0 0 0;
+padding: 0;
+margin : 0;
 }
 
 
-/* search box */
+
+/* Searchform searchform.php
+-------------------------------------------------------------- */
+
+.search-form input[type="text"] {
+margin: 0;
+padding: 0;
+}
+
 
 .search-form {
     max-width: 200px;
@@ -591,8 +496,8 @@ margin : 0 0 0 0;
 
 input {
 outline: none;
-padding: 0 0 0 0;
-margin: 0 0 0 0;
+padding: 0;
+margin: 0;
 }
 
 .search-website {
@@ -601,8 +506,7 @@ display: inline-block;
 vertical-align: center;
 float: right;
 padding: 10px 0 0 0;
-margin: 0 0 0 0;
-
+margin: 0;
 }
 
 .icon{
@@ -629,8 +533,7 @@ input[type="text"]:focus {
 }
 
 
-/* =Pas de résultats de recherche
--------------------------------------------------------------- */
+/* No search results */
 
 .search-no-results .search-form {
 
@@ -648,11 +551,7 @@ input[type="text"]:focus {
 }
 
 
-
-/* =Primary navigation MODIFS du 31 MAI 2017
--------------------------------------------------------------- */
-
-/* Sous menu
+/* =Primary navigation = Menu elements
 -------------------------------------------------------------- */
 
 .nav-wrap {
@@ -660,21 +559,9 @@ input[type="text"]:focus {
     vertical-align: middle;
 }
 
-/* Éléments de liste du menu
--------------------------------------------------------------- */
-
-nav.
-
-
 ul {
     margin: none;
     list-style: none;
-}
-
-@media screen and ( max-width:760px ) {
-    nav.primary-navigation ul {
-        margin-top: 20px;
-    }
 }
 
 nav.primary-navigation ul li {
@@ -693,7 +580,7 @@ nav.primary-navigation ul li a:hover {
     margin: -15px 0 -16px 0;
 }
 
-/* current and active states */
+/* current and active states on menu */
 
 nav.primary-navigation .current-menu-item a {
     background-color: #99B6E0;
@@ -714,40 +601,11 @@ nav.primary-navigation .nav > li > a:focus {
     background-color: #99b6e0;
 }
 
-@media screen and ( max-width:760px ) {
-    nav.primary-navigation .nav li a:hover, 
-    nav.primary-navigation .nav li a:focus {
-        color: #000;
-    }
-}
-
-@media screen and ( max-width:760px ) {
-   
-    .navbar-nav .open .dropdown-menu > li > a {
-        padding: 10px 17px;
-        
-    }
-}
-
-nav.primary-navigation .nav > li.open > a.dropdown:hover, 
-nav.primary-navigation .nav > li.open > a.dropdown:focus {
-    border-color: transparent !important;
-}
-
-nav.primary-navigation ul li a {
-    color: #8c8c8c;
-    padding: 0;
-}
-
-nav.primary-navigation .nav .caret {
-    margin-left: 8px;
-}
 
 /* dropdown */
 
-.navbar-nav > .open > a, 
-.
-navbar-nav > .open > a:hover, 
+.navbar-nav > .open > a,
+.navbar-nav > .open > a:hover, 
 .navbar-nav > .open > a:focus {
     background: none;
     color: #000;
@@ -756,55 +614,7 @@ navbar-nav > .open > a:hover,
 }
 
 .dropdown-menu {
-    box-shadow: none;
-    font-size: inherit;
-    border: none;
-    border-radius: 0;
-    padding: 0;
-    top: 218%;
 }
-
-.dropdown-menu > li > a:hover, 
-.dropdown-menu > li > a:focus {
-    background: none;
-    color: #000;
-    text-decoration: none;
-}
-
-nav.primary-navigation .dropdown-menu li {
-    display: block;
-    float: none;
-    margin: 0;
-}
-
-nav.primary-navigation .dropdown-menu li a {
-    padding: 10px 15px;
-    border: none;
-}
-
-
-
-nav.primary-navigation .dropdown-menu li a:hover {
-    border: none;
-    text-decoration: none;
-}
-
-.navbar .nav > li > .dropdown-menu::before {
-  position: absolute;
-  top: -7px;
-  left: 9px;
-  display: inline-block;
-  border: none;
-}
-
-.navbar .nav > li > .dropdown-menu::after {
-  position: absolute;
-  top: -6px;
-  left: 10px;
-  display: inline-block;
-  border: none;
-}
-
 
 /* Navbar toggle and header */
 
@@ -824,16 +634,7 @@ nav.primary-navigation .dropdown-menu li a:hover {
 }
 
 nav.primary-navigation .navbar-header {
-    margin:0;
-    padding-right: 50px;
-    position: relative;
-    border: 0 0 0 0;
-}
-
-.menu-text {
-    text-transform: uppercase;
-    font-size: 18px;
-    margin-right: 6px;
+    border: 0;
 }
 
 nav  {
@@ -848,52 +649,21 @@ nav  {
     float: none;
 }
 
-.search-form input[type="text"] {
-margin: 0 0 0 0;
-padding: 0 0 0 0;
-}
-
-/* =Logo
--------------------------------------------------------------- */
-
-/* =je centre le logo et j'y crée du padding
+/* Logo (centered and padding is added)
 -------------------------------------------------------------- */
 
 .logo-uploaded, 
 .footer-logo-uploaded, 
 .logo-text {
-    -webkit-transition: opacity .2s;
-       -moz-transition: opacity .2s;
-        -ms-transition: opacity .2s;       
-         -o-transition: opacity .2s;
-         padding:5px;
-         display: inline-block;
-         vertical-align: center;
+     padding:5px;
+     display: inline-block;
+     vertical-align: center;
 }
 
-.logo-uploaded:hover, 
-.footer-logo-uploaded:hover, 
-.logo-text:hover {
-    opacity: .4;
-}
 
-/* Modifications du footer
+/* Footer changes
 -------------------------------------------------------------- */
 
-footer.full-width-container {
-    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 10px 0 rgba(0, 0, 0, 0.25) inset;
-    padding: 2em 0 100px 0 ;
-    max-height: 250px;
-}
-
-footer.container{
-    padding: 0 0 0 0;
-}
-
-.fat-footer{
-    max-height: 200px;
-    margin-bottom: 20px;
-}
 
 /* Newsletter : space before the placeholder / glowing effect;
 -------------------------------------------------------------- */
@@ -936,11 +706,7 @@ input[type="submit"]{
 -------------------------------------------------------------- */
 
 .fa {
-margin: 0px 0 10px 0;
-    }
-
-.fa-envelope {
-margin: 0px 0 10px 0;
+margin: 0 0 10px 0;
     }
 
 /* Turns off the greenish color on the links
@@ -987,13 +753,14 @@ a:hover  {
 }
 
 
-/* Search.php
+/* Search Search.php
 -------------------------------------------------------------- */
 
 /* div containing search result*/
 
 .result {
     margin-bottom: 20px;
+    padding: 5px;
 }
 
 /* search result image */
@@ -1007,6 +774,25 @@ a:hover  {
 
 .search-title {
 margin: 0;
-padding: 0;
-padding-bottom: 10px;
+padding: 0px 0px 10px 0px;
+}
+
+/* Responsive : padding search text */
+
+@media (max-width: 767px) {
+.search-title {
+padding: 10px;
+text-align: center;
+}
+.search-text {
+margin: 0px 15px 0px 15px;
+padding: 0px;
+}
+.result {
+    margin-bottom: 0px;
+    padding: 0px;
+}
+.archive-title {
+    max-height: 80px;
+}
 }
