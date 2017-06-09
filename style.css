@@ -9,7 +9,6 @@ Description: WP adaptation
 @import url("../oren/style.css");
 */
 
-
 /* Person Page Template
 -------------------------------------------------------------- */
 
@@ -779,6 +778,14 @@ padding: 0px 0px 10px 0px;
 
 /* Responsive : padding search text */
 
+
+@media (max-width: 1024px) {
+.search-title {
+padding: 20px;
+text-align: center;
+}
+}
+
 @media (max-width: 767px) {
 .search-title {
 padding: 10px;
@@ -793,6 +800,7 @@ padding: 0px;
     padding: 0px;
 }
 .archive-title {
-    max-height: 80px;
+    max-height: 150px;
+    min-height: 100px;
 }
 }

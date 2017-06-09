@@ -2,6 +2,8 @@
 
 get_header();
 
+    // Get theme options
+
 ?>
 
 
@@ -59,8 +61,6 @@ get_header();
 
 
 
-
-
 <?php
 
 $layout = get_theme_mod('themeora_blog_layout', 'full-width');
@@ -87,9 +87,9 @@ $layout = get_theme_mod('themeora_blog_layout', 'full-width');
 
                         <?php while ( have_posts() ) : the_post(); ?>
 
-                            <div onclick="location.href='<?php echo the_permalink(); ?>';" class="row result">  
+                            <div class="row result">  
 
-                                <div class="col-md-4 col-sm-6">
+                                <div class="col-md-4">
 
                                     <a href="<?php echo the_permalink(); ?>"><?php if ( has_post_thumbnail() ) {
                                     the_post_thumbnail( array(150,800) );
@@ -97,7 +97,7 @@ $layout = get_theme_mod('themeora_blog_layout', 'full-width');
 
                                 </div>
 
-                                <div class="col-md-4 col-sm-6 search-text">
+                                <div class="col-md-4 search-text">
 
                                     <h2 class="search-title"><a href="<?php echo the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
@@ -116,11 +116,6 @@ $layout = get_theme_mod('themeora_blog_layout', 'full-width');
                     </div>
 
                 <?php endif; ?>
-
-                <?php themeora_paging(); ?>
-
-
-            <?php get_sidebar(); ?>
 
         </div><!-- row -->
 
