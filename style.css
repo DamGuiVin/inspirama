@@ -877,7 +877,7 @@ padding: 0 0 0 0;
     opacity: .4;
 }
 
-/* Modifications du footer
+/* Footer changes
 -------------------------------------------------------------- */
 
 footer.full-width-container {
@@ -994,6 +994,7 @@ a:hover  {
 
 .result {
     margin-bottom: 20px;
+    padding: 5px;
 }
 
 /* search result image */
@@ -1007,6 +1008,25 @@ a:hover  {
 
 .search-title {
 margin: 0;
-padding: 0;
-padding-bottom: 10px;
+padding: 0px 0px 10px 0px;
+}
+
+/* Responsive : padding search text */
+
+@media (max-width: 767px) {
+.search-title {
+padding: 10px;
+text-align: center;
+}
+.search-text {
+margin: 0px 15px 0px 15px;
+padding: 0px;
+}
+.result {
+    margin-bottom: 0px;
+    padding: 0px;
+}
+.archive-title {
+    max-height: 80px;
+}
 }

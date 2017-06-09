@@ -89,7 +89,7 @@ $layout = get_theme_mod('themeora_blog_layout', 'full-width');
 
                             <div onclick="location.href='<?php echo the_permalink(); ?>';" class="row result">  
 
-                                <div class="col-md-3">
+                                <div class="col-md-4 col-sm-6">
 
                                     <a href="<?php echo the_permalink(); ?>"><?php if ( has_post_thumbnail() ) {
                                     the_post_thumbnail( array(150,800) );
@@ -97,11 +97,11 @@ $layout = get_theme_mod('themeora_blog_layout', 'full-width');
 
                                 </div>
 
-                                <div class="col-md-4">
+                                <div class="col-md-4 col-sm-6 search-text">
 
                                     <h2 class="search-title"><a href="<?php echo the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
-                                    <h5><a href="<?php echo the_permalink(); ?>"><?php the_excerpt(); ?></a></h5>
+                                    <h5><a class="search-excerpt" href="<?php echo the_permalink(); ?>"><?php the_excerpt(); ?></a></h5>
 
                                     <br>
 
