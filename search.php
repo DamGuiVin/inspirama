@@ -79,6 +79,8 @@ $layout = get_theme_mod('themeora_blog_layout', 'full-width');
 
         <div class="row">
 
+            <hr>
+
                 <?php if ( have_posts() ) : ?>
 
                     <div id="posts-wrapper">
@@ -87,9 +89,9 @@ $layout = get_theme_mod('themeora_blog_layout', 'full-width');
 
                             <div class="row result">                            
 
-                                <div class="col-md-3 col-md-offset-3">
+                                <div class="col-md-3">
 
-                                    <a class="search-link" href="<?php echo the_permalink(); ?>"><?php if ( has_post_thumbnail() ) {
+                                    <a href="<?php echo the_permalink(); ?>"><?php if ( has_post_thumbnail() ) {
                                     the_post_thumbnail( array(150,800) );
                                     } ?></a>
 
@@ -106,6 +108,8 @@ $layout = get_theme_mod('themeora_blog_layout', 'full-width');
                                 </div>
 
                             </div>
+
+                            <hr>
 
                         <?php endwhile; ?>
 
