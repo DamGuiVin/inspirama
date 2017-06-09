@@ -234,7 +234,7 @@ from {opacity: 1;} to {opacity: 0.5;}
 footer.full-width-container {
     box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 10px 0 rgba(0, 0, 0, 0.25) inset;
     padding: 2em 0 100px 0 ;
-    max-height: 250px;
+    max-height: 240px;
 }
 
 footer.container{
@@ -244,6 +244,22 @@ footer.container{
 .fat-footer{
     max-height: 200px;
     margin-bottom: 20px;
+}
+
+@media (max-width: 767px) {
+
+footer.full-width-container {
+    max-height: 800px;
+}
+.fat-footer{
+    max-height: 800px;
+}
+
+}
+
+footer.h5{
+    padding: 0;
+    margin: 0;
 }
 
 /* Header & Banner header.php
@@ -777,7 +793,6 @@ padding: 0px 0px 10px 0px;
 }
 
 /* Responsive : padding search text */
-
 
 @media (max-width: 1024px) {
 .search-title {
