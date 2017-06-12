@@ -148,9 +148,6 @@
                 </div><!--end nav-wrap -->
 
 
-
-
-
                 <ul class="menu-right"> 
 
                 <!--Beginning A propos -->
@@ -165,13 +162,13 @@
 
                     <li class="search-bar-menu">
 
-                            <img class="search-icon" src="http://localhost/current/wp-content/uploads/2017/06/search.png" height="24" width="24" class="search-icon" alt="Search-icon"> 
-
-                        <span class="search-form-menu">
+                        <img class="search-icon" src="http://localhost/current/wp-content/uploads/2017/06/search.png" height="24" width="24" class="search-icon" alt="Search-icon"> 
+             
+                        <div class="search-form-menu">
 
                             <?php get_search_form(); ?> 
 
-                        </span> 
+                        </div> 
 
                     </li>
 
@@ -179,6 +176,12 @@
 
                 </ul>   
                     
+
+
+
+
+
+
 
             </div><!-- end .navbar-collapse #nav-spy -->
 
