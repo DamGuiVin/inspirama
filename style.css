@@ -554,11 +554,15 @@ nav.primary-navigation ul li.top-menu{
 
 /* displaying menu when screen is smaller than ipad */
     
-    nav.primary-navigation ul li.top-menu,
-    nav.primary-navigation ul li.top-menu:hover{
+    nav.primary-navigation ul li.top-menu{
         display: block;
         width: 100%;
         text-align: left;
+    }
+
+    nav.primary-navigation ul li.top-menu:hover{
+        padding-left: -30px;
+        margin-left: -15px;
     }
 
     nav.primary-navigation ul li.search-bar-menu,
@@ -609,11 +613,6 @@ nav.primary-navigation ul li.top-menu{
         border:0;
     }
 
-    .top-menu {
-        display: block;
-        width: 100%;
-    }
-
     nav.primary-navigation ul {
         float: none;
         margin-top: 0px;
@@ -635,8 +634,6 @@ nav.primary-navigation ul li.top-menu{
 
     nav.primary-navigation ul li a:hover {
         background-color: white;
-        padding-left: 20px;
-        margin-left: 20px;
     }
 
     /* menu item that is selected */
