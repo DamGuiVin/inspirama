@@ -146,21 +146,21 @@
 
                 </div><!--end nav-wrap -->
 
+
+
+
+
+                <div class="menu-right"> 
+
                 <!--Beginning A propos -->
+                    <div class="top-menu">
 
-                <div class="search-website"> 
+                        <a class="about" href="http://localhost/current/index.php/a-propos/">Qui sommes nous ?</a>
 
-                    <div class="icon">
-
-                        <img src="http://localhost/current/wp-content/uploads/2017/06/search.png" height="22" width="22" class="search-icon" alt="Search-icon">
-                    
-                    </div>   
-                    
-                </div>   
-
+                    </div>
                 <!--End A propos -->
 
-                <div class="search-website"> 
+                <!--Beginning Search -->
 
                     <div class="icon">
 
@@ -173,8 +173,11 @@
                         <?php get_search_form(); ?> 
 
                     </div>   
+
+                <!--End search -->
+
+                </div>   
                     
-                </div>   <!--End search -->
 
             </div><!-- end .navbar-collapse #nav-spy -->
 
