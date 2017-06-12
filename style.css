@@ -434,19 +434,20 @@ nav.primary-navigation .nav > li > a:active {
 
 .navbar-toggle {
     padding: 0;
-    margin: 0 0 0 0;
+    margin: 0;
+    border: 0;
     background: none;
-    background-color: pink;
-    border: none;
     font-size: 30px;
     color: #000;
-    position: absolute;
-    top: 50%;
-    right: 200px;
+    display: inline-block;
+    float: right;
 }
 
 nav.primary-navigation .navbar-header {
     border: 0;
+    margin: 0;
+    padding: 0;
+    height: 60px;
 }
 
 nav  {
@@ -459,6 +460,26 @@ nav  {
     height:48px;
     float: none;
 }
+
+.site-description {
+    font-size: 6px;
+    line-height: 4px;
+    max-width: 50px;
+    margin: 0;
+}
+
+button.navbar-toggle {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.hamburger {
+    display: inline-block;
+    float:left;
+}
+
 
 /* color of menu text */
 
@@ -759,6 +780,7 @@ a:hover  {
     color: black;
 
 }
+
 
 
 /* Animated cursor for text animation typed.js

@@ -68,9 +68,19 @@
 
         <div class="container">
 
-
-
             <div class="navbar-header">
+
+                <div class="hamburger">
+
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+
+                        <span class="menu-text sr-only"><?php _e('Menu', 'oren'); ?></span>
+
+                        <span class="fa fa-bars"></span>
+
+                    </button>
+
+                </div>
 
                 <?php if ( get_theme_mod( 'themeora-img-upload-logo' ) ) { ?>
 
@@ -92,15 +102,6 @@
 
                 <?php endif; ?>
 
-                    
-
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-
-                    <span class="menu-text sr-only"><?php _e('Menu', 'oren'); ?></span>
-
-                    <span class="fa fa-bars"></span>
-
-                </button>
 
             </div><!-- end navbar-header -->
 
