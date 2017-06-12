@@ -255,7 +255,7 @@ footer.container{
 footer.full-width-container {
 }
 .fat-footer{
- min-height: 390px;
+ min-height: 440px;
 }
 
 }
@@ -471,11 +471,11 @@ button.navbar-toggle {
     border: 0;
 }
 
-.hamburger {
-    display: inline-block;
-    float:left;
-}
+/* hidding menu when screen is bigger than ipad */
 
+ .hamburger {
+    display: none;
+    }
 
 /* color of menu text */
 
@@ -496,6 +496,15 @@ vertical-align: center;
 /* Responsive navigation */
 
 @media (max-width: 767px) {
+
+
+/* displaying menu when screen is smaller than ipad */
+
+    .hamburger {
+    display: inline-block;
+    float:left;
+    margin-right: 10px;
+    }
 
     .menu-right{
         display: block;
@@ -586,11 +595,9 @@ vertical-align: center;
         padding-top: 0px;
     }
 
-    
     .primary-navigation #nav-spy {
         float: none;
     }
-
 
     }  
 
