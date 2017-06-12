@@ -146,7 +146,19 @@
 
                 </div><!--end nav-wrap -->
 
-                <!--Beginning search -->
+                <!--Beginning A propos -->
+
+                <div class="search-website"> 
+
+                    <div class="icon">
+
+                        <img src="http://localhost/current/wp-content/uploads/2017/06/search.png" height="22" width="22" class="search-icon" alt="Search-icon">
+                    
+                    </div>   
+                    
+                </div>   
+
+                <!--End A propos -->
 
                 <div class="search-website"> 
 

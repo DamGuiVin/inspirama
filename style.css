@@ -364,6 +364,110 @@ header.full-width-container-category {
     text-align: center;
 }
 
+/* =Primary navigation = Menu elements Header.php
+-------------------------------------------------------------- */
+
+.nav-wrap {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+ul {
+    margin: none;
+    list-style: none;
+}
+
+nav.primary-navigation ul li {
+    display: inline-block;
+    width: 120px;
+    text-align: center;
+    padding : 14px 0px 14px 0px ;
+    background-color:white;
+    margin: 0 0 0 0 ;
+}
+
+
+nav.primary-navigation ul li a:hover {
+    background-color:#99B6E0;
+    padding: 15px 0px 16px 0px;
+    margin: -15px 0 -16px 0;
+}
+
+/* current and active states on menu */
+
+nav.primary-navigation .current-menu-item a {
+    background-color: #99B6E0;
+    padding: 15px 0px 16px 0px;
+    margin: -15px 0 -16px 0;
+}
+
+nav.primary-navigation .navbar-nav > .active > a, 
+nav.primary-navigation .navbar-nav > .active > a:hover, 
+nav.primary-navigation .navbar-nav > .active > a:focus {
+    color: black;
+}
+
+/* hover on menu */
+
+nav.primary-navigation .nav > li > a:hover, 
+nav.primary-navigation .nav > li > a:focus,
+nav.primary-navigation .nav > li > a:active {
+    background-color: #99b6e0;
+}
+
+
+/* dropdown */
+
+.navbar-nav > .open > a,
+.navbar-nav > .open > a:hover, 
+.navbar-nav > .open > a:focus {
+    background: none;
+    color: #000;
+    border-color: transparent;
+    border: none;
+}
+
+.dropdown-menu {
+}
+
+/* Navbar toggle and header */
+
+/* Menu hamburger */
+
+.navbar-toggle {
+    padding: 0;
+    margin: 0 0 0 0;
+    background: none;
+    background-color: pink;
+    border: none;
+    font-size: 30px;
+    color: #000;
+    position: absolute;
+    top: 50%;
+    right: 200px;
+}
+
+nav.primary-navigation .navbar-header {
+    border: 0;
+}
+
+nav  {
+    border-bottom: 5px black;
+    height: 48px;
+    position: fixed;
+}
+
+.primary-navigation #nav-spy {
+    height:48px;
+    float: none;
+}
+
+/* couleur du texte du menu */
+
+nav.primary-navigation ul li a {
+    color: black;
+}
+
 
 /* Person Page Template template-person.php
 -------------------------------------------------------------- */
@@ -506,7 +610,7 @@ padding: 0;
 
 
 .search-form {
-    max-width: 200px;
+    min-width: 170px;
     height: 30px;
 }
 
@@ -570,104 +674,6 @@ input[type="text"]:focus {
 
 }
 
-
-/* =Primary navigation = Menu elements
--------------------------------------------------------------- */
-
-.nav-wrap {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-ul {
-    margin: none;
-    list-style: none;
-}
-
-nav.primary-navigation ul li {
-    display: inline-block;
-    width: 120px;
-    text-align: center;
-    padding : 14px 0px 14px 0px ;
-    background-color:white;
-    margin: 0 0 0 0 ;
-}
-
-
-nav.primary-navigation ul li a:hover {
-    background-color:#99B6E0;
-    padding: 15px 0px 16px 0px;
-    margin: -15px 0 -16px 0;
-}
-
-/* current and active states on menu */
-
-nav.primary-navigation .current-menu-item a {
-    background-color: #99B6E0;
-    padding: 15px 0px 16px 0px;
-    margin: -15px 0 -16px 0;
-}
-
-nav.primary-navigation .navbar-nav > .active > a, 
-nav.primary-navigation .navbar-nav > .active > a:hover, 
-nav.primary-navigation .navbar-nav > .active > a:focus {
-    color: #000;
-}
-
-/* hover on menu */
-
-nav.primary-navigation .nav > li > a:hover, 
-nav.primary-navigation .nav > li > a:focus {
-    background-color: #99b6e0;
-}
-
-
-/* dropdown */
-
-.navbar-nav > .open > a,
-.navbar-nav > .open > a:hover, 
-.navbar-nav > .open > a:focus {
-    background: none;
-    color: #000;
-    border-color: transparent;
-    border: none;
-}
-
-.dropdown-menu {
-}
-
-/* Navbar toggle and header */
-
-/* Menu hamburger */
-
-.navbar-toggle {
-    padding: 0;
-    margin: 0 0 0 0;
-    background: none;
-    background-color: pink;
-    border: none;
-    font-size: 30px;
-    color: #000;
-    position: absolute;
-    top: 50%;
-    right: 200px;
-}
-
-nav.primary-navigation .navbar-header {
-    border: 0;
-}
-
-nav  {
-    border-bottom: 5px black;
-    height: 48px;
-    position: fixed;
-}
-
-
-.primary-navigation #nav-spy {
-    height:48px;
-    float: none;
-}
 
 /* Logo (centered and padding is added)
 -------------------------------------------------------------- */
