@@ -151,33 +151,33 @@
 
 
 
-                <div class="menu-right"> 
+                <ul class="menu-right"> 
 
                 <!--Beginning A propos -->
-                    <div class="top-menu">
+                    <li class="top-menu">
 
                         <a class="about" href="http://localhost/current/index.php/a-propos/">Qui sommes nous ?</a>
 
-                    </div>
+                    </li>
                 <!--End A propos -->
 
                 <!--Beginning Search -->
 
-                    <div class="icon">
+                    <li class="search-bar-menu">
 
-                        <img src="http://localhost/current/wp-content/uploads/2017/06/search.png" height="22" width="22" class="search-icon" alt="Search-icon">
-                    
-                    </div>   
+                            <img class="search-icon" src="http://localhost/current/wp-content/uploads/2017/06/search.png" height="24" width="24" class="search-icon" alt="Search-icon"> 
 
-                    <div class="search-form-menu">
+                        <span class="search-form-menu">
 
-                        <?php get_search_form(); ?> 
+                            <?php get_search_form(); ?> 
 
-                    </div>   
+                        </span> 
+
+                    </li>
 
                 <!--End search -->
 
-                </div>   
+                </ul>   
                     
 
             </div><!-- end .navbar-collapse #nav-spy -->

@@ -394,7 +394,8 @@ nav.primary-navigation ul li a:hover {
 /* current and active states on menu */
 
 nav.primary-navigation .current-menu-item a {
-    background-color: #99B6E0;
+    background-color: white;
+    text-decoration: bold;
     padding: 15px 0px 16px 0px;
     margin: -15px 0 -16px 0;
 }
@@ -407,9 +408,7 @@ nav.primary-navigation .navbar-nav > .active > a:focus {
 
 /* hover on menu */
 
-nav.primary-navigation .nav > li > a:hover, 
-nav.primary-navigation .nav > li > a:focus,
-nav.primary-navigation .nav > li > a:active {
+nav.primary-navigation .nav > li > a:hover {
     background-color: #99b6e0;
 }
 
@@ -423,9 +422,6 @@ nav.primary-navigation .nav > li > a:active {
     color: #000;
     border-color: transparent;
     border: none;
-}
-
-.dropdown-menu {
 }
 
 /* Navbar toggle and header */
@@ -497,6 +493,104 @@ height: 30px;
 vertical-align: center;
 }
 
+/* Responsive navigation */
+
+@media (max-width: 767px) {
+
+    .menu-right{
+        display: block;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    .about{
+        padding: 10px;
+    }
+
+    .search-bar-menu{
+        width: 250px;
+    }
+
+    .search-form-menu {
+        display: block;
+        margin: 8px;
+        width: 100%;
+    }
+
+    .search-icon{
+        padding-left: 10px;
+    }
+
+    .search-form{
+        width: 100px;
+    }
+
+    .top-menu {
+        display: block;
+        width:300px;
+        padding: 15px 0 15px 0;
+        margin: 15px 0 15px 0;
+    }
+
+
+    nav.primary-navigation ul {
+        float: none;
+        margin-top: 0px;
+        padding-top: 0px;
+    }
+
+    nav.primary-navigation ul li {
+        display: block;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        border-bottom: 0.5px solid grey;
+        height: 46px;
+        padding : 2px 0 2px 0;
+        background-color:white;
+    }
+
+    
+    nav.primary-navigation ul li a:hover {
+        background-color: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav.primary-navigation .current-menu-item a {
+        background-color: none;
+        padding: 0;
+        margin: 0;
+    }
+
+
+    nav.primary-navigation .navbar-nav > .active > a, 
+    nav.primary-navigation .navbar-nav > .active > a:hover, 
+    nav.primary-navigation .navbar-nav > .active > a:focus {
+        color: black;
+        background-color: none;
+    }
+
+
+    nav.primary-navigation .nav > li > a:hover, 
+    nav.primary-navigation .nav > li > a:focus,
+    nav.primary-navigation .nav > li > a:active {
+        background-color: none;
+    }
+
+    .primary-navigation .navbar-collapse {
+        padding: 0;
+    }
+
+    
+
+    .primary-navigation #nav-spy {
+        float: none;
+    }
+
+    }  
 
 /* Person Page Template template-person.php
 -------------------------------------------------------------- */
@@ -662,8 +756,9 @@ padding: 12px 0 0 0;
 margin: 0;
 }
 
-.icon{
+.search-icon{
 display: inline-block;
+margin: 0 1px 0 0;
 }
 
 .search-form-menu{
