@@ -541,12 +541,13 @@ vertical-align: center;
     }
 
     nav.primary-navigation ul li {
+        overflow: hidden;
         display: block;
         display: flex;
         align-items: center;
+        border-top: 0.1px solid black;
         text-align: center;
         width: 100%;
-        border-top: 1px solid black;
         height: 46px;
         padding : 2px 0 2px 0;
         background-color:white;
@@ -561,7 +562,7 @@ vertical-align: center;
 
     nav.primary-navigation .current-menu-item a {
         background-color: white;
-        padding: 0;
+        padding: 0 0 0 15px;
         margin: 0;
         text-decoration: bold;
     }
@@ -589,10 +590,7 @@ vertical-align: center;
     .primary-navigation #nav-spy {
         float: none;
     }
-    
-    .navbar-collapse {
-    overflow-y: hidden;
-    }
+
 
     }  
 
