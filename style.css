@@ -443,7 +443,7 @@ nav.primary-navigation .navbar-header {
     border: 0;
     margin: 0;
     padding: 0;
-    height: 60px;
+    height: 48px;
 }
 
 nav  {
@@ -523,7 +523,7 @@ vertical-align: center;
     }
 
     .search-form{
-        width: 100px;
+        width: 50px;
     }
 
     .top-menu {
@@ -546,7 +546,7 @@ vertical-align: center;
         align-items: center;
         text-align: center;
         width: 100%;
-        border-bottom: 0.5px solid grey;
+        border-top: 1px solid black;
         height: 46px;
         padding : 2px 0 2px 0;
         background-color:white;
@@ -554,15 +554,16 @@ vertical-align: center;
 
     
     nav.primary-navigation ul li a:hover {
-        background-color: none;
+        background-color: white;
         padding: 0;
         margin: 0;
     }
 
     nav.primary-navigation .current-menu-item a {
-        background-color: none;
+        background-color: white;
         padding: 0;
         margin: 0;
+        text-decoration: bold;
     }
 
 
@@ -570,24 +571,27 @@ vertical-align: center;
     nav.primary-navigation .navbar-nav > .active > a:hover, 
     nav.primary-navigation .navbar-nav > .active > a:focus {
         color: black;
-        background-color: none;
+        background-color: white;
     }
 
 
     nav.primary-navigation .nav > li > a:hover, 
     nav.primary-navigation .nav > li > a:focus,
     nav.primary-navigation .nav > li > a:active {
-        background-color: none;
+        background-color: white;
     }
 
     .primary-navigation .navbar-collapse {
-        padding: 0;
+        padding-top: 0px;
     }
 
     
-
     .primary-navigation #nav-spy {
         float: none;
+    }
+    
+    .navbar-collapse {
+    overflow-y: hidden;
     }
 
     }  
