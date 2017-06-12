@@ -152,7 +152,7 @@
 
                     <div class="icon">
 
-                        <i class="fa fa-search"></i>
+                        <img src="http://localhost/current/wp-content/uploads/2017/06/search.png" height="22" width="22" class="search-icon" alt="Search-icon">
                     
                     </div>   
 
