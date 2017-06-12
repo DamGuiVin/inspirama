@@ -560,6 +560,16 @@ nav.primary-navigation ul li.top-menu{
 
 /* displaying menu when screen is smaller than ipad */
 
+    nav.primary-navigation ul li.top-menu{
+        display: block;
+        vertical-align: center;
+    }
+
+    nav.primary-navigation ul li.search-bar-menu{
+        display: block;
+        vertical-align: center;
+    }
+    
     .hamburger {
     display: inline-block;
     float:left;
