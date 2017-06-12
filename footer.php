@@ -16,7 +16,7 @@
                     <div id="widget-area" class="widget-area col-md-4">
                         <img src="http://localhost/current/wp-content/uploads/2017/06/mail1.png" height="50" width="50" class="mail-icon" alt="Mail">
                             <br>
-                            <h5> contact@yeswekant.com </h5>
+                            <h5> Une remarque, un commentaire ? <br> contact@yeswekant.com </h5>
                         <?php dynamic_sidebar( 'footer-widget' ); ?>
                     </div><!-- .widget-area -->
 

@@ -248,7 +248,7 @@ footer.container{
 
 @media (max-width: 1024px) {
 .fat-footer{
- max-height: 350px;
+ min-height: 380px;
 }
 }
 
@@ -257,12 +257,13 @@ footer.container{
 footer.full-width-container {
 }
 .fat-footer{
- max-height: 360px;
+ min-height: 390px;
 }
 
 }
 
-footer.h5{
+h5 {
+    line-height: 2em;
     padding: 0;
     margin: 0;
 }
@@ -675,7 +676,7 @@ nav  {
 .logo-uploaded, 
 .footer-logo-uploaded, 
 .logo-text {
-     padding:5px;
+     padding: 8px 0 12px 0;
      display: inline-block;
      vertical-align: center;
 }
