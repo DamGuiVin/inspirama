@@ -539,10 +539,28 @@ nav.primary-navigation ul li.top-menu{
 @media (max-width: 1024px) {
 
     .hamburger {
-    display: inline-block;
-    float:left;
-    margin-right: 10px;
+    display: none;
     }
+
+    nav.primary-navigation ul li.top-menu {
+    display: none;
+    }
+
+    .search-bar-menu{
+    display: inline-block;
+    width: 80px;
+    }
+
+    .search-form-menu{
+    display: inline-block;
+    width: 80px;
+    }
+
+
+    .search-form{
+    width: 20px;
+    }
+
 
             }
 
