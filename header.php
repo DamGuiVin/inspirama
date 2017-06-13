@@ -68,9 +68,19 @@
 
         <div class="container">
 
-
-
             <div class="navbar-header">
+
+                <div class="hamburger">
+
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+
+                        <span class="menu-text sr-only"><?php _e('Menu', 'oren'); ?></span>
+
+                        <span class="fa fa-bars"></span>
+
+                    </button>
+
+                </div>
 
                 <?php if ( get_theme_mod( 'themeora-img-upload-logo' ) ) { ?>
 
@@ -92,15 +102,6 @@
 
                 <?php endif; ?>
 
-                    
-
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-
-                    <span class="menu-text sr-only"><?php _e('Menu', 'oren'); ?></span>
-
-                    <span class="fa fa-bars"></span>
-
-                </button>
 
             </div><!-- end navbar-header -->
 
@@ -146,23 +147,41 @@
 
                 </div><!--end nav-wrap -->
 
-                <!--Beginning search -->
 
-                <div class="search-website"> 
+                <ul class="menu-right"> 
 
-                    <div class="icon">
+                <!--Beginning A propos -->
+                    <li class="top-menu">
 
-                        <i class="fa fa-search"></i>
+                        <a class="about" href="http://localhost/current/index.php/a-propos/">Qui sommes nous ?</a>
+
+                    </li>
+                <!--End A propos -->
+
+                <!--Beginning Search -->
+
+                    <li class="search-bar-menu">
+
+                        <img class="search-icon" src="http://localhost/current/wp-content/uploads/2017/06/search.png" height="24" width="24" class="search-icon" alt="Search-icon"> 
+             
+                        <div class="search-form-menu">
+
+                            <?php get_search_form(); ?> 
+
+                        </div> 
+
+                    </li>
+
+                <!--End search -->
+
+                </ul>   
                     
-                    </div>   
 
-                    <div class="search-form-menu">
 
-                        <?php get_search_form(); ?> 
 
-                    </div>   
-                    
-                </div>   <!--End search -->
+
+
+
 
             </div><!-- end .navbar-collapse #nav-spy -->
 

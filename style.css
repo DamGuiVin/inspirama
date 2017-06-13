@@ -104,7 +104,7 @@ header.welcome-screen h2 {
 
 }
 
-/* Texte qui apparait sur les images de portofolio*/
+/* Texte qui apparait sur les images de portfolio*/
 
 .portfolio-details .details-person-name {
 
@@ -156,8 +156,6 @@ header.welcome-screen h2 {
 	padding:0;
 
 }
-
-
 
 .img-adapt:hover {
     animation-name: fade;
@@ -225,7 +223,7 @@ from {opacity: 1;} to {opacity: 0.5;}
 
 }
 
-#widget-area li :hover {
+#widget-area li:hover {
 
 	text-decoration:none;
 
@@ -257,13 +255,12 @@ footer.container{
 footer.full-width-container {
 }
 .fat-footer{
- min-height: 390px;
+ min-height: 440px;
 }
 
 }
 
 h5 {
-    line-height: 2em;
     padding: 0;
     margin: 0;
 }
@@ -365,6 +362,310 @@ header.full-width-container-category {
     text-align: center;
 }
 
+/* =Primary navigation = Menu elements Header.php
+-------------------------------------------------------------- */
+
+.nav-wrap {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+ul {
+    margin: none;
+    list-style: none;
+}
+
+nav.primary-navigation ul li {
+    display: inline-block;
+    width: 120px;
+    text-align: center;
+    padding : 14px 0px 14px 0px ;
+    background-color:white;
+    margin: 0;
+}
+
+/* 
+nav.primary-navigation ul li a:hover {
+    background-color:#99B6E0;
+}
+*/
+
+/* current and active states on menu */
+
+nav.primary-navigation .current-menu-item a {
+    background-color: white;
+    text-decoration: bold;
+    padding: 15px 0px 16px 0px;
+    margin: -15px 0 -16px 0;
+}
+
+nav.primary-navigation .navbar-nav > .active > a, 
+nav.primary-navigation .navbar-nav > .active > a:hover, 
+nav.primary-navigation .navbar-nav > .active > a:focus {
+    color: black;
+}
+
+/* hover on menu */
+
+nav.primary-navigation .nav > li > a:hover {
+    background-color: #99b6e0;
+    padding: 15px 0 16px 0;
+    margin: -15px 0 -16px 0;
+}
+
+
+/* dropdown */
+
+.navbar-nav > .open > a,
+.navbar-nav > .open > a:hover, 
+.navbar-nav > .open > a:focus {
+    background: none;
+    color: #000;
+    border-color: transparent;
+    border: none;
+}
+
+/* Navbar toggle and header */
+
+/* Menu hamburger */
+
+.navbar-toggle {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: none;
+    font-size: 30px;
+    color: #000;
+    display: inline-block;
+    float: right;
+}
+
+nav.primary-navigation .navbar-header {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    height: 48px;
+}
+
+nav  {
+    height: 48px;
+    position: fixed;
+}
+
+.primary-navigation #nav-spy {
+    height:48px;
+    float: none;
+}
+
+.site-description {
+    font-size: 6px;
+    line-height: 4px;
+    max-width: 50px;
+    margin: 0;
+}
+
+button.navbar-toggle {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/* hidding menu when screen is bigger than ipad */
+
+ .hamburger {
+    display: none;
+    }
+
+/* color of menu text */
+
+nav.primary-navigation ul li a {
+    color: black;
+}
+
+/* About page in top menu */
+
+nav.primary-navigation ul li.search-bar-menu{
+        display: inline-block;
+        padding: 0;
+        float: right;
+        width: 240px;
+        text-align: center;
+        vertical-align: center;
+        padding : 10px 0px 10px 0px ;
+}
+
+nav.primary-navigation ul li.search-bar-menu:hover {
+background-color: none;
+padding : 10px 0px 10px 0px ;
+}
+
+nav.primary-navigation ul li.top-menu{
+        display: inline-block;
+        float: right;
+        vertical-align: center;
+        width: 120px;
+        padding : 13px 0px 13px 0px ;
+}
+
+.about:hover{
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* About page in top menu */
+
+.menu-right{
+        display: inline-block;
+        float: right;
+        vertical-align: center;
+        width:400px;
+        padding: 0;
+        margin: 0;
+        border: 0;
+    }
+
+.menu-categories{
+        display: inline-block;
+        float: left;
+    }
+
+
+/* Responsive navigation */
+
+
+/* ipad */
+
+@media (max-width: 1024px) {
+
+    .hamburger {
+    display: inline-block;
+    float:left;
+    margin-right: 10px;
+    }
+
+            }
+
+/* Phones */
+
+
+@media (max-width: 767px) {
+
+
+/* displaying menu when screen is smaller than ipad */
+    
+    nav.primary-navigation ul li.top-menu{
+        display: block;
+        width: 100%;
+        text-align: left;
+    }
+
+    nav.primary-navigation ul li.top-menu:hover{
+        padding-left: -30px;
+        margin-left: -15px;
+    }
+
+    nav.primary-navigation ul li.search-bar-menu,
+    nav.primary-navigation ul li.search-bar-menu:hover{
+        display: block;
+        vertical-align: center;
+        text-align: left;
+        padding: 2px 0 6px 0;
+        margin: auto;
+        width: 100%;
+    }
+    
+    .hamburger {
+    display: inline-block;
+    float:left;
+    margin-right: 10px;
+    }
+
+    .menu-right{
+        display: block;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    .search-bar-menu{
+        width: 250px;
+    }
+
+    .search-form-menu {
+        display: block;
+        margin: 8px;
+        width: 100%;
+    }
+
+    .search-icon{
+        display: block;
+        padding-left: 10px;
+    }
+
+    .search-form{
+        width: 100px;
+    }
+
+    .search-form:hover{
+        padding:0;
+        margin:0;
+        border:0;
+    }
+
+    nav.primary-navigation ul {
+        float: none;
+        margin-top: 0px;
+        padding-top: 0px;
+    }
+
+    nav.primary-navigation ul li {
+        overflow: hidden;
+        display: block;
+        display: flex;
+        align-items: center;
+        border-top: 0.1px solid black;
+        text-align: center;
+        width: 100%;
+        height: 46px;
+        padding : 2px 0 2px 0;
+        background-color:white;
+    }
+
+    nav.primary-navigation ul li a:hover {
+        background-color: white;
+    }
+
+    /* menu item that is selected */
+
+    nav.primary-navigation .current-menu-item a {
+        background-color: white;
+        padding-left: 15px;
+        text-decoration: bold;
+    }
+
+    /* hover in responsive menu */
+
+    nav.primary-navigation .navbar-nav > .active > a, 
+    nav.primary-navigation .navbar-nav > .active > a:hover, 
+    nav.primary-navigation .navbar-nav > .active > a:focus,
+    nav.primary-navigation .nav > li > a:hover, 
+    nav.primary-navigation .nav > li > a:focus,
+    nav.primary-navigation .nav > li > a:active {
+        padding-left: 15px;
+        background-color: white;
+        text-decoration: bold;
+    }
+
+    .primary-navigation .navbar-collapse {
+        padding-top: 0px;
+    }
+
+    .primary-navigation #nav-spy {
+        float: none;
+    }
+
+    }  
 
 /* Person Page Template template-person.php
 -------------------------------------------------------------- */
@@ -507,7 +808,7 @@ padding: 0;
 
 
 .search-form {
-    max-width: 200px;
+    width: 160px;
     height: 30px;
 }
 
@@ -521,27 +822,21 @@ padding: 0;
 margin: 0;
 }
 
-.search-website {
-background-color: white;
+.search-icon{
 display: inline-block;
-vertical-align: center;
-float: right;
-padding: 10px 0 0 0;
-margin: 0;
-}
-
-.icon{
-display: inline-block;
+margin: 0 1px 0 0;
 }
 
 .search-form-menu{
 display: inline-block;
-max-height: 30px;
-max-width: 100px;
+height: 30px;
+padding:0;
+width: 160px;
 }
 
 input[type="text"] {
     text-indent: 10px;
+    color: black;
     padding: 0;
     border: 2px solid #99B6E0;
     border-radius: 20px;
@@ -572,102 +867,25 @@ input[type="text"]:focus {
 }
 
 
-/* =Primary navigation = Menu elements
+/* Placeholders
 -------------------------------------------------------------- */
 
-.nav-wrap {
-    display: inline-block;
-    vertical-align: middle;
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:     #1f1a14;
 }
-
-ul {
-    margin: none;
-    list-style: none;
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #1f1a14;
+   opacity:  1;
 }
-
-nav.primary-navigation ul li {
-    display: inline-block;
-    width: 120px;
-    text-align: center;
-    padding : 14px 0px 14px 0px ;
-    background-color:white;
-    margin: 0 0 0 0 ;
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #1f1a14;
+   opacity:  1;
 }
-
-
-nav.primary-navigation ul li a:hover {
-    background-color:#99B6E0;
-    padding: 15px 0px 16px 0px;
-    margin: -15px 0 -16px 0;
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #1f1a14;
 }
-
-/* current and active states on menu */
-
-nav.primary-navigation .current-menu-item a {
-    background-color: #99B6E0;
-    padding: 15px 0px 16px 0px;
-    margin: -15px 0 -16px 0;
-}
-
-nav.primary-navigation .navbar-nav > .active > a, 
-nav.primary-navigation .navbar-nav > .active > a:hover, 
-nav.primary-navigation .navbar-nav > .active > a:focus {
-    color: #000;
-}
-
-/* hover on menu */
-
-nav.primary-navigation .nav > li > a:hover, 
-nav.primary-navigation .nav > li > a:focus {
-    background-color: #99b6e0;
-}
-
-
-/* dropdown */
-
-.navbar-nav > .open > a,
-.navbar-nav > .open > a:hover, 
-.navbar-nav > .open > a:focus {
-    background: none;
-    color: #000;
-    border-color: transparent;
-    border: none;
-}
-
-.dropdown-menu {
-}
-
-/* Navbar toggle and header */
-
-/* Menu hamburger */
-
-.navbar-toggle {
-    padding: 0;
-    margin: 0 0 0 0;
-    background: none;
-    background-color: pink;
-    border: none;
-    font-size: 30px;
-    color: #000;
-    position: absolute;
-    top: 50%;
-    right: 200px;
-}
-
-nav.primary-navigation .navbar-header {
-    border: 0;
-}
-
-nav  {
-    border-bottom: 5px black;
-    height: 48px;
-    position: fixed;
-}
-
-
-.primary-navigation #nav-spy {
-    height:48px;
-    float: none;
+::-ms-input-placeholder { /* Microsoft Edge */
+   color:    #1f1a14;
 }
 
 /* Logo (centered and padding is added)
@@ -676,7 +894,7 @@ nav  {
 .logo-uploaded, 
 .footer-logo-uploaded, 
 .logo-text {
-     padding: 8px 0 12px 0;
+     padding: 8px 10px 12px 0;
      display: inline-block;
      vertical-align: center;
 }
@@ -748,6 +966,7 @@ a:hover  {
 }
 
 
+
 /* Animated cursor for text animation typed.js
 -------------------------------------------------------------- */
 
@@ -812,10 +1031,12 @@ text-align: center;
 padding: 10px;
 text-align: center;
 }
+
 .search-text {
 margin: 0px 15px 0px 15px;
 padding: 0px;
 }
+
 .result {
     margin-bottom: 0px;
     padding: 0px;
