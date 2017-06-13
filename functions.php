@@ -314,8 +314,6 @@ function display_book_meta_fields( $book_page ) {
     $book_priceminister_url = esc_html( get_post_meta( $book_id, 'priceminister_url', true ) );
     $book_momox_url = esc_html( get_post_meta( $book_id, 'momox_url', true ) );
     $book_recyclivre_url = esc_html( get_post_meta( $book_id, 'recyclivre_url', true ) );
-    $book_koober_url = esc_html( get_post_meta( $book_id, 'koober_url', true ) );
-    $book_audible_url = esc_html( get_post_meta( $book_id, 'audible_url', true ) );
     $book_ebook_url = esc_html( get_post_meta( $book_id, 'ebook_url', true ) );
     $book_gutenberg_url = esc_html( get_post_meta( $book_id, 'gutenberg_url', true ) );
 
@@ -365,14 +363,6 @@ function display_book_meta_fields( $book_page ) {
         <tr>
             <td style="width: 100%">Recyclivre</td>
             <td><input type="text" size="80" name="book_recyclivre_url" value="<?php echo $book_recyclivre_url; ?>" /></td>
-        </tr>
-        <tr>
-            <td style="width: 100%">Koober</td>
-            <td><input type="text" size="80" name="book_koober_url" value="<?php echo $book_koober_url; ?>" /></td>
-        </tr>
-        <tr>
-            <td style="width: 100%">Audible</td>
-            <td><input type="text" size="80" name="book_audible_url" value="<?php echo $book_audible_url; ?>" /></td>
         </tr>
         <tr>
             <td style="width: 100%">EBooks</td>
@@ -428,12 +418,6 @@ function add_book_meta_fields( $book_id, $book_page ) {
         }
         if ( isset( $_POST['book_recyclivre_url'] ) && $_POST['book_recyclivre_url'] != '' ) {
         update_post_meta( $book_id, 'recyclivre_url', $_POST['book_recyclivre_url'] );
-        }
-        if ( isset( $_POST['book_koober_url'] ) && $_POST['book_koober_url'] != '' ) {
-        update_post_meta( $book_id, 'koober_url', $_POST['book_koober_url'] );
-        }
-        if ( isset( $_POST['book_audible_url'] ) && $_POST['book_audible_url'] != '' ) {
-        update_post_meta( $book_id, 'audible_url', $_POST['book_audible_url'] );
         }
         if ( isset( $_POST['book_ebook_url'] ) && $_POST['book_ebook_url'] != '' ) {
         update_post_meta( $book_id, 'ebook_url', $_POST['book_ebook_url'] );

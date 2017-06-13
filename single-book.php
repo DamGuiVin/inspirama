@@ -30,8 +30,6 @@ $book_fnac_url = get_post_meta( $book_page_id, 'fnac_url', true );
 $book_priceminister_url = get_post_meta( $book_page_id, 'priceminister_url', true );
 $book_momox_url = get_post_meta( $book_page_id, 'momox_url', true );
 $book_recyclivre_url = get_post_meta( $book_page_id, 'recyclivre_url', true );
-$book_koober_url = get_post_meta( $book_page_id, 'koober_url', true );
-$book_audible_url = get_post_meta( $book_page_id, 'audible_url', true );
 $book_ebook_url = get_post_meta( $book_page_id, 'ebook_url', true );
 $book_gutenberg_url = get_post_meta( $book_page_id, 'gutenberg_url', true );
 
@@ -42,8 +40,6 @@ $book_fnac_logo = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Fna
 $book_priceminister_logo = "http://s1.e-monsite.com/2008/08/17/4595701price-jpg.jpg";
 $book_momox_logo = "https://yt3.ggpht.com/-nyc5Wd9JP_4/AAAAAAAAAAI/AAAAAAAAAAA/QOO8JLtm6sU/s900-c-k-no-mo-rj-c0xffffff/photo.jpg";
 $book_recyclivre_logo = "https://pbs.twimg.com/profile_images/672354416276709376/z0UYD0u8.png";
-$book_koober_logo = "https://startuponly.com/pp/146/661/324/b712b7816e2fac56_400.png";
-$book_audible_logo = "http://www.the-pinch.com/wp-content/uploads/2015/05/audible-logo-white-e1431335062444.gif";
 $book_ebook_logo = "https://p4.zdassets.com/hc/settings_assets/224308/200126145/sqZqwE6u9G4TuXyBYqS29Q-ebooks-com-logo-transparent.png";
 $book_gutenberg_logo = "http://www.gutenberg.org/pics/logo-144x144.png";
 
@@ -197,14 +193,6 @@ $wp_query = new WP_Query( $args );
 
                     if ( $book_recyclivre_url && $book_recyclivre_logo ) : ?>
                         <a href="<?php echo $book_recyclivre_url; ?>" title="RecycLivre"> <img src="<?php echo $book_recyclivre_logo; ?>" alt="" height="32" width="32"/> </a>
-                    <?php endif;
-
-                    if ( $book_koober_url && $book_koober_logo ) : ?>
-                        <a href="<?php echo $book_koober_url; ?>" title="Koober"> <img src="<?php echo $book_koober_logo; ?>" alt="" height="32" width="32"/> </a>
-                    <?php endif;
-
-                    if ( $book_audible_url && $book_audible_logo ) : ?>
-                        <a href="<?php echo $book_audible_url; ?>" title="Audible"> <img src="<?php echo $book_audible_logo; ?>" alt="" height="32" width="32"/> </a>
                     <?php endif;
 
                     if ( $book_ebook_url && $book_ebook_logo ) : ?>
