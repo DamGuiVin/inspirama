@@ -115,9 +115,7 @@ if ( $paged === 1 ) : ?>
             <div class="go-to-portfolio-link-container">
 
                 <div class="go-to-portfolio-link-button">
-
-                    Découvrir les personnalités
-                    <a href="#masonry-wrapper" class="scroll-down" address="true">
+                    <a href="#masonry-wrapper" class="scroll-try scroll-down" address="true">
                     </a>
 
                 </div>
@@ -228,7 +226,7 @@ if ( $wp_query->have_posts() ) : ?>
 
                                 <div class="details-person-name">
 
-                                    <h2 class="details-person-name"><?php echo $person_name; ?></h2>
+                                    <h2><?php echo $person_name; ?></h2>
 
                                 </div>
 
