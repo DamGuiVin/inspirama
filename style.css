@@ -82,9 +82,19 @@ header .full-width-container {
 	background-size: cover;
 }
 
-.title-homepage{
-    background-color: rgba(0, 0, 0, 0.8);
+#blur {
+  -webkit-filter: blur(10px); /* Chrome, Opera, etc. */
+  filter: url('blur.svg#blur'); /* Older FF and others - http://jordanhollinger.com/media/blur.svg */
+  filter: blur(10px); /* Firefox 35+, eventually all */
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 5px 20px 0px black;
     border-radius: 40px;
+}
+
+#blur, #search-blur {
+  background-image: url('/media/freelancer-desk.jpg');
+  background-repeat: no-repeat;
+  background-size: 1080px auto;
 }
 
 /* Titre principal NB: impossible de modifier la couleur, je ne sais pas pq.*/
