@@ -116,8 +116,8 @@ if ( $paged === 1 ) : ?>
 
                 <div class="go-to-portfolio-link-button">
 
-                    <p> Découvrir les personnalités </p>
-                    <a href="#masonry-wrapper" class="go-to-portfolio-link-button scroll-down">
+                    Découvrir les personnalités
+                    <a href="#masonry-wrapper" class="scroll-down" address="true">
                     </a>
 
                 </div>
