@@ -91,9 +91,7 @@ if ( $paged === 1 ) : ?>
 
                         <?php while ( have_posts() ) : the_post(); ?>
 
-                            <div id="search-blur"></div>
-
-                            <div id="blur">
+                            <div id="bg">
 
                                 <h1 class="title-homepage"><?php the_title(); ?><span class="element"></span><span class="typed-cursor"></span></h1>
 
