@@ -1,41 +1,16 @@
 /*
-
-
-
 Theme Name: oren_child
-
-
-
 Template: oren
-
-
-
 Author: toursidou
-
-
-
 Description: WP adaptation
-
-
-
 */
-
-
 
 /*
-
-
-
 @import url("../oren/style.css");
-
-
-
 */
 
-
-
-/* Person Page Template : modification de l'intro de la page personnalité GUILHEM 24.04.17*/
-
+/* Person Page Template
+-------------------------------------------------------------- */
 
 /* Bandeau du haut qui contient l'image et la description de la personne */
 
@@ -48,8 +23,6 @@ Description: WP adaptation
     box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.25);
 
 }
-
-
 
 
 
@@ -82,63 +55,59 @@ font-family: 'Source Sans Pro', sans-serif;
 }
 
 
-
-/* Person Page Template : fin de modification GUILHEM 20.04.17*/
-
-
-
-/* Contact page Template : modification du bandeau supérieur GUILHEM 26.04.17*/
-
-
+/* Contact page Template
+-------------------------------------------------------------- */
 
 /* bandeau du haut sur les pages template-contact */
 
 .welcome-screen {
 
     background-color : #829fd8;
-
 }
 
 
+/* Home Page Template template-home.php
+-------------------------------------------------------------- */
 
-/* Contact page Template : fin de modification du bandeau supérieur GUILHEM 26.04.17*/
-
-
-
-
-
-/* Home Page Template : modification de l'aspect. NB : Pour créer des images rondes il suffit de rajouter
-
+/* NB : Pour créer des images rondes il suffit de rajouter
 class img-circle au home Page template (fonctionnalité bootstrap)
-
-sinon j'ai créé la class "img-adapt" pour modifier les images des pages qui utilisent le Home Page Template GUILHEM 20.04.17*/
-
+sinon j'ai créé la class "img-adapt" pour modifier les images des pages qui utilisent le Home Page*/
 
 
 
 
 /* Bannière : Modif par Damien*/
 
-header.full-width-container {
+header .full-width-container {
 	background-size: cover;
 }
 
+#blur {
+  -webkit-filter: blur(10px); /* Chrome, Opera, etc. */
+  filter: url('blur.svg#blur'); /* Older FF and others - http://jordanhollinger.com/media/blur.svg */
+  filter: blur(10px); /* Firefox 35+, eventually all */
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 5px 20px 0px black;
+    border-radius: 40px;
+}
 
-
+#blur, #search-blur {
+  background-image: url('/media/freelancer-desk.jpg');
+  background-repeat: no-repeat;
+  background-size: 1080px auto;
+}
 
 /* Titre principal NB: impossible de modifier la couleur, je ne sais pas pq.*/
 
-header.welcome-screen h1 {
+header .welcome-screen h1 {
 
-    font-size: 1.5em;
+    font-size: 3em;
 
-    margin: 0px 0 0px 0;
+    margin: 0;
 
     font-family: 'Oswald';
 
 }
-
-
 
 /* Titre secondaire */
 
@@ -152,20 +121,20 @@ header.welcome-screen h2 {
 
 }
 
-
-
-/* Texte qui apparait sur les images de portofolio*/
+/* Texte qui apparait sur les images de portfolio*/
 
 .portfolio-details .details-person-name {
 
     height: 40%
-
-
 }
 
 .portfolio-details .details-person-name h2 {
 
 	font-family: 'Source Sans Pro', sans-serif;
+
+    color: black;
+
+    text-transform: uppercase;
 
 	vertical-align: center;
 
@@ -182,25 +151,46 @@ header.welcome-screen h2 {
 
     vertical-align: center;
 
-    height: 30%
+    height: 30%;
 
 }
+
+/* Text Découvrez les recommandations de lecture de : */
 
 
 .portfolio-details .details-person-invitation {
 
     font-family: 'Source Sans Pro', sans-serif;
 
-    font-style : italic;
-
     color: black;
 
     vertical-align: center;
 
-    height: 30%
+    text-decoration: bold;
+
+    border: 2px solid #99B6E0;
+
+    border-radius: 30px;
+
+    font-size: 14px;
 
 }
 
+.portfolio-details .details-person-invitation:hover{
+
+
+    box-shadow: 0 0 5px #99B6E0;
+
+}
+
+
+/* text size */
+
+.portfolio-details .details-person-invitation h4 {
+
+    font-size: 14px;
+
+}
 
 /* Image de portfolio */
 
@@ -210,37 +200,19 @@ header.welcome-screen h2 {
 
 }
 
-
-
 .img-adapt:hover {
-
-
-
     animation-name: fade;
-
-
-
     animation-duration: 0.5s;
-
-
-
     animation-fill-mode: forwards;
-
 }
 
-
-
 /* animation : effet de transparence */
-
-
 
 @keyframes fade {
 
 from {opacity: 1;} to {opacity: 0.5;}
 
 }
-
-
 
 /* Conteneur : du titre H1 au footer */
 
@@ -251,14 +223,6 @@ from {opacity: 1;} to {opacity: 0.5;}
 	padding: 0;
 
 }
-
-
-
-/* Home Page Template : modification de l'aspect. GUILHEM 20.04.17*/
-
-
-
-
 
 .masonry-item {
 
@@ -275,19 +239,9 @@ from {opacity: 1;} to {opacity: 0.5;}
 }
 
 
-
-
-
-
-
-/* Theme footer : menu du bas
-
-Je change le "customized widget" de menu vertical a menu horizontal + effets de style 
-
-GUILHEM 19.04.17*/
-
-
-
+/* Footer footer.php
+-------------------------------------------------------------- */
+/* NB : Ai changé le "customized widget" de menu vertical a menu horizontal + effets de style GUILHEM 19.04.17*/
 
 
 /* Menu du bas */
@@ -312,26 +266,50 @@ GUILHEM 19.04.17*/
 
 }
 
-
-
-#widget-area li :hover {
+#widget-area li:hover {
 
 	text-decoration:none;
 
 }
 
+footer.full-width-container {
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 10px 0 rgba(0, 0, 0, 0.25) inset;
+    padding: 20px 0 5px 0 ;
+}
+
+footer.container{
+    padding: 0 0 0 0;
+}
+
+.fat-footer{
+    max-height: 200px;
+    margin-bottom: 20px;
+}
 
 
-/* Theme footer : menu du bas Fin du changement*/
+@media (max-width: 1024px) {
+.fat-footer{
+ min-height: 380px;
+}
+}
 
+@media (max-width: 767px) {
 
+footer.full-width-container {
+}
+.fat-footer{
+ min-height: 440px;
+}
 
+}
 
+h5 {
+    padding: 0;
+    margin: 0;
+}
 
-
-
-/* HEADER and BANNER */
-
+/* Header & Banner header.php
+-------------------------------------------------------------- */
 
 /* Titre principal NB: impossible de modifier la couleur, je ne sais pas pq.*/
 
@@ -389,7 +367,6 @@ header.full-width-container-category {
 .welcome-container-home {
     padding-top: 12%;
     font-size: 1.3em;
-    font-color: white; 
     text-shadow: 1px 1px black;
     text-align: center;
 }
@@ -397,7 +374,6 @@ header.full-width-container-category {
 .welcome-container-category {
     padding-top: 5%;
     font-size: 1.3em;
-    font-color: white; 
     text-shadow: 1px 1px black;
     text-align: center;
 }
@@ -405,7 +381,7 @@ header.full-width-container-category {
 /* Container for the button to go to the portfolio of people on homepage and category pages */
 
 .go-to-portfolio-link-container {
-    padding-top: 15%;
+    padding-top: 50%;
     margin-right: 30%;
     margin-left: 30%;
     text-align: center;
@@ -413,38 +389,400 @@ header.full-width-container-category {
 
 /* Button to go to the portfolio of people on homepage and category pages */
 
-.go-to-portfolio-link-button a{
-    color: white;
-    text-align: center;
-}
-
-.go-to-portfolio-link-button div{
-    font-color: white; 
+.go-to-portfolio-link-button{
     text-shadow: 1px 1px black;
-    font-size: 1.3em;
-    font-family: 'Raleway';
-    text-decoration: none;
+    font-family: 'Oswald';
     text-align: center;
+    font-size: 1.1em;
 }
 
-/* Person Page Template - Mise en forme des livres : centrés + ombre + bonne taille + animation hover  20.04.17 GUILHEM 
+.go-to-portfolio-link-button:hover{
+    text-decoration: none;
+}
+
+.scroll-down {
+  opacity: 1;
+  -webkit-transition: all .5s ease-in 3s;
+  transition: all .5s ease-in 3s;
+}
+
+.scroll-down {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  margin-left: -16px;
+  display: block;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #FFF;
+  background-size: 14px auto;
+  border-radius: 50%;
+  z-index: 2;
+  -webkit-animation: bounce 2s infinite 2s;
+  animation: bounce 2s infinite 2s;
+  -webkit-transition: all .2s ease-in;
+  transition: all .2s ease-in;
+}
+
+.scroll-down:before {
+    position: absolute;
+    top: calc(50% - 8px);
+    left: calc(50% - 6px);
+    transform: rotate(-45deg);
+    display: block;
+    width: 12px;
+    height: 12px;
+    content: "";
+    border: 2px solid white;
+    border-width: 0px 0 2px 2px;
+}
+
+@keyframes bounce {
+  0%,
+  100%,
+  20%,
+  50%,
+  80% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+  40% {
+    -webkit-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+  60% {
+    -webkit-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
+}
+/* =Primary navigation = Menu elements Header.php
+-------------------------------------------------------------- */
+
+.nav-wrap {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+ul {
+    margin: none;
+    list-style: none;
+}
+
+nav.primary-navigation ul li {
+    display: inline-block;
+    width: 120px;
+    text-align: center;
+    padding : 14px 0px 14px 0px ;
+    background-color:white;
+    margin: 0;
+}
+
+/* current and active states on menu */
+
+nav.primary-navigation .current-menu-item a {
+    background-color: white;
+    text-decoration: bold;
+    padding: 15px 0px 16px 0px;
+    margin: -15px 0 -16px 0;
+}
+
+nav.primary-navigation .navbar-nav > .active > a, 
+nav.primary-navigation .navbar-nav > .active > a:hover, 
+nav.primary-navigation .navbar-nav > .active > a:focus {
+    color: black;
+}
+
+/* hover on menu */
+
+nav.primary-navigation .nav > li > a:hover {
+    background-color: #99b6e0;
+    padding: 15px 0 16px 0;
+    margin: -15px 0 -16px 0;
+}
 
 
+/* dropdown */
 
---> J'ai rajouté dans le Person Page Template, 
+.navbar-nav > .open > a,
+.navbar-nav > .open > a:hover, 
+.navbar-nav > .open > a:focus {
+    background: none;
+    color: #000;
+    border-color: transparent;
+    border: none;
+}
 
-la class portfolio-image-book et un div avant l'image pour 
+/* Navbar toggle and header */
 
-instaurer la classe button-effect (effet d'animation 
+/* Menu hamburger */
 
+.navbar-toggle {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: none;
+    font-size: 30px;
+    color: #000;
+    display: inline-block;
+    float: right;
+}
+
+nav.primary-navigation .navbar-header {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    height: 48px;
+}
+
+nav  {
+    height: 48px;
+    position: fixed;
+}
+
+.primary-navigation #nav-spy {
+    height:48px;
+    float: none;
+}
+
+.site-description {
+    font-size: 6px;
+    line-height: 4px;
+    max-width: 50px;
+    margin: 0;
+}
+
+button.navbar-toggle {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/* hidding menu when screen is bigger than ipad */
+
+ .hamburger {
+    display: none;
+    }
+
+/* color of menu text */
+
+nav.primary-navigation ul li a {
+    color: black;
+}
+
+/* About page in top menu */
+
+nav.primary-navigation ul li.search-bar-menu{
+        display: inline-block;
+        padding: 0;
+        float: right;
+        width: 240px;
+        text-align: center;
+        vertical-align: center;
+        padding : 10px 0px 10px 0px ;
+}
+
+nav.primary-navigation ul li.search-bar-menu:hover {
+background-color: none;
+padding : 10px 0px 10px 0px ;
+}
+
+nav.primary-navigation ul li.top-menu{
+        display: inline-block;
+        float: right;
+        vertical-align: center;
+        width: 120px;
+        padding : 13px 0px 13px 0px ;
+}
+
+.about:hover{
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* About page in top menu */
+
+.menu-right{
+        display: inline-block;
+        float: right;
+        vertical-align: center;
+        width:400px;
+        padding: 0;
+        margin: 0;
+        border: 0;
+    }
+
+.menu-categories{
+        display: inline-block;
+        float: left;
+    }
+
+
+/* Responsive navigation */
+
+
+/* ipad */
+
+@media (max-width: 1024px) {
+
+    .hamburger {
+    display: none;
+    }
+
+    nav.primary-navigation ul li.top-menu {
+    display: none;
+    }
+
+    .search-bar-menu{
+    display: inline-block;
+    width: 80px;
+    }
+
+    .search-form-menu{
+    display: inline-block;
+    width: 80px;
+    }
+
+
+    .search-form{
+    width: 20px;
+    }
+
+
+            }
+
+/* Phones */
+
+
+@media (max-width: 767px) {
+
+
+/* displaying menu when screen is smaller than ipad */
+    
+    nav.primary-navigation ul li.top-menu{
+        display: block;
+        width: 100%;
+        text-align: left;
+    }
+
+    nav.primary-navigation ul li.top-menu:hover{
+        padding-left: -30px;
+        margin-left: -15px;
+    }
+
+    nav.primary-navigation ul li.search-bar-menu,
+    nav.primary-navigation ul li.search-bar-menu:hover{
+        display: block;
+        vertical-align: center;
+        text-align: left;
+        padding: 2px 0 6px 0;
+        margin: auto;
+        width: 100%;
+    }
+    
+    .hamburger {
+    display: inline-block;
+    float:left;
+    margin-right: 10px;
+    }
+
+    .menu-right{
+        display: block;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    .search-bar-menu{
+        width: 250px;
+    }
+
+    .search-form-menu {
+        display: block;
+        margin: 8px;
+        width: 100%;
+    }
+
+    .search-icon{
+        display: block;
+        padding-left: 10px;
+    }
+
+    .search-form{
+        width: 100px;
+    }
+
+    .search-form:hover{
+        padding:0;
+        margin:0;
+        border:0;
+    }
+
+    nav.primary-navigation ul {
+        float: none;
+        margin-top: 0px;
+        padding-top: 0px;
+    }
+
+    nav.primary-navigation ul li {
+        overflow: hidden;
+        display: block;
+        display: flex;
+        align-items: center;
+        border-top: 0.1px solid black;
+        text-align: center;
+        width: 100%;
+        height: 46px;
+        padding : 2px 0 2px 0;
+        background-color:white;
+    }
+
+    nav.primary-navigation ul li a:hover {
+        background-color: white;
+    }
+
+    /* menu item that is selected */
+
+    nav.primary-navigation .current-menu-item a {
+        background-color: white;
+        padding-left: 15px;
+        text-decoration: bold;
+    }
+
+    /* hover in responsive menu */
+
+    nav.primary-navigation .navbar-nav > .active > a, 
+    nav.primary-navigation .navbar-nav > .active > a:hover, 
+    nav.primary-navigation .navbar-nav > .active > a:focus,
+    nav.primary-navigation .nav > li > a:hover, 
+    nav.primary-navigation .nav > li > a:focus,
+    nav.primary-navigation .nav > li > a:active {
+        padding-left: 15px;
+        background-color: white;
+        text-decoration: bold;
+    }
+
+    .primary-navigation .navbar-collapse {
+        padding-top: 0px;
+    }
+
+    .primary-navigation #nav-spy {
+        float: none;
+    }
+
+    }  
+
+/* Person Page Template template-person.php
+-------------------------------------------------------------- */
+
+/* NB : Mise en forme des livres : centrés + ombre + bonne taille + animation hover  20.04.17 GUILHEM 
+J'ai rajouté dans le Person Page Template, la class portfolio-image-book 
+et un div avant l'image pour instaurer la classe button-effect (effet d'animation 
 sur l'image) + j'ai changé la taille des images
-
-
-
 */
-
-
-
 
 
 /* image du livre */
@@ -490,7 +828,6 @@ sur l'image) + j'ai changé la taille des images
 /* animation : effet bouton sur le livre */
 
 
-
 @keyframes anim {
 
     from {transform: scale(1,1);}
@@ -498,9 +835,6 @@ sur l'image) + j'ai changé la taille des images
     to {transform: scale(0.95,0.95);}
 
 }
-
-
-
 
 
 .portfolio-image-book:hover {
@@ -516,7 +850,6 @@ sur l'image) + j'ai changé la taille des images
 }
 
 
-
 .button-effect:hover {
 
     animation-name: anim;
@@ -529,11 +862,10 @@ sur l'image) + j'ai changé la taille des images
 
 
 
-/* Person Page Template - Mise en forme des livres FIN du changement */
+/* Book Page Template template-book.php
+-------------------------------------------------------------- */
 
-/* Book Page Template */
-
-/* modification sur tous les customs fields */
+/* NB : modification sur tous les customs fields */
 
 .post-meta {
 
@@ -563,363 +895,169 @@ line-height: 120%;
 
 }
 
-
-/* Book Page Template - Mise en forme des livres FIN du changement */
-
-
-
 /* enlève la marge du haut */
 
 .full-width-container
 
 {
-padding: 0 0 0 0;
-margin : 0 0 0 0;
+padding: 0;
+margin : 0;
 }
 
 
-/* search box */
+
+/* Searchform searchform.php
+-------------------------------------------------------------- */
+
+.search-form input[type="text"] {
+margin: 0;
+padding: 0;
+}
+
 
 .search-form {
-    max-width: 200px;
-    height: 10px;
-    outline:none;
-}
-
-.search-form button {
-    position: absolute;
-    top: 7px;
-    right: 5px;
-    line-height: 15px;
-    padding: 10px 18px;
-}
-
-.search-form button i {
-    font-size: 14px;
+    width: 160px;
+    height: 30px;
 }
 
 .widget_search {
     padding: 0;
 }
 
-.search-form input[type="text"] {
-}
-
 input {
 outline: none;
-padding: 0 0 0 0;
-margin: 0 0 0 0;
+padding: 0;
+margin: 0;
 }
 
-.search-website {
-background-color: white;
+.search-icon{
 display: inline-block;
-vertical-align: center;
-float: right;
-padding: 10px 0 0 0;
-margin: 0 0 0 0;
-
-}
-
-.icon{
-display: inline-block;
+margin: 0 1px 0 0;
 }
 
 .search-form-menu{
 display: inline-block;
-}
-/* =Primary navigation MODIFS du 31 MAI 2017
--------------------------------------------------------------- */
-
-/* Sous menu
--------------------------------------------------------------- */
-
-.nav-wrap {
-    display: inline-block;
-    vertical-align: middle;
+height: 30px;
+padding:0;
+width: 160px;
 }
 
-/* Éléments de liste du menu
--------------------------------------------------------------- */
-
-nav.
-
-
-ul {
-    margin: none;
-    list-style: none;
-}
-
-@media screen and ( max-width:760px ) {
-    nav.primary-navigation ul {
-        margin-top: 20px;
-    }
-}
-
-nav.primary-navigation ul li {
-    display: inline-block;
-    width: 120px;
-    text-align: center;
-    padding : 14px 0px 14px 0px ;
-    background-color:white;
-    margin: 0 0 0 0 ;
-}
-
-
-nav.primary-navigation ul li a:hover {
-    background-color:#99B6E0;
-    padding: 15px 0px 16px 0px;
-    margin: -15px 0 -16px 0;
-}
-
-/* current and active states */
-
-nav.primary-navigation .current-menu-item a {
-    background-color: #99B6E0;
-    padding: 15px 0px 16px 0px;
-    margin: -15px 0 -16px 0;
-}
-
-nav.primary-navigation .navbar-nav > .active > a, 
-nav.primary-navigation .navbar-nav > .active > a:hover, 
-nav.primary-navigation .navbar-nav > .active > a:focus {
-    color: #000;
-}
-
-/* quand on passe la souris sur le menu */
-
-nav.primary-navigation .nav > li > a:hover, 
-nav.primary-navigation .nav > li > a:focus {
-    background-color: #99b6e0;
-}
-
-@media screen and ( max-width:760px ) {
-    nav.primary-navigation .nav li a:hover, 
-    nav.primary-navigation .nav li a:focus {
-        color: #000;
-    }
-}
-
-@media screen and ( max-width:760px ) {
-   
-    .navbar-nav .open .dropdown-menu > li > a {
-        padding: 10px 17px;
-        
-    }
-}
-
-nav.primary-navigation .nav > li.open > a.dropdown:hover, 
-nav.primary-navigation .nav > li.open > a.dropdown:focus {
-    border-color: transparent !important;
-}
-
-nav.primary-navigation ul li a {
-    color: #8c8c8c;
+input[type="text"] {
+    text-indent: 10px;
+    color: black;
     padding: 0;
+    border: 2px solid #99B6E0;
+    border-radius: 20px;
 }
 
-nav.primary-navigation .nav .caret {
-    margin-left: 8px;
-}
-
-/* dropdown */
-
-.navbar-nav > .open > a, 
-.
-navbar-nav > .open > a:hover, 
-.navbar-nav > .open > a:focus {
-    background: none;
-    color: #000;
-    border-color: transparent;
-    border: none;
-}
-
-.dropdown-menu {
-    box-shadow: none;
-    font-size: inherit;
-    border: none;
-    border-radius: 0;
-    padding: 0;
-    top: 218%;
-}
-
-.dropdown-menu > li > a:hover, 
-.dropdown-menu > li > a:focus {
-    background: none;
-    color: #000;
-    text-decoration: none;
-}
-
-nav.primary-navigation .dropdown-menu li {
-    display: block;
-    float: none;
-    margin: 0;
-}
-
-nav.primary-navigation .dropdown-menu li a {
-    padding: 10px 15px;
-    border: none;
+input[type="text"]:focus { 
+    outline: none;
+    border-color: #99B6E0;
+    box-shadow: 0 0 5px #99B6E0;
 }
 
 
+/* No search results */
 
-nav.primary-navigation .dropdown-menu li a:hover {
-    border: none;
-    text-decoration: none;
-}
+.search-no-results .search-form {
 
-.navbar .nav > li > .dropdown-menu::before {
-  position: absolute;
-  top: -7px;
-  left: 9px;
-  display: inline-block;
-  border: none;
-}
-
-.navbar .nav > li > .dropdown-menu::after {
-  position: absolute;
-  top: -6px;
-  left: 10px;
-  display: inline-block;
-  border: none;
-}
-
-/* Navbar toggle and header */
-
-/* Menu hamburger */
-
-.navbar-toggle {
-    padding: 0;
-    margin: 0 0 0 0;
-    background: none;
-    background-color: pink;
-    border: none;
-    font-size: 30px;
-    color: #000;
-    position: absolute;
-    top: 50%;
-    right: 200px;
-}
-
-nav.primary-navigation .navbar-header {
-    margin:0;
-    padding-right: 50px;
-    position: relative;
-    border: 0 0 0 0;
-}
-
-.menu-text {
-    text-transform: uppercase;
-    font-size: 18px;
-    margin-right: 6px;
-}
-
-nav  {
-    border-bottom: 5px black;
-    height: 48px;
-    position: fixed;
-}
-
-
-.primary-navigation #nav-spy {
-
-    height:48px;
-    float: none;
+    margin: auto;
 
 }
 
 
-.search-form input[type="text"] {
-margin: 0 0 0 0;
-padding: 0 0 0 0;
+.search-no-results .text-center {
+
+    margin-top: 46px;
+    padding-bottom: 20px;
+    margin-bottom: 46px;
+
 }
 
-/* =Logo
+
+/* Placeholders
 -------------------------------------------------------------- */
 
-/* =je centre le logo et j'y crée du padding
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:     #1f1a14;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #1f1a14;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #1f1a14;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #1f1a14;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color:    #1f1a14;
+}
+
+/* Logo (centered and padding is added)
 -------------------------------------------------------------- */
 
 .logo-uploaded, 
 .footer-logo-uploaded, 
 .logo-text {
-    -webkit-transition: opacity .2s;
-       -moz-transition: opacity .2s;
-        -ms-transition: opacity .2s;       
-         -o-transition: opacity .2s;
-         padding:10px;
-         display: inline-block;
-         vertical-align: center;
+     padding: 8px 10px 12px 0;
+     display: inline-block;
+     vertical-align: center;
 }
 
-.logo-uploaded:hover, 
-.footer-logo-uploaded:hover, 
-.logo-text:hover {
-    opacity: .4;
-}
 
-/* Modifications du footer     box-shadow: 0px 0px 10px 0px black inset;
+/* Footer changes
 -------------------------------------------------------------- */
 
 
-footer.full-width-container {
-    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 10px 0 rgba(0, 0, 0, 0.25) inset;
-    padding: 2em 0 100px 0 ;
-    max-height: 250px;
-}
-
-footer.container{
-
-    padding: 0 0 0 0;
-    max-height: 10px;
-}
-
-.news{
-    padding: 0 0 0 0;
-}
+/* Newsletter : space before the placeholder / glowing effect;
+-------------------------------------------------------------- */
 
 input[type="email"]{
     width: 200px;
+    text-indent: 10px;
     padding: 0 0 0 0;
-    border: 2px 2px 2px 2px;
-    border-color: black;
+    border: 2px solid #99B6E0;
+    border-radius: 20px;
 }
 
-.fa {
-margin: 0px 0 10px 0;
-    }
+input[type="email"]:focus{
+    outline: none;
+    border-color: #99B6E0;
+    box-shadow: 0 0 5px #99B6E0;
+}
 
-.fa-envelope {
-margin: 0px 0 10px 0;
-    }
+
+/* Newsletter : Button to register mail
+-------------------------------------------------------------- */
 
 input[type="submit"]{
-    border-top:         1px solid #99B6E0;
-    border-left:        1px solid #99B6E0;
-    border-right:       1px solid #99B6E0;
-    border-bottom:      1px solid #99B6E0;
+    border : 1px solid #99B6E0;
     background-color: #99B6E0;
     width: 110px;
-    padding:        5px 5px;
-    font-size:      14px;
-    font-style: black;
+    padding: 5px 5px;
+    font-size: 14px;
     font-weight: bold;
-    border-radius:2px;
+    border-radius:5px;
     color:white;
     }
 
-header.container{
-    background-color: black;
+.newsletter-icon{
+    padding-top : 5px;
+    padding-bottom : 5px;
     }
 
-.nav{
-    background-color: black;
+/* Font awesome Icons
+-------------------------------------------------------------- */
+
+.fa {
+margin: 0 0 10px 0;
     }
 
-#masonry-wrapper {
-padding-bottom: 30px;
-    }
-
+/* Turns off the greenish color on the links
+-------------------------------------------------------------- */
 
 a,
 
@@ -931,6 +1069,88 @@ a:focus,
 
 a:hover  {
 
-    color: grey;
+    color: black;
 
+}
+
+
+
+/* Animated cursor for text animation typed.js
+-------------------------------------------------------------- */
+
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
+
+/* Search Search.php
+-------------------------------------------------------------- */
+
+/* div containing search result*/
+
+.result {
+    margin-bottom: 20px;
+    padding: 5px;
+}
+
+/* search result image */
+
+.size-150x800 {
+    display: block;
+    margin: auto;
+}
+
+/* search result title */
+
+.search-title {
+margin: 0;
+padding: 0px 0px 10px 0px;
+}
+
+/* Responsive : padding search text */
+
+@media (max-width: 1024px) {
+.search-title {
+padding: 20px;
+text-align: center;
+}
+}
+
+@media (max-width: 767px) {
+.search-title {
+padding: 10px;
+text-align: center;
+}
+
+.search-text {
+margin: 0px 15px 0px 15px;
+padding: 0px;
+}
+
+.result {
+    margin-bottom: 0px;
+    padding: 0px;
+}
+.archive-title {
+    max-height: 150px;
+    min-height: 100px;
+}
 }

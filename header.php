@@ -7,6 +7,22 @@
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="http://localhost/current/wp-content/themes/oren_child/js/dist/typed.min.js"></script>
+    <script>
+
+        $(function(){
+          $(".element").typed({
+            strings: [" STEVE JOBS", " VLADIMIR POUTINE", " STALINE", " NICOLAS SARKOZY" ],
+            typeSpeed: 100,
+            backDelay: 1000,
+            loop: true
+          });
+        });
+    </script>
+
+    <style type="text/css"> html {scroll-behavior: smooth;} </style>
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
@@ -29,14 +45,34 @@
 
 
 <div class="page-wrapper" data-scroll-speed="500">
-    <!-- BEGIN NAV -->
+    
+  <!-- BEGIN NAV -->
+  
     <nav class="primary-navigation navbar" role="navigation">
         <div class="container">
-
-            <!-- Logo Section -->
+          
             <div class="navbar-header">
+
+                <div class="hamburger">
+
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+
+                        <span class="menu-text sr-only"><?php _e('Menu', 'oren'); ?></span>
+
+                        <span class="fa fa-bars"></span>
+
+                    </button>
+
+                </div>
+          
+                <!-- Logo Section -->
+
                 <?php if ( get_theme_mod( 'themeora-img-upload-logo' ) ) { ?>
-                    <a href="<?php echo home_url( '/' ); ?>">
+          
+                <!--End Logo Section -->
+
+                    <a href="<?php echo home_url( '#masonry-wrapper' ); ?>">
+
                         <img class="logo-uploaded" style="max-width:<?php echo esc_attr( get_theme_mod( 'themeora-img-upload-logo-width', '200' ) ); ?>px" src="<?php echo esc_url( get_theme_mod( 'themeora-img-upload-logo' ) );?>" alt="<?php the_title(); ?>" />
                     </a>
 
@@ -48,12 +84,7 @@
                     <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
                 <?php endif; ?>
 
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="menu-text sr-only"><?php _e('Menu', 'oren'); ?></span>
-                    <span class="fa fa-bars"></span>
-                </button>
-            </div>
-            <!-- End Logo Section -->
+            </div><!-- end navbar-header -->
 
             <div class="navbar-collapse collapse" id="nav-spy" style="padding: <?php echo esc_html( get_theme_mod('themeora-img-upload-logo-padding', '0') ) ?>px 0px;">
                 <!-- Navigation Menu -->
@@ -74,18 +105,36 @@
                     } ?>
                 </div>
                 <!--End Navigation Menu -->
+              
+                <ul class="menu-right"> 
 
-                <!--Beginning search -->
-                <div class="search-website"> 
-                    <div class="icon">
-                        <i class="fa fa-search"></i>                  
-                    </div>   
-                    <div class="search-form-menu">
-                        <?php get_search_form(); ?> 
-                    </div>                      
-                </div>
+                <!--Beginning A propos -->
+                    <li class="top-menu">
+
+                        <a class="about" href="http://localhost/current/index.php/a-propos/">Qui sommes nous ?</a>
+
+                    </li>
+                <!--End A propos -->
+
+                <!--Beginning Search -->
+
+                    <li class="search-bar-menu">
+
+                        <img class="search-icon" src="http://localhost/current/wp-content/uploads/2017/06/search.png" height="24" width="24" class="search-icon" alt="Search-icon"> 
+             
+                        <div class="search-form-menu">
+
+                            <?php get_search_form(); ?> 
+
+                        </div> 
+
+                    </li>
+
                 <!--End search -->
-            </div>
+
+                </ul>   
+                    
+            </div><!-- end .navbar-collapse #nav-spy -->
 
         </div>
     </nav>

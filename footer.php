@@ -1,42 +1,43 @@
 <footer class="full-width-container primary-footer">
     <div class="container">
-        <div class="row" >
+        <div class="row fat-footer" >
+            
             <div class="column1 col-md-4" > <!-- beginning column1-->
                     <a href="<?php echo home_url( '/' ); ?>">
-                    <img class="logo-uploaded" style="max-width:<?php echo esc_attr( get_theme_mod( 'themeora-img-upload-logo-width', '200' ) ); ?>px" src="<?php echo esc_url( get_theme_mod( 'themeora-img-upload-logo' ) );?>" alt="<?php the_title(); ?>" />
-                    </a>  
-                    <p></p>
-                    <p class="about"><label> Yeswekant.com est une librairie en ligne. Découvrez sur ce site les livres qui ont marqué les personnalités qui vous inspirent. </label></p>
+                        <img class="logo-uploaded" style="max-width:<?php echo esc_attr( get_theme_mod( 'themeora-img-upload-logo-width', '200' ) ); ?>px" src="<?php echo esc_url( get_theme_mod( 'themeora-img-upload-logo' ) );?>" alt="<?php the_title(); ?>" />
+                    </a>
+                    <br>
+                    <h5 class="about" style="strong"> Yeswekant.com est une librairie en ligne. Découvrez sur ce site les livres qui ont marqué les personnalités qui vous inspirent.</h5>
+            </div>
+
+            <div class="emailpage">
+                <?php if ( is_active_sidebar( 'footer-widget' ) ) : ?>
+                    
+                    <div id="widget-area" class="widget-area col-md-4">
+                        <img src="http://localhost/current/wp-content/uploads/2017/06/mail1.png" height="50" width="50" class="mail-icon" alt="Mail">
+                            <br>
+                            <h5> Une remarque, un commentaire ? <br><br> contact@yeswekant.com </h5>
+                        <?php dynamic_sidebar( 'footer-widget' ); ?>
+                    </div><!-- .widget-area -->
+
+            <?php endif; ?>
             </div>
             
-            <?php if ( is_active_sidebar( 'footer-widget' ) ) : ?>
-                <div id="widget-area" class="widget-area col-md-4">
-                <i class="fa fa-envelope fa-3x"></i> 
-                </br>
-                <p>
-                <label> Nous contacter </label>
-                </br>
-                Des remarques, des commentaires ?
-                contact@yeswekant.com
-                <?php dynamic_sidebar( 'footer-widget' ); ?>
-                </div><!-- .widget-area -->
-            <?php endif; ?>
             <div class="column3 col-md-4" > <!-- beginning column1-->
-                    <i class="fa fa-telegram fa-3x"></i> 
-                    </br>
-                    <p>
-                    <label>Toutes les semaines, de nouvelles recommendations :</label>
+                    <img src="http://localhost/current/wp-content/uploads/2017/06/paperplane1.png" height="40" width="40" class="newsletter-icon" alt="Mail">
+                    <br>
+                    <h5>Chaque semaine, je reçois les conseils d'une personnalité :</h5>
                     <input class="news" type="email" name="EMAIL" placeholder="Mon mail " required />
-                    </br>
+                    <br>
                     <input type="submit" value="Je m'inscris"/>
-                    </p>
             </div>
         
         </div><!-- end row -->
 
         <div >
-<p>© 2017 - YesWeKant | Home | Mentions légales | <a class="about" href="http://localhost/current/index.php/a-propos/">À propos</a> | Utilisation des cookies | Plan du site </p>
-            </div>
+            <hr>
+            <p>© 2017 - YesWeKant | <a class="about" href="http://localhost/current/index.php">Home</a> | <a class="about" href="http://localhost/current/index.php/contact/">Contact</a> | <a class="about" href="http://localhost/current/index.php/a-propos/">À propos</a></p>
+        </div>
         
         <?php if ( has_nav_menu( 'social_menu' ) ) : ?>
             <div class="row">
