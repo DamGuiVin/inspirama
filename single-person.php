@@ -83,9 +83,6 @@ $args = array(
 // Sending the WP_Query
 $wp_query = new WP_Query( $args );
 
-// Set the pagination variable to true if we have more than one page
-if ( $wp_query->max_num_pages > 1 ) $pagination = true;
-
 /*  Changement de la taille de l'image par Guilhem 
 Précédemment $img_size = 'themeora-portfolio-span-8' 
 maintenant ce sera $img_size = '( 200, 800, false )''
