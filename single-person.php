@@ -78,7 +78,7 @@ $args = array(
     'post_name__in ' => $slug_book_titles_array,
     'post_status' => 'publish',
     'posts_per_page' => $max_num_books_per_page,
-);
+    );
 
 // Sending the WP_Query
 $wp_query = new WP_Query( $args );
@@ -113,7 +113,9 @@ if ( $wp_query->have_posts() ) : ?>
         // The iterator will let us keep track of at which Book in the Recommendation array we are
         $iterator = 0;
 
-        while ( $wp_query->have_posts() ) : $wp_query->the_post();
+        while ( $wp_query->have_posts() ) : 
+
+            $wp_query->the_post();
 
             // Recover useful attributes from the Book
             $book_page_id = $wp_query->post->ID;
