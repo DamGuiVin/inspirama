@@ -20,7 +20,7 @@
 
         $(function(){
           $(".element").typed({
-            strings: ["recommandations", "découvertes", "lectures"],
+            strings: [" STEVE JOBS", " VLADIMIR POUTINE", " STALINE", " NICOLAS SARKOZY" ],
             typeSpeed: 100,
             backDelay: 1000,
             loop: true

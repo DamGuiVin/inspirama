@@ -66,7 +66,7 @@ font-family: 'Source Sans Pro', sans-serif;
 }
 
 
-/* Home Page Template
+/* Home Page Template template-home.php
 -------------------------------------------------------------- */
 
 /* NB : Pour créer des images rondes il suffit de rajouter
@@ -74,19 +74,30 @@ class img-circle au home Page template (fonctionnalité bootstrap)
 sinon j'ai créé la class "img-adapt" pour modifier les images des pages qui utilisent le Home Page*/
 
 
+
+
 /* Bannière : Modif par Damien*/
 
-header.full-width-container {
+header .full-width-container {
 	background-size: cover;
+}
+
+header .col-md-10 {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.title-homepage{
+    color: black;
+    font-color:black;
 }
 
 /* Titre principal NB: impossible de modifier la couleur, je ne sais pas pq.*/
 
-header.welcome-screen h1 {
+header .welcome-screen h1 {
 
-    font-size: 1.5em;
+    font-size: 3em;
 
-    margin: 0px 0 0px 0;
+    margin: 0;
 
     font-family: 'Oswald';
 
@@ -324,7 +335,6 @@ header.full-width-container-category {
 .welcome-container-home {
     padding-top: 12%;
     font-size: 1.3em;
-    font-color: white; 
     text-shadow: 1px 1px black;
     text-align: center;
 }
@@ -332,7 +342,6 @@ header.full-width-container-category {
 .welcome-container-category {
     padding-top: 5%;
     font-size: 1.3em;
-    font-color: white; 
     text-shadow: 1px 1px black;
     text-align: center;
 }
@@ -348,20 +357,75 @@ header.full-width-container-category {
 
 /* Button to go to the portfolio of people on homepage and category pages */
 
-.go-to-portfolio-link-button a{
-    color: white;
-    text-align: center;
-}
-
-.go-to-portfolio-link-button div{
-    font-color: white; 
+.go-to-portfolio-link-button{
     text-shadow: 1px 1px black;
-    font-size: 1.3em;
-    font-family: 'Raleway';
-    text-decoration: none;
+    font-family: 'Oswald';
     text-align: center;
+    font-size: 1.1em;
 }
 
+.go-to-portfolio-link-button:hover{
+    text-decoration: none;
+}
+
+.scroll-down {
+  opacity: 1;
+  -webkit-transition: all .5s ease-in 3s;
+  transition: all .5s ease-in 3s;
+}
+
+.scroll-down {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  margin-left: -16px;
+  display: block;
+  width: 32px;
+  height: 32px;
+  border: 2px solid #FFF;
+  background-size: 14px auto;
+  border-radius: 50%;
+  z-index: 2;
+  -webkit-animation: bounce 2s infinite 2s;
+  animation: bounce 2s infinite 2s;
+  -webkit-transition: all .2s ease-in;
+  transition: all .2s ease-in;
+}
+
+.scroll-down:before {
+    position: absolute;
+    top: calc(50% - 8px);
+    left: calc(50% - 6px);
+    transform: rotate(-45deg);
+    display: block;
+    width: 12px;
+    height: 12px;
+    content: "";
+    border: 2px solid white;
+    border-width: 0px 0 2px 2px;
+}
+
+@keyframes bounce {
+  0%,
+  100%,
+  20%,
+  50%,
+  80% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+  40% {
+    -webkit-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+  60% {
+    -webkit-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
+}
 /* =Primary navigation = Menu elements Header.php
 -------------------------------------------------------------- */
 
@@ -383,12 +447,6 @@ nav.primary-navigation ul li {
     background-color:white;
     margin: 0;
 }
-
-/* 
-nav.primary-navigation ul li a:hover {
-    background-color:#99B6E0;
-}
-*/
 
 /* current and active states on menu */
 

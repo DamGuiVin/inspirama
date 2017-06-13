@@ -91,7 +91,7 @@ if ( $paged === 1 ) : ?>
 
                         <?php while ( have_posts() ) : the_post(); ?>
 
-                            <h1 class=""><?php the_title(); ?></h1>
+                            <h1 class="title-homepage"><?php the_title(); ?><span class="element"></span><span class="typed-cursor"></span></h1>
 
                             <h2 class=""><?php the_content(); ?></h2>
 
@@ -116,16 +116,8 @@ if ( $paged === 1 ) : ?>
 
                 <div class="go-to-portfolio-link-button">
 
-                    <div class = "go-to-portfolio-link-button">
-
-                            Découvrir les personnalités
-
-                    </div>
-
-                    <a href="#masonry-wrapper" class="go-to-portfolio-link-button">
-                        
-                        <i class = "fa fa-chevron-down fa-4x"></i>
-
+                    <p> Découvrir les personnalités </p>
+                    <a href="#masonry-wrapper" class="go-to-portfolio-link-button scroll-down">
                     </a>
 
                 </div>
