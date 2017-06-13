@@ -122,6 +122,10 @@ header.welcome-screen h2 {
 
 	font-family: 'Source Sans Pro', sans-serif;
 
+    color: black;
+
+    text-transform: uppercase;
+
 	vertical-align: center;
 
     padding-top: 15%;
@@ -137,24 +141,46 @@ header.welcome-screen h2 {
 
     vertical-align: center;
 
-    height: 30%
+    height: 30%;
 
 }
+
+/* Text Découvrez les recommandations de lecture de : */
 
 
 .portfolio-details .details-person-invitation {
 
     font-family: 'Source Sans Pro', sans-serif;
 
-    font-style : italic;
-
     color: black;
 
     vertical-align: center;
 
-    height: 30%
+    text-decoration: bold;
+
+    border: 2px solid #99B6E0;
+
+    border-radius: 30px;
+
+    font-size: 14px;
+
 }
 
+.portfolio-details .details-person-invitation:hover{
+
+
+    box-shadow: 0 0 5px #99B6E0;
+
+}
+
+
+/* text size */
+
+.portfolio-details .details-person-invitation h4 {
+
+    font-size: 14px;
+
+}
 
 /* Image de portfolio */
 
