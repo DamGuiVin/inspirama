@@ -91,9 +91,15 @@ if ( $paged === 1 ) : ?>
 
                         <?php while ( have_posts() ) : the_post(); ?>
 
-                            <h1 class=""><?php the_title(); ?></h1>
+                            <div id="search-blur"></div>
 
-                            <h2 class=""><?php the_content(); ?></h2>
+                            <div id="blur">
+
+                                <h1 class="title-homepage"><?php the_title(); ?><span class="element"></span><span class="typed-cursor"></span></h1>
+
+                                <h2 class=""><?php the_content(); ?></h2>
+
+                            </div>
 
                             <?php
 
@@ -115,17 +121,7 @@ if ( $paged === 1 ) : ?>
             <div class="go-to-portfolio-link-container">
 
                 <div class="go-to-portfolio-link-button">
-
-                    <div class = "go-to-portfolio-link-button">
-
-                            Découvrir les personnalités
-
-                    </div>
-
-                    <a href="#masonry-wrapper" class="go-to-portfolio-link-button">
-                        
-                        <i class = "fa fa-chevron-down fa-4x"></i>
-
+                    <a href="#masonry-wrapper" class="scroll-try scroll-down" address="true">
                     </a>
 
                 </div>
@@ -236,7 +232,7 @@ if ( $wp_query->have_posts() ) : ?>
 
                                 <div class="details-person-name">
 
-                                    <h2 class="details-person-name"><?php echo $person_name; ?></h2>
+                                    <h2><?php echo $person_name; ?></h2>
 
                                 </div>
 

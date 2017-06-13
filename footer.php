@@ -26,7 +26,7 @@
             <div class="column3 col-md-4" > <!-- beginning column1-->
                     <img src="http://localhost/current/wp-content/uploads/2017/06/paperplane1.png" height="40" width="40" class="newsletter-icon" alt="Mail">
                     <br>
-                    <h5>Toutes les semaines, de nouvelles <span class="element"></span><span class="typed-cursor"></span>:</h5>
+                    <h5>Chaque semaine, je reçois les conseils d'une personnalité :</h5>
                     <input class="news" type="email" name="EMAIL" placeholder="Mon mail " required />
                     <br>
                     <input type="submit" value="Je m'inscris"/>

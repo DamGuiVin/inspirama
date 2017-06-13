@@ -20,13 +20,15 @@
 
         $(function(){
           $(".element").typed({
-            strings: ["recommandations", "découvertes", "lectures"],
+            strings: [" STEVE JOBS", " VLADIMIR POUTINE", " STALINE", " NICOLAS SARKOZY" ],
             typeSpeed: 100,
             backDelay: 1000,
             loop: true
           });
         });
     </script>
+
+    <style type="text/css"> html {scroll-behavior: smooth;} </style>
 
     <link rel="profile" href="http://gmpg.org/xfn/11">
 
