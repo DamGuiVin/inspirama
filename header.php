@@ -155,7 +155,7 @@
                 <!--Beginning A propos -->
                     <li class="top-menu">
 
-                        <a class="about" href="http://localhost/current/index.php/a-propos/">Qui sommes nous ?</a>
+                        <a href="http://localhost/current/index.php/a-propos/">Qui sommes nous ?</a>
 
                     </li>
                 <!--End A propos -->

@@ -89,24 +89,7 @@ header .full-width-container {
 
 /* Titre principal NB: impossible de modifier la couleur, je ne sais pas pq.*/
 
-title-homepage h1{
-    background-color: black;
-    font-family: 'Oswald';
-}
 
-
-
-header.welcome-screen h1 {
-
-    font-size: 3em;
-
-    margin: 0;
-
-    font-family: 'Oswald';
-
-    color: red;
-
-}
 
 /* Titre secondaire */
 
@@ -240,7 +223,7 @@ from {opacity: 1;} to {opacity: 0.5;}
 
 /* Footer footer.php
 -------------------------------------------------------------- */
-/* NB : Ai changé le "customized widget" de menu vertical a menu horizontal + effets de style GUILHEM 19.04.17*/
+/* NB : Ai changé le "customized widget" de menu vertical a menu horizontal */
 
 
 /* Menu du bas */
@@ -248,19 +231,12 @@ from {opacity: 1;} to {opacity: 0.5;}
 #widget-area li {
 
 	display:inline-block;
-
 	padding-right: 10px;
-
 	text-align: right;
-
 	font-family: 'Oswald';
-
 	font-size:1.2em;
-
 	text-decoration:none;
-
 	margin: none;
-
 	padding: none;
 
 }
@@ -284,6 +260,19 @@ footer.container{
     max-height: 200px;
     margin-bottom: 20px;
 }
+
+/* Links in the bottom of the footer */
+
+.about{
+    font-family: 'Oswald';
+    font-size: 1.1em;
+}
+
+.about:hover{
+    text-decoration: none;
+}
+
+/* Reponsive design */
 
 
 @media (max-width: 1024px) {
@@ -310,11 +299,11 @@ h5 {
 /* Header & Banner header.php
 -------------------------------------------------------------- */
 
-/* Titre principal NB: impossible de modifier la couleur, je ne sais pas pq.*/
+/* Titre principal NB: impossible de modifier la couleur par css : elle est modifiable via le customizer dans le back office*/
 
 header.welcome-screen h1 {
     font-size: 1.5em;
-    margin: 0px 0 0px 0;
+    margin: 0;
     font-family: 'Oswald';
 }
 
@@ -323,7 +312,7 @@ header.welcome-screen h1 {
 
 header.welcome-screen h2 {
     font-size: 0.8em;
-    margin: 0px 0 0px 0;
+    margin: 0;
     font-family: 'Raleway';
 }
 
@@ -366,7 +355,7 @@ header.full-width-container-category {
 .welcome-container-home {
     padding-top: 12%;
     font-size: 1.3em;
-    text-shadow: 1px 1px black;
+    text-shadow: 0px 0px 4px white;
     text-align: center;
 }
 
@@ -597,9 +586,9 @@ nav.primary-navigation ul li.top-menu{
         padding : 13px 0px 13px 0px ;
 }
 
-.about:hover{
+nav.primary-navigation ul li a:hover {
+    background-color: white;
     text-decoration: none;
-    font-weight: bold;
 }
 
 /* About page in top menu */
@@ -619,6 +608,11 @@ nav.primary-navigation ul li.top-menu{
         float: left;
     }
 
+
+nav.primary-navigation ul li.top-menu:hover{
+    font-weight: bold;
+    text-decoration: none;
+}
 
 /* Responsive navigation */
 
