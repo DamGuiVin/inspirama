@@ -516,8 +516,6 @@ function custom_permalinks( $permalink, $post, $leavename, $sample ) {
 }
 
 
-//flush_rewrite_rules();
-
 
 
 
