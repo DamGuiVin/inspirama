@@ -60,7 +60,7 @@
 
                         <div class="text-center">
 
-			    <br/>
+                            <br/>
 
                             <h1><?php the_title(); ?></h1>
 
@@ -82,16 +82,10 @@
 
                         </div>
 
-                        
-
                     </div>
 
 
-
                 <?php endwhile; ?>
-
-                
-
 
 
                 <!-- .widget-area -->
@@ -112,8 +106,6 @@
 
 
 
-
-
             <?php endif; //have-posts ?>
 
           </div><!-- end row -->
@@ -121,12 +113,6 @@
     </div><!-- end Container -->
 
 </div><!-- end full-width-container -->
-
-
-
-
-
-
 
 
 
