@@ -137,6 +137,7 @@ add_action( 'created_recommendation', 'recommendation_save_meta', 10, 2 );
 
 // Create a custom post type for Person
 function person_cpt() {
+
     register_post_type('person',
         
         array(
@@ -171,7 +172,7 @@ function person_cpt() {
                 'title',
                 'editor',
                 'thumbnail',
-                'page-attributes',
+                'page-attributes'
                 ),
 
             // Declares the taxonomies that can be used on the CPT
@@ -180,9 +181,20 @@ function person_cpt() {
                 'post_tag',
                 'recommendation'
                 ),
+
+            // Makes sure we can query by index.php?person={person_slug_name}
+            'publicly_queryable' => true,
+            'query_var'          => true,
         )
 
-  );
+    ); 
+
+    // The rewrite rule that will translate the custom Permalink into a WP_Query
+    add_rewrite_rule(
+        '[^/]+/livres-recommandes/([^/]+)/?$',
+        'index.php?person=$matches[1]',
+        'top'
+    );
 }
 
 add_action( 'init', 'person_cpt' );
@@ -231,9 +243,20 @@ function book_cpt() {
                 'category',
                 'post_tag',
                 ),
+            
+            // Makes sure we can query by index.php?book={person_slug_name}
+            'publicly_queryable' => true,
+            'query_var'          => true,
         )
 
-  );
+    );
+
+    // The rewrite rule that will translate the custom Permalink into a WP_Query
+    add_rewrite_rule(
+        '^livres/([^/]+)/?$',
+        'index.php?book=$matches[1]',
+        'top'
+    );
 }
 
 add_action( 'init', 'book_cpt' );
@@ -431,8 +454,69 @@ function add_book_meta_fields( $book_id, $book_page ) {
 
 
 
+//.......................................................................................................
+// Custom Permalinks
+//.......................................................................................................
 
 
+add_filter( 'post_type_link', 'custom_permalinks', 10, 4 );
+
+function custom_permalinks( $permalink, $post, $leavename, $sample ) {
+
+    // Permalinks for Person post types
+    if ( $post->post_type == 'person' && get_option( 'permalink_structure' ) ) {
+
+        $struct = '/%category%/livres-recommandes/%postname%/';
+
+        $rewritecodes = array(
+            '%category%',
+            '%postname%'
+        );
+
+        $category = '';
+        $cats = get_the_terms( $post->ID , 'category' );
+
+        if ( $cats ) {
+            usort($cats, '_usort_terms_by_ID'); // order by ID
+            $category = $cats[0]->slug;
+            if ( $parent = $cats[0]->parent ) {
+                $category = get_category_parents($parent, false, '/', true) . $category;
+            }
+        }
+
+        if ( empty($category) ) {
+            $category = 'pas-de-categorie';
+        }
+
+        $replacements = array(
+            $category,
+            $post->post_name
+        );
+
+        $permalink = home_url( str_replace( $rewritecodes, $replacements, $struct ) );
+    }
+    
+    // Permalinks for Book post types
+    elseif ( $post->post_type == 'book' && get_option( 'permalink_structure' ) ) {
+
+        $struct = '/livres/%postname%/';
+
+        $rewritecodes = array(
+            '%postname%'
+        );
+
+        $replacements = array(
+            $post->post_name
+        );
+
+        $permalink = home_url( str_replace( $rewritecodes, $replacements, $struct ) );
+    }
+
+    return $permalink;
+}
+
+
+//flush_rewrite_rules();
 
 
 
