@@ -13,8 +13,8 @@ get_header();
 //........................................................................
 
 // Getting necessary category variables
-$current_category = get_the_category()[0];
-$category_name = $current_category->name;
+$category_name = single_cat_title('', false);
+//$category_description = category_description();
 
 // Get the category's background image
 $background_image = z_taxonomy_image_url($current_category->term_id); ?>
@@ -25,11 +25,7 @@ $background_image = z_taxonomy_image_url($current_category->term_id); ?>
         <div class="row welcome-row">
             <div class="col-md-10 col-md-offset-1">
                 <h1 class=""><?php echo $category_name ?></h1>
-                <?php /*
-                if ( has_excerpt() ) {
-                    the_excerpt();
-                }*/
-                ?>
+                <!-- <h2 class=''><?php echo $category_description ?></h2> -->
             </div>
         </div>
     </div>
@@ -53,8 +49,8 @@ $args = array(
     'tax_query' => array(
             array(
             'taxonomy' => 'category',
-            'field'    => 'term_id',
-            'terms'    => $current_category->term_id,
+            'field'    => 'name',
+            'terms'    => $category_name,
         ),
     ),
 );
