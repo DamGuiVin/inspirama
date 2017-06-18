@@ -205,8 +205,8 @@ function person_cpt() {
             // Public status implies certain functionalities. Keep at true
             'public' => true,
 
-            // Hierarchical posts have parent/child abilities (Pages butnot Posts)
-            'hierarchical' => true,
+            // Hierarchical posts have parent/child abilities
+            'hierarchical' => false,
 
             // Enables the archives
             'has_archive' => true,
@@ -269,8 +269,8 @@ function book_cpt() {
             // Public status implies certain functionalities. Keep at true
             'public' => true,
 
-            // Hierarchical posts have parent/child abilities (Pages butnot Posts)
-            'hierarchical' => true,
+            // Hierarchical posts have parent/child abilities
+            'hierarchical' => false,
 
             // Enables the archives
             'has_archive' => true,
