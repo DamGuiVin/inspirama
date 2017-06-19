@@ -47,6 +47,7 @@ $book_gutenberg_logo = "http://www.gutenberg.org/pics/logo-144x144.png";
 $args = array(
     'post_type' => 'person',
     'post_status' => 'publish',
+    'posts_per_page' => -1,
     'tax_query' => array(
             array(
             'taxonomy' => 'recommendation',

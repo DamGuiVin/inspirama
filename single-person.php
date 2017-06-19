@@ -69,15 +69,12 @@ if( $recommendations_array && !is_wp_error( $recommendations_array ) ) {
     }
 }
 
-// Maximum number of books to look for : -1 means infinity
-$max_num_books_per_page = -1;   
-
 // Building the arguments for the WP Query
 $args = array(
     'post_type' => 'book',
     'post_name__in ' => $slug_book_titles_array,
     'post_status' => 'publish',
-    'posts_per_page' => $max_num_books_per_page,
+    'posts_per_page' => -1
     );
 
 // Sending the WP_Query

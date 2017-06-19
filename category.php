@@ -46,6 +46,7 @@ wp_reset_query();
 $args = array(
     'post_type' => 'person',
     'post_status' => 'publish',
+    'posts_per_page' => -1,
     'tax_query' => array(
             array(
             'taxonomy' => 'category',
