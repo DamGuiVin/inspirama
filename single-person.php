@@ -61,18 +61,17 @@
 // Retrieving the slug book titles from the Recommendations
 $person_id = $post->ID;
 $person_name = $post->post_title;
-$recommendations_array = get_the_terms( $person_id, 'recommendation' );
 $slug_book_titles_array = array();
-if( $recommendations_array && !is_wp_error( $recommendations_array ) ) {
-    foreach( $recommendations_array as $recommendation ) {
-        array_push( $slug_book_titles_array, $recommendation->slug );
-    }
+
+foreach ( get_the_terms( $person_id, 'recommendation' ) as $recommendation) {
+    $recommendation_book_title = get_term_meta( $recommendation->term_id, 'book_title', true );
+    array_push( $slug_book_titles_array, $recommendation_book_title );
 }
 
 // Building the arguments for the WP Query
 $args = array(
     'post_type' => 'book',
-    'post_name__in ' => $slug_book_titles_array,
+    'post_name__in' => $slug_book_titles_array,
     'post_status' => 'publish',
     'posts_per_page' => -1
     );
@@ -93,7 +92,7 @@ $img_size = '(200,800,false)';
 //........................................................................
 
 if ( $wp_query->have_posts() ) : ?>
-    
+
     <!-- Books Mosaic -->  
     <div class="text-center">
     	<br/>
