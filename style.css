@@ -18,7 +18,7 @@ Description: WP adaptation
 
     padding: 0;
 
-    background-color : #d7dff1;
+    background-color : white;
 
     box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.25);
 
@@ -56,7 +56,6 @@ Description: WP adaptation
     height: 260px;
 
     overflow: auto;
-
 
 }
 
@@ -172,9 +171,9 @@ height: 100%;
 
     text-decoration: bold;
 
-    background-color: #99B6E0;
+    background-color: #77B8C1;
 
-    border: 2px solid #99B6E0;
+    border: 2px solid #77B8C1;
 
     border-radius: 30px;
 
@@ -187,7 +186,7 @@ height: 100%;
 .portfolio-details .details-person-invitation:hover{
 
 
-    box-shadow: 0 0 10px #99B6E0;
+    box-shadow: 0 0 10px #77B8C1;
 
 }
 
@@ -304,6 +303,12 @@ footer.container{
 
 .about:hover{
     text-decoration: none;
+}
+
+.footer-text{
+    color: #2C4347;
+    font-family:'Source Sans Pro', sans-serif;
+    font-weight: bold;
 }
 
 /* Reponsive design */
@@ -522,7 +527,7 @@ nav.primary-navigation .navbar-nav > .active > a:focus {
 /* hover on menu */
 
 nav.primary-navigation .nav > li > a:hover {
-    background-color: #99b6e0;
+    background-color: #77B8C1;
     padding: 15px 0 16px 0;
     margin: -15px 0 -16px 0;
 }
@@ -980,14 +985,14 @@ input[type="text"] {
     text-indent: 10px;
     color: black;
     padding: 0;
-    border: 2px solid #99B6E0;
+    border: 2px solid #77B8C1;
     border-radius: 20px;
 }
 
 input[type="text"]:focus { 
     outline: none;
-    border-color: #99B6E0;
-    box-shadow: 0 0 5px #99B6E0;
+    border-color: #D7CE4A;
+    box-shadow: 0 0 5px #D7CE4A;
 }
 
 
@@ -1054,14 +1059,14 @@ input[type="email"]{
     text-indent: 10px;
     margin-bottom: 0;
     padding: 0;
-    border: 2px solid #99B6E0;
+    border: 2px solid #77B8C1;
     border-radius: 20px;
 }
 
 input[type="email"]:focus{
     outline: none;
-    border-color: #99B6E0;
-    box-shadow: 0 0 5px #99B6E0;
+    border-color: #E5DA40;
+    box-shadow: 0 0 5px #E5DA40;
 }
 
 
@@ -1069,11 +1074,12 @@ input[type="email"]:focus{
 -------------------------------------------------------------- */
 
 input[type="submit"]{
-    border : 1px solid #99B6E0;
-    background-color: #99B6E0;
+    border : 1px solid #77B8C1;
+    background-color: #77B8C1;
     width: 90px;
     padding: 3px;
     margin-left:10px;
+    margin-top:5px;
     font-size: 12px;
     font-weight: bold;
     border-radius:5px;
@@ -1082,7 +1088,8 @@ input[type="submit"]{
 
 
 input[type="submit"]:hover {
-    background-color: royalblue;
+    background-color: #D7CE4A;
+    border : 1px solid #D7CE4A;
     }
 
 .newsletter-icon{

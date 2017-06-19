@@ -1,13 +1,13 @@
 <footer class="full-width-container primary-footer">
     <div class="container">
-        <div class="row fat-footer" >
+        <div class="row fat-footer footer-text" >
             
             <div class="column1 col-md-4" > <!-- beginning column1-->
                     <a href="<?php echo home_url( '/' ); ?>">
                         <img class="logo-uploaded" style="max-width:<?php echo esc_attr( get_theme_mod( 'themeora-img-upload-logo-width', '200' ) ); ?>px" src="<?php echo esc_url( get_theme_mod( 'themeora-img-upload-logo' ) );?>" alt="<?php the_title(); ?>" />
                     </a>
                     <br>
-                    <h5 style="strong"> Yeswekant.com est une librairie en ligne : Découvrez sur ce site les livres qui ont marqué les personnalités qui vous inspirent.</h5>
+                    <h5> Yeswekant.com est une librairie en ligne : Découvrez sur ce site les livres qui ont marqué les personnalités qui vous inspirent.</h5>
             </div>
 
             <div class="emailpage">
