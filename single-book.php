@@ -211,6 +211,10 @@ $wp_query = new WP_Query( $args );
 </div><!-- end main-content-area -->
 
 
-<?php get_footer(); ?>
+<?php 
+wp_reset_query();
+
+
+get_footer(); ?>
 
 

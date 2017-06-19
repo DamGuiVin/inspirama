@@ -555,6 +555,87 @@ function custom_permalinks( $permalink, $post, $leavename, $sample ) {
 
 
 
+/*
 
+//.......................................................................................................
+// ONE-TIME SCRIPT
+//.......................................................................................................
+
+if ( isset($_GET['run_my_script']) && ! get_option('my_script_complete') ) {
+    add_action('init', 'my_script_function', 10);
+    add_action('init', 'script_finished', 20);
+}
+ 
+function my_script_function() {
+    
+    //$file = fopen("contacts.csv","r");
+    //print_r(fgetcsv($file));
+    //fclose($file);
+
+
+
+    $recommendation_id = wp_insert_term(
+        'PEW pew PEW', // the term 
+        'recommendation', // the taxonomy
+        array(
+            'description'=>"Zbrrraaa! Ca c'est une recomandation qui dechire"
+        )
+    );
+
+    //$recommendation_id = $ids_array['term_id'];
+    if($recommendation_id) {
+        update_term_meta( $recommendation_id, 'book_title', sanitize_title("Le livre de Mes reves") );
+        update_term_meta( $recommendation_id, 'sources_titles', "Telerama" );
+        update_term_meta( $recommendation_id, 'sources_urls', "www.champion.fr" );
+    };
+
+
+
+
+    $person_id = wp_insert_post(array (
+        'post_type' => 'person',
+        'post_title' => "Une Personne Ajoutee Automatiquement",
+        'post_content' => "Biographie de la personne, un texte long et <strong>ennuyeux</strong>!",
+        'post_status' => 'publish',
+    ));
+
+    if ($person_id) {
+        update_post_meta( $person_id, 'intro', "Texte introductif, grosse punchline de preference" );
+    };
+
+
+
+
+    $book_id = wp_insert_post(array (
+        'post_type' => 'book',
+        'post_title' => "Un Bouquin Ajoute Automatiquement",
+        'post_status' => 'publish',
+    ));
+
+    if ($book_id) {
+        add_post_meta($book_id, '', '');
+
+        update_post_meta( $book_id, 'author', "Conan Doyle" );
+        update_post_meta( $book_id, 'summary', "C'est l'histoire d'un mec..." );
+        update_post_meta( $book_id, 'genre', "Poesie romantique" );
+        update_post_meta( $book_id, 'theme', "Vampires et Tuning" );
+        update_post_meta( $book_id, 'rewards', "Pulitzer 2017" );
+        update_post_meta( $book_id, 'leslibraires_url', "www.example.com" );
+        update_post_meta( $book_id, 'amazon_url', "www.example.com" );
+        update_post_meta( $book_id, 'fnac_url', "www.example.com" );
+        update_post_meta( $book_id, 'priceminister_url', "www.example.com" );
+        update_post_meta( $book_id, 'recyclivre_url', "www.example.com" );
+        update_post_meta( $book_id, 'ebook_url', "www.example.com" );
+        update_post_meta( $book_id, 'gutenberg_url', "www.example.com" );
+    };
+}
+
+
+function script_finished() {
+    //add_option('my_script_complete', 1);
+    die("Script finished.");
+}
+
+*/
 
 ?>
