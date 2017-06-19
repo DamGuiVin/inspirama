@@ -23,8 +23,8 @@
                     <!-- Person Image -->
                     <div class="col-md-2 col-md-offset-3">
                         <?php if ( has_post_thumbnail( $post->ID ) ) : ?>
-                                <div class="featured-image single-portfolio-featured-image">
-                                    <?php echo get_the_post_thumbnail( $post->ID, 'themeora-thumbnail-span-8' ); ?>
+                                <div class="featured-image img-circle single-portfolio-featured-image">
+                                    <?php echo get_the_post_thumbnail( $post->ID, array(400,400) ); ?>
                                 </div>
                         <?php endif; ?>
                     </div>

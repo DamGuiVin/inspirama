@@ -76,14 +76,14 @@ sinon j'ai créé la class "img-adapt" pour modifier les images des pages qui ut
 
 
 
-/* Bannière : Modif par Damien*/
+/* Bannière*/
 
 header .full-width-container {
 	background-size: cover;
 }
 
 #bg {
-    background: linear-gradient(45deg,rgba(250,250,250,0.6),rgba(250,250,250,0.8));
+    background: linear-gradient(45deg,rgba(250,250,250,0.6),rgba(250,250,250,1));
     border-radius: 100px;
     }
 
@@ -234,6 +234,7 @@ from {opacity: 1;} to {opacity: 0.5;}
 	padding-right: 10px;
 	text-align: right;
 	font-family: 'Oswald';
+    text-transform: uppercase;
 	font-size:1.2em;
 	text-decoration:none;
 	margin: none;
@@ -271,7 +272,8 @@ footer.container{
 
 .about{
     font-family: 'Oswald';
-    font-size: 1.1em;
+    font-size: 1em;
+    text-transform: uppercase;
 }
 
 .about:hover{

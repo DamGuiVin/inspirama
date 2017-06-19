@@ -40,7 +40,7 @@ if ( get_header_image() ) {
       <div class="row welcome-row">
           <div class="col-md-10 col-md-offset-1">
               <?php while ( have_posts() ) : the_post(); ?>
-                  <div id="blur">
+                  <div id="bg">
                     <h1 class="title-homepage"><?php the_title(); ?><span class="element"></span><span class="typed-cursor"></span></h1>
                     <h2 class=""><?php the_content(); ?></h2>
                   </div>

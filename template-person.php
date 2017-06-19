@@ -44,7 +44,7 @@
 
                             <div class="featured-image single-portfolio-featured-image">
 
-                                <?php echo get_the_post_thumbnail( $post->ID, 'themeora-thumbnail-span-8' ); ?>
+                                <?php echo get_the_post_thumbnail( $post->ID, array(30,30) ); ?>
 
                             </div>
 
