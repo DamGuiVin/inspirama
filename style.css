@@ -333,6 +333,7 @@ footer.full-width-container {
 h5 {
     padding: 0;
     margin: 0;
+    line-height: 200%;
 }
 
 /* Header & Banner header.php
@@ -991,8 +992,8 @@ input[type="text"] {
 
 input[type="text"]:focus { 
     outline: none;
-    border-color: #D7CE4A;
-    box-shadow: 0 0 5px #D7CE4A;
+    border-color: #77B8C1;
+    box-shadow: 0 0 5px #77B8C1;
 }
 
 
@@ -1065,8 +1066,8 @@ input[type="email"]{
 
 input[type="email"]:focus{
     outline: none;
-    border-color: #E5DA40;
-    box-shadow: 0 0 5px #E5DA40;
+    border-color: #77B8C1;
+    box-shadow: 0 0 5px #77B8C1;
 }
 
 
@@ -1076,7 +1077,6 @@ input[type="email"]:focus{
 input[type="submit"]{
     border : 1px solid #77B8C1;
     background-color: #77B8C1;
-    width: 90px;
     padding: 3px;
     margin-left:10px;
     margin-top:5px;
@@ -1121,7 +1121,13 @@ a:hover  {
 
 }
 
+/* Description of the bottom of the footer
+-------------------------------------------------------------- */
 
+.what-is-ywk {
+    font-size: 1.2em;
+    line-height: 120%;
+}
 
 /* Animated cursor for text animation typed.js
 -------------------------------------------------------------- */
