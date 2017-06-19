@@ -105,9 +105,10 @@ header.welcome-screen h2 {
 
 /* Texte qui apparait sur les images de portfolio*/
 
-.portfolio-details .details-person-name {
+.portfolio-details {
 
-    height: 40%
+height: 100%;
+
 }
 
 .portfolio-details .details-person-name h2 {
@@ -118,9 +119,9 @@ header.welcome-screen h2 {
 
     text-transform: uppercase;
 
-	vertical-align: center;
+	vertical-align: top;
 
-    padding-top: 15%;
+    padding-top: 5%;
 
 }
 
@@ -131,9 +132,7 @@ header.welcome-screen h2 {
 
     color: black;
 
-    vertical-align: center;
-
-    height: 30%;
+    height: 55%;
 
 }
 
@@ -143,12 +142,14 @@ header.welcome-screen h2 {
 .portfolio-details .details-person-invitation {
 
     font-family: 'Source Sans Pro', sans-serif;
+    
+    vertical-align: bottom;
 
-    color: black;
-
-    vertical-align: center;
+    color: white;
 
     text-decoration: bold;
+
+    background-color: #99B6E0;
 
     border: 2px solid #99B6E0;
 
@@ -156,12 +157,14 @@ header.welcome-screen h2 {
 
     font-size: 14px;
 
+    padding: 2px;
+
 }
 
 .portfolio-details .details-person-invitation:hover{
 
 
-    box-shadow: 0 0 5px #99B6E0;
+    box-shadow: 0 0 10px #99B6E0;
 
 }
 
