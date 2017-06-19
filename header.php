@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script type="text/javascript" src="http://localhost/current/wp-content/themes/oren_child/js/dist/typed.min.js"></script>
+    <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/js/dist/typed.min.js' ; ?>"></script>
     <script>
 
         $(function(){
@@ -111,7 +111,7 @@
                 <!--Beginning A propos -->
                     <li class="top-menu">
 
-                        <a class="about" href="http://localhost/current/index.php/a-propos/">Qui sommes nous ?</a>
+                        <a class="about" href="<?php echo get_site_url() . '/a-propos/'; ?>">Qui sommes nous ?</a>
 
                     </li>
                 <!--End A propos -->
@@ -120,7 +120,7 @@
 
                     <li class="search-bar-menu">
 
-                        <img class="search-icon" src="http://localhost/current/wp-content/uploads/2017/06/search.png" height="24" width="24" class="search-icon" alt="Search-icon"> 
+                        <img class="search-icon" src="<?php echo get_stylesheet_directory_uri() . '/img/search.png' ; ?>" height="24" width="24" class="search-icon" alt="Search-icon"> 
              
                         <div class="search-form-menu">
 
