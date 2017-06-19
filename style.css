@@ -82,32 +82,14 @@ header .full-width-container {
 	background-size: cover;
 }
 
-#blur {
-  -webkit-filter: blur(10px); /* Chrome, Opera, etc. */
-  filter: url('blur.svg#blur'); /* Older FF and others - http://jordanhollinger.com/media/blur.svg */
-  filter: blur(10px); /* Firefox 35+, eventually all */
-    background-color: rgba(0, 0, 0, 0.5);
-    box-shadow: 5px 5px 20px 0px black;
-    border-radius: 40px;
-}
-
-#blur, #search-blur {
-  background-image: url('/media/freelancer-desk.jpg');
-  background-repeat: no-repeat;
-  background-size: 1080px auto;
-}
+#bg {
+    background: linear-gradient(45deg,rgba(250,250,250,0.6),rgba(250,250,250,0.8));
+    border-radius: 100px;
+    }
 
 /* Titre principal NB: impossible de modifier la couleur, je ne sais pas pq.*/
 
-header .welcome-screen h1 {
 
-    font-size: 3em;
-
-    margin: 0;
-
-    font-family: 'Oswald';
-
-}
 
 /* Titre secondaire */
 
@@ -115,7 +97,7 @@ header.welcome-screen h2 {
 
     font-size: 0.8em;
 
-    margin: 0px 0 0px 0;
+    margin: 0;
 
     font-family: 'Raleway';
 
@@ -241,7 +223,7 @@ from {opacity: 1;} to {opacity: 0.5;}
 
 /* Footer footer.php
 -------------------------------------------------------------- */
-/* NB : Ai changé le "customized widget" de menu vertical a menu horizontal + effets de style GUILHEM 19.04.17*/
+/* NB : Ai changé le "customized widget" de menu vertical a menu horizontal */
 
 
 /* Menu du bas */
@@ -249,19 +231,12 @@ from {opacity: 1;} to {opacity: 0.5;}
 #widget-area li {
 
 	display:inline-block;
-
 	padding-right: 10px;
-
 	text-align: right;
-
 	font-family: 'Oswald';
-
 	font-size:1.2em;
-
 	text-decoration:none;
-
 	margin: none;
-
 	padding: none;
 
 }
@@ -272,19 +247,38 @@ from {opacity: 1;} to {opacity: 0.5;}
 
 }
 
+/* suppress underlined links */
+
+footer a:hover{
+    text-decoration:none;
+}
+
 footer.full-width-container {
     box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 10px 0 rgba(0, 0, 0, 0.25) inset;
     padding: 20px 0 5px 0 ;
 }
 
 footer.container{
-    padding: 0 0 0 0;
+    padding: 0;
 }
 
 .fat-footer{
     max-height: 200px;
     margin-bottom: 20px;
 }
+
+/* Links in the bottom of the footer */
+
+.about{
+    font-family: 'Oswald';
+    font-size: 1.1em;
+}
+
+.about:hover{
+    text-decoration: none;
+}
+
+/* Reponsive design */
 
 
 @media (max-width: 1024px) {
@@ -311,11 +305,11 @@ h5 {
 /* Header & Banner header.php
 -------------------------------------------------------------- */
 
-/* Titre principal NB: impossible de modifier la couleur, je ne sais pas pq.*/
+/* Titre principal NB: impossible de modifier la couleur par css : elle est modifiable via le customizer dans le back office*/
 
 header.welcome-screen h1 {
     font-size: 1.5em;
-    margin: 0px 0 0px 0;
+    margin: 0;
     font-family: 'Oswald';
 }
 
@@ -324,7 +318,7 @@ header.welcome-screen h1 {
 
 header.welcome-screen h2 {
     font-size: 0.8em;
-    margin: 0px 0 0px 0;
+    margin: 0;
     font-family: 'Raleway';
 }
 
@@ -335,7 +329,7 @@ nav.primary-navigation {
     font-family: 'Oswald';
     font-size:1.2em;
     height: 5vh;
-    padding: 0 0 0 0;
+    padding: 0;
     border: none;
     height:48px;
     box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 10px 0 rgba(0, 0, 0, 0.25);
@@ -367,7 +361,7 @@ header.full-width-container-category {
 .welcome-container-home {
     padding-top: 12%;
     font-size: 1.3em;
-    text-shadow: 1px 1px black;
+    text-shadow: 0px 0px 4px white;
     text-align: center;
 }
 
@@ -598,9 +592,9 @@ nav.primary-navigation ul li.top-menu{
         padding : 13px 0px 13px 0px ;
 }
 
-.about:hover{
+nav.primary-navigation ul li a:hover {
+    background-color: white;
     text-decoration: none;
-    font-weight: bold;
 }
 
 /* About page in top menu */
@@ -620,6 +614,11 @@ nav.primary-navigation ul li.top-menu{
         float: left;
     }
 
+
+nav.primary-navigation ul li.top-menu:hover{
+    font-weight: bold;
+    text-decoration: none;
+}
 
 /* Responsive navigation */
 
@@ -1018,7 +1017,7 @@ input[type="text"]:focus {
 input[type="email"]{
     width: 200px;
     text-indent: 10px;
-    padding: 0 0 0 0;
+    padding: 0;
     border: 2px solid #99B6E0;
     border-radius: 20px;
 }

@@ -67,7 +67,8 @@ if ( get_header_image() ) {
 <!-- End Homepage Presentation -->
 <?php 
 
-
+// Get options for the portfolio
+$people_on_home_page = -1;
 
 //........................................................................
 // HOMEPAGE PERSONS SECTION : RECOVERING PERSONS
