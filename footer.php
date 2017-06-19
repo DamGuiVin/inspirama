@@ -7,7 +7,7 @@
                         <img class="logo-uploaded" style="max-width:<?php echo esc_attr( get_theme_mod( 'themeora-img-upload-logo-width', '200' ) ); ?>px" src="<?php echo esc_url( get_theme_mod( 'themeora-img-upload-logo' ) );?>" alt="<?php the_title(); ?>" />
                     </a>
                     <br>
-                    <h5 class="about" style="strong"> Yeswekant.com est une librairie en ligne. Découvrez sur ce site les livres qui ont marqué les personnalités qui vous inspirent.</h5>
+                    <h5 style="strong"> Yeswekant.com est une librairie en ligne : Découvrez sur ce site les livres qui ont marqué les personnalités qui vous inspirent.</h5>
             </div>
 
             <div class="emailpage">
@@ -36,7 +36,7 @@
 
         <div >
             <hr>
-            <p>© 2017 - YesWeKant | <a class="about" href="<?php echo get_site_url(); ?>">Home</a> | <a class="about" href="<?php echo get_site_url() . '/contact/'; ?>">Contact</a> | <a class="about" href="<?php echo get_site_url() . '/a-propos/'; ?>">À propos</a></p>
+            <p class="about">© 2017 - YesWeKant | <a href="<?php echo get_site_url(); ?>">Home</a> | <a href="<?php echo get_site_url() . '/a-propos/'; ?>">À propos</a></p>
         </div>
 
         <?php if ( has_nav_menu( 'social_menu' ) ) : ?>

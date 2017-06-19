@@ -111,7 +111,7 @@
                 <!--Beginning A propos -->
                     <li class="top-menu">
 
-                        <a class="about" href="<?php echo get_site_url() . '/a-propos/'; ?>">Qui sommes nous ?</a>
+                        <a href="<?php echo get_site_url() . '/a-propos/'; ?>">Qui sommes nous ?</a>
 
                     </li>
                 <!--End A propos -->
