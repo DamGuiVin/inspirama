@@ -27,9 +27,7 @@
                     <img src="http://localhost/current/wp-content/uploads/2017/06/paperplane1.png" height="40" width="40" class="newsletter-icon" alt="Mail">
                     <br>
                     <h5>Chaque semaine, je reçois les conseils d'une personnalité :</h5>
-                    <input class="news" type="email" name="EMAIL" placeholder="Mon mail " required />
-                    <br>
-                    <input type="submit" value="Je m'inscris"/>
+                    <input class="news" type="email" name="EMAIL" placeholder="Mon mail " required /><input type="submit" value="Je m'inscris"/>
             </div>
         
         </div><!-- end row -->

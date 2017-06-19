@@ -41,15 +41,6 @@ Description: WP adaptation
 
 /* Texte descriptif de la personnalité */
 
-.post-content {
-
-padding: 0;
-margin: 0;
-
-}
-
-
-
 .single .post-content {
 
     font-family: 'Source Sans Pro', sans-serif;
@@ -61,6 +52,10 @@ margin: 0;
     border-radius: 5px;
 
     margin: 0;
+
+    height: 260px;
+
+    overflow: auto;
 
 
 }
@@ -325,7 +320,7 @@ footer.container{
 footer.full-width-container {
 }
 .fat-footer{
- min-height: 440px;
+ min-height: 400px;
 }
 
 }
@@ -344,6 +339,8 @@ header.welcome-screen h1 {
     font-size: 1.5em;
     margin: 0;
     font-family: 'Oswald';
+    text-align: left;
+    text-indent: 30px;
 }
 
 
@@ -500,7 +497,7 @@ ul {
 
 nav.primary-navigation ul li {
     display: inline-block;
-    width: 120px;
+    width: 140px;
     text-align: center;
     padding : 14px 0px 14px 0px ;
     background-color:white;
@@ -1055,6 +1052,7 @@ input[type="text"]:focus {
 input[type="email"]{
     width: 200px;
     text-indent: 10px;
+    margin-bottom: 0;
     padding: 0;
     border: 2px solid #99B6E0;
     border-radius: 20px;
@@ -1073,12 +1071,18 @@ input[type="email"]:focus{
 input[type="submit"]{
     border : 1px solid #99B6E0;
     background-color: #99B6E0;
-    width: 110px;
-    padding: 5px 5px;
-    font-size: 14px;
+    width: 90px;
+    padding: 3px;
+    margin-left:10px;
+    font-size: 12px;
     font-weight: bold;
     border-radius:5px;
     color:white;
+    }
+
+
+input[type="submit"]:hover {
+    background-color: royalblue;
     }
 
 .newsletter-icon{
