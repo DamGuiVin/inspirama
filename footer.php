@@ -16,7 +16,7 @@
                     <div id="widget-area" class="widget-area col-md-4">
                         <img src="http://localhost/current/wp-content/uploads/2017/06/mail1.png" height="50" width="50" class="mail-icon" alt="Mail">
                             <br>
-                            <h5 style="line-height:120%;"> Yeswekant est en version Beta, partagez avec nous vos impressions sur le site : <br><br> contact@yeswekant.com </h5>
+                            <h5 style="line-height:120%;"> Yeswekant est en version Beta, partagez avec nous vos impressions sur le site : </h5><h5 class="what-is-ywk"> contact@yeswekant.com </h5>
                         <?php dynamic_sidebar( 'footer-widget' ); ?>
                     </div><!-- .widget-area -->
 
@@ -31,10 +31,14 @@
                     <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
                     <style type="text/css">
                         #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif;}
-                        #mc_embed_signup input.email{width:200px;border-radius: 30px;font-family:'Source Sans Pro', sans-serif;}
-                        #mc-embedded-subscribe.button{background-color: #77B8C1;border-radius: 30px;font-family:'Source Sans Pro', sans-serif;}
+                        #mc_embed_signup input.email{width:200px;border-radius: 30px 0px 0px 30px;font-family:'Source Sans Pro', sans-serif;}
+                        #mc-embedded-subscribe.button{background-color: #77B8C1;border-radius: 0 30px 30px 0;font-family:'Source Sans Pro', sans-serif;max-width:60px;}
                         #mc-embedded-subscribe.button{background-color: #77B8C1;}
                         #mc_embed_signup form{padding: 0;}
+                        @media (max-width: 767px) {
+                        #mc_embed_signup input.email{width:200px;border-radius: 30px;font-family:'Source Sans Pro', sans-serif;}
+                        #mc-embedded-subscribe.button{background-color: #77B8C1;border-radius: 30px;font-family:'Source Sans Pro', sans-serif;max-width:60px;margin-bottom: 10px;}
+                        }
                         /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
                            We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
                     </style>
