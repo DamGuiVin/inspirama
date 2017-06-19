@@ -1128,6 +1128,10 @@ a:hover  {
     line-height: 120%;
 }
 
+.line-height{
+    line-height: 130%;
+} 
+
 /* Animated cursor for text animation typed.js
 -------------------------------------------------------------- */
 

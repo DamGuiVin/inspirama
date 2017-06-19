@@ -16,7 +16,7 @@
                     <div id="widget-area" class="widget-area col-md-4">
                         <img src="http://localhost/current/wp-content/uploads/2017/06/mail1.png" height="50" width="50" class="mail-icon" alt="Mail">
                             <br>
-                            <h5 style="line-height:120%;"> Yeswekant est en version Beta, partagez avec nous vos impressions sur le site : </h5><h5 class="what-is-ywk"> contact@yeswekant.com </h5>
+                            <h5 class="line-height"> Yeswekant est en version Beta, partagez avec nous vos impressions sur le site : </h5><h5 class="what-is-ywk"> contact@yeswekant.com </h5>
                         <?php dynamic_sidebar( 'footer-widget' ); ?>
                     </div><!-- .widget-area -->
 
