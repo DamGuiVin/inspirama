@@ -21,17 +21,17 @@
                 while ( have_posts() ) : the_post(); ?>
                     
                     <!-- Person Image -->
-                    <div class="col-md-2 col-md-offset-3">
+                    <div class="col-md-4 col-md-offset-1">
                         <?php if ( has_post_thumbnail( $post->ID ) ) : ?>
-                                <div class="featured-image img-circle single-portfolio-featured-image">
+                                <div class="featured-image single-portfolio-featured-image">
                                     <?php echo get_the_post_thumbnail( $post->ID, array(400,400) ); ?>
                                 </div>
                         <?php endif; ?>
                     </div>
 
                     <!-- Person Title, Excerpt and Content -->
-                    <div class="col-md-4">
-                        <div class="text-center">
+                    <div class="col-md-6">
+                        <div class="name-person">
                             <h1><?php the_title(); ?></h1>
                             <?php if ( has_excerpt() ) : ?>
                                 <div class="portfolio-intro">

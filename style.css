@@ -22,6 +22,9 @@ Description: WP adaptation
 
     box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.25);
 
+        overflow: hidden;
+
+
 }
 
 
@@ -30,7 +33,7 @@ Description: WP adaptation
 
 .single-portfolio-featured-image {
 
-    margin: 100px;
+    margin: auto;
 
 }
 
@@ -40,17 +43,42 @@ Description: WP adaptation
 
 .post-content {
 
-font-family: 'Source Sans Pro', sans-serif;
+padding: 0;
+margin: 0;
 
 }
 
 
 
+.single .post-content {
+
+    font-family: 'Source Sans Pro', sans-serif;
+
+    background: #fff;
+
+    padding: 15px 15px 3px 15px;
+    
+    border-radius: 5px;
+
+    margin: 0;
+
+
+}
+
+.single .post-content p{
+
+padding: 0;
+
+}
+
+
 /* Titre : *nom de la personne* et *Livre recommandé par *nom de la personne**  */
 
-.text-center  {
+.name-person  {
 
 font-family: 'Source Sans Pro', sans-serif;
+
+padding-left: 10px;
 
 }
 
@@ -790,6 +818,11 @@ sur l'image) + j'ai changé la taille des images
 
 
 /* image du livre */
+
+
+.single-portfolio .single-portfolio-featured-image {
+    margin: 0;
+}
 
 .portfolio-image-book {
 
