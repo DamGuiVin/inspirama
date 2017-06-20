@@ -69,7 +69,7 @@
 
                 <?php if ( get_theme_mod( 'themeora-img-upload-logo' ) ) { ?>
           
-                <!--End Logo Section -->
+                
 
                     <a href="<?php echo home_url( '#masonry-wrapper' ); ?>">
 
@@ -83,6 +83,8 @@
                 if ( get_theme_mod( 'themeora-show-description-header' ) == 'Yes' ) : ?>
                     <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
                 <?php endif; ?>
+
+                <!--End Logo Section -->
 
             </div><!-- end navbar-header -->
 

@@ -386,9 +386,8 @@ header.full-width-container-category {
 }
 
 .full-width-container-book {
-    height: 80vh;
     padding: 0;
-    padding-top: 10%;
+    padding-top: 3%;
 }
 
 /* Container of the welcome message */
@@ -943,23 +942,51 @@ font-family: 'Source Sans Pro', sans-serif;
 
 }
 
-.booktitle
-
-
-{
+.book-page-title {
 
 padding-top: 0;
 margin-top: 0;
 font-family: 'Oswald';
+font-size: 2.4em;
 line-height: 120%;
+}
 
+.book-page-author {
+
+padding-top: 0;
+margin-top: 0;
+font-family: 'Oswald';
+font-size: 1.8em;
+line-height: 120%;
+}
+
+.book-page-details {
+    padding-top: 20px;
+    margin-top: 0;
+    font-family: 'Oswald';
+    font-size: 1.2em;
+    line-height: 120%;
+}
+
+.book-page-recommendations {
+}
+
+.book-page-recommendations-text {
+    padding : 10px;
+}
+
+.book-page-recommendations-image {
+    margin : 10px;
+}
+
+.book-page-recommendation-summary {
+    padding : 10px;
+    padding-bottom: 40px;
 }
 
 /* enlève la marge du haut */
 
-.full-width-container
-
-{
+.full-width-container {
 padding: 0;
 margin : 0;
 }
@@ -1062,9 +1089,9 @@ input[type="text"]:focus {
 .logo-uploaded, 
 .footer-logo-uploaded, 
 .logo-text {
-     padding: 8px 10px 12px 0;
-     display: inline-block;
-     vertical-align: center;
+    padding: 8px 10px 12px 0;
+    display: inline-block;
+    vertical-align: center;
 }
 
 
