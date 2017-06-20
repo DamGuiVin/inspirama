@@ -999,7 +999,7 @@ margin: 0 1px 0 0;
 display: inline-block;
 height: 30px;
 padding:0;
-width: 160px;
+max-width: 200px;
 }
 
 input[type="text"] {
@@ -1232,3 +1232,21 @@ padding: 0px;
     min-height: 100px;
 }
 }
+
+/* =404
+
+-------------------------------------------------------------- */
+
+
+
+.error404 .search-form {
+
+    max-width: 200px;
+
+    position: relative;
+
+    margin: 0px auto;
+
+
+}
+
