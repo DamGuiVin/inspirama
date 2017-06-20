@@ -43,15 +43,27 @@ $book_recyclivre_logo = "https://pbs.twimg.com/profile_images/672354416276709376
 $book_ebook_logo = "https://p4.zdassets.com/hc/settings_assets/224308/200126145/sqZqwE6u9G4TuXyBYqS29Q-ebooks-com-logo-transparent.png";
 $book_gutenberg_logo = "http://www.gutenberg.org/pics/logo-144x144.png";
 
+// Book Recommendations : Recovering the IDS of the Recommendations
+$all_recommendations = get_terms( array( 'taxonomy' => 'recommendation' ));
+$recommendations_ids = array();
+
+foreach( $all_recommendations as $term ) {
+    $key = get_term_meta( $term->term_id, 'book_title', true );
+    if( $key == $book_slug_title ) {
+        $recommendations_ids[] = $term->term_id;
+    }
+}
+
 // Book Recommendations : Building the arguments for the WP_Query
 $args = array(
     'post_type' => 'person',
     'post_status' => 'publish',
+    'posts_per_page' => -1,
     'tax_query' => array(
             array(
             'taxonomy' => 'recommendation',
-            'field'    => 'slug',
-            'terms'    => $book_slug_title,
+            'field'    => 'term_id',
+            'terms'    => $recommendations_ids,
         ),
     ),
 );
@@ -211,6 +223,10 @@ $wp_query = new WP_Query( $args );
 </div><!-- end main-content-area -->
 
 
-<?php get_footer(); ?>
+<?php 
+wp_reset_query();
+
+
+get_footer(); ?>
 
 

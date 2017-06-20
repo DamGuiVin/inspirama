@@ -148,7 +148,8 @@ wp_reset_query();
 // Building the arguments for the WP Query to get ALL the Person pages
 $args = array(
     'post_type' => 'person',
-    'post_status' => 'publish'
+    'post_status' => 'publish',
+    'posts_per_page' => -1
     );
 
 // Sending the WP_Query

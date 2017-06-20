@@ -14,7 +14,7 @@
                 <?php if ( is_active_sidebar( 'footer-widget' ) ) : ?>
                     
                     <div id="widget-area" class="widget-area col-md-4">
-                        <img src="http://localhost/current/wp-content/uploads/2017/06/mail1.png" height="50" width="50" class="mail-icon" alt="Mail">
+                        <img src="<?php echo get_stylesheet_directory_uri() . '/img/mail.png' ; ?>" height="50" width="50" class="mail-icon" alt="Mail">
                             <br>
                             <h5 class="line-height"> Yeswekant est en version Beta, partagez avec nous vos impressions sur le site : </h5><h5 class="what-is-ywk"> contact@yeswekant.com </h5>
                         <?php dynamic_sidebar( 'footer-widget' ); ?>
@@ -24,7 +24,7 @@
             </div>
             
             <div class="column3 col-md-4" > <!-- beginning column1-->
-                    <img src="http://localhost/current/wp-content/uploads/2017/06/paperplane1.png" height="40" width="40" class="newsletter-icon" alt="Mail">
+                    <img src="<?php echo get_stylesheet_directory_uri() . '/img/paperplane.png' ; ?>" height="40" width="40" class="newsletter-icon" alt="Mail">
                     <br>
                     <h5>Restons en contact !</h5>
                                     <!-- Begin MailChimp Signup Form -->
@@ -61,9 +61,9 @@
 
         <div >
             <hr>
-            <p class="about">© 2017 - YesWeKant | <a href="http://localhost/current/index.php">Home</a> | <a href="http://localhost/current/index.php/contact/">Contact</a> | <a href="http://localhost/current/index.php/a-propos/">À propos</a></p>
+            <p class="about">© 2017 - YesWeKant | <a href="<?php echo get_site_url(); ?>">Home</a> | <a href="<?php echo get_site_url() . '/a-propos/'; ?>">À propos</a></p>
         </div>
-        
+
         <?php if ( has_nav_menu( 'social_menu' ) ) : ?>
             <div class="row">
                 <nav id="social-navigation" class="social-navigation" role="navigation">
