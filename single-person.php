@@ -116,12 +116,16 @@ if ( $wp_query->have_posts() ) : ?>
             $book_title = get_the_title();
             $book_author = get_post_meta( $book_page_id, 'author', true);
 
+            /* 
+            PAS NECESSAIRE POUR L'INSTANT MAIS SERA UTILE POUR L'AFFICHAGE DE LA RECOMMENDATION DEPUIS LA PAGE PERSON
+
             // Recover useful attributes from the Recommendation
             $recommendation = $recommendations_array[ $iterator ];
             $recommendation_id = $recommendation->term_id;
             $recommendation_text = $recommendation->description;
             $recommendation_sources_titles = get_term_meta( $recommendation_id, 'sources_titles', true);
             $recommendation_sources_urls = get_term_meta( $recommendation_id, 'sources_urls', true);
+            */
 
             // Check if the Book has an image. Only load the Book if it does
             if ( has_post_thumbnail( $book_page_id ) ) {
@@ -140,22 +144,10 @@ if ( $wp_query->have_posts() ) : ?>
                     <!--  Book Details -->
                     <div class="portfolio-book-subtitle">
                         <div>
-                            <?php echo $book_title; ?>,
-                        </div>
-                        <div >
-                            de <?php echo $book_author; ?>
-                        </div>
-                        <div >
-                            L'ID de la recommandation : <?php echo $recommendation_id; ?>
-                        </div>
-                        <div >
-                            La recommandation : <?php echo $recommendation_text; ?>
-                        </div>
-                        <div >
-                            Source : <?php echo $recommendation_sources_titles; ?>
-                        </div>
-                        <div >
-                            Source : <?php echo $recommendation_sources_urls; ?>
+                            <?php echo $book_title; 
+                            if( $book_author != ' ') : ?>
+                                ,<br>de <?php echo $book_author; ?>
+                            <?php endif ?>
                         </div>
                     </div>
 
