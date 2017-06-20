@@ -92,8 +92,10 @@ $wp_query = new WP_Query( $args );
                 <div>
             		
                     <h1 class="booktitle">
-                        <?php echo $book_title; ?></br>
-                        de <?php echo $book_author; ?>
+                        <?php echo $book_title;  
+                        if( $book_author & $book_author != ' ') : ?>
+                            <br>de <?php echo $book_author; ?>
+                        <?php endif ?>
                     </h1>
                     <p>
                         Genre : <?php echo $book_genre; ?>
@@ -137,17 +139,25 @@ $wp_query = new WP_Query( $args );
                             $recommendation_id = $recommendations_ids[ $iterator ];
                             $recommendation = get_term_by( 'id', $recommendation_id, 'recommendation' );
                             $recommendation_text = $recommendation->description;
-                            $recommendation_sources_titles = get_term_meta( $recommendation_id, 'sources_titles', true);
-                            $recommendation_sources_urls = get_term_meta( $recommendation_id, 'sources_urls', true);
+                            $recommendation_sources_titles = explode( ';', get_term_meta( $recommendation_id, 'sources_titles', true) );
+                            $recommendation_sources_urls =  explode( ';', get_term_meta( $recommendation_id, 'sources_urls', true) );
 
                             $iterator = $iterator + 1;
                             ?>
 
                             <li>
 
-                                <p>La recommandation : <?php echo $recommendation_text; ?></p>
-                                <p>Les sources : <?php echo $recommendation_sources_titles; ?></p>
-                                <p>Les sources URLs: <?php echo $recommendation_sources_urls; ?></p>
+                                <div>
+                                    La recommandation : <?php echo $recommendation_text; ?>
+                                </div>
+                                <div>
+                                    Les sources :
+                                    <?php for ($i = 0; $i < count( $recommendation_sources_titles ); $i++) : ?>
+                                        <span>
+                                            <a target="_blank" href="<?php echo $recommendation_sources_urls[$i] ?>"><?php echo $recommendation_sources_titles[$i] ?></a>
+                                        </span>
+                                    <?php endfor; ?>
+                                </div>
 
                                 <div class="person">
                                     <a href="<?php echo the_permalink($person_page_id); ?>" class="portfolio-link">
