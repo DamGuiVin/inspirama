@@ -22,7 +22,7 @@ Description: WP adaptation
 
     box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.25);
 
-        overflow: hidden;
+    overflow: hidden;
 
 
 }
@@ -98,6 +98,7 @@ sinon j'ai créé la class "img-adapt" pour modifier les images des pages qui ut
 
 
 
+
 /* Bannière*/
 
 header .full-width-container {
@@ -107,7 +108,31 @@ header .full-width-container {
 #bg {
     background: linear-gradient(45deg,rgba(250,250,250,0.6),rgba(250,250,250,1));
     border-radius: 100px;
+
     }
+
+
+@media (max-width: 767px) {
+
+    #bg {
+        background: linear-gradient(45deg,rgba(250,250,250,0.8),rgba(250,250,250,1));
+        border-radius: 10px;
+        padding: 30px;
+        }
+
+    header.welcome-screen h1 {
+        font-size: 4em;
+        margin: 0;
+        font-family: 'Oswald';
+        text-align: center;
+        text-indent: 0px;
+        }
+
+    .welcome-screen{
+        background-position: center top;    
+        }
+
+        }
 
 /* Titre principal NB: impossible de modifier la couleur, je ne sais pas pq.*/
 
@@ -325,7 +350,7 @@ footer.container{
 footer.full-width-container {
 }
 .fat-footer{
- min-height: 400px;
+ min-height: 440px;
 }
 
 }
@@ -1026,7 +1051,7 @@ margin: 0 1px 0 0;
 display: inline-block;
 height: 30px;
 padding:0;
-width: 160px;
+max-width: 200px;
 }
 
 input[type="text"] {
@@ -1259,3 +1284,21 @@ padding: 0px;
     min-height: 100px;
 }
 }
+
+/* =404
+
+-------------------------------------------------------------- */
+
+
+
+.error404 .search-form {
+
+    max-width: 200px;
+
+    position: relative;
+
+    margin: 0px auto;
+
+
+}
+

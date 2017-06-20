@@ -17,7 +17,9 @@
                 <?php if ( ! have_posts() ) : ?>
 
                     <h1 class="title"><?php _e('Désolé! La page que vous cherchez n\'existe pas.', 'oren'); ?></h1>
-                    
+
+                    <br><br>
+
                     <p>
                         
                         <?php _e( 'Rechercher une autre page :', 'oren' ); ?>
