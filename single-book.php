@@ -34,14 +34,12 @@ $book_ebook_url = get_post_meta( $book_page_id, 'ebook_url', true );
 $book_gutenberg_url = get_post_meta( $book_page_id, 'gutenberg_url', true );
 
 // Sellers Logos
-$book_leslibraires_logo = "https://remixjobs-cache.s3-eu-west-1.amazonaws.com/1600x1200_thumbnail/1458465800-549769b3c13ad119ee389858c981663f.png";
-$book_amazon_logo = "http://vignette2.wikia.nocookie.net/logopedia/images/f/fc/Amazon.com_Favicon_2.svg/revision/latest?cb=20160808095346";
-$book_fnac_logo = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Fnac_Logo.svg/1200px-Fnac_Logo.svg.png";
-$book_priceminister_logo = "http://s1.e-monsite.com/2008/08/17/4595701price-jpg.jpg";
-$book_momox_logo = "https://yt3.ggpht.com/-nyc5Wd9JP_4/AAAAAAAAAAI/AAAAAAAAAAA/QOO8JLtm6sU/s900-c-k-no-mo-rj-c0xffffff/photo.jpg";
-$book_recyclivre_logo = "https://pbs.twimg.com/profile_images/672354416276709376/z0UYD0u8.png";
-$book_ebook_logo = "https://p4.zdassets.com/hc/settings_assets/224308/200126145/sqZqwE6u9G4TuXyBYqS29Q-ebooks-com-logo-transparent.png";
-$book_gutenberg_logo = "http://www.gutenberg.org/pics/logo-144x144.png";
+$book_leslibraires_logo = get_stylesheet_directory_uri() . '/img/les_libraires.png' ;
+$book_amazon_logo = get_stylesheet_directory_uri() . '/img/amazon.png' ;
+$book_fnac_logo = get_stylesheet_directory_uri() . '/img/fnac.png' ;
+$book_priceminister_logo = get_stylesheet_directory_uri() . '/img/priceminister.png' ;
+$book_ebook_logo = get_stylesheet_directory_uri() . '/img/ebooks.png' ;
+$book_gutenberg_logo = get_stylesheet_directory_uri() . '/img/gutenberg.png' ;
 
 // Book Recommendations : Recovering the IDS of the Recommendations
 $all_recommendations = get_terms( array( 'taxonomy' => 'recommendation' ));
