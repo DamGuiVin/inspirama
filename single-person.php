@@ -21,7 +21,7 @@
                 while ( have_posts() ) : the_post(); ?>
                     
                     <!-- Person Image -->
-                    <div class="col-md-4 col-md-offset-1">
+                    <div class="col-md-4">
                         <?php if ( has_post_thumbnail( $post->ID ) ) : ?>
                                 <div class="featured-image single-portfolio-featured-image">
                                     <?php echo get_the_post_thumbnail( $post->ID, array(400,400) ); ?>
@@ -30,7 +30,7 @@
                     </div>
 
                     <!-- Person Title, Excerpt and Content -->
-                    <div class="col-md-6">
+                    <div class="col-md-8">
                         <div class="name-person">
                             <h1><?php the_title(); ?></h1>
                             <?php if ( has_excerpt() ) : ?>
@@ -142,13 +142,13 @@ if ( $wp_query->have_posts() ) : ?>
                     </div>
 
                     <!--  Book Details -->
-                    <div class="portfolio-book-subtitle">
-                        <div>
-                            <?php echo $book_title; 
-                            if( $book_author != ' ') : ?>
-                                ,<br>de <?php echo $book_author; ?>
-                            <?php endif ?>
-                        </div>
+                    <div class="portfolio-book-subtitle-title">
+                        <?php echo $book_title; ?>
+                    </div>
+                    <div class="portfolio-book-subtitle-author">
+                        <?php if( $book_author != ' ') : ?>
+                            de <?php echo $book_author; ?>
+                        <?php endif; ?>
                     </div>
 
                 </li>

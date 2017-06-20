@@ -848,19 +848,40 @@ sur l'image) + j'ai changé la taille des images
 
 }
 
-.portfolio-book-subtitle {
+.portfolio-book-subtitle-title {
 
-    height: 90px;
+    height: 60px;
 
     text-align: center;
 
     font-size: 1.8em;
+
+    line-height: 100%;
+
+    padding-left: 10%;
+
+    padding-right: 10%;
+
+    font-family: 'Source Sans Pro', sans-serif;
+
+}
+
+.portfolio-book-subtitle-author {
+
+    height: 20px;
+
+    text-align: center;
+
+    font-size: 1.2em;
 
     line-height: 70%;
 
     padding-left: 10%;
 
     padding-right: 10%;
+
+    font-family: 'Source Sans Pro', sans-serif;
+
 }
 
 
