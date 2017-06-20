@@ -117,7 +117,12 @@ $wp_query = new WP_Query( $args );
                     </div>
 
                     <ul>
-                        <?php while ( $wp_query->have_posts() ) : $wp_query->the_post();
+                        <?php 
+
+                        // The iterator will let us keep track of at which Book in the Recommendation array we are
+                        $iterator = 0;
+
+                        while ( $wp_query->have_posts() ) : $wp_query->the_post();
 
                             // Recover useful attributes from the Person
                             $person_page_id = $wp_query->post->ID;
@@ -129,16 +134,20 @@ $wp_query = new WP_Query( $args );
                             $previewImage = wp_get_attachment_image_src( get_post_thumbnail_id( $person_page_id ), $img_size );
 
                             // Recover useful attributes from the Recommendation
-                            $recommendation_object = get_term_by( 'slug', $book_slug_title, 'recommendation' );
-                            $recommendation_id = $recommendation_object->term_id;
-                            $recommendation_text = $recommendation_object->description;
-                            $recommendation_source = get_term_meta( $recommendation_id, 'source', true);
+                            $recommendation_id = $recommendations_ids[ $iterator ];
+                            $recommendation = get_term_by( 'id', $recommendation_id, 'recommendation' );
+                            $recommendation_text = $recommendation->description;
+                            $recommendation_sources_titles = get_term_meta( $recommendation_id, 'sources_titles', true);
+                            $recommendation_sources_urls = get_term_meta( $recommendation_id, 'sources_urls', true);
+
+                            $iterator = $iterator + 1;
                             ?>
 
                             <li>
 
                                 <p>La recommandation : <?php echo $recommendation_text; ?></p>
-                                <p>La source : <?php echo $recommendation_source; ?></p>
+                                <p>Les sources : <?php echo $recommendation_sources_titles; ?></p>
+                                <p>Les sources URLs: <?php echo $recommendation_sources_urls; ?></p>
 
                                 <div class="person">
                                     <a href="<?php echo the_permalink($person_page_id); ?>" class="portfolio-link">

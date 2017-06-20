@@ -62,8 +62,9 @@
 $person_id = $post->ID;
 $person_name = $post->post_title;
 $slug_book_titles_array = array();
+$recommendations_array = get_the_terms( $person_id, 'recommendation' );
 
-foreach ( get_the_terms( $person_id, 'recommendation' ) as $recommendation) {
+foreach ( $recommendations_array as $recommendation) {
     $recommendation_book_title = get_term_meta( $recommendation->term_id, 'book_title', true );
     array_push( $slug_book_titles_array, $recommendation_book_title );
 }
@@ -116,10 +117,11 @@ if ( $wp_query->have_posts() ) : ?>
             $book_author = get_post_meta( $book_page_id, 'author', true);
 
             // Recover useful attributes from the Recommendation
-            $recommendation_object = $recommendations_array[ $iterator ];
-            $recommendation_id = $recommendation_object->term_id;
-            $recommendation_text = $recommendation_object->description;
-            $recommendation_source = get_term_meta( $recommendation_id, 'source', true);
+            $recommendation = $recommendations_array[ $iterator ];
+            $recommendation_id = $recommendation->term_id;
+            $recommendation_text = $recommendation->description;
+            $recommendation_sources_titles = get_term_meta( $recommendation_id, 'sources_titles', true);
+            $recommendation_sources_urls = get_term_meta( $recommendation_id, 'sources_urls', true);
 
             // Check if the Book has an image. Only load the Book if it does
             if ( has_post_thumbnail( $book_page_id ) ) {
@@ -144,10 +146,16 @@ if ( $wp_query->have_posts() ) : ?>
                             de <?php echo $book_author; ?>
                         </div>
                         <div >
+                            L'ID de la recommandation : <?php echo $recommendation_id; ?>
+                        </div>
+                        <div >
                             La recommandation : <?php echo $recommendation_text; ?>
                         </div>
                         <div >
-                            Source : <?php echo $recommendation_source; ?>
+                            Source : <?php echo $recommendation_sources_titles; ?>
+                        </div>
+                        <div >
+                            Source : <?php echo $recommendation_sources_urls; ?>
                         </div>
                     </div>
 
