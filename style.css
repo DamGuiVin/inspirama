@@ -18,9 +18,12 @@ Description: WP adaptation
 
     padding: 0;
 
-    background-color : #d7dff1;
+    background-color : white;
 
     box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.25);
+
+        overflow: hidden;
+
 
 }
 
@@ -30,7 +33,7 @@ Description: WP adaptation
 
 .single-portfolio-featured-image {
 
-    margin: 100px;
+    margin: auto;
 
 }
 
@@ -38,19 +41,38 @@ Description: WP adaptation
 
 /* Texte descriptif de la personnalité */
 
-.post-content {
+.single .post-content {
 
-font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
+
+    background: #fff;
+
+    padding: 15px 15px 3px 15px;
+    
+    border-radius: 5px;
+
+    margin: 0;
+
+    height: 260px;
+
+    overflow: auto;
+
+}
+
+.single .post-content p{
+
+padding: 0;
 
 }
 
 
-
 /* Titre : *nom de la personne* et *Livre recommandé par *nom de la personne**  */
 
-.text-center  {
+.name-person  {
 
 font-family: 'Source Sans Pro', sans-serif;
+
+padding-left: 10px;
 
 }
 
@@ -105,9 +127,10 @@ header.welcome-screen h2 {
 
 /* Texte qui apparait sur les images de portfolio*/
 
-.portfolio-details .details-person-name {
+.portfolio-details {
 
-    height: 40%
+height: 100%;
+
 }
 
 .portfolio-details .details-person-name h2 {
@@ -118,9 +141,9 @@ header.welcome-screen h2 {
 
     text-transform: uppercase;
 
-	vertical-align: center;
+	vertical-align: top;
 
-    padding-top: 15%;
+    padding-top: 5%;
 
 }
 
@@ -131,9 +154,7 @@ header.welcome-screen h2 {
 
     color: black;
 
-    vertical-align: center;
-
-    height: 30%;
+    height: 55%;
 
 }
 
@@ -143,25 +164,29 @@ header.welcome-screen h2 {
 .portfolio-details .details-person-invitation {
 
     font-family: 'Source Sans Pro', sans-serif;
+    
+    vertical-align: bottom;
 
-    color: black;
-
-    vertical-align: center;
+    color: white;
 
     text-decoration: bold;
 
-    border: 2px solid #99B6E0;
+    background-color: #77B8C1;
+
+    border: 2px solid #77B8C1;
 
     border-radius: 30px;
 
     font-size: 14px;
+
+    padding: 2px;
 
 }
 
 .portfolio-details .details-person-invitation:hover{
 
 
-    box-shadow: 0 0 5px #99B6E0;
+    box-shadow: 0 0 10px #77B8C1;
 
 }
 
@@ -280,6 +305,12 @@ footer.container{
     text-decoration: none;
 }
 
+.footer-text{
+    color: #2C4347;
+    font-family:'Source Sans Pro', sans-serif;
+    font-weight: bold;
+}
+
 /* Reponsive design */
 
 
@@ -294,7 +325,7 @@ footer.container{
 footer.full-width-container {
 }
 .fat-footer{
- min-height: 440px;
+ min-height: 400px;
 }
 
 }
@@ -313,6 +344,8 @@ header.welcome-screen h1 {
     font-size: 1.5em;
     margin: 0;
     font-family: 'Oswald';
+    text-align: left;
+    text-indent: 30px;
 }
 
 
@@ -469,7 +502,7 @@ ul {
 
 nav.primary-navigation ul li {
     display: inline-block;
-    width: 120px;
+    width: 140px;
     text-align: center;
     padding : 14px 0px 14px 0px ;
     background-color:white;
@@ -494,7 +527,7 @@ nav.primary-navigation .navbar-nav > .active > a:focus {
 /* hover on menu */
 
 nav.primary-navigation .nav > li > a:hover {
-    background-color: #99b6e0;
+    background-color: #77B8C1;
     padding: 15px 0 16px 0;
     margin: -15px 0 -16px 0;
 }
@@ -788,6 +821,11 @@ sur l'image) + j'ai changé la taille des images
 
 /* image du livre */
 
+
+.single-portfolio .single-portfolio-featured-image {
+    margin: 0;
+}
+
 .portfolio-image-book {
 
     height: 320px;
@@ -947,14 +985,14 @@ input[type="text"] {
     text-indent: 10px;
     color: black;
     padding: 0;
-    border: 2px solid #99B6E0;
+    border: 2px solid #77B8C1;
     border-radius: 20px;
 }
 
 input[type="text"]:focus { 
     outline: none;
-    border-color: #99B6E0;
-    box-shadow: 0 0 5px #99B6E0;
+    border-color: #77B8C1;
+    box-shadow: 0 0 5px #77B8C1;
 }
 
 
@@ -1019,15 +1057,16 @@ input[type="text"]:focus {
 input[type="email"]{
     width: 200px;
     text-indent: 10px;
+    margin-bottom: 0;
     padding: 0;
-    border: 2px solid #99B6E0;
+    border: 2px solid #77B8C1;
     border-radius: 20px;
 }
 
 input[type="email"]:focus{
     outline: none;
-    border-color: #99B6E0;
-    box-shadow: 0 0 5px #99B6E0;
+    border-color: #77B8C1;
+    box-shadow: 0 0 5px #77B8C1;
 }
 
 
@@ -1035,14 +1074,21 @@ input[type="email"]:focus{
 -------------------------------------------------------------- */
 
 input[type="submit"]{
-    border : 1px solid #99B6E0;
-    background-color: #99B6E0;
-    width: 110px;
-    padding: 5px 5px;
-    font-size: 14px;
+    border : 1px solid #77B8C1;
+    background-color: #77B8C1;
+    padding: 3px;
+    margin-left:10px;
+    margin-top:5px;
+    font-size: 12px;
     font-weight: bold;
     border-radius:5px;
     color:white;
+    }
+
+
+input[type="submit"]:hover {
+    background-color: #D7CE4A;
+    border : 1px solid #D7CE4A;
     }
 
 .newsletter-icon{
@@ -1074,7 +1120,17 @@ a:hover  {
 
 }
 
+/* Description of the bottom of the footer
+-------------------------------------------------------------- */
 
+.what-is-ywk {
+    font-size: 1.2em;
+    line-height: 120%;
+}
+
+.line-height{
+    line-height: 130%;
+} 
 
 /* Animated cursor for text animation typed.js
 -------------------------------------------------------------- */

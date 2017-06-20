@@ -14,7 +14,7 @@
 
         $(function(){
           $(".element").typed({
-            strings: [" STEVE JOBS", " VLADIMIR POUTINE", " STALINE", " NICOLAS SARKOZY" ],
+            strings: [" MACRON", " ELON MUSK", " VLADIMIR POUTINE", " HILLARY CLINTON" ],
             typeSpeed: 100,
             backDelay: 1000,
             loop: true
