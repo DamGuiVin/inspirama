@@ -10,17 +10,13 @@
                     <h5 class="what-is-ywk"> Yeswekant.com est une librairie en ligne. Découvrez sur ce site les livres qui ont marqué les personnalités qui vous inspirent.</h5>
             </div>
 
-            <div class="emailpage">
-                <?php if ( is_active_sidebar( 'footer-widget' ) ) : ?>
-                    
-                    <div id="widget-area" class="widget-area col-md-4">
-                        <img src="<?php echo get_stylesheet_directory_uri() . '/img/mail.png' ; ?>" height="50" width="50" class="mail-icon" alt="Mail">
-                            <br>
-                            <h5 class="line-height"> Yeswekant est en version Beta, partagez avec nous vos impressions sur le site : </h5><h5 class="what-is-ywk"> contact@yeswekant.com </h5>
-                        <?php dynamic_sidebar( 'footer-widget' ); ?>
-                    </div><!-- .widget-area -->
-
-            <?php endif; ?>
+            <div class="emailpage">  
+                <div id="widget-area" class="widget-area col-md-4">
+                    <img src="<?php echo get_stylesheet_directory_uri() . '/img/mail.png' ; ?>" height="50" width="50" class="mail-icon" alt="Mail">
+                        <br>
+                        <h5 class="line-height"> Yeswekant est en version Beta, partagez avec nous vos impressions sur le site : </h5><h5 class="what-is-ywk"> contact@yeswekant.com </h5>
+                    <?php dynamic_sidebar( 'footer-widget' ); ?>
+                </div><!-- .widget-area -->
             </div>
             
             <div class="column3 col-md-4" > <!-- beginning column1-->
