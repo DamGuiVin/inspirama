@@ -81,7 +81,8 @@ wp_reset_query();
 $args = array(
     'post_type' => 'person',
     'post_status' => 'publish',
-    'posts_per_page' => -1
+    'posts_per_page' => -1,
+    'orderby' => 'rand'
     );
 
 // Sending the WP_Query
