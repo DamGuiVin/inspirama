@@ -61,7 +61,7 @@ if ( get_header_image() ) {
             <a href="#personnalites" class="scroll-try scroll-down" address="true"></a>
         </div>
     </div>
-  <!-- Button section end -->
+    <!-- Button section end -->
 
 </header>
 <!-- End Homepage Presentation -->
