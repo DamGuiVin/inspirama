@@ -47,6 +47,7 @@ $args = array(
     'post_type' => 'person',
     'post_status' => 'publish',
     'posts_per_page' => -1,
+    'orderby' => 'rand',
     'tax_query' => array(
             array(
             'taxonomy' => 'category',
