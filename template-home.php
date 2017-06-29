@@ -58,7 +58,7 @@ if ( get_header_image() ) {
     <!-- Button section beginning -->
     <div class="go-to-portfolio-link-container">
         <div class="go-to-portfolio-link-button">
-            <a href="#masonry-wrapper" class="scroll-try scroll-down" address="true"></a>
+            <a href="#personnalites" class="scroll-try scroll-down" address="true"></a>
         </div>
     </div>
   <!-- Button section end -->
@@ -99,7 +99,7 @@ $img_size = 'themeora-portfolio-span-8';
 if ( $wp_query->have_posts() ) : ?>
     
     <!-- Persons Mosaic -->  
-    <ul id="masonry-wrapper" class="portfolio-cols-4">
+    <ul id="personnalites" class="portfolio-cols-4">
         <?php while ( $wp_query->have_posts() ) : $wp_query->the_post();
 
             // Recover useful attributes from the Person
