@@ -36,105 +36,37 @@ if ( get_header_image() ) {
 <header style="z-index: -1;" class="full-width-container-home center-page welcome-screen <?php $background_image != '' ? print 'header-with-background' : '' ?> <?php has_excerpt() ? print 'header-with-excerpt ' : print 'header-without-excerpt'; ?>" role="banner" data-welcome-background="<?php echo $background_image; ?>" >
     
   <!-- Homepage welcome Text -->
-  <div class="container welcome-container-home">
-      <div class="row welcome-row">
-          <div class="col-md-10 col-md-offset-1">
-              <?php while ( have_posts() ) : the_post(); ?>
-                  <div id="bg">
-                    <h1 class="title-homepage"><?php the_title(); ?><span class="element"></span><span class="typed-cursor"></span></h1>
-                    <h2 class=""><?php the_content(); ?></h2>
-                  </div>
-                  <?php
-                  if ( has_excerpt() ) {
-                      the_excerpt();
-                  } ?>
-              <?php endwhile; ?>
-          </div>
-      </div>
-  </div>
-  <!-- End Homepage Welcome Text -->
+    <div class="container welcome-container-home">
+        <div class="row welcome-row">
+            <div class="col-md-10 col-md-offset-1">
+                <?php while ( have_posts() ) : the_post(); ?>
+                    <div id="bg">
+                        <h1 class="title-homepage">
+                            <?php the_title(); ?><span class="element"></span><span class="typed-cursor"></span>
+                        </h1>
+                        <h2 class="">
+                            <?php the_content(); ?>
+                        </h2>
+                    </div>
+                    <?php if ( has_excerpt() ) {the_excerpt();} ?>
+                <?php endwhile; ?>
+            </div>
+        </div>
+    </div>
+    <!-- End Homepage Welcome Text -->
 
-  <!-- Button section beginning -->
-  <div class="go-to-portfolio-link-container">
-      <div class="go-to-portfolio-link-button">
-          <a href="#masonry-wrapper" class="scroll-try scroll-down" address="true">
-          </a>
-      </div>
-  </div>
+    <!-- Button section beginning -->
+    <div class="go-to-portfolio-link-container">
+        <div class="go-to-portfolio-link-button">
+            <a href="#masonry-wrapper" class="scroll-try scroll-down" address="true"></a>
+        </div>
+    </div>
   <!-- Button section end -->
 
 </header>
 <!-- End Homepage Presentation -->
-<?php 
+<?php
 
-if ( $paged === 1 ) : ?>
-
-    <?php if ( have_posts() ) : ?>
-
-        <header class="full-width-container-home center-page welcome-screen <?php $background_image != '' ? print 'header-with-background' : '' ?> <?php has_excerpt() ? print 'header-with-excerpt ' : print 'header-without-excerpt'; ?>" role="banner" data-welcome-background="<?php echo $background_image; ?>" >
-
-            <div class="container welcome-container-home">
-
-                <div class="row welcome-row">
-
-                    <div class="col-md-4 col-md-offset-1">
-
-                        <?php while ( have_posts() ) : the_post(); ?>
-
-                            <div id="bg">
-
-                                <h1 class="title-homepage"><?php the_title(); ?><span class="element"></span><span class="typed-cursor"></span></h1>
-
-                                <h2 class=""><?php the_content(); ?></h2>
-
-                            </div>
-
-                            <?php
-
-                            if ( has_excerpt() ) {
-
-                                the_excerpt();
-
-                            } ?>
-
-                        <?php endwhile; ?>
-
-                    </div><!-- end col-md-10 -->
-
-                </div><!-- end row -->
-
-            </div><!-- end container -->
-
-            <!-- Button section beginning -->
-            <div class="go-to-portfolio-link-container">
-
-                <div class="go-to-portfolio-link-button">
-                    <a href="#masonry-wrapper" class="scroll-try scroll-down" address="true">
-                    </a>
-
-                </div>
-
-            </div><!-- Button section end -->
-
-        </header><!-- end header - full width container -->
-
-        <?php wp_reset_query(); ?>
-
-    <?php endif; ?>
-
-<?php endif; ?>
-
-
-
-
-
-
-
-
-
-
-
- <?php
 
 
 //........................................................................
