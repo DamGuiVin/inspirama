@@ -42,7 +42,7 @@ $book_ebook_logo = get_stylesheet_directory_uri() . '/img/ebooks.png' ;
 $book_gutenberg_logo = get_stylesheet_directory_uri() . '/img/gutenberg.png' ;
 
 // Book Recommendations : Recovering the IDS of the Recommendations
-$all_recommendations = get_terms( array( 'taxonomy' => 'recommendation' ));
+$all_recommendations = get_terms( array( 'taxonomy' => 'recommendation', 'orderby' => 'name' ));
 $recommendations_ids = array();
 
 foreach( $all_recommendations as $term ) {
@@ -57,6 +57,8 @@ $args = array(
     'post_type' => 'person',
     'post_status' => 'publish',
     'posts_per_page' => -1,
+    'orderby' => 'title',
+    'order' => 'ASC',
     'tax_query' => array(
             array(
             'taxonomy' => 'recommendation',
