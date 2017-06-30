@@ -101,65 +101,67 @@ if ( $wp_query->have_posts() ) : ?>
     	<br/>
     </div>
 
-    <ul id="masonry-wrapper" class="portfolio-cols-4">
-        <?php 
+    <div class="portfolio-books-wrapper">
+        <ul id="masonry-wrapper" class="portfolio-cols-4">
+            <?php 
 
-        // The iterator will let us keep track of at which Book in the Recommendation array we are
-        $iterator = 0;
+            // The iterator will let us keep track of at which Book in the Recommendation array we are
+            $iterator = 0;
 
-        while ( $wp_query->have_posts() ) : 
+            while ( $wp_query->have_posts() ) : 
 
-            $wp_query->the_post();
+                $wp_query->the_post();
 
-            // Recover useful attributes from the Book
-            $book_page_id = $wp_query->post->ID;
-            $book_title = get_the_title();
-            $book_author = get_post_meta( $book_page_id, 'author', true);
+                // Recover useful attributes from the Book
+                $book_page_id = $wp_query->post->ID;
+                $book_title = get_the_title();
+                $book_author = get_post_meta( $book_page_id, 'author', true);
 
-            /* 
-            PAS NECESSAIRE POUR L'INSTANT MAIS SERA UTILE POUR L'AFFICHAGE DE LA RECOMMENDATION DEPUIS LA PAGE PERSON
+                /* 
+                PAS NECESSAIRE POUR L'INSTANT MAIS SERA UTILE POUR L'AFFICHAGE DE LA RECOMMENDATION DEPUIS LA PAGE PERSON
 
-            // Recover useful attributes from the Recommendation
-            $recommendation = $recommendations_array[ $iterator ];
-            $recommendation_id = $recommendation->term_id;
-            $recommendation_text = $recommendation->description;
-            $recommendation_sources_titles = get_term_meta( $recommendation_id, 'sources_titles', true);
-            $recommendation_sources_urls = get_term_meta( $recommendation_id, 'sources_urls', true);
-            */
+                // Recover useful attributes from the Recommendation
+                $recommendation = $recommendations_array[ $iterator ];
+                $recommendation_id = $recommendation->term_id;
+                $recommendation_text = $recommendation->description;
+                $recommendation_sources_titles = get_term_meta( $recommendation_id, 'sources_titles', true);
+                $recommendation_sources_urls = get_term_meta( $recommendation_id, 'sources_urls', true);
+                */
 
-            // Check if the Book has an image. Only load the Book if it does
-            if ( has_post_thumbnail( $book_page_id ) ) {
-                $previewImage = wp_get_attachment_image_src( get_post_thumbnail_id( $book_page_id ), $img_size ); ?>
+                // Check if the Book has an image. Only load the Book if it does
+                if ( has_post_thumbnail( $book_page_id ) ) {
+                    $previewImage = wp_get_attachment_image_src( get_post_thumbnail_id( $book_page_id ), $img_size ); ?>
 
-                <!--  Book Frame -->
-                <li class="masonry-item">
+                    <!--  Book Frame -->
+                    <li class="masonry-item">
 
-                    <!--  Book Image Button Effect -->
-                    <div class="button-effect">
-                        <a href="<?php the_permalink(); ?>" class="portfolio-link">
-                            <img src="<?php echo $previewImage[0] ?>" class="portfolio-image-book" alt="<?php the_title(); ?>" />
-                        </a>
-                    </div>
+                        <!--  Book Image Button Effect -->
+                        <div class="button-effect">
+                            <a href="<?php the_permalink(); ?>" class="portfolio-link">
+                                <img src="<?php echo $previewImage[0] ?>" class="portfolio-image-book" alt="<?php the_title(); ?>" />
+                            </a>
+                        </div>
 
-                    <!--  Book Details -->
-                    <div class="portfolio-book-subtitle-title">
-                        <?php echo $book_title; ?>
-                    </div>
-                    <div class="portfolio-book-subtitle-author">
-                        <?php if( $book_author != ' ') : ?>
-                            de <?php echo $book_author; ?>
-                        <?php endif; ?>
-                    </div>
+                        <!--  Book Details -->
+                        <div class="portfolio-book-subtitle-title">
+                            <?php echo $book_title; ?>
+                        </div>
+                        <div class="portfolio-book-subtitle-author">
+                            <?php if( $book_author != ' ') : ?>
+                                de <?php echo $book_author; ?>
+                            <?php endif; ?>
+                        </div>
 
-                </li>
-                <!-- End Book Frame -->
+                    </li>
+                    <!-- End Book Frame -->
 
-            <?php } 
+                <?php } 
 
-            ++$iterator; 
+                ++$iterator; 
 
-        endwhile; ?>
-    </ul>
+            endwhile; ?>
+        </ul>
+    </div>
     <!-- Books Mosaic -->  
 
 <?php

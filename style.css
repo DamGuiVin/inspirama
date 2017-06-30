@@ -796,22 +796,54 @@ sur l'image) + j'ai changé la taille des images
     height: 60px;
     text-align: center;
     font-size: 1.8em;
-    line-height: 100%;
-    padding-left: 10%;
-    padding-right: 10%;
+    line-height: 115%;
+    padding-left: 5%;
+    padding-right: 5%;
     font-family: 'Source Sans Pro', sans-serif;
+    overflow: hidden;
+    position: relative;
 }
+
+.portfolio-book-subtitle-title:after {
+    content: "";
+    text-align: right;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 30px;
+    width: 25%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
+}
+
 
 .portfolio-book-subtitle-author {
     height: 20px;
     text-align: center;
     font-size: 1.2em;
-    line-height: 70%;
-    padding-left: 10%;
-    padding-right: 10%;
+    line-height: 90%;
+    padding-top: 3px;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-bottom: 5px;
     font-family: 'Source Sans Pro', sans-serif;
+    overflow: hidden;
+    position: relative;   
 }
 
+.portfolio-book-subtitle-author:after {
+    content: "";
+    text-align: right;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 20px;
+    width: 25%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
+}
+
+.portfolio-books-wrapper {
+    margin-bottom: 30px;
+}
 
 /* animation : effet bouton sur le livre */
 
