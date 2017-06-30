@@ -38,7 +38,7 @@ if ( get_header_image() ) {
   <!-- Homepage welcome Text -->
     <div class="container welcome-container-home">
         <div class="row welcome-row">
-            <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-10">
                 <?php while ( have_posts() ) : the_post(); ?>
                     <div id="bg">
                         <h1 class="title-homepage">

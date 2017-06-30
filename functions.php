@@ -878,4 +878,32 @@ function recommendation_script_finished() {
 
 
 
+
+//.......................................................................................................
+// Homepage : gathering array of names and sentences for typing cursor JS effect 
+//.......................................................................................................
+
+function get_all_people_names() {
+
+    global $wpdb;
+    $custom_post_type = 'person';
+    $results = $wpdb->get_results( $wpdb->prepare( "SELECT ID, post_title FROM {$wpdb->posts} WHERE post_type = %s and post_status = 'publish'", $custom_post_type ), ARRAY_A );
+
+    if ( ! $results )
+        return;
+
+    $list_names = [];
+    foreach( $results as $index => $post ) {
+        array_push( $list_names, ' ' . mb_strtoupper( $post['post_title'] ) );
+    }
+
+    shuffle( $list_names );
+    array_unshift( $list_names, ' CEUX QUI VOUS INSPIRENT', ' CEUX QUI VOUS INTRIGUENT' );
+
+    return $list_names;
+}
+
+
+
+
 ?>

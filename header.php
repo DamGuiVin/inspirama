@@ -10,16 +10,23 @@
 
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/js/dist/typed.min.js' ; ?>"></script>
-    <script>
+
+    <?php $list_names_php = get_all_people_names(); ?>
+
+    <script type="text/javascript">
 
         $(function(){
-          $(".element").typed({
-            strings: [" MACRON", " ELON MUSK", " VLADIMIR POUTINE", " HILLARY CLINTON" ],
-            typeSpeed: 100,
-            backDelay: 1000,
-            loop: true
-          });
+
+            var list_names = <?php echo json_encode($list_names_php); ?>;
+
+            $(".element").typed({
+                strings: list_names,
+                typeSpeed: 100,
+                backDelay: 1000,
+                loop: true
+            });
         });
+
     </script>
 
     <style type="text/css"> html {scroll-behavior: smooth;} </style>
