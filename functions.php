@@ -492,7 +492,7 @@ function add_book_meta_fields( $book_id, $book_page ) {
 
 
 //.......................................................................................................
-// Custom Permalinks
+// Custom Permalinks : Person, Book 
 //.......................................................................................................
 
 
@@ -550,6 +550,34 @@ function custom_permalinks( $permalink, $post, $leavename, $sample ) {
     }
 
     return $permalink;
+}
+
+
+
+
+//.......................................................................................................
+// Custom Permalinks : Search Results
+//.......................................................................................................
+
+
+add_action( 'template_redirect', 'search_url_redirect_url' );
+
+function search_url_redirect_url() {
+    if ( is_search() && ! empty( $_GET['s'] ) ) {
+        wp_redirect( home_url( "/recherche/" ) . urlencode( get_query_var( 's' ) ) );
+        exit();
+    }   
+}
+
+
+add_action( 'init', 'search_url_rewrite_url' );
+
+function search_url_rewrite_url() {
+    add_rewrite_rule(
+            '^recherche/([^/]+)/?$',
+            'index.php?s=$matches[1]',
+            'top'
+        );
 }
 
 
