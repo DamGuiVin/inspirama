@@ -15,16 +15,10 @@ Description: WP adaptation
 /* Bandeau du haut qui contient l'image et la description de la personne */
 
 .single-portfolio {
-
     padding: 0;
-
     background-color : white;
-
     box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.25);
-
     overflow: hidden;
-
-
 }
 
 
@@ -32,9 +26,7 @@ Description: WP adaptation
 /* Thumbnail de la personnalité */
 
 .single-portfolio-featured-image {
-
     margin: auto;
-
 }
 
 
@@ -42,38 +34,25 @@ Description: WP adaptation
 /* Texte descriptif de la personnalité */
 
 .single .post-content {
-
     font-family: 'Source Sans Pro', sans-serif;
-
     background: #fff;
-
     padding: 15px 15px 3px 15px;
-    
     border-radius: 5px;
-
     margin: 0;
-
     height: 260px;
-
     overflow: auto;
-
 }
 
 .single .post-content p{
-
-padding: 0;
-
+    padding: 0;
 }
 
 
 /* Titre : *nom de la personne* et *Livre recommandé par *nom de la personne**  */
 
 .name-person  {
-
-font-family: 'Source Sans Pro', sans-serif;
-
-padding-left: 10px;
-
+    font-family: 'Source Sans Pro', sans-serif;
+    padding-left: 10px;
 }
 
 
@@ -83,7 +62,6 @@ padding-left: 10px;
 /* bandeau du haut sur les pages template-contact */
 
 .welcome-screen {
-
     background-color : #829fd8;
 }
 
@@ -102,14 +80,13 @@ sinon j'ai créé la class "img-adapt" pour modifier les images des pages qui ut
 /* Bannière*/
 
 header .full-width-container {
-	background-size: cover;
+    background-size: cover;
 }
 
 #bg {
     background: linear-gradient(45deg,rgba(250,250,250,0.6),rgba(250,250,250,1));
     border-radius: 100px;
-
-    }
+}
 
 
 @media (max-width: 767px) {
@@ -132,7 +109,7 @@ header .full-width-container {
         background-position: center top;    
         }
 
-        }
+}
 
 /* Titre principal NB: impossible de modifier la couleur, je ne sais pas pq.*/
 
@@ -141,95 +118,62 @@ header .full-width-container {
 /* Titre secondaire */
 
 header.welcome-screen h2 {
-
     font-size: 0.8em;
-
     margin: 0;
-
     font-family: 'Raleway';
-
 }
 
 /* Texte qui apparait sur les images de portfolio*/
 
 .portfolio-details {
-
-height: 100%;
-
+    height: 100%;
 }
 
 .portfolio-details .details-person-name h2 {
-
 	font-family: 'Source Sans Pro', sans-serif;
-
     color: black;
-
     text-transform: uppercase;
-
 	vertical-align: top;
-
     padding-top: 5%;
-
 }
 
 
 .portfolio-details .details-person-introduction {
-
     font-family: 'Source Sans Pro', sans-serif;
-
     color: black;
-
     height: 55%;
-
 }
 
 /* Text Découvrez les recommandations de lecture de : */
 
 
 .portfolio-details .details-person-invitation {
-
     font-family: 'Source Sans Pro', sans-serif;
-    
     vertical-align: bottom;
-
     color: white;
-
     text-decoration: bold;
-
     background-color: #77B8C1;
-
     border: 2px solid #77B8C1;
-
     border-radius: 30px;
-
     font-size: 14px;
-
     padding: 2px;
-
 }
 
 .portfolio-details .details-person-invitation:hover{
-
-
     box-shadow: 0 0 10px #77B8C1;
-
 }
 
 
 /* text size */
 
 .portfolio-details .details-person-invitation h4 {
-
     font-size: 14px;
-
 }
 
 /* Image de portfolio */
 
 .img-adapt {
-
 	padding:0;
-
 }
 
 .img-adapt:hover {
@@ -241,43 +185,28 @@ height: 100%;
 /* animation : effet de transparence */
 
 @keyframes fade {
-
-from {opacity: 1;} to {opacity: 0.5;}
-
+    from {opacity: 1;} to {opacity: 0.5;}
 }
 
 /* Conteneur : du titre H1 au footer */
 
 .row {
-
 	margin: 0;
-
 	padding: 0;
-
 }
 
 .masonry-item {
-
     display: block;
-
     float: left;
-
     font-family: 'Gidugu';
-
     padding: 0px;
-
     width: 33.33%; /* default width for 3 cols */
-
 }
 
 #personnalites {
-
     margin: 0;
-
     padding: 0;
-
     overflow: hidden;
-
 }
 
 /* Footer footer.php
@@ -288,7 +217,6 @@ from {opacity: 1;} to {opacity: 0.5;}
 /* Menu du bas */
 
 #widget-area li {
-
 	display:inline-block;
 	padding-right: 10px;
 	text-align: right;
@@ -298,13 +226,10 @@ from {opacity: 1;} to {opacity: 0.5;}
 	text-decoration:none;
 	margin: none;
 	padding: none;
-
 }
 
 #widget-area li:hover {
-
 	text-decoration:none;
-
 }
 
 /* suppress underlined links */
@@ -356,12 +281,12 @@ footer.container{
 
 @media (max-width: 767px) {
 
-footer.full-width-container {
-}
-.fat-footer{
- min-height: 440px;
-}
-
+    footer.full-width-container {
+    }
+    
+    .fat-footer{
+        min-height: 440px;
+    }
 }
 
 h5 {
@@ -463,27 +388,27 @@ header.full-width-container-category {
 }
 
 .scroll-down {
-  opacity: 1;
-  -webkit-transition: all .5s ease-in 3s;
-  transition: all .5s ease-in 3s;
+    opacity: 1;
+    -webkit-transition: all .5s ease-in 3s;
+    transition: all .5s ease-in 3s;
 }
 
 .scroll-down {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  margin-left: -16px;
-  display: block;
-  width: 40px;
-  height: 40px;
-  border: 2px solid #FFF;
-  background-size: 14px auto;
-  border-radius: 50%;
-  z-index: 2;
-  -webkit-animation: bounce 2s infinite 2s;
-  animation: bounce 2s infinite 2s;
-  -webkit-transition: all .2s ease-in;
-  transition: all .2s ease-in;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    margin-left: -16px;
+    display: block;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #FFF;
+    background-size: 14px auto;
+    border-radius: 50%;
+    z-index: 2;
+    -webkit-animation: bounce 2s infinite 2s;
+    animation: bounce 2s infinite 2s;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
 }
 
 .scroll-down:before {
@@ -500,25 +425,25 @@ header.full-width-container-category {
 }
 
 @keyframes bounce {
-  0%,
-  100%,
-  20%,
-  50%,
-  80% {
-    -webkit-transform: translateY(0);
-    -ms-transform: translateY(0);
-    transform: translateY(0);
-  }
-  40% {
-    -webkit-transform: translateY(-10px);
-    -ms-transform: translateY(-10px);
-    transform: translateY(-10px);
-  }
-  60% {
-    -webkit-transform: translateY(-5px);
-    -ms-transform: translateY(-5px);
-    transform: translateY(-5px);
-  }
+    0%,
+    100%,
+    20%,
+    50%,
+    80% {
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
+    }
+    40% {
+        -webkit-transform: translateY(-10px);
+        -ms-transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+    60% {
+        -webkit-transform: translateY(-5px);
+        -ms-transform: translateY(-5px);
+        transform: translateY(-5px);
+    }
 }
 /* =Primary navigation = Menu elements Header.php
 -------------------------------------------------------------- */
@@ -625,9 +550,9 @@ button.navbar-toggle {
 
 /* hidding menu when screen is bigger than ipad */
 
- .hamburger {
+.hamburger {
     display: none;
-    }
+}
 
 /* color of menu text */
 
@@ -638,26 +563,26 @@ nav.primary-navigation ul li a {
 /* About page in top menu */
 
 nav.primary-navigation ul li.search-bar-menu{
-        display: inline-block;
-        padding: 0;
-        float: right;
-        width: 240px;
-        text-align: center;
-        vertical-align: center;
-        padding : 10px 0px 10px 0px ;
+    display: inline-block;
+    float: right;
+    width: 240px;
+    text-align: center;
+    vertical-align: center;
+    padding : 10px 0px 10px 0px ;
 }
 
+/* 
 nav.primary-navigation ul li.search-bar-menu:hover {
-background-color: none;
-padding : 10px 0px 10px 0px ;
+    background-color: none;
 }
+ */
 
 nav.primary-navigation ul li.top-menu{
-        display: inline-block;
-        float: right;
-        vertical-align: center;
-        width: 120px;
-        padding : 13px 0px 13px 0px ;
+    display: inline-block;
+    float: right;
+    vertical-align: center;
+    width: 120px;
+    padding : 13px 0px 13px 0px ;
 }
 
 nav.primary-navigation ul li a:hover {
@@ -668,20 +593,19 @@ nav.primary-navigation ul li a:hover {
 /* About page in top menu */
 
 .menu-right{
-        display: inline-block;
-        float: right;
-        vertical-align: center;
-        width:400px;
-        padding: 0;
-        margin: 0;
-        border: 0;
+    display: inline-block;
+    float: right;
+    vertical-align: center;
+    width:400px;
+    padding: 0;
+    margin: 0;
+    border: 0;
     }
 
 .menu-categories{
-        display: inline-block;
-        float: left;
+    display: inline-block;
+    float: left;
     }
-
 
 nav.primary-navigation ul li.top-menu:hover{
     font-weight: bold;
@@ -696,36 +620,32 @@ nav.primary-navigation ul li.top-menu:hover{
 @media (max-width: 1024px) {
 
     .hamburger {
-    display: none;
+        display: none;
     }
 
     nav.primary-navigation ul li.top-menu {
-    display: none;
+        display: none;
     }
 
     .search-bar-menu{
-    display: inline-block;
-    width: 80px;
+        display: inline-block;
+        width: 80px;
     }
 
     .search-form-menu{
-    display: inline-block;
-    width: 80px;
+        display: inline-block;
+        width: 80px;
     }
 
 
     .search-form{
-    width: 20px;
+        width: 20px;
     }
-
-
-            }
+}
 
 /* Phones */
 
-
 @media (max-width: 767px) {
-
 
 /* displaying menu when screen is smaller than ipad */
     
@@ -839,8 +759,7 @@ nav.primary-navigation ul li.top-menu:hover{
     .primary-navigation #nav-spy {
         float: none;
     }
-
-    }  
+}   
 
 /* Person Page Template template-person.php
 -------------------------------------------------------------- */
@@ -860,97 +779,58 @@ sur l'image) + j'ai changé la taille des images
 }
 
 .portfolio-image-book {
-
     height: 320px;
-
     margin-top: 20px;
-
     display: block;
-
     margin-left: auto;
-
     margin-right: auto;
-
     margin-bottom: 20px;
-
     border-radius: 3px;
-
     vertical-align: center;
-
     box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 10px 0 rgba(0, 0, 0, 0.25);
-
 }
 
 .portfolio-book-subtitle-title {
-
     height: 60px;
-
     text-align: center;
-
     font-size: 1.8em;
-
     line-height: 100%;
-
     padding-left: 10%;
-
     padding-right: 10%;
-
     font-family: 'Source Sans Pro', sans-serif;
-
 }
 
 .portfolio-book-subtitle-author {
-
     height: 20px;
-
     text-align: center;
-
     font-size: 1.2em;
-
     line-height: 70%;
-
     padding-left: 10%;
-
     padding-right: 10%;
-
     font-family: 'Source Sans Pro', sans-serif;
-
 }
 
 
 /* animation : effet bouton sur le livre */
 
-
 @keyframes anim {
-
     from {transform: scale(1,1);}
-
     to {transform: scale(0.95,0.95);}
-
 }
 
 
 .portfolio-image-book:hover {
-
     animation-name: anim;
-
     animation-iteration-count: 1;
-
     animation-duration: 0.3s;
-
     animation-fill-mode: forwards;
-
 }
 
 
 .button-effect:hover {
-
     animation-name: anim;
-
     animation-duration: 500ms;
-
     animation-fill-mode: forwards;
-
 }
 
 
@@ -961,37 +841,29 @@ sur l'image) + j'ai changé la taille des images
 /* NB : modification sur tous les customs fields */
 
 .post-meta {
-
-font-family: 'Source Sans Pro', sans-serif;
-text-decoration: none;
-list-style-type: none;
-
+    font-family: 'Source Sans Pro', sans-serif;
+    text-decoration: none;
+    list-style-type: none;
 }
 
-.h4
-
-{
-
-font-family: 'Source Sans Pro', sans-serif;
-
+.h4 {
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 .book-page-title {
-
-padding-top: 0;
-margin-top: 0;
-font-family: 'Oswald';
-font-size: 2.4em;
-line-height: 120%;
+    padding-top: 0;
+    margin-top: 0;
+    font-family: 'Oswald';
+    font-size: 2.4em;
+    line-height: 120%;
 }
 
 .book-page-author {
-
-padding-top: 0;
-margin-top: 0;
-font-family: 'Oswald';
-font-size: 1.8em;
-line-height: 120%;
+    padding-top: 0;
+    margin-top: 0;
+    font-family: 'Oswald';
+    font-size: 1.8em;
+    line-height: 120%;
 }
 
 .book-page-details {
@@ -1021,8 +893,8 @@ line-height: 120%;
 /* enlève la marge du haut */
 
 .full-width-container {
-padding: 0;
-margin : 0;
+    padding: 0;
+    margin : 0;
 }
 
 
@@ -1031,14 +903,24 @@ margin : 0;
 -------------------------------------------------------------- */
 
 .search-form input[type="text"] {
-margin: 0;
-padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 
 .search-form {
     width: 160px;
+}
+
+input.search-form {
+    width: 160px;
     height: 30px;
+}
+
+.search-form-inline-container {
+    display: inline-block;
+    height: 30px;
+    vertical-align: top;
 }
 
 .widget_search {
@@ -1046,21 +928,29 @@ padding: 0;
 }
 
 input {
-outline: none;
-padding: 0;
-margin: 0;
+    outline: none;
+    padding: 0;
+    margin: 0;
 }
 
 .search-icon{
-display: inline-block;
-margin: 0 1px 0 0;
+    display: inline-block;
+    margin: 0 1px 0 0;
 }
 
 .search-form-menu{
-display: inline-block;
-height: 30px;
-padding:0;
-max-width: 200px;
+    display: inline-block;
+    height: 30px;
+    padding: 0;
+    max-width: 200px;
+}
+
+form.search-form-menu{
+    display: inline-block;
+    height: 30px;
+    padding: 0;
+    margin: 0;
+    max-width: 200px;
 }
 
 input[type="text"] {
@@ -1075,24 +965,21 @@ input[type="text"]:focus {
     outline: none;
     border-color: #77B8C1;
     box-shadow: 0 0 5px #77B8C1;
+    vertical-align: top;
 }
 
 
 /* No search results */
 
 .search-no-results .search-form {
-
     margin: auto;
-
 }
 
 
 .search-no-results .text-center {
-
     margin-top: 46px;
     padding-bottom: 20px;
     margin-bottom: 46px;
-
 }
 
 
@@ -1182,24 +1069,18 @@ input[type="submit"]:hover {
 -------------------------------------------------------------- */
 
 .fa {
-margin: 0 0 10px 0;
-    }
+    margin: 0 0 10px 0;
+}
 
 /* Turns off the greenish color on the links
 -------------------------------------------------------------- */
 
 a,
-
 a:visited, 
-
 a:active,
-
 a:focus,
-
 a:hover  {
-
     color: black;
-
 }
 
 /* Description of the bottom of the footer
@@ -1260,54 +1141,47 @@ a:hover  {
 /* search result title */
 
 .search-title {
-margin: 0;
-padding: 0px 0px 10px 0px;
+    margin: 0;
+    padding: 0px 0px 10px 0px;
 }
 
 /* Responsive : padding search text */
 
 @media (max-width: 1024px) {
-.search-title {
-padding: 20px;
-text-align: center;
-}
+    .search-title {
+        padding: 20px;
+        text-align: center;
+    }
 }
 
 @media (max-width: 767px) {
-.search-title {
-padding: 10px;
-text-align: center;
+    .search-title {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .search-text {
+        margin: 0px 15px 0px 15px;
+        padding: 0px;
+    }
+
+    .result {
+        margin-bottom: 0px;
+        padding: 0px;
+    }
+    .archive-title {
+        max-height: 150px;
+        min-height: 100px;
+    }
 }
 
-.search-text {
-margin: 0px 15px 0px 15px;
-padding: 0px;
-}
-
-.result {
-    margin-bottom: 0px;
-    padding: 0px;
-}
-.archive-title {
-    max-height: 150px;
-    min-height: 100px;
-}
-}
 
 /* =404
-
 -------------------------------------------------------------- */
 
-
-
 .error404 .search-form {
-
     max-width: 200px;
-
     position: relative;
-
     margin: 0px auto;
-
-
 }
 

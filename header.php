@@ -121,8 +121,6 @@
                 <!--Beginning Search -->
 
                     <li class="search-bar-menu">
-
-                        <img class="search-icon" src="<?php echo get_stylesheet_directory_uri() . '/img/search.png' ; ?>" height="24" width="24" class="search-icon" alt="Search-icon"> 
              
                         <div class="search-form-menu">
 
