@@ -6,7 +6,30 @@
 
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />  
+
+
+
+    <!-- Hotjar Tracking Code for www.yeswekant.com -->
+
+    <!--<script>
+
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:539732,hjsv:5};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+
+    </script>-->
+    
+    <!-- End Hotjar Tracking Code for www.yeswekant.com -->
+
+
+
+    <!-- JS code for automatic smooth scrolling to anchor links -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
@@ -38,6 +61,12 @@
 
     </script>
 
+    <!-- End JS code for automatic smooth scrolling to anchor links -->
+
+
+
+    <!-- JS code for Typed cursor function -->
+
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/js/dist/typed.min.js' ; ?>"></script>
 
@@ -59,7 +88,10 @@
 
     </script>
 
+    <!-- End JS code for Typed cursor function -->
     
+
+
     <style type="text/css"> html {scroll-behavior: smooth;} </style>
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
