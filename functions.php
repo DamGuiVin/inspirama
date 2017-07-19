@@ -898,7 +898,7 @@ function get_all_people_names() {
     }
 
     shuffle( $list_names );
-    array_unshift( $list_names, ' CEUX QUI VOUS INSPIRENT', ' CEUX QUI VOUS INTRIGUENT' );
+    array_unshift( $list_names, ' CEUX QUI VOUS INSPIRENT' );
 
     return $list_names;
 }
