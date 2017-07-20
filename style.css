@@ -792,56 +792,35 @@ sur l'image) + j'ai changé la taille des images
     margin-bottom: 20px;
     border-radius: 3px;
     vertical-align: center;
-    box-shadow: 20px 3px 30px #888888;
+    box-shadow: 8px 3px 30px #888888;
 }
 
 .portfolio-book-subtitle-title {
-    height: 60px;
+    height: 30px;
     text-align: center;
-    font-size: 1.8em;
+    font-size: 1.5em;
     line-height: 115%;
     padding-left: 5%;
     padding-right: 5%;
     font-family: 'Source Sans Pro', sans-serif;
+    white-space: nowrap;
     overflow: hidden;
-    position: relative;
+    text-overflow: ellipsis;
 }
-
-.portfolio-book-subtitle-title:after {
-    content: "";
-    text-align: right;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    height: 30px;
-    width: 25%;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
-}
-
 
 .portfolio-book-subtitle-author {
     height: 20px;
     text-align: center;
-    font-size: 1.2em;
+    font-size: 1.1em;
     line-height: 90%;
     padding-top: 3px;
     padding-left: 5%;
     padding-right: 5%;
     margin-bottom: 5px;
     font-family: 'Source Sans Pro', sans-serif;
+    white-space: nowrap;
     overflow: hidden;
-    position: relative;   
-}
-
-.portfolio-book-subtitle-author:after {
-    content: "";
-    text-align: right;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    height: 20px;
-    width: 25%;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
+    text-overflow: ellipsis;  
 }
 
 .portfolio-books-wrapper {

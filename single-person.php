@@ -64,9 +64,11 @@ $person_name = $post->post_title;
 $slug_book_titles_array = array();
 $recommendations_array = get_the_terms( $person_id, 'recommendation' );
 
-foreach ( $recommendations_array as $recommendation) {
+if ( $recommendations_array ) {
+    foreach ( $recommendations_array as $recommendation) {
     $recommendation_book_title = get_term_meta( $recommendation->term_id, 'book_title', true );
     array_push( $slug_book_titles_array, $recommendation_book_title );
+    }
 }
 
 // Building the arguments for the WP Query
