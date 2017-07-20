@@ -135,22 +135,25 @@ if ( $wp_query->have_posts() ) : ?>
                     <!--  Book Frame -->
                     <li class="masonry-item">
 
-                        <!--  Book Image Button Effect -->
-                        <div class="button-effect">
-                            <a href="<?php the_permalink(); ?>" class="portfolio-link">
+                        <a href="<?php the_permalink(); ?>" class="portfolio-link">
+                            
+                            <!--  Book Image Button Effect -->
+                            <div class="button-effect">
                                 <img src="<?php echo $previewImage[0] ?>" class="portfolio-image-book" alt="<?php the_title(); ?>" />
-                            </a>
-                        </div>
+                            </div>
 
-                        <!--  Book Details -->
-                        <div class="portfolio-book-subtitle-title">
-                            <?php echo $book_title; ?>
-                        </div>
-                        <div class="portfolio-book-subtitle-author">
-                            <?php if( $book_author != ' ') : ?>
-                                de <?php echo $book_author; ?>
-                            <?php endif; ?>
-                        </div>
+                            <!--  Book Details -->
+                            <div class="portfolio-book-subtitle-title">
+                                <?php echo $book_title; ?>
+                            </div>
+
+                            <div class="portfolio-book-subtitle-author">
+                                <?php if( $book_author != ' ') : ?>
+                                    de <?php echo $book_author; ?>
+                                <?php endif; ?>
+                            </div>
+
+                        </a>
 
                     </li>
                     <!-- End Book Frame -->
