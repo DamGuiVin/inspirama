@@ -33,8 +33,8 @@ if ( get_header_image() ) {
 } ?>
 
 <!-- Homepage Presentation -->
-<header style="z-index: -1;" class="full-width-container-home center-page welcome-screen <?php $background_image != '' ? print 'header-with-background' : '' ?> <?php has_excerpt() ? print 'header-with-excerpt ' : print 'header-without-excerpt'; ?>" role="banner" data-welcome-background="<?php echo $background_image; ?>" >
-    <a href="#personnalites">
+<a href="#personnalites" class="go-to-portfolio-homepage">
+    <header style="z-index: -1;" class="full-width-container-home center-page welcome-screen <?php $background_image != '' ? print 'header-with-background' : '' ?> <?php has_excerpt() ? print 'header-with-excerpt ' : print 'header-without-excerpt'; ?>" role="banner" data-welcome-background="<?php echo $background_image; ?>" >
 
         <!-- Homepage welcome Text -->
         <div class="container welcome-container-home">
@@ -53,19 +53,16 @@ if ( get_header_image() ) {
                     <?php endwhile; ?>
                 </div>
             </div>
+
+            <!-- Jumping icon section beginning -->
+            <div class="scroll-down" address="true"></div>
+            <!-- Jumping icon section end -->
+
         </div>
         <!-- End Homepage Welcome Text -->
 
-        <!-- Button section beginning -->
-        <div class="go-to-portfolio-link-container">
-            <div class="go-to-portfolio-link-button">
-                <a href="#personnalites" class="scroll-try scroll-down" address="true"></a>
-            </div>
-        </div>
-        <!-- Button section end -->
-        
-    </a>
-</header>
+    </header>
+</a>
 <!-- End Homepage Presentation -->
 <?php
 

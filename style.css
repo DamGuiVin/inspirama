@@ -358,6 +358,13 @@ header.full-width-container-category {
 
 /* Container of the welcome message */
 
+a .go-to-portfolio-homepage,
+a .go-to-portfolio-homepage:hover {
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
 .welcome-container-home {
     padding-top: 12%;
     font-size: 1.3em;
@@ -372,27 +379,7 @@ header.full-width-container-category {
     text-align: center;
 }
 
-/* Container for the button to go to the portfolio of people on homepage and category pages */
-
-.go-to-portfolio-link-container {
-    padding-top: 50%;
-    margin-right: 30%;
-    margin-left: 30%;
-    text-align: center;
-}
-
-/* Button to go to the portfolio of people on homepage and category pages */
-
-.go-to-portfolio-link-button{
-    text-shadow: 1px 1px black;
-    font-family: 'Oswald';
-    text-align: center;
-    font-size: 1.1em;
-}
-
-.go-to-portfolio-link-button:hover{
-    text-decoration: none;
-}
+/* Jumping icon to go to the portfolio of people on homepage and category pages */
 
 .scroll-down {
     opacity: 1;
