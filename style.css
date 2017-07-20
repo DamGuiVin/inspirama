@@ -148,7 +148,6 @@ header.welcome-screen h2 {
 .portfolio-details .details-person-introduction {
     font-family: 'Source Sans Pro', sans-serif;
     color: black;
-    height: 55%;
 }
 
 /* Text Découvrez les recommandations de lecture de : */
@@ -156,14 +155,18 @@ header.welcome-screen h2 {
 
 .portfolio-details .details-person-invitation {
     font-family: 'Source Sans Pro', sans-serif;
-    vertical-align: bottom;
     color: white;
     text-decoration: bold;
     background-color: #77B8C1;
     border: 2px solid #77B8C1;
     border-radius: 30px;
     font-size: 14px;
-    padding: 2px;
+    margin: 5%;
+    margin-bottom: 10%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 .portfolio-details .details-person-invitation:hover{
