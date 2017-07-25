@@ -71,6 +71,7 @@ if ( $recommendations_array ) {
     }
 }
 
+
 // Building the arguments for the WP Query
 $args = array(
     'post_type' => 'book',
@@ -141,7 +142,27 @@ if ( $wp_query->have_posts() ) : ?>
                             
                             <!--  Book Image Button Effect -->
                             <div class="button-effect">
-                                <img src="<?php echo $previewImage[0] ?>" class="portfolio-image-book" alt="<?php the_title(); ?>" />
+
+                                <img src="<?php echo $previewImage[0] ?>" class="portfolio-book-image" alt="<?php the_title(); ?>" />
+                                
+                                <div class="portfolio-book-details">
+                                
+                                    <div class="portfolio-book-title">
+                                        <h2><?php echo $book_title; ?></h2>
+                                    </div>
+                                
+                                    <div class="portfolio-book-author">
+                                        <?php if( $book_author != ' ') : ?>
+                                            <h4>de <?php echo $book_author; ?></h4>
+                                        <?php endif; ?>
+                                    </div>
+                                
+                                    <div class="portfolio-book-invitation">
+                                        <h4>L'avis de <?php echo $person_name; ?></h4>
+                                    </div>
+                                
+                                </div>
+
                             </div>
 
                             <!--  Book Details -->

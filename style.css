@@ -187,14 +187,14 @@ header.welcome-screen h2 {
 }
 
 .img-adapt:hover {
-    animation-name: fade;
+    animation-name: person-animation;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
 }
 
 /* animation : effet de transparence */
 
-@keyframes fade {
+@keyframes person-animation {
     from {opacity: 1;} to {opacity: 0.5;}
 }
 
@@ -762,7 +762,7 @@ nav.primary-navigation ul li.top-menu:hover{
 -------------------------------------------------------------- */
 
 /* NB : Mise en forme des livres : centrés + ombre + bonne taille + animation hover  20.04.17 GUILHEM 
-J'ai rajouté dans le Person Page Template, la class portfolio-image-book 
+J'ai rajouté dans le Person Page Template, la class portfolio-book-image 
 et un div avant l'image pour instaurer la classe button-effect (effet d'animation 
 sur l'image) + j'ai changé la taille des images
 */
@@ -783,16 +783,97 @@ sur l'image) + j'ai changé la taille des images
     text-decoration: none;
 }
 
-.portfolio-image-book {
+.button-effect {
+    height: 360px;
+}
+
+.portfolio-book-image {
+    position: absolute;
     height: 320px;
-    margin-top: 20px;
+    margin: 20px;
     display: block;
+    left: 0;
+    right: 0;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 20px;
     border-radius: 3px;
     vertical-align: center;
     box-shadow: 8px 3px 30px #888888;
+}
+
+.portfolio-book-image:hover {
+    animation-name: book-animation;
+    animation-iteration-count: 1;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes book-animation {
+    from {
+        transform: scale(1,1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(0.95,0.95);
+        opacity: 0.10;
+    }
+}
+
+.portfolio-book-details {
+    position: absolute;
+    z-index: -1;
+    width: 100.3%; /* set with and height slightly larger than 100% to ensure there is no tiny gap on some browsers */
+    height: 320px;
+    margin: 20px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+    text-align: center;
+    vertical-align:middle;
+    display: table;
+    background: #fff;
+    background: rgba(255,255,255,0.8);
+}
+
+.portfolio-book-details .portfolio-book-title h2 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.5em;
+    color: black;
+    vertical-align: top;
+    padding-top: 5%;
+    margin-right: 20%;
+    margin-left: 20%;
+}
+
+.portfolio-book-details .portfolio-book-author h4 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.1em;
+    color: black;
+    margin-right: 20%;
+    margin-left: 20%;
+}
+
+.portfolio-book-details .portfolio-book-invitation h4 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.1em;
+    color: white;
+    text-decoration: bold;
+    background-color: #77B8C1;
+    border: 2px solid #77B8C1;
+    border-radius: 30px;
+    margin: 25%;
+    margin-bottom: 15%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 2%;
+}
+
+.portfolio-book-details .portfolio-book-invitation:hover {
+    box-shadow: 0 0 10px #77B8C1;
 }
 
 .portfolio-book-subtitle-title {
@@ -826,29 +907,6 @@ sur l'image) + j'ai changé la taille des images
 .portfolio-books-wrapper {
     margin-bottom: 30px;
 }
-
-/* animation : effet bouton sur le livre */
-
-@keyframes anim {
-    from {transform: scale(1,1);}
-    to {transform: scale(0.95,0.95);}
-}
-
-
-.portfolio-image-book:hover {
-    animation-name: anim;
-    animation-iteration-count: 1;
-    animation-duration: 0.3s;
-    animation-fill-mode: forwards;
-}
-
-
-.button-effect:hover {
-    animation-name: anim;
-    animation-duration: 500ms;
-    animation-fill-mode: forwards;
-}
-
 
 
 /* Book Page Template template-book.php
