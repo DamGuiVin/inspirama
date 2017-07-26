@@ -92,6 +92,14 @@
 
 
 
+    <!-- Google Suite Tracking Code for www.inspirama.co -->
+
+    <meta name="google-site-verification" content="Vzc8nFFP9VcKYdqrlRngLMUmP2shcv7z52S7uL0TUbc" />
+
+    <!-- End Google Suite Tracking Code for www.inspirama.co -->
+
+
+
     <!-- Opinion Stage Tracking Code for www.inspirama.co -->
 
     <script type="text/javascript">
