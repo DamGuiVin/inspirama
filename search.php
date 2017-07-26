@@ -135,9 +135,8 @@ $layout = get_theme_mod('themeora_blog_layout', 'full-width');
                 <?php if ( ! have_posts() ) : ?>
 
                     <p>
-
-                    <?php _e('Désolé ! Nous n\'avons trouvé aucun résutat. Peut être voulez-vous rechercher autre chose ?' , 'oren'); ?>
-
+                        Désolé ! Nous n'avons trouvé aucun résultat pour <strong>'<?php the_search_query() ?>'</strong>. 
+                        <br>Peut-être voulez-vous rechercher autre chose ?
                     </p>
 
                     <br>
