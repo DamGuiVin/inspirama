@@ -207,59 +207,60 @@ $wp_query = new WP_Query( $args );
                                 $recommendation_sources_urls =  explode( ';', get_term_meta( $recommendation_id, 'sources_urls', true) );
 
                                 $iterator = $iterator + 1;
-                                ?>
 
-                                <hr>
-                                <li>
+                                if( $recommendation_text and $recommendation_text != ' ') : ?>
+                                    <hr>
+                                    <li>
 
-                                    <div class="container book-page-recommendations">
-                                        <div class="row">
+                                        <div class="container book-page-recommendations">
+                                            <div class="row">
 
-                                            <!-- Recommendation Text Section --> 
-                                            <div class="col-md-6">
-                                                <div class="book-page-recommendations-text">
-                                                    <?php echo $recommendation_text; ?>
+                                                <!-- Recommendation Text Section --> 
+                                                <div class="col-md-6">
+                                                    <div class="book-page-recommendations-text">
+                                                        <?php echo $recommendation_text; ?>
+                                                    </div>
+                                                    <div class="book-page-recommendations-text">
+                                                        Source(s) :
+                                                        <?php for ($i = 0; $i < count( $recommendation_sources_titles ); $i++) : 
+                                                            if( $i > 0 ) : ?>
+                                                                 | 
+                                                            <?php endif; ?>
+                                                            <span>
+                                                                <a target="_blank" href="<?php echo $recommendation_sources_urls[$i] ?>"><?php echo $recommendation_sources_titles[$i] ?></a>
+                                                            </span>
+                                                        <?php endfor; ?>
+                                                    </div>
                                                 </div>
-                                                <div class="book-page-recommendations-text">
-                                                    Source(s) :
-                                                    <?php for ($i = 0; $i < count( $recommendation_sources_titles ); $i++) : 
-                                                        if( $i > 0 ) : ?>
-                                                             | 
-                                                        <?php endif; ?>
-                                                        <span>
-                                                            <a target="_blank" href="<?php echo $recommendation_sources_urls[$i] ?>"><?php echo $recommendation_sources_titles[$i] ?></a>
-                                                        </span>
-                                                    <?php endfor; ?>
+                                                <!-- End Recommendation Text Section --> 
+
+                                                <!-- Recommender Picture Section --> 
+                                                <div class="col-md-3">
+                                                    <div class="person book-page-recommendations-image">
+                                                        <a href="<?php echo the_permalink($person_page_id); ?>" class="portfolio-link">
+                                                            <img src="<?php echo $previewImage[0] ?>" class="img-adapt" alt="<?php echo $person_name; ?>" height="150" width="150"/>
+                                                            <div class="portfolio-details">
+                                                                <div class="details-person-name">
+                                                                    <h2 class="details-person-name"><?php echo $person_name; ?></h2>
+                                                                </div>
+                                                                <div class="details-person-introduction">
+                                                                    <?php if ( $person_intoduction ) : ?>
+                                                                        <h4><?php echo $person_intoduction; ?></h4>
+                                                                    <?php endif; ?>
+                                                                </div>
+                                                                <div class="details-person-invitation">
+                                                                    <h4>Découvrez ses autres recommandations de lecture</h4>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
                                                 </div>
+                                                <!-- End Recommender Picture Section --> 
+                                                
                                             </div>
-                                            <!-- End Recommendation Text Section --> 
-
-                                            <!-- Recommender Picture Section --> 
-                                            <div class="col-md-3">
-                                                <div class="person book-page-recommendations-image">
-                                                    <a href="<?php echo the_permalink($person_page_id); ?>" class="portfolio-link">
-                                                        <img src="<?php echo $previewImage[0] ?>" class="img-adapt" alt="<?php echo $person_name; ?>" height="150" width="150"/>
-                                                        <div class="portfolio-details">
-                                                            <div class="details-person-name">
-                                                                <h2 class="details-person-name"><?php echo $person_name; ?></h2>
-                                                            </div>
-                                                            <div class="details-person-introduction">
-                                                                <?php if ( $person_intoduction ) : ?>
-                                                                    <h4><?php echo $person_intoduction; ?></h4>
-                                                                <?php endif; ?>
-                                                            </div>
-                                                            <div class="details-person-invitation">
-                                                                <h4>Découvrez ses autres recommandations de lecture</h4>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <!-- End Recommender Picture Section --> 
-                                            
                                         </div>
-                                    </div>
-                                </li>
+                                    </li>
+                                <?php endif; ?>
                             <?php endwhile; ?>
                         </ul>
                     </div>
