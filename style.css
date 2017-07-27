@@ -11,6 +11,22 @@ Description: WP adaptation
 
 
 
+/* Social Media
+-------------------------------------------------------------- */
+
+.social-media-container {
+    position : fixed;
+    padding: 5px 0 0 5px; 
+    height: 50px; 
+    width: 50px;
+    right: 0;
+    top: 85px;
+    z-index: 3;
+}
+
+
+
+
 /* Person Page Template
 -------------------------------------------------------------- */
 
