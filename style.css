@@ -252,16 +252,28 @@ header.welcome-screen h2 {
 }
 
 .img-adapt:hover {
-    animation-name: person-animation;
-    animation-duration: 0.5s;
+    animation-name: person-animation 0.5s;
     animation-fill-mode: forwards;
-}
 
-/* animation : effet de transparence */
+    -webkit-animation-name: person-animation 0.5s;
+    -webkit-animation-fill-mode: forwards;
+
+    -moz-animation-name: person-animation 0.5s;
+    -moz-animation-fill-mode: forwards;
+}
 
 @keyframes person-animation {
     from {opacity: 1;} to {opacity: 0.5;}
 }
+
+@-webkit-keyframes person-animation {
+    from {opacity: 1;} to {opacity: 0.5;}
+}
+
+@-moz-keyframes person-animation {
+    from {opacity: 1;} to {opacity: 0.5;}
+}
+
 
 /* Conteneur : du titre H1 au footer */
 
@@ -867,13 +879,39 @@ sur l'image) + j'ai changé la taille des images
 }
 
 .portfolio-book-image:hover {
-    animation-name: book-animation;
-    animation-iteration-count: 1;
-    animation-duration: 0.3s;
+    animation-name: book-animation 0.3s;
     animation-fill-mode: forwards;
+
+    -webkit-animation-name: book-animation 0.3s;
+    -webkit-animation-fill-mode: forwards;
+
+    -moz-animation-name: book-animation 0.3s;
+    -moz-animation-fill-mode: forwards;
 }
 
 @keyframes book-animation {
+    from {
+        transform: scale(1,1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(0.95,0.95);
+        opacity: 0.10;
+    }
+}
+
+@-webkit-keyframes book-animation {
+    from {
+        transform: scale(1,1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(0.95,0.95);
+        opacity: 0.10;
+    }
+}
+
+@-moz-keyframes book-animation {
     from {
         transform: scale(1,1);
         opacity: 1;
