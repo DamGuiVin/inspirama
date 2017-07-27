@@ -24,6 +24,55 @@ Description: WP adaptation
     z-index: 3;
 }
 
+.social-media-icon {
+    padding: 2px;
+    position: relative;
+    right: 0px;
+}
+
+.social-media-icon:hover {
+    animation : social-media-animation 0.3s;
+    animation-fill-mode : forwards;
+
+    -webkit-animation : social-media-animation 0.3s;
+    -webkit-animation-fill-mode : forwards;
+
+    -moz-animation : social-media-animation 0.3s;
+    -moz-animation-fill-mode : forwards;
+}
+
+@keyframes social-media-animation {
+    from {
+        right: 0px;
+        opacity: 1;
+    } 
+    to {
+        right: 7px;
+        opacity: 0.5;
+    }
+}
+
+@-webkit-keyframes social-media-animation {
+    from {
+        right: 0px;
+        opacity: 1;
+    } 
+    to {
+        right: 7px;
+        opacity: 0.5;
+    }
+}
+
+@-moz-keyframes social-media-animation {
+    from {
+        right: 0px;
+        opacity: 1;
+    } 
+    to {
+        right: 7px;
+        opacity: 0.5;
+    }
+}
 
 
 

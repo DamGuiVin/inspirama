@@ -490,16 +490,16 @@
 
     <div class="social-media-container">
         <a target="_blank" href="https://www.facebook.com/Inspirama.co" >
-            <img alt="Facebook" title="Inspirama sur Facebook" src="<?php echo get_stylesheet_directory_uri() . '/img/social_media/facebook.png' ; ?>" width="40" height="40">  
+            <img class="social-media-icon" alt="Facebook" title="Inspirama sur Facebook" src="<?php echo get_stylesheet_directory_uri() . '/img/social_media/facebook.png' ; ?>" width="40" height="40">  
         </a>
         <a target="_blank" href="mailto:contact@inspirama.co">
-            <img alt="Email" title="Contacter Inspirama" src="<?php echo get_stylesheet_directory_uri() . '/img/social_media/email.png' ; ?>" width="40" height="40">
+            <img class="social-media-icon" alt="Email" title="Contacter Inspirama" src="<?php echo get_stylesheet_directory_uri() . '/img/social_media/email.png' ; ?>" width="40" height="40">
         </a>
         <a target="_blank" href="https://twitter.com/inspirama_co">
-            <img alt="Twitter" title="Inspirama sur Twitter" src="<?php echo get_stylesheet_directory_uri() . '/img/social_media/twitter.png' ; ?>" width="40" height="40">
+            <img class="social-media-icon" alt="Twitter" title="Inspirama sur Twitter" src="<?php echo get_stylesheet_directory_uri() . '/img/social_media/twitter.png' ; ?>" width="40" height="40">
         </a>
         <a target="_blank" href="https://www.linkedin.com/company-beta/11203511/">
-            <img alt="Linkedin" title="Inspirama sur Linkedin" src="<?php echo get_stylesheet_directory_uri() . '/img/social_media/linkedin.png' ; ?>" width="40" height="40">
+            <img class="social-media-icon" alt="Linkedin" title="Inspirama sur Linkedin" src="<?php echo get_stylesheet_directory_uri() . '/img/social_media/linkedin.png' ; ?>" width="40" height="40">
         </a>
     </div>
 
