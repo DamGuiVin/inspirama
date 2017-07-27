@@ -71,17 +71,21 @@ if ( $recommendations_array ) {
     }
 }
 
+// If the array of books is empty, we will use this
+$wp_query = false;
 
 // Building the arguments for the WP Query
-$args = array(
-    'post_type' => 'book',
-    'post_name__in' => $slug_book_titles_array,
-    'post_status' => 'publish',
-    'posts_per_page' => -1
-    );
+if ( count($slug_book_titles_array) > 0 ) {
+    $args = array(
+        'post_type' => 'book',
+        'post_name__in' => $slug_book_titles_array,
+        'post_status' => 'publish',
+        'posts_per_page' => -1
+        );
 
-// Sending the WP_Query
-$wp_query = new WP_Query( $args );
+    // Sending the WP_Query
+    $wp_query = new WP_Query( $args );
+}
 
 /*  Changement de la taille de l'image par Guilhem 
 Précédemment $img_size = 'themeora-portfolio-span-8' 
@@ -95,106 +99,120 @@ $img_size = '(200,800,false)';
 // PERSON RECOMMENDATIONS SECTION : BOOK MOSAIC
 //........................................................................
 
-if ( $wp_query->have_posts() ) : ?>
+// If there are books to display
+if ( $wp_query ) : 
+    if ( $wp_query->have_posts() ) : ?>
 
-    <!-- Books Mosaic -->  
-    <div class="text-center">
-    	<br/>
-            <h2>Livres recommandés par <?php echo $person_name; ?></h2>
-    	<br/>
-    </div>
+        <!-- Books Mosaic -->  
+        <div class="text-center">
+        	<br/>
+                <h2>Livres recommandés par <?php echo $person_name; ?></h2>
+        	<br/>
+        </div>
 
-    <div class="portfolio-books-wrapper">
-        <ul id="masonry-wrapper" class="portfolio-cols-4">
-            <?php 
+        <div class="portfolio-books-wrapper">
+            <ul id="masonry-wrapper" class="portfolio-cols-4">
+                <?php 
 
-            // The iterator will let us keep track of at which Book in the Recommendation array we are
-            $iterator = 0;
+                // The iterator will let us keep track of at which Book in the Recommendation array we are
+                $iterator = 0;
 
-            while ( $wp_query->have_posts() ) : 
+                while ( $wp_query->have_posts() ) : 
 
-                $wp_query->the_post();
+                    $wp_query->the_post();
 
-                // Recover useful attributes from the Book
-                $book_page_id = $wp_query->post->ID;
-                $book_title = get_the_title();
-                $book_author = get_post_meta( $book_page_id, 'author', true);
+                    // Recover useful attributes from the Book
+                    $book_page_id = $wp_query->post->ID;
+                    $book_title = get_the_title();
+                    $book_author = get_post_meta( $book_page_id, 'author', true);
 
-                /* 
-                PAS NECESSAIRE POUR L'INSTANT MAIS SERA UTILE POUR L'AFFICHAGE DE LA RECOMMENDATION DEPUIS LA PAGE PERSON
+                    /* 
+                    PAS NECESSAIRE POUR L'INSTANT MAIS SERA UTILE POUR L'AFFICHAGE DE LA RECOMMENDATION DEPUIS LA PAGE PERSON
 
-                // Recover useful attributes from the Recommendation
-                $recommendation = $recommendations_array[ $iterator ];
-                $recommendation_id = $recommendation->term_id;
-                $recommendation_text = $recommendation->description;
-                $recommendation_sources_titles = get_term_meta( $recommendation_id, 'sources_titles', true);
-                $recommendation_sources_urls = get_term_meta( $recommendation_id, 'sources_urls', true);
-                */
+                    // Recover useful attributes from the Recommendation
+                    $recommendation = $recommendations_array[ $iterator ];
+                    $recommendation_id = $recommendation->term_id;
+                    $recommendation_text = $recommendation->description;
+                    $recommendation_sources_titles = get_term_meta( $recommendation_id, 'sources_titles', true);
+                    $recommendation_sources_urls = get_term_meta( $recommendation_id, 'sources_urls', true);
+                    */
 
-                // Check if the Book has an image. Only load the Book if it does
-                if ( has_post_thumbnail( $book_page_id ) ) {
-                    $previewImage = wp_get_attachment_image_src( get_post_thumbnail_id( $book_page_id ), $img_size ); ?>
+                    // Check if the Book has an image. Only load the Book if it does
+                    if ( has_post_thumbnail( $book_page_id ) ) {
+                        $previewImage = wp_get_attachment_image_src( get_post_thumbnail_id( $book_page_id ), $img_size ); ?>
 
-                    <!--  Book Frame -->
-                    <li class="masonry-item">
+                        <!--  Book Frame -->
+                        <li class="masonry-item">
 
-                        <a href="<?php the_permalink(); ?>" class="portfolio-link">
-                            
-                            <!--  Book Image Button Effect -->
-                            <div class="button-effect">
-
-                                <img src="<?php echo $previewImage[0] ?>" class="portfolio-book-image" alt="<?php the_title(); ?>" />
+                            <a href="<?php the_permalink(); ?>" class="portfolio-link">
                                 
-                                <div class="portfolio-book-details">
-                                
-                                    <div class="portfolio-book-title">
-                                        <h2><?php echo $book_title; ?></h2>
+                                <!--  Book Image Button Effect -->
+                                <div class="button-effect">
+
+                                    <img src="<?php echo $previewImage[0] ?>" class="portfolio-book-image" alt="<?php the_title(); ?>" />
+                                    
+                                    <div class="portfolio-book-details">
+                                    
+                                        <div class="portfolio-book-title">
+                                            <h2><?php echo $book_title; ?></h2>
+                                        </div>
+                                    
+                                        <div class="portfolio-book-author">
+                                            <?php if( $book_author != ' ') : ?>
+                                                <h4>de <?php echo $book_author; ?></h4>
+                                            <?php endif; ?>
+                                        </div>
+                                    
+                                        <div class="portfolio-book-invitation">
+                                            <h4>L'avis de <?php echo $person_name; ?></h4>
+                                        </div>
+                                    
                                     </div>
-                                
-                                    <div class="portfolio-book-author">
-                                        <?php if( $book_author != ' ') : ?>
-                                            <h4>de <?php echo $book_author; ?></h4>
-                                        <?php endif; ?>
-                                    </div>
-                                
-                                    <div class="portfolio-book-invitation">
-                                        <h4>L'avis de <?php echo $person_name; ?></h4>
-                                    </div>
-                                
+
                                 </div>
 
-                            </div>
+                                <!--  Book Details -->
+                                <div class="portfolio-book-subtitle-title">
+                                    <?php echo $book_title; ?>
+                                </div>
 
-                            <!--  Book Details -->
-                            <div class="portfolio-book-subtitle-title">
-                                <?php echo $book_title; ?>
-                            </div>
+                                <div class="portfolio-book-subtitle-author">
+                                    <?php if( $book_author != ' ') : ?>
+                                        de <?php echo $book_author; ?>
+                                    <?php endif; ?>
+                                </div>
 
-                            <div class="portfolio-book-subtitle-author">
-                                <?php if( $book_author != ' ') : ?>
-                                    de <?php echo $book_author; ?>
-                                <?php endif; ?>
-                            </div>
+                            </a>
 
-                        </a>
+                        </li>
+                        <!-- End Book Frame -->
 
-                    </li>
-                    <!-- End Book Frame -->
+                    <?php } 
 
-                <?php } 
+                    ++$iterator; 
 
-                ++$iterator; 
+                endwhile; ?>
+            </ul>
+        </div>
+        <!-- Books Mosaic -->  
 
-            endwhile; ?>
-        </ul>
+    <?php
+    wp_reset_query();
+    endif;
+
+// If there are no books to display
+else : ?>
+
+    <div class="text-center">
+        <br><br><br><br>
+        <p>
+            Désolé, les livres recommandés par <?php echo $person_name; ?> sont indisponibles pour l'instant. 
+            <br>Continuez à explorer Inspirama pour plus de lectures inspirantes !
+        </p>
+        <br><br><br><br>
     </div>
-    <!-- Books Mosaic -->  
 
-<?php
-wp_reset_query();
-endif;
-
-
+<?php endif;
 
 //........................................................................
 // FOOTER SECTION 
