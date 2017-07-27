@@ -11,6 +11,20 @@ Description: WP adaptation
 
 
 
+/* Global Classes
+-------------------------------------------------------------- */
+
+a,
+a:visited, 
+a:active,
+a:focus, 
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+
+
 /* Social Media Buttons
 -------------------------------------------------------------- */
 
@@ -354,11 +368,10 @@ header.full-width-container-category {
 }
 
 /* Container of the welcome message */
-a .go-to-portfolio-homepage,
-a .go-to-portfolio-homepage:hover {
-    display: block;
+a.go-to-portfolio-homepage,
+a.go-to-portfolio-homepage:hover,
+a.go-to-portfolio-homepage:visited  {
     text-decoration: none;
-    color: black;
 }
 
 .welcome-container-home {
