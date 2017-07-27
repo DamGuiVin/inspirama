@@ -252,13 +252,13 @@ header.welcome-screen h2 {
 }
 
 .img-adapt:hover {
-    animation-name: person-animation 0.5s;
+    animation: person-animation 0.5s;
     animation-fill-mode: forwards;
 
-    -webkit-animation-name: person-animation 0.5s;
+    -webkit-animation: person-animation 0.5s;
     -webkit-animation-fill-mode: forwards;
 
-    -moz-animation-name: person-animation 0.5s;
+    -moz-animation: person-animation 0.5s;
     -moz-animation-fill-mode: forwards;
 }
 
@@ -879,13 +879,13 @@ sur l'image) + j'ai changé la taille des images
 }
 
 .portfolio-book-image:hover {
-    animation-name: book-animation 0.3s;
+    animation: book-animation 0.3s;
     animation-fill-mode: forwards;
 
-    -webkit-animation-name: book-animation 0.3s;
+    -webkit-animation: book-animation 0.3s;
     -webkit-animation-fill-mode: forwards;
 
-    -moz-animation-name: book-animation 0.3s;
+    -moz-animation: book-animation 0.3s;
     -moz-animation-fill-mode: forwards;
 }
 
