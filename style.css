@@ -195,7 +195,8 @@ header.welcome-screen h2 {
 	padding:0;
 }
 
-.img-adapt:hover {
+@media screen and ( min-width: 768px ) {
+    .img-adapt:hover {
     animation: person-animation 0.5s;
     animation-fill-mode: forwards;
 
@@ -204,18 +205,19 @@ header.welcome-screen h2 {
 
     -moz-animation: person-animation 0.5s;
     -moz-animation-fill-mode: forwards;
-}
+    }
 
-@keyframes person-animation {
-    from {opacity: 1;} to {opacity: 0.5;}
-}
+    @keyframes person-animation {
+        from {opacity: 1;} to {opacity: 0.5;}
+    }
 
-@-webkit-keyframes person-animation {
-    from {opacity: 1;} to {opacity: 0.5;}
-}
+    @-webkit-keyframes person-animation {
+        from {opacity: 1;} to {opacity: 0.5;}
+    }
 
-@-moz-keyframes person-animation {
-    from {opacity: 1;} to {opacity: 0.5;}
+    @-moz-keyframes person-animation {
+        from {opacity: 1;} to {opacity: 0.5;}
+    }
 }
 
 .row {
