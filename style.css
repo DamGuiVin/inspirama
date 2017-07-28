@@ -103,10 +103,6 @@ a:hover {
 /* Home Page Template template-home.php
 -------------------------------------------------------------- */
 
-/* NB : Pour créer des images rondes il suffit de rajouter
-class img-circle au home Page template (fonctionnalité bootstrap)
-sinon j'ai créé la class "img-adapt" pour modifier les images des pages qui utilisent le Home Page*/
-
 /* Bannière*/
 header .full-width-container {
     background-size: cover;
@@ -155,35 +151,83 @@ header.welcome-screen h2 {
     height: 100%;
 }
 
+@media screen and (max-width: 768px) {
+    .masonry-item:nth-child(even) .portfolio-link > .img-adapt {
+        width: 50%;
+        float: left;
+    }
+
+    .masonry-item:nth-child(odd) .portfolio-link > .img-adapt {
+        width: 50%;
+        float: right;
+    }
+
+    .masonry-item:nth-child(even) .portfolio-link > .portfolio-details {
+        width: 50%;
+        right: 0;
+        left: auto;
+        opacity: 1;
+    }
+
+    .masonry-item:nth-child(odd) .portfolio-link > .portfolio-details {
+        width: 50%;
+        left: 0;
+        right: auto;
+        opacity: 1;
+    }
+
+    .person {
+        box-shadow: 0px 10px 25px 3px;
+    }
+
+    .portfolio-link > .portfolio-details .details-person-name h2 {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    .portfolio-link > .portfolio-details .details-person-introduction h4{
+        font-size: 0.9em;
+    }
+
+    .portfolio-link > .portfolio-details .details-person-invitation h4 {
+        font-size: 0.9em;
+        box-shadow: 0 0 10px #77B8C1;
+    }
+}
+
 .portfolio-details .details-person-name h2 {
 	font-family: 'Source Sans Pro', sans-serif;
+    font-size: 3em;
     color: black;
     text-transform: uppercase;
 	vertical-align: top;
     padding-top: 5%;
 }
 
-.portfolio-details .details-person-introduction {
+.portfolio-details .details-person-introduction h4 {
     font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.3em;
     color: black;
 }
 
 /* Text Découvrez les recommandations de lecture de : */
-.portfolio-details .details-person-invitation,
-.portfolio-details .details-person-invitation h4 {
-    font-family: 'Source Sans Pro', sans-serif;
-    color: white;
-    text-decoration: bold;
+.portfolio-details .details-person-invitation {
     background-color: #77B8C1;
     border: 2px solid #77B8C1;
     border-radius: 30px;
-    font-size: 14px;
     margin: 5%;
     margin-bottom: 10%;
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
+}
+
+.portfolio-details .details-person-invitation h4 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1em;
+    color: white;
+    text-decoration: bold;
 }
 
 .portfolio-details .details-person-invitation:hover{
@@ -257,12 +301,8 @@ header.welcome-screen h2 {
     .portfolio-cols-2 .masonry-item,
     .portfolio-cols-3 .masonry-item,
     .portfolio-cols-4 .masonry-item {
-        width: 50%;
+        width: 100%;
     } 
-
-    .portfolio-cols-1 .masonry-item {
-        width: 50%;
-    }
 }
 
 @media screen and ( max-width: 480px ) {
@@ -271,7 +311,7 @@ header.welcome-screen h2 {
     .portfolio-cols-2 .masonry-item,
     .portfolio-cols-3 .masonry-item,
     .portfolio-cols-4 .masonry-item {
-        width: 50%;
+        width: 100%;
     }
 }
 
@@ -820,10 +860,11 @@ nav.primary-navigation ul li.top-menu:hover{
     margin-right: auto;
     border-radius: 3px;
     vertical-align: center;
-    box-shadow: 8px 3px 30px #888888;
+    box-shadow: 3px 3px 30px #888888;
 }
 
-.portfolio-book-image:hover {
+@media screen and ( min-width: 768px ) {
+    .portfolio-book-image:hover {
     animation: book-animation 0.3s;
     animation-fill-mode: forwards;
 
@@ -832,38 +873,21 @@ nav.primary-navigation ul li.top-menu:hover{
 
     -moz-animation: book-animation 0.3s;
     -moz-animation-fill-mode: forwards;
-}
+    }
 
-@keyframes book-animation {
-    from {
-        transform: scale(1,1);
-        opacity: 1;
+    @keyframes book-animation {
+        from { transform: scale(1,1); opacity: 1; }
+        to { transform: scale(0.95,0.95); opacity: 0.10; }
     }
-    to {
-        transform: scale(0.95,0.95);
-        opacity: 0.10;
-    }
-}
 
-@-webkit-keyframes book-animation {
-    from {
-        transform: scale(1,1);
-        opacity: 1;
+    @-webkit-keyframes book-animation {
+        from { transform: scale(1,1); opacity: 1; }
+        to { transform: scale(0.95,0.95); opacity: 0.10; }
     }
-    to {
-        transform: scale(0.95,0.95);
-        opacity: 0.10;
-    }
-}
 
-@-moz-keyframes book-animation {
-    from {
-        transform: scale(1,1);
-        opacity: 1;
-    }
-    to {
-        transform: scale(0.95,0.95);
-        opacity: 0.10;
+    @-moz-keyframes book-animation {
+        from { transform: scale(1,1); opacity: 1; }
+        to { transform: scale(0.95,0.95); opacity: 0.10; }
     }
 }
 
@@ -956,6 +980,62 @@ nav.primary-navigation ul li.top-menu:hover{
     margin-bottom: 30px;
 }
 
+@media screen and (max-width: 768px) {
+    .masonry-item:nth-child(even) > .portfolio-link .portfolio-book-image {
+        width: 45%;
+        left: 5%;
+        right: auto;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .masonry-item:nth-child(odd) > .portfolio-link .portfolio-book-image {
+        width: 45%;
+        right: 5%;
+        left: auto;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .masonry-item:nth-child(even) > .portfolio-link .portfolio-book-details {
+        width: 50%;
+        right: 0;
+        left: auto;    
+    }
+
+    .masonry-item:nth-child(odd) > .portfolio-link .portfolio-book-details {
+        width: 50%;
+        left: 0;
+        right: auto; 
+    }
+
+    .portfolio-book-details .portfolio-book-title h2 {
+        margin-top: 30%;
+        margin-right: 0%;
+        margin-left: 0%;
+    }
+
+    .portfolio-book-details .portfolio-book-author h4 {
+        margin-right: 0%;
+        margin-left: 0%;
+    }
+
+    .portfolio-book-details .portfolio-book-invitation h4 {
+        margin-right: 8%;
+        margin-left: 8%;
+        margin-bottom: 35%;
+        box-shadow: 0 0 10px #77B8C1;
+    }
+
+    .portfolio-book-subtitle-title {
+        display: none;
+    }
+
+    .portfolio-book-subtitle-author {
+        display: none;
+    }
+}
+
 
 
 /* Book Page
@@ -993,20 +1073,54 @@ nav.primary-navigation ul li.top-menu:hover{
 	text-align : justify;
 }
 
-.book-page-recommendations-image {
+.book-page-recommendations-person {
     margin : 10px;
+}
+
+.book-page-recommendations-person .portfolio-link > .portfolio-details {
+    height: 150px;
+    width: 150px;
+}
+
+.book-page-recommendations-person .portfolio-link > .portfolio-details .details-person-name h2 {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.book-page-recommendations-person .portfolio-link > .portfolio-details .details-person-introduction h4{
+    font-size: 0.7em;
+}
+
+.book-page-recommendations-person .portfolio-link > .portfolio-details .details-person-invitation h4 {
+    font-size: 0.7em;
 }
 
 .book-page-recommendation-summary {
     padding : 10px;
     padding-bottom: 40px;
 	text-align : justify;
-
 }
 
 .full-width-container {
     padding: 0;
     margin : 0;
+}
+
+@media screen and (max-width: 768px) {
+    .book-page-recommendations-person {
+        box-shadow: 0px 10px 25px 3px;
+    }
+
+    .book-page-recommendations-person .portfolio-link > .portfolio-details {
+        right: 0;
+        left: auto;
+        opacity: 1;
+        width: 50%;
+    }
+
+    .book-page-recommendations-person .portfolio-link > .portfolio-details .details-person-invitation {
+        box-shadow: 0 0 10px #77B8C1;
+    }
 }
 
 

@@ -193,7 +193,7 @@ $wp_query = new WP_Query( $args );
                                 // Recover useful attributes from the Person
                                 $person_page_id = $wp_query->post->ID;
                                 $person_name = get_the_title();
-                                $person_introduction = get_post_meta( $person_page_id, 'intro', true);
+                                $person_introduction = get_post_meta( $person_page_id, 'introduction', true);
 
                                 // Recover Person Image
                                 $img_size = '(100,400,false)';
@@ -236,7 +236,7 @@ $wp_query = new WP_Query( $args );
 
                                                 <!-- Recommender Picture Section --> 
                                                 <div class="col-md-3">
-                                                    <div class="person book-page-recommendations-image">
+                                                    <div class="book-page-recommendations-person">
                                                         <a href="<?php echo the_permalink($person_page_id); ?>" class="portfolio-link">
                                                             <img src="<?php echo $previewImage[0] ?>" class="img-adapt" alt="<?php echo $person_name; ?>" height="150" width="150"/>
                                                             <div class="portfolio-details">
@@ -244,8 +244,8 @@ $wp_query = new WP_Query( $args );
                                                                     <h2 class="details-person-name"><?php echo $person_name; ?></h2>
                                                                 </div>
                                                                 <div class="details-person-introduction">
-                                                                    <?php if ( $person_intoduction ) : ?>
-                                                                        <h4><?php echo $person_intoduction; ?></h4>
+                                                                    <?php if ( $person_introduction ) : ?>
+                                                                        <h4><?php echo $person_introduction; ?></h4>
                                                                     <?php endif; ?>
                                                                 </div>
                                                                 <div class="details-person-invitation">

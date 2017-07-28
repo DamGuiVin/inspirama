@@ -143,39 +143,31 @@ if ( $wp_query ) :
 
                         <!--  Book Frame -->
                         <li class="masonry-item">
-
                             <a href="<?php the_permalink(); ?>" class="portfolio-link">
                                 
                                 <!--  Book Image Button Effect -->
                                 <div class="button-effect">
-
                                     <img src="<?php echo $previewImage[0] ?>" class="portfolio-book-image" alt="<?php the_title(); ?>" />
-                                    
-                                    <div class="portfolio-book-details">
-                                    
+                                   
+                                    <div class="portfolio-book-details">                                  
                                         <div class="portfolio-book-title">
                                             <h2><?php echo $book_title; ?></h2>
-                                        </div>
-                                    
+                                        </div>                                  
                                         <div class="portfolio-book-author">
                                             <?php if( $book_author != ' ') : ?>
                                                 <h4>de <?php echo $book_author; ?></h4>
                                             <?php endif; ?>
-                                        </div>
-                                    
+                                        </div>                                    
                                         <div class="portfolio-book-invitation">
                                             <h4>L'avis de <?php echo $person_name; ?></h4>
                                         </div>
-                                    
                                     </div>
-
                                 </div>
 
                                 <!--  Book Details -->
                                 <div class="portfolio-book-subtitle-title">
                                     <?php echo $book_title; ?>
                                 </div>
-
                                 <div class="portfolio-book-subtitle-author">
                                     <?php if( $book_author != ' ') : ?>
                                         de <?php echo $book_author; ?>
@@ -183,7 +175,6 @@ if ( $wp_query ) :
                                 </div>
 
                             </a>
-
                         </li>
                         <!-- End Book Frame -->
 
