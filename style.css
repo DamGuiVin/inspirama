@@ -865,14 +865,14 @@ nav.primary-navigation ul li.top-menu:hover{
 
 @media screen and ( min-width: 768px ) {
     .portfolio-book-image:hover {
-    animation: book-animation 0.3s;
-    animation-fill-mode: forwards;
+        animation: book-animation 0.3s;
+        animation-fill-mode: forwards;
 
-    -webkit-animation: book-animation 0.3s;
-    -webkit-animation-fill-mode: forwards;
+        -webkit-animation: book-animation 0.3s;
+        -webkit-animation-fill-mode: forwards;
 
-    -moz-animation: book-animation 0.3s;
-    -moz-animation-fill-mode: forwards;
+        -moz-animation: book-animation 0.3s;
+        -moz-animation-fill-mode: forwards;
     }
 
     @keyframes book-animation {
