@@ -80,7 +80,9 @@ if ( count($slug_book_titles_array) > 0 ) {
         'post_type' => 'book',
         'post_name__in' => $slug_book_titles_array,
         'post_status' => 'publish',
-        'posts_per_page' => -1
+        'posts_per_page' => -1,
+        'orderby' => 'name',
+        'order' => 'ASC'
         );
 
     // Sending the WP_Query
