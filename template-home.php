@@ -124,7 +124,7 @@ if ( $wp_query->have_posts() ) : ?>
                                     <?php endif; ?>
                                 </div>
                                 <div class="details-person-invitation">
-                                    <h4>Découvrez ses recommandations de lecture</h4>
+                                    <h4>Ses recommandations de lecture</h4>
                                 </div>
                             </div>
                         </a>
