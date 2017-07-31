@@ -23,25 +23,27 @@ get_header();
                     <!-- Person Image -->
                     <div class="col-md-4">
                         <?php if ( has_post_thumbnail( $post->ID ) ) : ?>
-                                <div class="featured-image single-portfolio-featured-image">
-                                    <?php echo get_the_post_thumbnail( $post->ID, array(400,400) ); ?>
-                                </div>
+                            <div class="person-page-large-portrait">
+                                <?php echo get_the_post_thumbnail( $post->ID, array(300,300) ); ?>
+                            </div>
                         <?php endif; ?>
                     </div>
 
-                    <!-- Person Title, Excerpt and Content -->
+                    <!-- Person Name, Intro and Bio -->
                     <div class="col-md-8">
-                        <div class="name-person">
+
+                        <div class="person-page-name">
                             <h1><?php the_title(); ?></h1>
-                            <?php if ( has_excerpt() ) : ?>
-                                <div class="portfolio-intro">
-                                    <?php the_excerpt(); ?>
-                                </div>
-                            <?php endif; ?>
                         </div>
-                        <div class="text-justify post-content">
+
+                        <div class="person-page-intro">
+                            <h2><?php echo get_post_meta( $post->ID, 'introduction', true); ?></h2>
+                        </div>
+                        
+                        <div class="person-page-bio">
                             <?php the_content(); ?>
-                        </div>                      
+                        </div> 
+                                             
                     </div>
 
                 <?php endwhile; ?>

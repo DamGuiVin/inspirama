@@ -829,18 +829,30 @@ nav.primary-navigation ul li.top-menu:hover{
 }
 
 /* Thumbnail de la personnalité */
-.single-portfolio-featured-image {
-    margin: auto;
+.person-page-large-portrait {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding-right: auto;
+    padding-left: auto;
 }
 
 /* Titre : *nom de la personne* et *Livre recommandé par *nom de la personne**  */
-.name-person  {
+.person-page-name h1 {
     font-family: 'Source Sans Pro', sans-serif;
-    padding-left: 10px;
+    margin-top: 20px;
 }
 
-.single-portfolio .single-portfolio-featured-image {
-    margin: 0;
+.person-page-intro h2 {
+    font-family: 'Source Sans Pro', sans-serif;
+    margin-top: 0px;
+    font-size: 1.6em;
+}
+
+.person-page-bio {
+    padding: 5px;
+    height: 220px;
+    overflow: auto;
+    margin-bottom: 25px
 }
 
 .button-effect {
