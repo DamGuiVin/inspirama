@@ -98,7 +98,7 @@
 
     <!-- JS code for Typed cursor function -->
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/js/dist/typed.min.js' ; ?>"></script>
+    <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/js/typed/typed.min.js' ; ?>"></script>
 
     <?php $list_names_php = get_all_people_names(); ?>
 
