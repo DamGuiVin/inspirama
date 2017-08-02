@@ -1,3 +1,4 @@
+
 (function( $ ) {
 	$.imagePreview = function( element ) {
 		this.$element = $( element );
@@ -14,7 +15,7 @@
 		},
 		
 		_getContent: function( element ) {
-			var $parent = element.parent(),
+			var $parent = element.parents( "figure" ),
 				title = $parent.data( "title" ),
 				desc = $parent.data( "desc" ),
 				html = element.html();
@@ -32,8 +33,8 @@
 				e.preventDefault();
 				var $a = $( this ),
 					content = self._getContent( $a ),
-					$li = $a.parents( "li" ),
-					$details = $( ".image-details", $li ),
+					$ul = $a.parents( "#books-portfolio-wrapper" ),
+					$details = $( ".image-details", $ul ),
 					$contentImage = $( ".image", $details ),
 					$detailsTitle = $( ".image-details-title", $details ),
 					$detailsText = $( ".image-details-text", $details );
@@ -47,6 +48,7 @@
 				
 			});
 		},
+
 		close: function() {
 			this.$closeLinks.on( "click", function( e ) {
 				e.preventDefault();
@@ -57,7 +59,7 @@
 	};
 	
 	$(function() {
-		var preview = new $.imagePreview( "#books-portfolio-wrapper" );
+		var preview = new $.imagePreview( ".portfolio-books-wrapper" );
 		
 	});
 	
