@@ -7,7 +7,7 @@
 	
 	$.imagePreview.prototype = {
 		init: function() {
-			this.$triggers = this.$element.find( ".image-link" );
+			this.$triggers = this.$element.find( ".portfolio-link" );
 			this.$closeLinks = this.$element.find( ".image-details-close" );
 			
 			this.open();
@@ -33,7 +33,7 @@
 				e.preventDefault();
 				var $a = $( this ),
 					content = self._getContent( $a ),
-					$ul = $a.parents( "#books-portfolio-wrapper" ),
+					$ul = $a.parents( "#masonry-wrapper" ),
 					$details = $( ".image-details", $ul ),
 					$contentImage = $( ".image", $details ),
 					$detailsTitle = $( ".image-details-title", $details ),

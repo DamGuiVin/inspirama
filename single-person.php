@@ -146,7 +146,7 @@ if ( $wp_query ) :
                     $previewImage = wp_get_attachment_image_src( get_post_thumbnail_id( $book_page_id ), $img_size ); 
 
                     if ( $iterator % 4 == 0 ) { ?>
-                        <ul id="books-portfolio-wrapper" class="portfolio-cols-4">
+                        <ul id="masonry-wrapper" class="portfolio-cols-4">
                     <?php } ?>
 
                             <!--  Book Frame -->
