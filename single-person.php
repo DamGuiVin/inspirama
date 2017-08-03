@@ -115,6 +115,7 @@ if ( $wp_query ) :
         </div>
 
         <div class="portfolio-books-wrapper">
+            <ul id="masonry-wrapper" class="portfolio-cols-4">
             
             <?php 
 
@@ -143,82 +144,54 @@ if ( $wp_query ) :
 
                 // Check if the Book has an image. Only load the Book if it does
                 if ( has_post_thumbnail( $book_page_id ) ) {
-                    $previewImage = wp_get_attachment_image_src( get_post_thumbnail_id( $book_page_id ), $img_size ); 
+                    $previewImage = wp_get_attachment_image_src( get_post_thumbnail_id( $book_page_id ), $img_size ); ?>
 
-                    if ( $iterator % 4 == 0 ) { ?>
-                        <ul id="masonry-wrapper" class="portfolio-cols-4">
-                    <?php } ?>
-
-                            <!--  Book Frame -->
-                            <li class="masonry-item">
-                                <figure data-title="<?php echo $book_title; ?>" data-desc="<?php echo $book_author; ?>">
-                                    <a href="#" class="image-link portfolio-link">
-                                        
-                                        <!--  Book Image Button Effect -->
-                                        <div class="button-effect">
-                                            <img src="<?php echo $previewImage[0] ?>" class="portfolio-book-image" alt="<?php the_title(); ?>" />
-                                           
-                                            <div class="portfolio-book-details">                                  
-                                                <div class="portfolio-book-title">
-                                                    <h2><?php echo $book_title; ?></h2>
-                                                </div>                                  
-                                                <div class="portfolio-book-author">
-                                                    <?php if( $book_author != ' ') : ?>
-                                                        <h4>de <?php echo $book_author; ?></h4>
-                                                    <?php endif; ?>
-                                                </div>                                    
-                                                <div class="portfolio-book-invitation">
-                                                    <h4>L'avis de <?php echo $person_name; ?></h4>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!--  Book Details -->
-                                        <div class="portfolio-book-subtitle-title">
-                                            <?php echo $book_title; ?>
-                                        </div>
-                                        <div class="portfolio-book-subtitle-author">
+                    <!--  Book Frame -->
+                    <li class="masonry-item">
+                        <figure data-title="<?php echo $book_title; ?>" data-desc="<?php echo $book_author; ?>">
+                            <a href="#" class="portfolio-link">
+                                
+                                <!--  Book Image Button Effect -->
+                                <div class="button-effect">
+                                    <img src="<?php echo $previewImage[0] ?>" class="portfolio-book-image" alt="<?php the_title(); ?>" />
+                                   
+                                    <div class="portfolio-book-details">                                  
+                                        <div class="portfolio-book-title">
+                                            <h2><?php echo $book_title; ?></h2>
+                                        </div>                                  
+                                        <div class="portfolio-book-author">
                                             <?php if( $book_author != ' ') : ?>
-                                                de <?php echo $book_author; ?>
+                                                <h4>de <?php echo $book_author; ?></h4>
                                             <?php endif; ?>
+                                        </div>                                    
+                                        <div class="portfolio-book-invitation">
+                                            <h4>L'avis de <?php echo $person_name; ?></h4>
                                         </div>
-
-                                    </a>
-                                </figure>
-                                
-                            </li>
-
-                            <div class="image-details">
-                                <a href="#" class="image-details-close">Close</a>
-                                <div class="image-details-content">
-                                    <figure class="image"></figure>
+                                    </div>
                                 </div>
-                                <div class="image-details-desc">
-                                    <h3 class="image-details-title"></h3>
-                                    <p class="image-details-text"></p>
+
+                                <!--  Book Details -->
+                                <div class="portfolio-book-subtitle-title">
+                                    <?php echo $book_title; ?>
                                 </div>
-                            </div>
-                            <!-- End Book Frame -->
+                                <div class="portfolio-book-subtitle-author">
+                                    <?php if( $book_author != ' ') : ?>
+                                        de <?php echo $book_author; ?>
+                                    <?php endif; ?>
+                                </div>
 
-                            <?php } 
+                            </a>
+                        </figure>
+                    </li>
+                    <!-- End Book Frame -->
 
-                            if ( $iterator % 4 == 3 ) { ?>
+                <?php } 
+                ++$iterator; 
 
-                                
-                            </ul>
-
-                            <?php } 
-
-                    ++$iterator; 
-
-            endwhile; 
-            
-            if ( $iterator % 4 != 0 ) { ?>
-                </ul>
-            <?php } ?>
-
+            endwhile; ?>
+            </ul>
         </div>
-        <!-- Books Mosaic -->  
+        <!-- End Books Mosaic -->  
 
     <?php
     wp_reset_query();

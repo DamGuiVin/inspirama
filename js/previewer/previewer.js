@@ -33,12 +33,14 @@
 				e.preventDefault();
 				var $a = $( this ),
 					content = self._getContent( $a ),
-					//$ul = $a.parents( "masonry-wrapper" ),
-					$details = $a.parents("li").next()
-					$contentImage = $( ".image", $details ),
+					$details;
+
+				$details = $a.parents("li").nextAll(".image-details:first");
+
+				var	$contentImage = $( ".image", $details ),
 					$detailsTitle = $( ".image-details-title", $details ),
 					$detailsText = $( ".image-details-text", $details );
-					
+				
 				$contentImage.html( content.html );
 				$detailsTitle.text( content.title );
 				$detailsText.text( content.desc );
@@ -59,6 +61,15 @@
 	};
 	
 	$(function() {
+
+		// If we are on a laptop, there are 4 Book images per row
+		if ( $( document ).width() > 768  ) {
+		    $(".masonry-item:nth-of-type(4n)").after("<div class=\"image-details\"><a href=\"#\" class=\"image-details-close\">Close</a><div class=\"image-details-content\"><figure class=\"image\"></figure></div><div class=\"image-details-desc\"><h3 class=\"image-details-title\"></h3><p class=\"image-details-text\"></p></div></div>");
+		// If we are on a tablet or smartphone, there is one Book per row
+		} else { 
+		    $(".masonry-item").after("<div class=\"image-details\"><a href=\"#\" class=\"image-details-close\">Close</a><div class=\"image-details-content\"><figure class=\"image\"></figure></div><div class=\"image-details-desc\"><h3 class=\"image-details-title\"></h3><p class=\"image-details-text\"></p></div></div>");
+		}
+
 		var preview = new $.imagePreview( ".portfolio-books-wrapper" );
 		
 	});
