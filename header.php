@@ -123,6 +123,8 @@
 
 
 
+    <link rel="alternate" href="https://www.inspirama.co<?php echo parse_url($_SERVER[‘REQUEST_URI’],PHP_URL_PATH); ?>" hreflang="fr" />
+    
     <style type="text/css"> html {scroll-behavior: smooth;} </style>
 
     <link rel="profile" href="http://gmpg.org/xfn/11">
