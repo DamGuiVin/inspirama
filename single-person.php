@@ -187,22 +187,24 @@ if ( $wp_query ) :
                                 </figure>
                                 
                             </li>
+
+                            <div class="image-details">
+                                <a href="#" class="image-details-close">Close</a>
+                                <div class="image-details-content">
+                                    <figure class="image"></figure>
+                                </div>
+                                <div class="image-details-desc">
+                                    <h3 class="image-details-title"></h3>
+                                    <p class="image-details-text"></p>
+                                </div>
+                            </div>
                             <!-- End Book Frame -->
 
                             <?php } 
 
                             if ( $iterator % 4 == 3 ) { ?>
 
-                                <div class="image-details">
-                                    <a href="#" class="image-details-close">Close</a>
-                                    <div class="image-details-content">
-                                        <figure class="image"></figure>
-                                    </div>
-                                    <div class="image-details-desc">
-                                        <h3 class="image-details-title"></h3>
-                                        <p class="image-details-text"></p>
-                                    </div>
-                                </div>
+                                
                             </ul>
 
                             <?php } 

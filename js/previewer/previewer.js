@@ -33,18 +33,18 @@
 				e.preventDefault();
 				var $a = $( this ),
 					content = self._getContent( $a ),
-					$ul = $a.parents( "#masonry-wrapper" ),
-					$details = $( ".image-details", $ul ),
+					//$ul = $a.parents( "masonry-wrapper" ),
+					$details = $a.parents("li").next()
 					$contentImage = $( ".image", $details ),
 					$detailsTitle = $( ".image-details-title", $details ),
 					$detailsText = $( ".image-details-text", $details );
 					
-					$contentImage.html( content.html );
-					$detailsTitle.text( content.title );
-					$detailsText.text( content.desc );
-					
-					self.$element.find( ".image-details" ).slideUp( "fast" );
-					$details.slideDown( "fast" );
+				$contentImage.html( content.html );
+				$detailsTitle.text( content.title );
+				$detailsText.text( content.desc );
+				
+				self.$element.find( ".image-details" ).slideUp( "fast" );
+				$details.slideDown( "fast" );
 				
 			});
 		},

@@ -993,7 +993,7 @@ nav.primary-navigation ul li.top-menu:hover{
 }
 
 @media screen and (max-width: 768px) {
-    .masonry-item:nth-child(even) > .portfolio-link .portfolio-book-image {
+    .masonry-item:nth-child(even) .portfolio-link .portfolio-book-image {
         width: 45%;
         left: 5%;
         right: auto;
@@ -1001,7 +1001,7 @@ nav.primary-navigation ul li.top-menu:hover{
         margin-right: 0px;
     }
 
-    .masonry-item:nth-child(odd) > .portfolio-link .portfolio-book-image {
+    .masonry-item:nth-child(odd) .portfolio-link .portfolio-book-image {
         width: 45%;
         right: 5%;
         left: auto;
@@ -1009,13 +1009,13 @@ nav.primary-navigation ul li.top-menu:hover{
         margin-right: 0px;
     }
 
-    .masonry-item:nth-child(even) > .portfolio-link .portfolio-book-details {
+    .masonry-item:nth-child(even) .portfolio-link .portfolio-book-details {
         width: 50%;
         right: 0;
         left: auto;    
     }
 
-    .masonry-item:nth-child(odd) > .portfolio-link .portfolio-book-details {
+    .masonry-item:nth-child(odd) .portfolio-link .portfolio-book-details {
         width: 50%;
         left: 0;
         right: auto; 
