@@ -28,7 +28,6 @@ $book_leslibraires_url = get_post_meta( $book_page_id, 'leslibraires_url', true 
 $book_amazon_url = get_post_meta( $book_page_id, 'amazon_url', true );
 $book_fnac_url = get_post_meta( $book_page_id, 'fnac_url', true );
 $book_priceminister_url = get_post_meta( $book_page_id, 'priceminister_url', true );
-$book_momox_url = get_post_meta( $book_page_id, 'momox_url', true );
 $book_recyclivre_url = get_post_meta( $book_page_id, 'recyclivre_url', true );
 $book_ebook_url = get_post_meta( $book_page_id, 'ebook_url', true );
 $book_gutenberg_url = get_post_meta( $book_page_id, 'gutenberg_url', true );
@@ -38,6 +37,7 @@ $book_leslibraires_logo = get_stylesheet_directory_uri() . '/img/les_libraires.p
 $book_amazon_logo = get_stylesheet_directory_uri() . '/img/amazon.png' ;
 $book_fnac_logo = get_stylesheet_directory_uri() . '/img/fnac.png' ;
 $book_priceminister_logo = get_stylesheet_directory_uri() . '/img/priceminister.png' ;
+$book_recyclivre_logo = get_stylesheet_directory_uri() . '/img/recyclivre.png' ;
 $book_ebook_logo = get_stylesheet_directory_uri() . '/img/ebooks.png' ;
 $book_gutenberg_logo = get_stylesheet_directory_uri() . '/img/gutenberg.png' ;
 
