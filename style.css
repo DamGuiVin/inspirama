@@ -152,24 +152,24 @@ header.welcome-screen h2 {
 }
 
 @media screen and (max-width: 768px) {
-    .masonry-item:nth-child(even) .portfolio-link > .img-adapt {
+    .masonry-item:nth-of-type(even) .portfolio-link > .img-adapt {
         width: 50%;
         float: left;
     }
 
-    .masonry-item:nth-child(odd) .portfolio-link > .img-adapt {
+    .masonry-item:nth-of-type(odd) .portfolio-link > .img-adapt {
         width: 50%;
         float: right;
     }
 
-    .masonry-item:nth-child(even) .portfolio-link > .portfolio-details {
+    .masonry-item:nth-of-type(even) .portfolio-link > .portfolio-details {
         width: 50%;
         right: 0;
         left: auto;
         opacity: 1;
     }
 
-    .masonry-item:nth-child(odd) .portfolio-link > .portfolio-details {
+    .masonry-item:nth-of-type(odd) .portfolio-link > .portfolio-details {
         width: 50%;
         left: 0;
         right: auto;
