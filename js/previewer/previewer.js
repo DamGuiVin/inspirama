@@ -132,7 +132,7 @@
 				$bookTitle.text( content.title );
 				if ( content.author != "" && content.author != " " ) { $bookAuthor.text( "de " + content.author ) };
 
-				$bookLink.text( content.link );
+				$bookLink.html( "<a href=\"" + content.link + "\">En savoir plus sur " + content.title + "</a>" );
 				$bookGenre.text( content.genre );
 				$bookTheme.text( content.theme );
 				$bookRewards.text( content.rewards );
@@ -148,43 +148,43 @@
 
 				if ( content.leslibraires_url != "" ) {
 					$bookLeslibrairesUrl.attr( "href", content.leslibraires_url );
-					$bookLeslibrairesUrl.html( "<img src=" + content.leslibraires_logo + " height=\"24\" width=\"24\"/>" );
+					$bookLeslibrairesUrl.html( "<img src=" + content.leslibraires_logo + " height=\"40\" width=\"40\"/>" );
 					//$bookLeslibrairesLogo.attr( "src", content.leslibraires_logo );
 				};
 
 				if ( content.amazon_url != "" ) {
 					$bookAmazonUrl.attr( "href", content.amazon_url );
-					$bookAmazonUrl.html( "<img src=" + content.amazon_logo + " height=\"24\" width=\"24\"/>" );
+					$bookAmazonUrl.html( "<img src=" + content.amazon_logo + " height=\"40\" width=\"40\"/>" );
 					//$bookAmazonLogo.attr( "src", content.amazon_logo );
 				};
 
 				if ( content.fnac_url != "" ) {
 					$bookFnacUrl.attr( "href", content.fnac_url );
-					$bookFnacUrl.html( "<img src=" + content.fnac_logo + " height=\"24\" width=\"24\"/>" );
+					$bookFnacUrl.html( "<img src=" + content.fnac_logo + " height=\"40\" width=\"40\"/>" );
 					//$bookFnacLogo.attr( "src", content.fnac_logo );
 				};
 
 				if ( content.priceminister_url != "" ) {
 					$bookPriceministerUrl.attr( "href", content.priceminister_url );
-					$bookPriceministerUrl.html( "<img src=" + content.priceminister_logo + " height=\"24\" width=\"24\"/>" );
+					$bookPriceministerUrl.html( "<img src=" + content.priceminister_logo + " height=\"40\" width=\"40\"/>" );
 					//$bookPriceministerLogo.attr( "src", content.priceminister_logo );
 				};
 
 				if ( content.recyclivre_url != "" ) {
 					$bookRecyclivreUrl.attr( "href", content.recyclivre_url );
-					$bookRecyclivreUrl.html( "<img src=" + content.recyclivre_logo + " height=\"24\" width=\"24\"/>" );
+					$bookRecyclivreUrl.html( "<img src=" + content.recyclivre_logo + " height=\"40\" width=\"40\"/>" );
 					//$bookRecyclivreLogo.attr( "src", content.recyclivre_logo );
 				};
 
 				if ( content.ebook_url != "" ) {
 					$bookEbookUrl.attr( "href", content.ebook_url );
-					$bookEbookUrl.html( "<img src=" + content.ebook_logo + " height=\"24\" width=\"35\"/>" );
+					$bookEbookUrl.html( "<img src=" + content.ebook_logo + " height=\"40\" width=\"60\"/>" );
 					//$bookEbookLogo.attr( "src", content.ebook_logo );
 				};
 
 				if ( content.gutenberg_url != "" ) {
 					$bookGutenbergUrl.attr( "href", content.gutenberg_url );
-					$bookGutenbergUrl.html( "<img src=" + content.gutenberg_logo + " height=\"24\" width=\"24\"/>" );
+					$bookGutenbergUrl.html( "<img src=" + content.gutenberg_logo + " height=\"40\" width=\"40\"/>" );
 					//$bookGutenbergLogo.attr( "src", content.gutenberg_logo );
 
 				};
@@ -208,10 +208,10 @@
 
 		// If we are on a laptop, there are 4 Book images per row
 		if ( $( document ).width() > 768  ) {
-		    $(".masonry-item:nth-of-type(4n), .masonry-item:last-of-type").after("<div class=\"book-preview\"> <a href=\"#\" class=\"book-preview-close\">Fermer</a> <div class=\"book-preview-content\"> <h2 class=\"book-preview-title\"></h2> <h4 class=\"book-preview-author\"></h4> <figure class=\"image\"></figure> <!-- Affiliation Section --> <div class=\"book-preview-affiliation\"> <h4>Acheter ce livre</h4><a target=\"_blank\" href=\"#\" id=\"amazon-url\" title=\"Acheter sur Amazon\"></a><a target=\"_blank\" href=\"#\" id=\"leslibraires-url\" title=\"Acheter sur Les Libraires\"></a><a target=\"_blank\" href=\"#\" id=\"fnac-url\" title=\"Acheter sur La Fnac\"></a><a target=\"_blank\" href=\"#\" id=\"priceminister-url\" title=\"Acheter sur PriceMinister\"></a><a target=\"_blank\" href=\"#\" id=\"recyclivre-url\" title=\"Acheter sur RecycLivre\"></a><a target=\"_blank\" href=\"#\" id=\"ebook-url\" title=\"Acheter sur EBook\"></a><a target=\"_blank\" href=\"#\" id=\"gutenberg-url\" title=\"Acheter sur Gutenberg Project\"></a></div> <!-- End Affiliation Section --> </div> <div class=\"book-preview-desc\"> <h3 class=\"book-preview-recommender\"></h3> <div class=\"book-preview-recommendation\"></div> <div class=\"book-preview-sources\"></div> <div class=\"book-preview-invitation\"> <a href=\"#\">Allez sur la page du livre</a> </div> </div> </div> </div>");
+		    $(".masonry-item:nth-of-type(4n), .masonry-item:last-of-type").after("<div class=\"book-preview\"> <a href=\"#\" class=\"book-preview-close\"></a> <div class=\"book-preview-content\"> <h2 class=\"book-preview-title\"></h2> <h4 class=\"book-preview-author\"></h4> <figure class=\"image\"></figure> <!-- Affiliation Section --> <div class=\"book-preview-affiliation\"> <h3>Acheter ce livre</h3><a target=\"_blank\" href=\"#\" id=\"amazon-url\" title=\"Acheter sur Amazon\"></a><a target=\"_blank\" href=\"#\" id=\"leslibraires-url\" title=\"Acheter sur Les Libraires\"></a><a target=\"_blank\" href=\"#\" id=\"fnac-url\" title=\"Acheter sur La Fnac\"></a><a target=\"_blank\" href=\"#\" id=\"priceminister-url\" title=\"Acheter sur PriceMinister\"></a><a target=\"_blank\" href=\"#\" id=\"recyclivre-url\" title=\"Acheter sur RecycLivre\"></a><a target=\"_blank\" href=\"#\" id=\"ebook-url\" title=\"Acheter sur EBook\"></a><a target=\"_blank\" href=\"#\" id=\"gutenberg-url\" title=\"Acheter sur Gutenberg Project\"></a></div> <!-- End Affiliation Section --> </div> <div class=\"book-preview-desc\"> <h3 class=\"book-preview-recommender\"></h3> <div class=\"book-preview-recommendation\"></div> <div class=\"book-preview-sources\"></div> <div class=\"book-preview-invitation\"></div> </div> </div> </div>");
 		// If we are on a tablet or smartphone, there is one Book per row
 		} else { 
-		    $(".masonry-item").after("<div class=\"book-preview\"><a href=\"#\" class=\"book-preview-close\">Close</a><div class=\"book-preview-content\"><figure class=\"image\"></figure></div><div class=\"book-preview-desc\"><h3 class=\"book-preview-title\"></h3><p class=\"book-preview-text\"></p></div></div>");
+		    $(".masonry-item").after("<div class=\"book-preview\"> <a href=\"#\" class=\"book-preview-close\"></a> <div class=\"book-preview-desc\"> <div class=\"book-preview-desc-smartphone\"> <h2 class=\"book-preview-title\"></h2> <h4 class=\"book-preview-author\"></h4> </div> <div class=\"book-preview-affiliation\"> <h3>Acheter ce livre</h3> <a target=\"_blank\" href=\"#\" id=\"amazon-url\" title=\"Acheter sur Amazon\"></a> <a target=\"_blank\" href=\"#\" id=\"leslibraires-url\" title=\"Acheter sur Les Libraires\"></a> <a target=\"_blank\" href=\"#\" id=\"fnac-url\" title=\"Acheter sur La Fnac\"></a> <a target=\"_blank\" href=\"#\" id=\"priceminister-url\" title=\"Acheter sur PriceMinister\"></a> <a target=\"_blank\" href=\"#\" id=\"recyclivre-url\" title=\"Acheter sur RecycLivre\"></a> <a target=\"_blank\" href=\"#\" id=\"ebook-url\" title=\"Acheter sur EBook\"></a> <a target=\"_blank\" href=\"#\" id=\"gutenberg-url\" title=\"Acheter sur Gutenberg Project\"></a> </div> <h3 class=\"book-preview-recommender\"></h3> <div class=\"book-preview-recommendation\"></div> <div class=\"book-preview-sources\"></div> <div class=\"book-preview-invitation\"></div> </div> </div>");
 		}
 
 		var preview = new $.bookPreview( ".portfolio-books-wrapper" );
