@@ -28,8 +28,8 @@
 				rewards = $parent.data( "rewards" ),
 
 				recommendation = $("<div/>").html( $parent.data( "recommendation" ) ),
-				sources_titles = $parent.data( "sources-titles" ),
-				sources_urls = $parent.data( "sources-urls" ),
+				sources_titles = $parent.data( "sources-titles" ).split( ";" ),
+				sources_urls = $parent.data( "sources-urls" ).split( ";" ),
 				
 				leslibraires_url = $parent.data( "leslibraires-url" ),
 				amazon_url = $parent.data( "amazon-url"),
@@ -47,7 +47,7 @@
 				ebook_logo = $parent.data( "ebook-logo"),
 				gutenberg_logo = $parent.data( "gutenberg-logo"),
 
-				html = element.find( "img" );
+				html = element.find( "img" ).prop('outerHTML');
 
 				return {
 					person: person,
@@ -105,8 +105,7 @@
 					$bookRewards = $( ".book-preview-rewards", $details ),
 
 					$bookRecommendation = $( ".book-preview-recommendation", $details ),
-					$bookSourcesTitles = $( ".book-preview-sources", $details ),
-					$bookSourcesUrls = $( ".book-preview-sources", $details ),
+					$bookSources = $( ".book-preview-sources", $details ),
 					
 					$bookLeslibrairesUrl = $( "#leslibraires-url", $details ),
 					$bookAmazonUrl = $( "#amazon-url", $details ),
@@ -126,7 +125,7 @@
 					$bookGutenbergLogo = $( "#gutenberg-logo", $details );
 					*/
 				
-				$bookImage.html( content.html );
+				$bookImage.html(  "<a href=\"" + content.link + "\">" + content.html + "</a>" );
 
 				$bookPerson.text( content.person );
 
@@ -139,9 +138,14 @@
 				$bookRewards.text( content.rewards );
 
 				$bookRecommendation.html( content.recommendation );
-				$bookSourcesTitles.text( content.sources_titles );
-				$bookSourcesUrls.text( content.sources_urls );
-				
+
+				var sourcesHtml = "Source(s) : ";
+				for ( i=0, len=content.sources_titles.length; i < len; i++) {
+					if ( i > 0 ) { sourcesHtml = sourcesHtml + " | "; };
+					sourcesHtml = sourcesHtml + "<a target=\"_blank\" href=\"" + content.sources_urls[i] + "\">" + content.sources_titles[i] + "</a>";
+				};
+				$bookSources.html( sourcesHtml );
+
 				if ( content.leslibraires_url != "" ) {
 					$bookLeslibrairesUrl.attr( "href", content.leslibraires_url );
 					$bookLeslibrairesUrl.html( "<img src=" + content.leslibraires_logo + " height=\"24\" width=\"24\"/>" );
@@ -204,7 +208,7 @@
 
 		// If we are on a laptop, there are 4 Book images per row
 		if ( $( document ).width() > 768  ) {
-		    $(".masonry-item:nth-of-type(4n)").after("<div class=\"book-preview\"> <a href=\"#\" class=\"book-preview-close\">Fermer</a> <div class=\"book-preview-content\"> <h2 class=\"book-preview-title\"></h2> <h4 class=\"book-preview-author\"></h4> <figure class=\"image\"></figure> <!-- Affiliation Section --> <div class=\"book-preview-affiliation\"> <h4>Acheter ce livre</h4><a target=\"_blank\" href=\"#\" id=\"amazon-url\" title=\"Acheter sur Amazon\"></a><a target=\"_blank\" href=\"#\" id=\"leslibraires-url\" title=\"Acheter sur Les Libraires\"></a><a target=\"_blank\" href=\"#\" id=\"fnac-url\" title=\"Acheter sur La Fnac\"></a><a target=\"_blank\" href=\"#\" id=\"priceminister-url\" title=\"Acheter sur PriceMinister\"></a><a target=\"_blank\" href=\"#\" id=\"recyclivre-url\" title=\"Acheter sur RecycLivre\"></a><a target=\"_blank\" href=\"#\" id=\"ebook-url\" title=\"Acheter sur EBook\"></a><a target=\"_blank\" href=\"#\" id=\"gutenberg-url\" title=\"Acheter sur Gutenberg Project\"></a></div> <!-- End Affiliation Section --> </div> <div class=\"book-preview-desc\"> <h3 class=\"book-preview-recommender\"></h3> <p class=\"book-preview-recommendation\"></p> <div class=\"book-preview-sources\"> Source(s) : <?php for ($i = 0; $i < count( $recommendation_sources_titles ); $i++) : if( $i > 0 ) : ?> | <?php endif; ?> <span> <a target=\"_blank\" href=\"<?php echo $recommendation_sources_urls[$i] ?>\"><?php echo $recommendation_sources_titles[$i] ?></a> </span> <?php endfor; ?> </div> <div class=\"book-preview-invitation\"> <a href=\"#\">Allez sur la page du livre</a> </div> </div> </div> </div>");
+		    $(".masonry-item:nth-of-type(4n), .masonry-item:last-of-type").after("<div class=\"book-preview\"> <a href=\"#\" class=\"book-preview-close\">Fermer</a> <div class=\"book-preview-content\"> <h2 class=\"book-preview-title\"></h2> <h4 class=\"book-preview-author\"></h4> <figure class=\"image\"></figure> <!-- Affiliation Section --> <div class=\"book-preview-affiliation\"> <h4>Acheter ce livre</h4><a target=\"_blank\" href=\"#\" id=\"amazon-url\" title=\"Acheter sur Amazon\"></a><a target=\"_blank\" href=\"#\" id=\"leslibraires-url\" title=\"Acheter sur Les Libraires\"></a><a target=\"_blank\" href=\"#\" id=\"fnac-url\" title=\"Acheter sur La Fnac\"></a><a target=\"_blank\" href=\"#\" id=\"priceminister-url\" title=\"Acheter sur PriceMinister\"></a><a target=\"_blank\" href=\"#\" id=\"recyclivre-url\" title=\"Acheter sur RecycLivre\"></a><a target=\"_blank\" href=\"#\" id=\"ebook-url\" title=\"Acheter sur EBook\"></a><a target=\"_blank\" href=\"#\" id=\"gutenberg-url\" title=\"Acheter sur Gutenberg Project\"></a></div> <!-- End Affiliation Section --> </div> <div class=\"book-preview-desc\"> <h3 class=\"book-preview-recommender\"></h3> <div class=\"book-preview-recommendation\"></div> <div class=\"book-preview-sources\"></div> <div class=\"book-preview-invitation\"> <a href=\"#\">Allez sur la page du livre</a> </div> </div> </div> </div>");
 		// If we are on a tablet or smartphone, there is one Book per row
 		} else { 
 		    $(".masonry-item").after("<div class=\"book-preview\"><a href=\"#\" class=\"book-preview-close\">Close</a><div class=\"book-preview-content\"><figure class=\"image\"></figure></div><div class=\"book-preview-desc\"><h3 class=\"book-preview-title\"></h3><p class=\"book-preview-text\"></p></div></div>");

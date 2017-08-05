@@ -1482,7 +1482,7 @@ a:hover  {
     position: relative;
     overflow: hidden;
     display: none;
-    height: 800px;
+    height: 550px;
 }
 
 /* The closing cross on the Preview */
@@ -1507,6 +1507,7 @@ a:hover  {
     margin: 0;
     padding: 1.5em;
     border-right: 1px dotted #fff;
+    text-align: center;
 }
 
 /* The image inside the .image figure */
@@ -1546,4 +1547,7 @@ a:hover  {
     padding: 0.5em;
 }
 
+.book-preview-sources {
+    padding: 0.5em;
+}
 

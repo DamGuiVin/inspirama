@@ -156,8 +156,8 @@ if ( $wp_query ) :
                 $recommendation = $recommendations_array[ $iterator ];
                 $recommendation_id = $recommendation->term_id;
                 $recommendation_text = $recommendation->description;
-                $recommendation_sources_titles = explode( ';', get_term_meta( $recommendation_id, 'sources_titles', true) );
-                $recommendation_sources_urls = explode( ';', get_term_meta( $recommendation_id, 'sources_urls', true) );
+                $recommendation_sources_titles = get_term_meta( $recommendation_id, 'sources_titles', true);
+                $recommendation_sources_urls = get_term_meta( $recommendation_id, 'sources_urls', true);
 
 
                 // Check if the Book has an image. Only load the Book if it does
