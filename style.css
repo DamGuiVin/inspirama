@@ -272,6 +272,7 @@ header.welcome-screen h2 {
 #personnalites {
     margin: 0;
     padding: 0;
+    padding-top: 50px;
     overflow: hidden;
 }
 
@@ -434,6 +435,7 @@ header.full-width-container-home {
     background-size: cover;
     height: 95vh;
     padding: 0;
+    margin-bottom: -50px;
 }
 
 header.full-width-container-category {
@@ -1623,3 +1625,5 @@ a:hover  {
         margin-left: auto;
     }
 }
+
+
