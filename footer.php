@@ -34,6 +34,27 @@
 
                     <?php dynamic_sidebar( 'footer-widget' ); ?>
 
+
+                    <!--........................................................................
+                       SOCIAL MEDIA SECTION
+                    ........................................................................-->
+
+                    <div class="social-media-container">
+                        <a target="_blank" href="https://www.facebook.com/Inspirama.co" >
+                            <img class="social-media-icon" alt="Facebook" title="Inspirama sur Facebook" src="<?php echo get_stylesheet_directory_uri() . '/img/social_media/official_facebook.png' ; ?>" width="40" height="40">  
+                        </a>
+                        <a target="_blank" href="mailto:contact@inspirama.co">
+                            <img class="social-media-icon" alt="Email" title="Contacter Inspirama" src="<?php echo get_stylesheet_directory_uri() . '/img/social_media/official_email.png' ; ?>" width="40" height="40">
+                        </a>
+                        <a target="_blank" href="https://twitter.com/inspirama_co">
+                            <img class="social-media-icon" alt="Twitter" title="Inspirama sur Twitter" src="<?php echo get_stylesheet_directory_uri() . '/img/social_media/official_twitter.png' ; ?>" width="40" height="40">
+                        </a>
+                    </div>
+
+                    <!--........................................................................
+                       END SOCIAL MEDIA SECTION
+                    ........................................................................-->
+
                 </div><!-- .widget-area -->
 
             </div>
