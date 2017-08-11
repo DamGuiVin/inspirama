@@ -188,10 +188,18 @@
 					//$bookGutenbergLogo.attr( "src", content.gutenberg_logo );
 
 				};
-					
-				self.$element.find( ".book-preview" ).slideUp( 600 );
-				$details.slideDown( 600 );
 				
+				// Ensures all the already open previews get closed
+				self.$element.find( ".book-preview" ).slideUp( 600 );
+
+				// Opens the current preview only
+				$details.slideDown( 600 );
+
+				// Smooth-scrolls the screen to position the preview on the top
+				$('html, body').animate({
+                scrollTop: $details.offset().top - 50
+                }, 600)
+
 			});
 		},
 
