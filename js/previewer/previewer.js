@@ -87,118 +87,138 @@
 		open: function() {
 			var self = this;
 			self.$triggers.on( "click", function( e ) {
-				e.preventDefault();
-				var $a = $( this ),
-					content = self._getContent( $a ),
-					$details = $a.parents(".masonry-item").nextAll(".book-preview:first");
 
-				var	$bookImage = $( ".image", $details ),
+				// Excludes the case of the 'Add More Books' case, for which we
+				// want the defaut event - opening a Google Form link - to occur
+				if ( e.target.className == "portfolio-book-image" ) {
 
-					$bookPerson = $( ".book-preview-recommender", $details ),
+					e.preventDefault();
+					var $a = $( this ),
+						content = self._getContent( $a ),
+						$details = $a.parents(".masonry-item").nextAll(".book-preview:first");
 
-					$bookTitle = $( ".book-preview-title", $details ),
-					$bookAuthor = $( ".book-preview-author", $details ),
+					var	$bookImage = $( ".image", $details ),
 
-					$bookLink = $( ".book-preview-invitation", $details ),
-					$bookGenre = $( ".book-preview-genre", $details ),
-					$bookTheme = $( ".book-preview-theme", $details ),
-					$bookRewards = $( ".book-preview-rewards", $details ),
+						$bookPerson = $( ".book-preview-recommender", $details ),
 
-					$bookRecommendation = $( ".book-preview-recommendation", $details ),
-					$bookSources = $( ".book-preview-sources", $details ),
+						$bookTitle = $( ".book-preview-title", $details ),
+						$bookAuthor = $( ".book-preview-author", $details ),
+
+						$bookLink = $( ".book-preview-invitation", $details ),
+						$bookGenre = $( ".book-preview-genre", $details ),
+						$bookTheme = $( ".book-preview-theme", $details ),
+						$bookRewards = $( ".book-preview-rewards", $details ),
+
+						$bookRecommendation = $( ".book-preview-recommendation", $details ),
+						$bookSources = $( ".book-preview-sources", $details ),
+						
+						$bookLeslibrairesUrl = $( "#leslibraires-url", $details ),
+						$bookAmazonUrl = $( "#amazon-url", $details ),
+						$bookFnacUrl = $( "#fnac-url", $details ),
+						$bookPriceministerUrl = $( "#priceminister-url", $details ),
+						$bookRecyclivreUrl = $( "#recyclivre-url", $details ),
+						$bookEbookUrl = $( "#ebook-url", $details ),
+						$bookGutenbergUrl = $( "#gutenberg-url", $details );
+
+						/*
+						$bookLeslibrairesLogo = $( "#leslibraires-logo", $details ),
+						$bookAmazonLogo = $( "#amazon-logo", $details ),
+						$bookFnacLogo = $( "#fnac-logo", $details ),
+						$bookPriceministerLogo = $( "#priceminister-logo", $details ),
+						$bookRecyclivreLogo = $( "#recyclivre-logo", $details ),
+						$bookEbookLogo = $( "#ebook-logo", $details ),
+						$bookGutenbergLogo = $( "#gutenberg-logo", $details );
+						*/
 					
-					$bookLeslibrairesUrl = $( "#leslibraires-url", $details ),
-					$bookAmazonUrl = $( "#amazon-url", $details ),
-					$bookFnacUrl = $( "#fnac-url", $details ),
-					$bookPriceministerUrl = $( "#priceminister-url", $details ),
-					$bookRecyclivreUrl = $( "#recyclivre-url", $details ),
-					$bookEbookUrl = $( "#ebook-url", $details ),
-					$bookGutenbergUrl = $( "#gutenberg-url", $details );
+					$bookImage.html(  "<a href=\"" + content.link + "\">" + content.html + "</a>" );
 
-					/*
-					$bookLeslibrairesLogo = $( "#leslibraires-logo", $details ),
-					$bookAmazonLogo = $( "#amazon-logo", $details ),
-					$bookFnacLogo = $( "#fnac-logo", $details ),
-					$bookPriceministerLogo = $( "#priceminister-logo", $details ),
-					$bookRecyclivreLogo = $( "#recyclivre-logo", $details ),
-					$bookEbookLogo = $( "#ebook-logo", $details ),
-					$bookGutenbergLogo = $( "#gutenberg-logo", $details );
-					*/
-				
-				$bookImage.html(  "<a href=\"" + content.link + "\">" + content.html + "</a>" );
+					$bookPerson.text( content.person );
 
-				$bookPerson.text( content.person );
+					$bookTitle.text( content.title );
+					if ( content.author != "" && content.author != " " ) { $bookAuthor.text( "de " + content.author ) };
 
-				$bookTitle.text( content.title );
-				if ( content.author != "" && content.author != " " ) { $bookAuthor.text( "de " + content.author ) };
+					$bookLink.html( "<a href=\"" + content.link + "\">En savoir plus sur " + content.title + "</a>" );
+					$bookGenre.text( content.genre );
+					$bookTheme.text( content.theme );
+					$bookRewards.text( content.rewards );
 
-				$bookLink.html( "<a href=\"" + content.link + "\">En savoir plus sur " + content.title + "</a>" );
-				$bookGenre.text( content.genre );
-				$bookTheme.text( content.theme );
-				$bookRewards.text( content.rewards );
+					$bookRecommendation.html( content.recommendation );
 
-				$bookRecommendation.html( content.recommendation );
+					var sourcesHtml = "Source(s) : ";
+					for ( i=0, len=content.sources_titles.length; i < len; i++) {
+						if ( i > 0 ) { sourcesHtml = sourcesHtml + " | "; };
+						sourcesHtml = sourcesHtml + "<a target=\"_blank\" href=\"" + content.sources_urls[i] + "\">" + content.sources_titles[i] + "</a>";
+					};
+					$bookSources.html( sourcesHtml );
 
-				var sourcesHtml = "Source(s) : ";
-				for ( i=0, len=content.sources_titles.length; i < len; i++) {
-					if ( i > 0 ) { sourcesHtml = sourcesHtml + " | "; };
-					sourcesHtml = sourcesHtml + "<a target=\"_blank\" href=\"" + content.sources_urls[i] + "\">" + content.sources_titles[i] + "</a>";
-				};
-				$bookSources.html( sourcesHtml );
+					if ( content.leslibraires_url != "" ) {
+						$bookLeslibrairesUrl.attr( "href", content.leslibraires_url );
+						$bookLeslibrairesUrl.html( "<img src=" + content.leslibraires_logo + " height=\"40\" width=\"40\"/>" );
+						//$bookLeslibrairesLogo.attr( "src", content.leslibraires_logo );
+					};
 
-				if ( content.leslibraires_url != "" ) {
-					$bookLeslibrairesUrl.attr( "href", content.leslibraires_url );
-					$bookLeslibrairesUrl.html( "<img src=" + content.leslibraires_logo + " height=\"40\" width=\"40\"/>" );
-					//$bookLeslibrairesLogo.attr( "src", content.leslibraires_logo );
-				};
+					if ( content.amazon_url != "" ) {
+						$bookAmazonUrl.attr( "href", content.amazon_url );
+						$bookAmazonUrl.html( "<img src=" + content.amazon_logo + " height=\"40\" width=\"40\"/>" );
+						//$bookAmazonLogo.attr( "src", content.amazon_logo );
+					};
 
-				if ( content.amazon_url != "" ) {
-					$bookAmazonUrl.attr( "href", content.amazon_url );
-					$bookAmazonUrl.html( "<img src=" + content.amazon_logo + " height=\"40\" width=\"40\"/>" );
-					//$bookAmazonLogo.attr( "src", content.amazon_logo );
-				};
+					if ( content.fnac_url != "" ) {
+						$bookFnacUrl.attr( "href", content.fnac_url );
+						$bookFnacUrl.html( "<img src=" + content.fnac_logo + " height=\"40\" width=\"40\"/>" );
+						//$bookFnacLogo.attr( "src", content.fnac_logo );
+					};
 
-				if ( content.fnac_url != "" ) {
-					$bookFnacUrl.attr( "href", content.fnac_url );
-					$bookFnacUrl.html( "<img src=" + content.fnac_logo + " height=\"40\" width=\"40\"/>" );
-					//$bookFnacLogo.attr( "src", content.fnac_logo );
-				};
+					if ( content.priceminister_url != "" ) {
+						$bookPriceministerUrl.attr( "href", content.priceminister_url );
+						$bookPriceministerUrl.html( "<img src=" + content.priceminister_logo + " height=\"40\" width=\"40\"/>" );
+						//$bookPriceministerLogo.attr( "src", content.priceminister_logo );
+					};
 
-				if ( content.priceminister_url != "" ) {
-					$bookPriceministerUrl.attr( "href", content.priceminister_url );
-					$bookPriceministerUrl.html( "<img src=" + content.priceminister_logo + " height=\"40\" width=\"40\"/>" );
-					//$bookPriceministerLogo.attr( "src", content.priceminister_logo );
-				};
+					if ( content.recyclivre_url != "" ) {
+						$bookRecyclivreUrl.attr( "href", content.recyclivre_url );
+						$bookRecyclivreUrl.html( "<img src=" + content.recyclivre_logo + " height=\"40\" width=\"40\"/>" );
+						//$bookRecyclivreLogo.attr( "src", content.recyclivre_logo );
+					};
 
-				if ( content.recyclivre_url != "" ) {
-					$bookRecyclivreUrl.attr( "href", content.recyclivre_url );
-					$bookRecyclivreUrl.html( "<img src=" + content.recyclivre_logo + " height=\"40\" width=\"40\"/>" );
-					//$bookRecyclivreLogo.attr( "src", content.recyclivre_logo );
-				};
+					if ( content.ebook_url != "" ) {
+						$bookEbookUrl.attr( "href", content.ebook_url );
+						$bookEbookUrl.html( "<img src=" + content.ebook_logo + " height=\"40\" width=\"60\"/>" );
+						//$bookEbookLogo.attr( "src", content.ebook_logo );
+					};
 
-				if ( content.ebook_url != "" ) {
-					$bookEbookUrl.attr( "href", content.ebook_url );
-					$bookEbookUrl.html( "<img src=" + content.ebook_logo + " height=\"40\" width=\"60\"/>" );
-					//$bookEbookLogo.attr( "src", content.ebook_logo );
-				};
+					if ( content.gutenberg_url != "" ) {
+						$bookGutenbergUrl.attr( "href", content.gutenberg_url );
+						$bookGutenbergUrl.html( "<img src=" + content.gutenberg_logo + " height=\"40\" width=\"40\"/>" );
+						//$bookGutenbergLogo.attr( "src", content.gutenberg_logo );
 
-				if ( content.gutenberg_url != "" ) {
-					$bookGutenbergUrl.attr( "href", content.gutenberg_url );
-					$bookGutenbergUrl.html( "<img src=" + content.gutenberg_logo + " height=\"40\" width=\"40\"/>" );
-					//$bookGutenbergLogo.attr( "src", content.gutenberg_logo );
+					};
+					
+					// Ensures all the already open previews get closed
+					self.$element.find( ".book-preview" ).slideUp( 600 );
 
-				};
-				
-				// Ensures all the already open previews get closed
-				self.$element.find( ".book-preview" ).slideUp( 600 );
+					// Opens the current preview only
+					$details.slideDown( 600 );
 
-				// Opens the current preview only
-				$details.slideDown( 600 );
+					// Smooth-scrolls the screen to position the preview on the top
+					$('html, body').animate({
+	                scrollTop: $details.offset().top - 50
+	                }, 600);
 
-				// Smooth-scrolls the screen to position the preview on the top
-				$('html, body').animate({
-                scrollTop: $details.offset().top - 50
-                }, 600)
+				}
+
+				// In case the user clicked on the 'Add More' link
+				else {
+
+					// Ensures all the already open previews get closed
+					self.$element.find( ".book-preview" ).slideUp( 600 );
+
+					// Smooth-scrolls the screen to position the preview on the top
+					$('html, body').animate({
+	                scrollTop: $details.offset().top - 50
+	                }, 600);
+
+				}				
 
 			});
 		},

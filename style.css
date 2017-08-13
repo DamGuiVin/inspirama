@@ -870,7 +870,23 @@ nav.primary-navigation ul li.top-menu:hover{
     box-shadow: 3px 3px 30px #888888;
 }
 
+.portfolio-book-more {
+    position: absolute;
+    height: 320px;
+    margin: 20px;
+    display: block;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px dashed black;
+    border-radius: 30px;
+    vertical-align: center;
+    box-shadow: 3px 3px 30px #888888;
+}
+
 @media screen and ( min-width: 768px ) {
+    .portfolio-book-more:hover,
     .portfolio-book-image:hover {
         animation: book-animation 0.3s;
         animation-fill-mode: forwards;
@@ -983,12 +999,13 @@ nav.primary-navigation ul li.top-menu:hover{
     text-overflow: ellipsis;  
 }
 
-.boks-portfolio-container {
+.portfolio-books-wrapper {
     margin-bottom: 30px;
 }
 
 @media screen and (max-width: 768px) {
-    .masonry-item:nth-of-type(even) .portfolio-link .portfolio-book-image {
+    .masonry-item:nth-of-type(even) .portfolio-link .portfolio-book-image,
+    .masonry-item:nth-of-type(even) .portfolio-link .portfolio-book-more {
         width: 45%;
         left: 5%;
         right: auto;
@@ -996,7 +1013,8 @@ nav.primary-navigation ul li.top-menu:hover{
         margin-right: 0px;
     }
 
-    .masonry-item:nth-of-type(odd) .portfolio-link .portfolio-book-image {
+    .masonry-item:nth-of-type(odd) .portfolio-link .portfolio-book-image,
+    .masonry-item:nth-of-type(odd) .portfolio-link .portfolio-book-more {
         width: 45%;
         right: 5%;
         left: auto;

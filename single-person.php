@@ -237,7 +237,30 @@ if ( $wp_query ) :
                 ++$iterator; 
 
             endwhile; ?>
+
+                <li class="masonry-item">
+                        <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSeyVqJhmWZGhd5YwYmBKaTq4JyIxGCxT3t7tUlipAVZbAiVGg/viewform?usp=sf_link" class="portfolio-link">
+                            
+                            <!-- Button Effect -->
+                            <div class="button-effect">
+                                <img src="<?php echo get_stylesheet_directory_uri() . '/img/add.jpg' ; ?>" class="portfolio-book-more" alt="Suggérer une lecture de <?php echo $person_name; ?>" />
+                               
+                                <div class="portfolio-book-details">                                  
+                                    <div class="portfolio-book-title">
+                                        <h2>Suggérer une lecture de <?php echo $person_name; ?></h2>
+                                    </div>                                                                      
+                                    <div class="portfolio-book-invitation">
+                                        <h4>Suggérer une lecture de <?php echo $person_name; ?></h4>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </a>
+                    </figure>
+                </li>
+
             </ul>
+        </div>
         <!-- End Books Mosaic -->  
 
     <?php
