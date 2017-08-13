@@ -239,21 +239,20 @@ if ( $wp_query ) :
             endwhile; ?>
 
                 <li class="masonry-item">
-                        <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSeyVqJhmWZGhd5YwYmBKaTq4JyIxGCxT3t7tUlipAVZbAiVGg/viewform?usp=sf_link" class="portfolio-link">
-                            
-                            <!-- Button Effect -->
-                            <div class="button-effect">
-                                <img src="<?php echo get_stylesheet_directory_uri() . '/img/add.jpg' ; ?>" class="portfolio-book-more" alt="Suggérer une lecture de <?php echo $person_name; ?>" />
-                               
-                                <div class="portfolio-book-details">                                                                                                      
-                                    <div class="portfolio-book-more-invitation">
-                                        <h4>Suggérer une lecture de <?php echo $person_name; ?></h4>
-                                    </div>
+                    <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSeyVqJhmWZGhd5YwYmBKaTq4JyIxGCxT3t7tUlipAVZbAiVGg/viewform?usp=sf_link" class="portfolio-link">
+                        
+                        <!-- Button Effect -->
+                        <div class="button-effect">
+                            <img src="<?php echo get_stylesheet_directory_uri() . '/img/add.jpg' ; ?>" class="portfolio-book-more" alt="Suggérer une lecture de <?php echo $person_name; ?>" />
+                           
+                            <div class="portfolio-book-details">                                                                                                      
+                                <div class="portfolio-book-more-invitation">
+                                    <h4>Suggérer une lecture de <?php echo $person_name; ?></h4>
                                 </div>
                             </div>
+                        </div>
 
-                        </a>
-                    </figure>
+                    </a>
                 </li>
 
             </ul>
