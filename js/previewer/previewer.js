@@ -227,7 +227,6 @@
 			this.$closeLinks.on( "click", function( e ) {
 				e.preventDefault();
 				$( this ).parent().slideUp( 600 );
-				
 			});
 		}	
 	};
