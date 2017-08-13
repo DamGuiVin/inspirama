@@ -852,6 +852,10 @@ nav.primary-navigation ul li.top-menu:hover{
     margin-bottom: 25px
 }
 
+.portfolio-books-wrapper {
+    margin-bottom: 30px;
+}
+
 .button-effect {
     height: 360px;
 }
@@ -950,7 +954,8 @@ nav.primary-navigation ul li.top-menu:hover{
     margin-left: 20%;
 }
 
-.portfolio-book-details .portfolio-book-invitation h4 {
+.portfolio-book-details .portfolio-book-invitation h4,
+.portfolio-book-details .portfolio-book-more-invitation h4 {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 1.1em;
     color: white;
@@ -967,7 +972,8 @@ nav.primary-navigation ul li.top-menu:hover{
     padding: 2%;
 }
 
-.portfolio-book-details .portfolio-book-invitation:hover {
+.portfolio-book-details .portfolio-book-invitation:hover,
+.portfolio-book-details .portfolio-book-more-invitation:hover {
     box-shadow: 0 0 10px #77B8C1;
 }
 
@@ -999,8 +1005,14 @@ nav.primary-navigation ul li.top-menu:hover{
     text-overflow: ellipsis;  
 }
 
-.portfolio-books-wrapper {
-    margin-bottom: 30px;
+.portfolio-book-details .portfolio-book-more h2 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.5em;
+    color: black;
+    vertical-align: top;
+    padding-top: 5%;
+    margin-right: 20%;
+    margin-left: 20%;
 }
 
 @media screen and (max-width: 768px) {
@@ -1049,6 +1061,12 @@ nav.primary-navigation ul li.top-menu:hover{
         margin-right: 8%;
         margin-left: 8%;
         margin-bottom: 35%;
+        box-shadow: 0 0 10px #77B8C1;
+    }
+    .portfolio-book-details .portfolio-book-more-invitation h4 {
+        margin-right: 8%;
+        margin-left: 8%;
+        margin-bottom: 145px;
         box-shadow: 0 0 10px #77B8C1;
     }
 

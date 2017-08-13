@@ -245,11 +245,8 @@ if ( $wp_query ) :
                             <div class="button-effect">
                                 <img src="<?php echo get_stylesheet_directory_uri() . '/img/add.jpg' ; ?>" class="portfolio-book-more" alt="Suggérer une lecture de <?php echo $person_name; ?>" />
                                
-                                <div class="portfolio-book-details">                                  
-                                    <div class="portfolio-book-title">
-                                        <h2>Suggérer une lecture de <?php echo $person_name; ?></h2>
-                                    </div>                                                                      
-                                    <div class="portfolio-book-invitation">
+                                <div class="portfolio-book-details">                                                                                                      
+                                    <div class="portfolio-book-more-invitation">
                                         <h4>Suggérer une lecture de <?php echo $person_name; ?></h4>
                                     </div>
                                 </div>
