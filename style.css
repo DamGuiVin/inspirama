@@ -852,6 +852,10 @@ nav.primary-navigation ul li.top-menu:hover{
     margin-bottom: 25px
 }
 
+.portfolio-books-wrapper {
+    padding-bottom: 30px;
+}
+
 .button-effect {
     height: 360px;
 }
