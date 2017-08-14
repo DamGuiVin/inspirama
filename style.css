@@ -835,11 +835,11 @@ nav.primary-navigation ul li.top-menu:hover{
 }
 
 /* Thumbnail de la personnalité */
-.person-page-large-portrait {
+.person-page-large-portrait img {
+    display: block;
+    margin: auto;
     margin-top: 25px;
     margin-bottom: 25px;
-    padding-right: auto;
-    padding-left: auto;
 }
 
 /* Titre : *nom de la personne* et *Livre recommandé par *nom de la personne**  */
@@ -858,7 +858,8 @@ nav.primary-navigation ul li.top-menu:hover{
     padding: 5px;
     height: 220px;
     overflow: auto;
-    margin-bottom: 25px
+    margin-bottom: 25px;
+    text-align: justify;
 }
 
 .portfolio-books-wrapper {
