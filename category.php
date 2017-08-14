@@ -111,7 +111,7 @@ if ( $wp_query->have_posts() ) : ?>
                 <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSeyVqJhmWZGhd5YwYmBKaTq4JyIxGCxT3t7tUlipAVZbAiVGg/viewform?usp=sf_link" class="portfolio-link">
                     <img src="<?php echo get_stylesheet_directory_uri() . '/img/add_person.png' ; ?>" class="img-adapt" alt="Suggérer une nouvelle personnalité" />
                     <div class="portfolio-details">
-                        <div class="details-person-invitation">
+                        <div class="details-person-more-invitation">
                             <h4>Suggérer une nouvelle personnalité</h4>
                         </div>
                     </div>
