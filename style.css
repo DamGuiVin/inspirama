@@ -429,12 +429,12 @@ header.full-width-container-home {
 
 header.full-width-container-category {
     background-size: cover;
-    height: 140px;
+    height: 100px;
     padding: 0;
 }
 
 header.full-width-container-category.welcome-screen h1.category-title {
-    padding-top: 30px;
+    padding-top: 15px;
     color: white;
     text-shadow: 1px 1px black;
     text-align: center;
