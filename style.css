@@ -521,306 +521,38 @@ a.go-to-portfolio-homepage:visited  {
 
 /* Navigation Menu
 -------------------------------------------------------------- */
-.nav-wrap {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-ul {
-    list-style: none;
-}
-
-nav.primary-navigation {
-    font-family: 'Oswald';
-    font-size:1.2em;
-    height: 5vh;
-    padding: 0;
-    border: none;
-    height:50px;
-    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 10px 0 rgba(0, 0, 0, 0.25);
-}
-
-nav.primary-navigation .container {
+#navigation-bar {
     height: 50px;
-    width: 100%;
-}
-
-nav.primary-navigation ul li {
-    display: inline-block;
-    width: 140px;
-    text-align: center;
-    padding : 14px 0px 14px 0px ;
-    background-color: yellow;
-    margin: 0;
-}
-
-/* current and active states on menu */
-nav.primary-navigation .current-menu-item a {
     background-color: white;
-    text-decoration: bold;
-    padding: 15px 0px 16px 0px;
-    margin: -15px 0 -16px 0;
-}
-
-nav.primary-navigation .navbar-nav > .active > a, 
-nav.primary-navigation .navbar-nav > .active > a:hover, 
-nav.primary-navigation .navbar-nav > .active > a:focus {
-    color: black;
-}
-
-/* hover on menu */
-nav.primary-navigation .nav > li > a:hover {
-    background-color: #77B8C1;
-    padding: 15px 0 16px 0;
-    margin: -15px 0 -16px 0;
-}
-
-/* dropdown */
-.navbar-nav > .open > a,
-.navbar-nav > .open > a:hover, 
-.navbar-nav > .open > a:focus {
-    background: none;
-    color: #000;
-    border-color: transparent;
-    border: none;
-}
-
-/* Menu hamburger */
-.navbar-toggle {
-    padding: 0;
     margin: 0;
-    border: 0;
-    background: none;
-    font-size: 30px;
-    color: #000;
-    display: inline-block;
-    float: right;
 }
 
-nav.primary-navigation .navbar-header {
-    border: 0;
-    margin: 0;
-    padding: 0;
-    height: 50px;
+#myNavbar.navbar-collapse.collapse {
+    background-color: white;
 }
 
-nav {
-    height: 50px;
-    position: fixed;
+#myNavbar.navbar-collapse.collapse.in {
+    width: 250px;
 }
 
-.primary-navigation #nav-spy {
-    height: 50px;
-    float: none;
-}
-
-.site-description {
-    font-size: 6px;
-    line-height: 4px;
-    max-width: 50px;
-    margin: 0;
+a.navbar-brand {
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 button.navbar-toggle {
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-    border: 0;
-}
-
-/* hidding menu when screen is bigger than ipad */
-.hamburger {
-    display: none;
-}
-
-/* color of menu text */
-nav.primary-navigation ul li a {
-    color: black;
-}
-
-nav.primary-navigation ul li a:hover {
-    background-color: white;
-    text-decoration: none;
-}
-
-/* About page in top menu */
-nav.primary-navigation ul li.search-bar-menu{
-    display: inline-block;
-    float: right;
-    width: 240px;
-    text-align: center;
-    vertical-align: center;
-    padding : 10px 0px 10px 0px ;
-}
-
-nav.primary-navigation ul li.top-menu{
-    display: inline-block;
-    float: right;
-    vertical-align: center;
-    width: 120px;
-    padding : 13px 0px 13px 0px ;
-}
-
-ul.menu-right{
-    display: inline-block;
-    vertical-align: center;
-    padding: 0;
-    margin: 0;
-    border: 0;
-    }
-
-.menu-categories{
-    display: inline-block;
     float: left;
-    }
-
-nav.primary-navigation ul li.top-menu:hover{
-    font-weight: bold;
-    text-decoration: none;
+    margin-left: 15px;
 }
 
-/* ipad */
-@media (max-width: 960px) {
-
-    .hamburger {
-        display: none;
-    }
-
-    nav.primary-navigation ul li.top-menu {
-        display: none;
-    }
-
-    .search-bar-menu{
-        display: inline-block;
-        width: 80px;
-    }
-
-    .search-form-menu{
-        display: inline-block;
-        width: 80px;
-    }
-
-
-    .search-form{
-        width: 20px;
-    }
+#myNavbar.navbar-collapse.collapse.in div.search-form-menu {
+    width: 250px;
+    height: 40px;
+    padding: 10px;
+    margin-top: -30px;
 }
 
-/* Smartphones */
-@media (max-width: 768px) {
 
-    /* displaying menu when screen is smaller than ipad */ 
-    nav.primary-navigation ul li.top-menu{
-        display: block;
-        width: 100%;
-        text-align: left;
-    }
-
-    nav.primary-navigation ul li.top-menu:hover{
-        padding-left: -30px;
-        margin-left: -15px;
-    }
-
-    nav.primary-navigation ul li.search-bar-menu,
-    nav.primary-navigation ul li.search-bar-menu:hover{
-        display: block;
-        vertical-align: center;
-        text-align: left;
-        padding: 2px 0 6px 0;
-        margin: auto;
-        width: 100%;
-    }
-    
-    .hamburger {
-        display: inline-block;
-        float:left;
-        margin-right: 10px;
-    }
-
-    ul.menu-right{
-        display: inline-block;
-        padding: 0;
-        margin: 0;
-        width: 100%;
-    }
-
-    .search-bar-menu{
-        width: 250px;
-    }
-
-    .search-form-menu {
-        display: block;
-        margin: 8px;
-        width: 100%;
-    }
-
-    .search-icon{
-        display: block;
-        padding-left: 10px;
-    }
-
-    .search-form{
-        width: 100px;
-    }
-
-    .search-form:hover{
-        padding:0;
-        margin:0;
-        border:0;
-    }
-
-    nav.primary-navigation ul {
-        float: none;
-        margin-top: 0px;
-        padding-top: 0px;
-    }
-
-    nav.primary-navigation ul li {
-        overflow: hidden;
-        display: block;
-        display: flex;
-        align-items: center;
-        border-top: 0.1px solid black;
-        text-align: center;
-        width: 100%;
-        height: 46px;
-        padding : 2px 0 2px 0;
-        background-color:white;
-    }
-
-    nav.primary-navigation ul li a:hover {
-        background-color: white;
-    }
-
-    /* menu item that is selected */
-
-    nav.primary-navigation .current-menu-item a {
-        background-color: white;
-        padding-left: 15px;
-        text-decoration: bold;
-    }
-
-    /* hover in responsive menu */
-
-    nav.primary-navigation .navbar-nav > .active > a, 
-    nav.primary-navigation .navbar-nav > .active > a:hover, 
-    nav.primary-navigation .navbar-nav > .active > a:focus,
-    nav.primary-navigation .nav > li > a:hover, 
-    nav.primary-navigation .nav > li > a:focus,
-    nav.primary-navigation .nav > li > a:active {
-        padding-left: 15px;
-        background-color: white;
-        text-decoration: bold;
-    }
-
-    .primary-navigation .navbar-collapse {
-        padding-top: 0px;
-    }
-
-    .primary-navigation #nav-spy {
-        float: none;
-    }
-}   
 
 
 
@@ -1217,11 +949,10 @@ input {
     margin: 0 1px 0 0;
 }
 
-.search-form-menu{
+.search-form-menu {
     display: inline-block;
     height: 30px;
     padding: 0;
-    max-width: 200px;
 }
 
 form.search-form-menu{
@@ -1281,9 +1012,7 @@ input[type="text"]:focus {
 /* Logos (centered and padding is added)
 -------------------------------------------------------------- */
 
-.logo-uploaded, 
-.footer-logo-uploaded, 
-.logo-text {
+.logo-inspirama {
     padding: 5px 5px 0px 5px;
     display: inline-block;
     vertical-align: center;

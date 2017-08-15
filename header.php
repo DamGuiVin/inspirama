@@ -155,88 +155,70 @@
 <body <?php body_class(); ?>>
 <div class="page-wrapper" data-scroll-speed="500">   
 
+
+
+
+
+
+
+
+
     <!-- Navigation Bar -->
-    <nav class="primary-navigation navbar" role="navigation">
-        <div class="container"> 
+    <nav id="navigation-bar" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
 
-            <!-- Navbar-Header = Hamburger + Logo + Catchphrase -->
+            <!-- Logo Section -->
             <div class="navbar-header">
-
-                <!-- Hamburger Menu Section -->
-                <div class="hamburger">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="menu-text sr-only"><?php _e('Menu', 'oren'); ?></span>
-                        <span class="fa fa-bars"></span>
-                    </button>
-                </div>   
-                <!-- End Hamburger Menu Section -->     
-
-                <!-- Logo Section -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                        
+                </button>
                 <?php if ( get_theme_mod( 'themeora-img-upload-logo' ) ) { ?>             
-                    <a href="<?php echo home_url(); ?>">
-                        <img class="logo-uploaded" style="max-width:<?php echo esc_attr( get_theme_mod( 'themeora-img-upload-logo-width', '200' ) ); ?>px" src="<?php echo esc_url( get_theme_mod( 'themeora-img-upload-logo' ) );?>" alt="<?php the_title(); ?>" />
+                    <a class="navbar-brand" href="<?php echo home_url(); ?>">
+                        <img class="logo-inspirama" style="max-width:<?php echo esc_attr( get_theme_mod( 'themeora-img-upload-logo-width', '200' ) ); ?>px" src="<?php echo esc_url( get_theme_mod( 'themeora-img-upload-logo' ) );?>" alt="<?php the_title(); ?>" />
                     </a>
-                <?php } else { ?>
-                    <h1 class="site-title"><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-                <?php }
-
-                if ( get_theme_mod( 'themeora-show-description-header' ) == 'Yes' ) : ?>
-                    <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
-                <?php endif; ?>
-                <!--End Logo Section -->
-
+                <?php } ?>
             </div>
-            <!-- End Navbar-Header -->
+            <!--End Logo Section -->
 
-            <!-- Category Menu + Search + A Propos -->
-            <div class="navbar-collapse collapse" id="nav-spy" style="padding: <?php echo esc_html( get_theme_mod('themeora-img-upload-logo-padding', '0') ) ?>px 0px;">
-                
-                <!-- Navigation Menu -->
-                <div class="nav-wrap">
-                    <?php if ( has_nav_menu('primary_menu') ) {
-                        wp_nav_menu( array(
-                            'container' =>false,
-                            'theme_location' => 'primary_menu',
-                            'menu_class' => 'nav navbar-nav',
-                            'echo' => true,
-                            'before' => '',
-                            'after' => '',
-                            'link_before' => '',
-                            'link_after' => '',
-                            'depth' => 0,
-                            'walker' => new themeora_Walker_Nav_Menu()
-                        )); 
-                    } ?>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <?php if ( has_nav_menu('primary_menu') ) {
+                    wp_nav_menu( array(
+                        'container' =>false,
+                        'theme_location' => 'primary_menu',
+                        'menu_class' => 'nav navbar-nav',
+                        'echo' => true,
+                        'before' => '',
+                        'after' => '',
+                        'link_before' => '',
+                        'link_after' => '',
+                        'depth' => 0,
+                        'walker' => new themeora_Walker_Nav_Menu()
+                    )); 
+                } ?>        
 
-                    <ul class="menu-right"> 
+                <ul class="nav navbar-nav navbar-right" id="myNavbar"> 
 
-                        <!--Beginning A propos -->
-                        <li class="top-menu">
-                            <a href="<?php echo get_site_url() . '/a-propos/'; ?>">À propos</a>
-                        </li>
-                        <!--End A propos -->
-
-
-                        <!--Beginning Search -->
-                        <li class="search-bar-menu">           
-                            <div class="search-form-menu">
-                                <?php get_search_form(); ?> 
-                            </div> 
-                        </li>
-                        <!--End search -->
-
-                    </ul>
+                    <!--Beginning Search -->
+                    <li>           
+                        <div class="search-form-menu">
+                            <?php get_search_form(); ?> 
+                        </div> 
+                    </li>
+                    <!--End search -->
                     
-                </div>
-                <!--End Navigation Menu -->
+                    <!--Beginning A propos -->
+                    <li>
+                        <a href="<?php echo get_site_url() . '/a-propos/'; ?>">À propos</a>
+                    </li>
+                    <!--End A propos -->
 
-                                   
+                </ul>
             </div>
-            <!-- End Category Menu + Search + A Propos -->
         </div>
     </nav>
     <!-- End Navigation Bar -->
-
 
 
 
