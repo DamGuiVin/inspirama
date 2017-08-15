@@ -554,6 +554,98 @@ button.navbar-toggle {
 
 
 
+/* Searchform
+-------------------------------------------------------------- */
+
+.search-form input[type="text"] {
+    margin: 0;
+    padding: 0;
+}
+
+.search-form {
+    width: 160px;
+}
+
+input.search-form {
+    width: 160px;
+    height: 30px;
+}
+
+.search-form-inline-container {
+    display: inline-block;
+    height: 30px;
+    vertical-align: top;
+}
+
+input {
+    outline: none;
+    padding: 0;
+    margin: 0;
+}
+
+.search-icon{
+    display: inline-block;
+    margin: 0 1px 0 0;
+}
+
+.search-form-menu {
+    display: inline-block;
+    height: 30px;
+    padding: 0;
+}
+
+form.search-form-menu{
+    display: inline-block;
+    height: 30px;
+    padding: 0;
+    margin: 0;
+    max-width: 200px;
+}
+
+input[type="text"] {
+    text-indent: 10px;
+    color: black;
+    padding: 0;
+    border: 2px solid #77B8C1;
+    border-radius: 20px;
+}
+
+input[type="text"]:focus { 
+    outline: none;
+    border-color: #77B8C1;
+    box-shadow: 0 0 5px #77B8C1;
+    vertical-align: top;
+}
+
+.search-no-results .search-form {
+    margin: auto;
+}
+
+.search-no-results .text-center {
+    margin-top: 46px;
+    padding-bottom: 20px;
+    margin-bottom: 46px;
+}
+
+/* Search Placeholders (text inviting to type in the field) */
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:     #1f1a14;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #1f1a14;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #1f1a14;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #1f1a14;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color:    #1f1a14;
+}
+
 
 
 /* Person Page
@@ -907,104 +999,6 @@ button.navbar-toggle {
     .book-page-recommendations-person .portfolio-link > .portfolio-details .details-person-invitation {
         box-shadow: 0 0 10px #77B8C1;
     }
-}
-
-
-
-/* Searchform
--------------------------------------------------------------- */
-
-.search-form input[type="text"] {
-    margin: 0;
-    padding: 0;
-}
-
-.search-form {
-    width: 160px;
-}
-
-input.search-form {
-    width: 160px;
-    height: 30px;
-}
-
-.search-form-inline-container {
-    display: inline-block;
-    height: 30px;
-    vertical-align: top;
-}
-
-.widget_search {
-    padding: 0;
-}
-
-input {
-    outline: none;
-    padding: 0;
-    margin: 0;
-}
-
-.search-icon{
-    display: inline-block;
-    margin: 0 1px 0 0;
-}
-
-.search-form-menu {
-    display: inline-block;
-    height: 30px;
-    padding: 0;
-}
-
-form.search-form-menu{
-    display: inline-block;
-    height: 30px;
-    padding: 0;
-    margin: 0;
-    max-width: 200px;
-}
-
-input[type="text"] {
-    text-indent: 10px;
-    color: black;
-    padding: 0;
-    border: 2px solid #77B8C1;
-    border-radius: 20px;
-}
-
-input[type="text"]:focus { 
-    outline: none;
-    border-color: #77B8C1;
-    box-shadow: 0 0 5px #77B8C1;
-    vertical-align: top;
-}
-
-.search-no-results .search-form {
-    margin: auto;
-}
-
-.search-no-results .text-center {
-    margin-top: 46px;
-    padding-bottom: 20px;
-    margin-bottom: 46px;
-}
-
-/* Search Placeholders (text inviting to type in the field) */
-::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color:     #1f1a14;
-}
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color:    #1f1a14;
-   opacity:  1;
-}
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color:    #1f1a14;
-   opacity:  1;
-}
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color:    #1f1a14;
-}
-::-ms-input-placeholder { /* Microsoft Edge */
-   color:    #1f1a14;
 }
 
 
