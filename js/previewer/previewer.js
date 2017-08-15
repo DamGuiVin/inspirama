@@ -153,43 +153,43 @@
 
 					if ( content.leslibraires_url != "" ) {
 						$bookLeslibrairesUrl.attr( "href", content.leslibraires_url );
-						$bookLeslibrairesUrl.html( "<img src=" + content.leslibraires_logo + " height=\"40\" width=\"40\"/>" );
+						$bookLeslibrairesUrl.html( "<img class=\"social-media-icon\" src=" + content.leslibraires_logo + " height=\"44\" width=\"44\"/>" );
 						//$bookLeslibrairesLogo.attr( "src", content.leslibraires_logo );
 					};
 
 					if ( content.amazon_url != "" ) {
 						$bookAmazonUrl.attr( "href", content.amazon_url );
-						$bookAmazonUrl.html( "<img src=" + content.amazon_logo + " height=\"40\" width=\"40\"/>" );
+						$bookAmazonUrl.html( "<img class=\"social-media-icon\" src=" + content.amazon_logo + " height=\"44\" width=\"44\"/>" );
 						//$bookAmazonLogo.attr( "src", content.amazon_logo );
 					};
 
 					if ( content.fnac_url != "" ) {
 						$bookFnacUrl.attr( "href", content.fnac_url );
-						$bookFnacUrl.html( "<img src=" + content.fnac_logo + " height=\"40\" width=\"40\"/>" );
+						$bookFnacUrl.html( "<img class=\"social-media-icon\" src=" + content.fnac_logo + " height=\"44\" width=\"44\"/>" );
 						//$bookFnacLogo.attr( "src", content.fnac_logo );
 					};
 
 					if ( content.priceminister_url != "" ) {
 						$bookPriceministerUrl.attr( "href", content.priceminister_url );
-						$bookPriceministerUrl.html( "<img src=" + content.priceminister_logo + " height=\"40\" width=\"40\"/>" );
+						$bookPriceministerUrl.html( "<img class=\"social-media-icon\" src=" + content.priceminister_logo + " height=\"44\" width=\"44\"/>" );
 						//$bookPriceministerLogo.attr( "src", content.priceminister_logo );
 					};
 
 					if ( content.recyclivre_url != "" ) {
 						$bookRecyclivreUrl.attr( "href", content.recyclivre_url );
-						$bookRecyclivreUrl.html( "<img src=" + content.recyclivre_logo + " height=\"40\" width=\"40\"/>" );
+						$bookRecyclivreUrl.html( "<img class=\"social-media-icon\" src=" + content.recyclivre_logo + " height=\"44\" width=\"44\"/>" );
 						//$bookRecyclivreLogo.attr( "src", content.recyclivre_logo );
 					};
 
 					if ( content.ebook_url != "" ) {
 						$bookEbookUrl.attr( "href", content.ebook_url );
-						$bookEbookUrl.html( "<img src=" + content.ebook_logo + " height=\"40\" width=\"60\"/>" );
+						$bookEbookUrl.html( "<img class=\"social-media-icon\" src=" + content.ebook_logo + " height=\"44\" width=\"60\"/>" );
 						//$bookEbookLogo.attr( "src", content.ebook_logo );
 					};
 
 					if ( content.gutenberg_url != "" ) {
 						$bookGutenbergUrl.attr( "href", content.gutenberg_url );
-						$bookGutenbergUrl.html( "<img src=" + content.gutenberg_logo + " height=\"40\" width=\"40\"/>" );
+						$bookGutenbergUrl.html( "<img class=\"social-media-icon\" src=" + content.gutenberg_logo + " height=\"44\" width=\"44\"/>" );
 						//$bookGutenbergLogo.attr( "src", content.gutenberg_logo );
 
 					};

@@ -92,31 +92,31 @@ $wp_query = new WP_Query( $args );
                     <h4>Acheter ce livre</h4>
 
                     <?php if ( $book_amazon_logo && $book_amazon_url ) : ?> 
-                        <a target="_blank" href="<?php echo $book_amazon_url; ?>" title="Amazon"> <img src="<?php echo $book_amazon_logo; ?>" alt="" height="64" width="64"/> </a>
+                        <a target="_blank" href="<?php echo $book_amazon_url; ?>" title="Amazon"> <img class="social-media-icon" src="<?php echo $book_amazon_logo; ?>" alt="" height="64" width="64"/> </a>
                     <?php endif;
 
                     if ( $book_leslibraires_logo && $book_leslibraires_url ) : ?>
-                        <a target="_blank" href="<?php echo $book_leslibraires_url; ?>" title="Les Libraires"> <img src="<?php echo $book_leslibraires_logo; ?>" alt="" height="64" width="64"/> </a>
+                        <a target="_blank" href="<?php echo $book_leslibraires_url; ?>" title="Les Libraires"> <img class="social-media-icon" src="<?php echo $book_leslibraires_logo; ?>" alt="" height="64" width="64"/> </a>
                     <?php endif;
  
                     if ( $book_fnac_logo && $book_fnac_url ) : ?>
-                        <a target="_blank" href="<?php echo $book_fnac_url; ?>" title="La Fnac"> <img src="<?php echo $book_fnac_logo; ?>" alt="" height="64" width="64"/> </a>
+                        <a target="_blank" href="<?php echo $book_fnac_url; ?>" title="La Fnac"> <img class="social-media-icon" src="<?php echo $book_fnac_logo; ?>" alt="" height="64" width="64"/> </a>
                     <?php endif;
 
                     if ( $book_priceminister_url && $book_priceminister_logo ) : ?>
-                        <a target="_blank" href="<?php echo $book_priceminister_url; ?>" title="PriceMinister"> <img src="<?php echo $book_priceminister_logo; ?>" alt="" height="64" width="64"/> </a>
+                        <a target="_blank" href="<?php echo $book_priceminister_url; ?>" title="PriceMinister"> <img class="social-media-icon" src="<?php echo $book_priceminister_logo; ?>" alt="" height="64" width="64"/> </a>
                     <?php endif;
 
                     if ( $book_recyclivre_url && $book_recyclivre_logo ) : ?>
-                        <a target="_blank" href="<?php echo $book_recyclivre_url; ?>" title="RecycLivre"> <img src="<?php echo $book_recyclivre_logo; ?>" alt="" height="64" width="64"/> </a>
+                        <a target="_blank" href="<?php echo $book_recyclivre_url; ?>" title="RecycLivre"> <img class="social-media-icon" src="<?php echo $book_recyclivre_logo; ?>" alt="" height="64" width="64"/> </a>
                     <?php endif;
 
                     if ( $book_ebook_url && $book_ebook_logo ) : ?>
-                        <a target="_blank" href="<?php echo $book_ebook_url; ?>" title="EBook"> <img src="<?php echo $book_ebook_logo; ?>" alt="" height="64" width="90"/> </a>
+                        <a target="_blank" href="<?php echo $book_ebook_url; ?>" title="EBook"> <img class="social-media-icon" src="<?php echo $book_ebook_logo; ?>" alt="" height="64" width="90"/> </a>
                     <?php endif;
 
                     if ( $book_gutenberg_url && $book_gutenberg_logo ) : ?>
-                        <a target="_blank" href="<?php echo $book_gutenberg_url; ?>" title="Gutenberg Project"> <img src="<?php echo $book_gutenberg_logo; ?>" alt="" height="64" width="64"/> </a>
+                        <a target="_blank" href="<?php echo $book_gutenberg_url; ?>" title="Gutenberg Project"> <img class="social-media-icon" src="<?php echo $book_gutenberg_logo; ?>" alt="" height="64" width="64"/> </a>
                     <?php endif; ?>
                 </div>
                 <!-- End Affiliation Section --> 
