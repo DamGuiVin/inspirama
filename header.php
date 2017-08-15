@@ -210,7 +210,7 @@
                     
                     <!--Beginning A propos -->
                     <li id="navigation-about">
-                        <a href="<?php echo get_site_url() . '/a-propos/'; ?>">À PROPOS</a>
+                        <a href="<?php echo get_site_url() . '/a-propos/'; ?>">À propos</a>
                     </li>
                     <!--End A propos -->
 
