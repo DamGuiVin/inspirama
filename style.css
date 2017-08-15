@@ -401,7 +401,7 @@ h5 {
 
 
 
-/* Header & Banner header.php
+/* Header & Banner on Pages
 -------------------------------------------------------------- */
 
 /* Titre principal NB: impossible de modifier la couleur par css : elle est modifiable via le customizer dans le back office*/
@@ -519,12 +519,19 @@ a.go-to-portfolio-homepage:visited  {
     }
 }
 
+
+
 /* Navigation Menu
 -------------------------------------------------------------- */
 #navigation-bar {
+    font-family: 'Oswald';
+    font-size:1.2em;
     height: 50px;
-    background-color: white;
     margin: 0;
+    background-color: white;
+    border: none;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 10px 0 rgba(0, 0, 0, 0.25);
+
 }
 
 #myNavbar.navbar-collapse.collapse {
@@ -533,6 +540,7 @@ a.go-to-portfolio-homepage:visited  {
 
 #myNavbar.navbar-collapse.collapse.in {
     width: 250px;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 10px 0 rgba(0, 0, 0, 0.25);
 }
 
 a.navbar-brand {
@@ -545,30 +553,53 @@ button.navbar-toggle {
     margin-left: 15px;
 }
 
-#myNavbar.navbar-collapse.collapse.in div.search-form-menu {
-    width: 250px;
-    height: 40px;
-    padding: 10px;
-    margin-top: -30px;
+ul#myNavbar.navbar-right {
+    margin-right: 0px;
 }
 
+#myNavbar a:hover {
+    background-color: #77B8C1;
+    color: white;
+    text-decoration: bold;
+}
+
+.current-menu-item a {
+    background-color: #77B8C1;
+    color: white !important;
+    text-decoration: bold;
+}
+
+/* Quick fix for 'responsive' navigation bar : hide Search and A Propos rather than let them skip line*/
+@media screen and ( min-width: 768px ) and ( max-width: 935px ) {
+    #navigation-about {
+        display: none;
+    }
+}
+
+@media screen and ( min-width: 768px ) and ( max-width: 844px ) {
+    .navbar-right {
+        display: none;
+    }
+}
 
 
 /* Searchform
 -------------------------------------------------------------- */
 
-.search-form input[type="text"] {
-    margin: 0;
-    padding: 0;
+#myNavbar.navbar-collapse.collapse.in div.search-form-menu {
+    width: 250px;
+    height: 40px;
+    padding: 10px;
+    margin-top: -30px;
+    margin-bottom: 10px;
 }
 
-.search-form {
-    width: 160px;
-}
-
-input.search-form {
-    width: 160px;
+form.search-form-menu{
+    display: inline-block;
     height: 30px;
+    padding-top: 10px;
+    margin: 0;
+    width: 190px;
 }
 
 .search-form-inline-container {
@@ -577,35 +608,21 @@ input.search-form {
     vertical-align: top;
 }
 
-input {
-    outline: none;
-    padding: 0;
-    margin: 0;
-}
-
-.search-icon{
-    display: inline-block;
-    margin: 0 1px 0 0;
-}
-
-.search-form-menu {
-    display: inline-block;
+input.search-form {
+    width: 160px;
     height: 30px;
-    padding: 0;
 }
 
-form.search-form-menu{
+input.search-icon{
     display: inline-block;
-    height: 30px;
-    padding: 0;
-    margin: 0;
-    max-width: 200px;
+    margin-top: 3px;
 }
 
 input[type="text"] {
+    margin: 0;
+    padding: 0;
     text-indent: 10px;
     color: black;
-    padding: 0;
     border: 2px solid #77B8C1;
     border-radius: 20px;
 }
@@ -615,16 +632,6 @@ input[type="text"]:focus {
     border-color: #77B8C1;
     box-shadow: 0 0 5px #77B8C1;
     vertical-align: top;
-}
-
-.search-no-results .search-form {
-    margin: auto;
-}
-
-.search-no-results .text-center {
-    margin-top: 46px;
-    padding-bottom: 20px;
-    margin-bottom: 46px;
 }
 
 /* Search Placeholders (text inviting to type in the field) */
