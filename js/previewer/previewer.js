@@ -90,7 +90,7 @@
 
 				// Excludes the case of the 'Add More Books' case, for which we
 				// want the defaut event - opening a Google Form link - to occur
-				if ( e.target.className == "portfolio-book-image" ) {
+				if ( e.target.className == "portfolio-book-image" || e.target.className == "portfolio-book-subtitle-title" || e.target.className == "portfolio-book-subtitle-author") {
 
 					e.preventDefault();
 					var $a = $( this ),
