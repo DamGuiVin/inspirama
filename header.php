@@ -209,8 +209,8 @@
                     <!--End search -->
                     
                     <!--Beginning A propos -->
-                    <li>
-                        <a href="<?php echo get_site_url() . '/a-propos/'; ?>">À propos</a>
+                    <li id="navigation-about">
+                        <a href="<?php echo get_site_url() . '/a-propos/'; ?>">À PROPOS</a>
                     </li>
                     <!--End A propos -->
 
