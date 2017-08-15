@@ -90,7 +90,7 @@ a:hover {
 
 /* Bandeau du haut sur les pages template-contact */
 .welcome-screen {
-    background-color : #829fd8;
+    background-color: #77B8C1
 }
 
 
@@ -429,8 +429,15 @@ header.full-width-container-home {
 
 header.full-width-container-category {
     background-size: cover;
-    height: 25vh;
+    height: 140px;
     padding: 0;
+}
+
+header.full-width-container-category.welcome-screen h1.category-title {
+    padding-top: 30px;
+    color: white;
+    text-shadow: 1px 1px black;
+    text-align: center;
 }
 
 .full-width-container-book {
@@ -449,13 +456,6 @@ a.go-to-portfolio-homepage:visited  {
     padding-top: 12%;
     font-size: 1.3em;
     text-shadow: 0px 0px 4px white;
-    text-align: center;
-}
-
-.welcome-container-category {
-    padding-top: 5%;
-    font-size: 1.3em;
-    text-shadow: 1px 1px black;
     text-align: center;
 }
 

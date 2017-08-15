@@ -17,14 +17,14 @@ $category_name = single_cat_title('', false);
 //$category_description = category_description();
 
 // Get the category's background image
-$background_image = z_taxonomy_image_url($current_category->term_id); ?>
+//$background_image = z_taxonomy_image_url($current_category->term_id); ?>
 
 <!-- Category Presentation -->
-<header class=  "full-width-container-category center-page welcome-screen <?php $background_image != '' ? print 'header-with-background' : '' ?> <?php has_excerpt() ? print 'header-with-excerpt ' : print 'header-without-excerpt'; ?>" role="banner" data-welcome-background="<?php echo $background_image; ?>" >
+<header class="full-width-container-category center-page welcome-screen">
     <div class="container welcome-container-category">
         <div class="row welcome-row">
             <div class="col-md-10 col-md-offset-1">
-                <h1 class=""><?php echo $category_name ?></h1>
+                <h1 class="category-title"><?php echo $category_name ?></h1>
                 <!-- <h2 class=''><?php echo $category_description ?></h2> -->
             </div>
         </div>
