@@ -335,8 +335,6 @@ header.welcome-screen h2 {
     text-transform: uppercase;
 	font-size:1.2em;
 	text-decoration:none;
-	margin: none;
-	padding: none;
 }
 
 #widget-area li:hover {
@@ -420,17 +418,6 @@ header.welcome-screen h2 {
     font-size: 0.8em;
     margin: 0;
     font-family: 'Raleway';
-}
-
-/* Navigation Menu */
-nav.primary-navigation {
-    font-family: 'Oswald';
-    font-size:1.2em;
-    height: 5vh;
-    padding: 0;
-    border: none;
-    height:48px;
-    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 10px 0 rgba(0, 0, 0, 0.25);
 }
 
 /* Welcome banner : make the height 90% of the screen to leave space for the above Navigation bar */
@@ -540,8 +527,22 @@ a.go-to-portfolio-homepage:visited  {
 }
 
 ul {
-    margin: none;
     list-style: none;
+}
+
+nav.primary-navigation {
+    font-family: 'Oswald';
+    font-size:1.2em;
+    height: 5vh;
+    padding: 0;
+    border: none;
+    height:50px;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 10px 0 rgba(0, 0, 0, 0.25);
+}
+
+nav.primary-navigation .container {
+    height: 50px;
+    width: 100%;
 }
 
 nav.primary-navigation ul li {
@@ -549,7 +550,7 @@ nav.primary-navigation ul li {
     width: 140px;
     text-align: center;
     padding : 14px 0px 14px 0px ;
-    background-color:white;
+    background-color: yellow;
     margin: 0;
 }
 
@@ -600,16 +601,16 @@ nav.primary-navigation .navbar-header {
     border: 0;
     margin: 0;
     padding: 0;
-    height: 48px;
+    height: 50px;
 }
 
 nav {
-    height: 48px;
+    height: 50px;
     position: fixed;
 }
 
 .primary-navigation #nav-spy {
-    height:48px;
+    height: 50px;
     float: none;
 }
 
@@ -637,6 +638,11 @@ nav.primary-navigation ul li a {
     color: black;
 }
 
+nav.primary-navigation ul li a:hover {
+    background-color: white;
+    text-decoration: none;
+}
+
 /* About page in top menu */
 nav.primary-navigation ul li.search-bar-menu{
     display: inline-block;
@@ -655,12 +661,7 @@ nav.primary-navigation ul li.top-menu{
     padding : 13px 0px 13px 0px ;
 }
 
-nav.primary-navigation ul li a:hover {
-    background-color: white;
-    text-decoration: none;
-}
-
-.menu-right{
+ul.menu-right{
     display: inline-block;
     vertical-align: center;
     padding: 0;
@@ -736,7 +737,7 @@ nav.primary-navigation ul li.top-menu:hover{
         margin-right: 10px;
     }
 
-    .menu-right{
+    ul.menu-right{
         display: inline-block;
         padding: 0;
         margin: 0;

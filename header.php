@@ -168,7 +168,8 @@
                         <span class="menu-text sr-only"><?php _e('Menu', 'oren'); ?></span>
                         <span class="fa fa-bars"></span>
                     </button>
-                </div>        
+                </div>   
+                <!-- End Hamburger Menu Section -->     
 
                 <!-- Logo Section -->
                 <?php if ( get_theme_mod( 'themeora-img-upload-logo' ) ) { ?>             
@@ -206,27 +207,30 @@
                             'walker' => new themeora_Walker_Nav_Menu()
                         )); 
                     } ?>
+
+                    <ul class="menu-right"> 
+
+                        <!--Beginning A propos -->
+                        <li class="top-menu">
+                            <a href="<?php echo get_site_url() . '/a-propos/'; ?>">À propos</a>
+                        </li>
+                        <!--End A propos -->
+
+
+                        <!--Beginning Search -->
+                        <li class="search-bar-menu">           
+                            <div class="search-form-menu">
+                                <?php get_search_form(); ?> 
+                            </div> 
+                        </li>
+                        <!--End search -->
+
+                    </ul>
+                    
                 </div>
                 <!--End Navigation Menu -->
 
-                <ul class="menu-right"> 
-
-                    <!--Beginning A propos -->
-                    <li class="top-menu">
-                        <a href="<?php echo get_site_url() . '/a-propos/'; ?>">À propos</a>
-                    </li>
-                    <!--End A propos -->
-
-
-                    <!--Beginning Search -->
-                    <li class="search-bar-menu">           
-                        <div class="search-form-menu">
-                            <?php get_search_form(); ?> 
-                        </div> 
-                    </li>
-                    <!--End search -->
-
-                </ul>                   
+                                   
             </div>
             <!-- End Category Menu + Search + A Propos -->
         </div>
