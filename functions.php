@@ -1,26 +1,39 @@
 <?php
 
 //.......................................................................................................
-// Oren-child theme settings
+// Enqueueing Scripts and Styles
 //.......................................................................................................
 
-// Declaring the child theme style after the parent style
-function my_theme_enqueue_styles() {
+function inspirama_enqueue_scripts() {
 
-	// Enqueue parent theme's style.css (faster than using @import in our style.css)
-	$themeVersion = wp_get_theme()->get('Version');
-    $parent_style = 'base-style'; // This is the style name in Oren 
+    wp_register_script( 'inspirama_previewer', get_stylesheet_directory_uri() . '/js/previewer.min.js', array('jquery'), false, true );
+    wp_register_script( 'inspirama_typed', get_stylesheet_directory_uri() . '/js/typed.min.js', array('jquery'), false, true );
 
-    wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css' );
-    wp_enqueue_style( 
-    	'child-style',
-        get_stylesheet_directory_uri() . '/style.css',
-        array( $parent_style ),
-        $themeVersion
-    );
+    if( is_front_page() ){
+        wp_enqueue_script('inspirama_typed');
+        $list_names_php = get_all_people_names();
+        wp_localize_script( 'inspirama_typed', 'list_names', $list_names_php );
+    }
+
+    if( is_singular('person') ){
+        wp_enqueue_script( 'inspirama_previewer' );
+    }
 }
 
-add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
+add_action( 'wp_enqueue_scripts', 'inspirama_enqueue_scripts' );
+
+
+
+function inspirama_enqueue_styles() {
+
+    // This enqueues the parent theme's style.css before the child's (faster than using @import in our style.css)
+    $themeVersion = wp_get_theme()->get('Version');
+    wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+    wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.min.css', array( 'parent-style' ), $themeVersion );
+
+}
+
+add_action( 'wp_enqueue_scripts', 'inspirama_enqueue_styles' );
 
 
 

@@ -96,30 +96,7 @@
 
 
 
-    <!-- JS code for Typed cursor function -->
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/js/typed/typed.min.js' ; ?>"></script>
-
-    <?php $list_names_php = get_all_people_names(); ?>
-
-    <script type="text/javascript">
-        $(function(){
-            var list_names = <?php echo json_encode($list_names_php); ?>;
-            $(".element").typed({
-                strings: list_names,
-                typeSpeed: 100,
-                backDelay: 1000,
-                loop: true
-            });
-        });
-    </script>
-    <!-- End JS code for Typed cursor function -->
-
-
-
-    <!-- JS code for Image Previewer -->
-    <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/js/previewer/previewer.js' ; ?>"></script>
-    <!-- End JS code for Image Previewer -->
+    
 
 
 
@@ -130,6 +107,12 @@
     <link rel="profile" href="http://gmpg.org/xfn/11">
 
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+
+    <!-- Appel des polices utilisees : TEMPORAIRE. Sauvegarde dans notre base a plus long terme -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Source+Sans+Pro|Gidugu|Oswald|Raleway|Lato">
+
+    <!-- Appel du catalogue d'icones AwesomeFonts : TEMPORAIRE. Sauvegarde dans notre base a plus long terme -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!--[if lt IE 9]>
     <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/html5shiv.min.js"></script>
@@ -144,11 +127,7 @@
 
 
 
-<!-- Appel des polices utilisees : TEMPORAIRE. Sauvegarde dans notre base a plus long terme -->
-<link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Source+Sans+Pro|Gidugu|Oswald|Raleway|Lato" rel="stylesheet">
 
-<!-- Appel du catalogue d'icones AwesomeFonts : TEMPORAIRE. Sauvegarde dans notre base a plus long terme -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 
