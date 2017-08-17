@@ -6,15 +6,24 @@
 
 function inspirama_enqueue_scripts() {
 
+    wp_register_script( 'inspirama_tracking', get_stylesheet_directory_uri() . '/js/tracking.min.js', '', false, true );
     wp_register_script( 'inspirama_previewer', get_stylesheet_directory_uri() . '/js/previewer.min.js', array('jquery'), false, true );
     wp_register_script( 'inspirama_typed', get_stylesheet_directory_uri() . '/js/typed.min.js', array('jquery'), false, true );
+    wp_register_script( 'inspirama_smooth_scroll', get_stylesheet_directory_uri() . '/js/smooth_scroll.min.js', array('jquery'), false, true);
 
+    // Always load
+    wp_enqueue_script( 'inspirama_tracking' );
+
+    // Homepage only : typed.js and smooth_scroll.js
     if( is_front_page() ){
         wp_enqueue_script('inspirama_typed');
         $list_names_php = get_all_people_names();
         wp_localize_script( 'inspirama_typed', 'list_names', $list_names_php );
+
+        wp_enqueue_script('inspirama_smooth_scroll');
     }
 
+    // Person only : previewer.js
     if( is_singular('person') ){
         wp_enqueue_script( 'inspirama_previewer' );
     }

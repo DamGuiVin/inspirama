@@ -30,75 +30,8 @@
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />  
 
-
-
-    <!-- Google Analytics Tracking Code for www.inspirama.co -->
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-102775935-1', 'auto');
-        ga('send', 'pageview');     
-    </script>
-    <!-- End Google Analytics Tracking Code for www.inspirama.co -->
-
-
-
     <!-- Google Suite Tracking Code for www.inspirama.co -->
-    <meta name="google-site-verification" content="Vzc8nFFP9VcKYdqrlRngLMUmP2shcv7z52S7uL0TUbc" />
-    <!-- End Google Suite Tracking Code for www.inspirama.co -->
-
-
-
-    <!-- Opinion Stage Tracking Code for www.inspirama.co -->
-    <script type="text/javascript">
-        window.AutoEngageSettings = {"id":"3586408"};
-        (function(d, s, id){
-        var js,
-            fjs = d.getElementsByTagName(s)[0],
-            r = Math.floor(new Date().getTime() / 1000000);
-        if (d.getElementById(id)) {return;}
-        js = d.createElement(s); js.id = id; js.async=1;
-        js.src = 'https://www.opinionstage.com/assets/autoengage.js?' + r;
-        fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'os-jssdk'));
-    </script>
-    <!-- End Opinion Stage Tracking Code for www.inspirama.co -->
-
-
-
-    <!-- JS code for automatic smooth scrolling to anchor links -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-          // Add smooth scrolling to all links
-          $("a").on('click', function(event) {
-            // Make sure this.hash has a value before overriding default behavior
-            if (this.hash !== "") {
-                // Prevent default anchor click behavior
-                event.preventDefault();
-                // Store hash
-                var hash = this.hash;
-                // Using jQuery's animate() method to add smooth page scroll
-                // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-                $('html, body').animate({
-                scrollTop: $(hash).offset().top - 50
-                }, 800, function(){
-                // Add hash (#) to URL when done scrolling (default click behavior)
-                window.location.hash = hash;
-                });
-            } // End if
-          });
-        });
-    </script>
-    <!-- End JS code for automatic smooth scrolling to anchor links -->
-
-
-
-    
-
-
+    <meta name="google-site-verification" content="Vzc8nFFP9VcKYdqrlRngLMUmP2shcv7z52S7uL0TUbc" />  
 
     <link rel="alternate" href="https://www.inspirama.co<?php echo parse_url($_SERVER[‘REQUEST_URI’],PHP_URL_PATH); ?>" hreflang="fr" />
     
