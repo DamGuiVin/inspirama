@@ -40,6 +40,15 @@ function inspirama_enqueue_styles() {
 
 add_action( 'wp_enqueue_scripts', 'inspirama_enqueue_styles' );
 
+// This part removes jquery migrate (loaded by default by WP)
+add_filter( 'wp_default_scripts', $af = static function( &$scripts) {
+    if(!is_admin()) {
+        $scripts->remove( 'jquery');
+        $scripts->add( 'jquery', false, array( 'jquery-core' ), '1.12.4' );
+    }    
+}, PHP_INT_MAX );
+unset( $af );
+
 function inspirama_dequeue_unnecessary_scripts() {
 
     wp_dequeue_script( 'modernizer' );
@@ -69,7 +78,6 @@ function inspirama_dequeue_unnecessary_styles() {
 
 add_action( 'wp_enqueue_scripts', 'inspirama_dequeue_unnecessary_styles', 100 );
 
-/*
 // Pushes all enqueueing actions to the Footer rather than the Header
 remove_action('wp_head', 'wp_print_scripts');
 remove_action('wp_head', 'wp_print_head_scripts', 9);
@@ -77,7 +85,6 @@ remove_action('wp_head', 'wp_enqueue_scripts', 1);
 add_action('wp_footer', 'wp_print_scripts');
 add_action('wp_footer', 'wp_enqueue_scripts');
 add_action('wp_footer', 'wp_print_head_scripts');
-*/
 
 /*
 // Same idea but more specifically for css
