@@ -82,8 +82,9 @@ add_action( 'wp_enqueue_scripts', 'inspirama_dequeue_unnecessary_styles', 100 );
 remove_action('wp_head', 'wp_print_scripts');
 remove_action('wp_head', 'wp_print_head_scripts', 9);
 remove_action('wp_head', 'wp_enqueue_scripts', 1);
-add_action('wp_footer', 'wp_print_scripts');
+
 add_action('wp_footer', 'wp_enqueue_scripts');
+add_action('wp_footer', 'wp_print_scripts');
 add_action('wp_footer', 'wp_print_head_scripts');
 
 /*
