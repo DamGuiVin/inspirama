@@ -4,41 +4,60 @@
 // Enqueueing Scripts and Styles in the Footer
 //.......................................................................................................
 
+/*
+// Make JavaScript Asynchronous in Wordpress
+// BUT BREAKS THE WHOLE PAGE LAYOUT FOR GOOD EVEN AFTER FULL LOADING
+add_filter( 'script_loader_tag', function ( $tag, $handle ) {    
+    if( is_admin() ) {
+        return $tag;
+    }
+    return str_replace( ' src', ' async src', $tag );
+}, 10, 2 );
+*/
+
+// Fix to only have to append #asyncload to scripts urls to make them asynchronous
+function ikreativ_async_scripts( $url ) {
+
+    if ( strpos( $url, '#asyncload') === false ){
+        return $url;
+    }
+    else if ( is_admin() ){
+        return str_replace( '#asyncload', '', $url );
+    }
+    else {
+        return str_replace( '#asyncload', '', $url )."' async='async"; 
+    }
+}
+
+add_filter( 'clean_url', 'ikreativ_async_scripts', 11, 1 );
+
+
 function inspirama_enqueue_scripts() {
 
-    wp_register_script( 'inspirama_tracking', get_stylesheet_directory_uri() . '/js/tracking.min.js', '', false, true );
-    wp_register_script( 'inspirama_previewer', get_stylesheet_directory_uri() . '/js/previewer.min.js', array('jquery'), false, true );
-    wp_register_script( 'inspirama_typed', get_stylesheet_directory_uri() . '/js/typed.min.js', array('jquery'), false, true );
-    wp_register_script( 'inspirama_smooth_scroll', get_stylesheet_directory_uri() . '/js/smooth_scroll.min.js', array('jquery'), false, true);
+    wp_register_script( 'inspirama_tracking', get_stylesheet_directory_uri() . '/js/tracking.min.js' . '#asyncload', '', false, true );
+    wp_register_script( 'inspirama_previewer', get_stylesheet_directory_uri() . '/js/previewer.min.js' . '#asyncload', array('jquery'), false, true );
+    wp_register_script( 'inspirama_typed', get_stylesheet_directory_uri() . '/js/typed.min.js' . '#asyncload', array('jquery'), false, true );
+    wp_register_script( 'inspirama_smooth_scroll', get_stylesheet_directory_uri() . '/js/smooth_scroll.min.js' . '#asyncload', array('jquery'), false, true);
 
     // Always load
     wp_enqueue_script( 'inspirama_tracking' );
 
     // Homepage only : typed.js and smooth_scroll.js
     if( is_front_page() ){
-        wp_enqueue_script('inspirama_typed');
+        wp_enqueue_script('inspirama_typed', '', false, true );
         $list_names_php = get_all_people_names();
         wp_localize_script( 'inspirama_typed', 'list_names', $list_names_php );
 
-        wp_enqueue_script('inspirama_smooth_scroll');
+        wp_enqueue_script('inspirama_smooth_scroll', '', false, true );
     }
 
     // Person only : previewer.js
     if( is_singular('person') ){
-        wp_enqueue_script( 'inspirama_previewer' );
+        wp_enqueue_script( 'inspirama_previewer', '', false, true );
     }
 }
 
 add_action( 'wp_enqueue_scripts', 'inspirama_enqueue_scripts' );
-
-function inspirama_enqueue_styles() {
-
-    // This enqueues the parent theme's style.css before the child's (faster than using @import in our style.css)
-    wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
-    wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array( 'parent-style' ) );
-}
-
-add_action( 'wp_enqueue_scripts', 'inspirama_enqueue_styles' );
 
 // This part removes jquery migrate (loaded by default by WP)
 add_filter( 'wp_default_scripts', $af = static function( &$scripts) {
@@ -48,6 +67,17 @@ add_filter( 'wp_default_scripts', $af = static function( &$scripts) {
     }    
 }, PHP_INT_MAX );
 unset( $af );
+
+/*
+function inspirama_enqueue_styles() {
+
+    // This enqueues the parent theme's style.css before the child's (faster than using @import in our style.css)
+    wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+    wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array( 'parent-style' ) );
+}
+
+add_action( 'wp_print_styles', 'inspirama_enqueue_styles', 0 );
+*/
 
 function inspirama_dequeue_unnecessary_scripts() {
 
@@ -60,8 +90,10 @@ function inspirama_dequeue_unnecessary_scripts() {
     // TEMPORARY : custom.js is Oren script we do not need except for HP backrground
     // The rest is not used. Need to fix this so we do not call custom.js at all
     wp_dequeue_script( 'custom' );
+    wp_deregister_script( 'custom' );
     if( is_front_page() ){
-        wp_enqueue_script('custom');
+        wp_register_script( 'custom', get_template_directory_uri() . '/js/custom.js', false, null, true );
+        wp_enqueue_script( 'custom', '', false, true );
     }
 }
 
