@@ -38,7 +38,7 @@ function inspirama_enqueue_styles() {
     // This enqueues the parent theme's style.css before the child's (faster than using @import in our style.css)
     $themeVersion = wp_get_theme()->get('Version');
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
-    wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array( 'parent-style' ), $themeVersion );
+    wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.min.css', array( 'parent-style' ), $themeVersion );
 
 }
 
