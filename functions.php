@@ -1,7 +1,7 @@
 <?php
 
 //.......................................................................................................
-// Enqueueing Scripts and Styles
+// Enqueueing Scripts and Styles in the Footer
 //.......................................................................................................
 
 function inspirama_enqueue_scripts() {
@@ -31,8 +31,6 @@ function inspirama_enqueue_scripts() {
 
 add_action( 'wp_enqueue_scripts', 'inspirama_enqueue_scripts' );
 
-
-
 function inspirama_enqueue_styles() {
 
     // This enqueues the parent theme's style.css before the child's (faster than using @import in our style.css)
@@ -44,20 +42,16 @@ function inspirama_enqueue_styles() {
 
 add_action( 'wp_enqueue_scripts', 'inspirama_enqueue_styles' );
 
-
-
 function inspirama_dequeue_useless_scripts() {
 
-    wp_dequeue_style( 'modernizer' );
-    wp_deregister_style( 'retina' );
+    wp_dequeue_script( 'modernizer' );
+    wp_deregister_script( 'retina' );
     
-    wp_deregister_style( 'modernizer' );
-    wp_dequeue_style( 'retina' );
+    wp_dequeue_script( 'modernizer' );
+    wp_deregister_script( 'retina' );
 }
 
-add_action( 'wp_print_scripts', 'inspirama_dequeue_useless_scripts' );
-
-
+add_action( 'wp_print_scripts', 'inspirama_dequeue_useless_scripts', 100 );
 
 function inspirama_dequeue_useless_styles() {
 
@@ -68,9 +62,37 @@ function inspirama_dequeue_useless_styles() {
     wp_deregister_style( 'themeora-fontAwesome' );
 }
 
-add_action( 'wp_print_styles', 'inspirama_dequeue_useless_styles' );
+add_action( 'wp_print_styles', 'inspirama_dequeue_useless_styles', 100 );
 
+// Pushes all enqueueing actions to the Footer rather than the Header
+remove_action('wp_head', 'wp_print_scripts');
+remove_action('wp_head', 'wp_print_head_scripts', 9);
+remove_action('wp_head', 'wp_enqueue_scripts', 1);
+add_action('wp_footer', 'wp_print_scripts');
+add_action('wp_footer', 'wp_enqueue_scripts');
+add_action('wp_footer', 'wp_print_head_scripts');
+/*
+// Same idea but more specifically for css
+function dequeue_all_styles() {
+    global $wp_styles, $all_enqueue_styles;
+    $all_enqueue_styles = $wp_styles->queue;
 
+    foreach($wp_styles->queue as $dequeue_style) {
+        wp_dequeue_style($dequeue_style);
+    }
+
+    function enqueue_all_styles() {
+        global $all_enqueue_styles;
+        foreach($all_enqueue_styles as $enqueue_style) {
+            wp_enqueue_style($enqueue_style);
+        }
+    }
+
+    add_action('wp_footer', 'enqueue_all_styles', 0);
+}
+
+add_action('wp_print_styles', 'dequeue_all_styles');
+*/
 
 
 //.......................................................................................................
@@ -110,8 +132,8 @@ function recommendation_taxonomy() {
 add_action('init', 'recommendation_taxonomy');
 
 
-function display_new_recommendation_meta () {
-    ?>
+function display_new_recommendation_meta () { ?>
+    
     <div class="form-field">
         <label>
             <?php _e( 'Book Title' ); ?>
