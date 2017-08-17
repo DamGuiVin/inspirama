@@ -649,6 +649,10 @@ input[type="text"]:focus {
    color:    #1f1a14;
 }
 
+.search-no-results .search-form {
+    margin: 0;
+}
+
 
 
 /* Person Page
@@ -1206,25 +1210,16 @@ input[type="submit"]{
     font-weight: bold;
     border-radius:5px;
     color:white;
-    }
+}
 
 input[type="submit"]:hover {
     background-color: #D7CE4A;
     border : 1px solid #D7CE4A;
-    }
+}
 
 .newsletter-icon{
     padding-top : 5px;
     padding-bottom : 5px;
-    }
-
-
-
-/* Font awesome Icons
--------------------------------------------------------------- */
-
-.fa {
-    margin: 0 0 10px 0;
 }
 
 
