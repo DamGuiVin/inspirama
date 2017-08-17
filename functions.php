@@ -34,26 +34,31 @@ add_action( 'wp_enqueue_scripts', 'inspirama_enqueue_scripts' );
 function inspirama_enqueue_styles() {
 
     // This enqueues the parent theme's style.css before the child's (faster than using @import in our style.css)
-    $themeVersion = wp_get_theme()->get('Version');
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
-    wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.min.css', array( 'parent-style' ), $themeVersion );
-
+    wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array( 'parent-style' ) );
 }
 
 add_action( 'wp_enqueue_scripts', 'inspirama_enqueue_styles' );
 
-function inspirama_dequeue_useless_scripts() {
+function inspirama_dequeue_unnecessary_scripts() {
 
     wp_dequeue_script( 'modernizer' );
-    wp_deregister_script( 'retina' );
+    wp_deregister_script( 'modernizer' );
     
-    wp_dequeue_script( 'modernizer' );
+    wp_dequeue_script( 'retina' );
     wp_deregister_script( 'retina' );
+
+    // TEMPORARY : custom.js is Oren script we do not need except for HP backrground
+    // The rest is not used. Need to fix this so we do not call custom.js at all
+    wp_dequeue_script( 'custom' );
+    if( is_front_page() ){
+        wp_enqueue_script('custom');
+    }
 }
 
-add_action( 'wp_print_scripts', 'inspirama_dequeue_useless_scripts', 100 );
+add_action( 'wp_print_scripts', 'inspirama_dequeue_unnecessary_scripts', 100 );
 
-function inspirama_dequeue_useless_styles() {
+function inspirama_dequeue_unnecessary_styles() {
 
     wp_dequeue_style( 'fontAwesome' );
     wp_deregister_style( 'fontAwesome' );
@@ -62,8 +67,9 @@ function inspirama_dequeue_useless_styles() {
     wp_deregister_style( 'themeora-fontAwesome' );
 }
 
-add_action( 'wp_print_styles', 'inspirama_dequeue_useless_styles', 100 );
+add_action( 'wp_enqueue_scripts', 'inspirama_dequeue_unnecessary_styles', 100 );
 
+/*
 // Pushes all enqueueing actions to the Footer rather than the Header
 remove_action('wp_head', 'wp_print_scripts');
 remove_action('wp_head', 'wp_print_head_scripts', 9);
@@ -71,6 +77,8 @@ remove_action('wp_head', 'wp_enqueue_scripts', 1);
 add_action('wp_footer', 'wp_print_scripts');
 add_action('wp_footer', 'wp_enqueue_scripts');
 add_action('wp_footer', 'wp_print_head_scripts');
+*/
+
 /*
 // Same idea but more specifically for css
 function dequeue_all_styles() {
