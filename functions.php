@@ -38,11 +38,37 @@ function inspirama_enqueue_styles() {
     // This enqueues the parent theme's style.css before the child's (faster than using @import in our style.css)
     $themeVersion = wp_get_theme()->get('Version');
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
-    wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.min.css', array( 'parent-style' ), $themeVersion );
+    wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array( 'parent-style' ), $themeVersion );
 
 }
 
 add_action( 'wp_enqueue_scripts', 'inspirama_enqueue_styles' );
+
+
+
+function inspirama_dequeue_useless_scripts() {
+
+    wp_dequeue_style( 'modernizer' );
+    wp_deregister_style( 'retina' );
+    
+    wp_deregister_style( 'modernizer' );
+    wp_dequeue_style( 'retina' );
+}
+
+add_action( 'wp_print_scripts', 'inspirama_dequeue_useless_scripts' );
+
+
+
+function inspirama_dequeue_useless_styles() {
+
+    wp_dequeue_style( 'fontAwesome' );
+    wp_deregister_style( 'fontAwesome' );
+
+    wp_dequeue_style( 'themeora-fontAwesome' );
+    wp_deregister_style( 'themeora-fontAwesome' );
+}
+
+add_action( 'wp_print_styles', 'inspirama_dequeue_useless_styles' );
 
 
 

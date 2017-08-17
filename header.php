@@ -35,17 +35,12 @@
 
     <link rel="alternate" href="https://www.inspirama.co<?php echo parse_url($_SERVER[‘REQUEST_URI’],PHP_URL_PATH); ?>" hreflang="fr" />
     
-    <style type="text/css"> html {scroll-behavior: smooth;} </style>
-
     <link rel="profile" href="http://gmpg.org/xfn/11">
 
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
     <!-- Appel des polices utilisees : TEMPORAIRE. Sauvegarde dans notre base a plus long terme -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Source+Sans+Pro|Gidugu|Oswald|Raleway|Lato">
-
-    <!-- Appel du catalogue d'icones AwesomeFonts : TEMPORAIRE. Sauvegarde dans notre base a plus long terme -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!--[if lt IE 9]>
     <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/html5shiv.min.js"></script>
