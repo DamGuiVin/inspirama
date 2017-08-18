@@ -420,6 +420,7 @@ header.welcome-screen h2 {
 header.full-width-container-home {
     background-size: cover;
     height: 95vh;
+    margin-top: 50px;
     padding: 0;
 }
 
