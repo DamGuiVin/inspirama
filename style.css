@@ -1037,13 +1037,7 @@ input[type="text"]:focus {
     margin: 5%;
     margin-right: 20%;
     margin-left: 20%;
-}
 
-.book-preview-invitation a,
-.book-preview-invitation a:visited, 
-.book-preview-invitationa:active,
-.book-preview-invitation a:focus, 
-.book-preview-invitation a:hover {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 1em;
     color: white;
@@ -1052,7 +1046,6 @@ input[type="text"]:focus {
     color: white;
     margin: 15px;
 }
-
 
 .book-preview-invitation:hover {
     box-shadow: 0 0 10px #77B8C1;

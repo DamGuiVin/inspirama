@@ -137,7 +137,8 @@
 					$bookTitle.text( content.title );
 					if ( content.author != "" && content.author != " " ) { $bookAuthor.text( "de " + content.author ) };
 
-					$bookLink.html( "<a href=\"" + content.link + "\">En savoir plus sur " + content.title + "</a>" );
+					$bookLink.wrap( "<a href=\"" + content.link + "\"></a>" )
+					$bookLink.text ( "En savoir plus sur " + content.title );
 					$bookGenre.text( content.genre );
 					$bookTheme.text( content.theme );
 					$bookRewards.text( content.rewards );
