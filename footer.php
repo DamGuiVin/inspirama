@@ -137,7 +137,8 @@
 
             <hr>
 
-            <p class="about">© 2017 - Inspirama | <a href="<?php echo get_site_url(); ?>">Home</a> | <a href="<?php echo get_site_url() . '/a-propos/'; ?>">À propos</a></p> | <a href="<?php echo get_site_url() . '/presse/'; ?>">Presse</a> | <a href="<?php echo get_site_url() . '/mentions-legales/'; ?>">Mentions légales</a></p>
+            <p class="about">
+                © 2017 - Inspirama | <a href="<?php echo get_site_url(); ?>">Home</a> | <a href="<?php echo get_site_url() . '/a-propos/'; ?>">À propos</a> | <a href="<?php echo get_site_url() . '/presse/'; ?>">Presse</a> | <a href="<?php echo get_site_url() . '/mentions-legales/'; ?>">Mentions légales</a></p>
 
         </div>
 
