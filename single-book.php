@@ -88,8 +88,8 @@ $wp_query = new WP_Query( $args );
                 } ?>
 
                 <!-- Affiliation Section -->  
-                <div>
-                    <h4>Acheter ce livre</h4>
+                <div class="book-page-affiliation">
+                    <h4>Soutenir Inspirama en achetant ce livre</h4>
 
                     <?php if ( $book_amazon_logo && $book_amazon_url ) : ?> 
                         <a target="_blank" href="<?php echo $book_amazon_url; ?>" title="Amazon"> <img class="social-media-icon" src="<?php echo $book_amazon_logo; ?>" alt="" height="64" width="64"/> </a>
