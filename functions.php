@@ -48,14 +48,52 @@ add_action( 'wp_enqueue_scripts', 'inspirama_enqueue_styles' );
 
 function inspirama_dequeue_useless_scripts() {
 
-    wp_dequeue_style( 'modernizer' );
-    wp_deregister_style( 'retina' );
+    // Modernizer is to handle various browser versions
+    wp_dequeue_script( 'modernizer' );
+    wp_deregister_script( 'modernizer' );
     
-    wp_deregister_style( 'modernizer' );
-    wp_dequeue_style( 'retina' );
+    // Retina is to handle high resolution images
+    wp_dequeue_script( 'retina' );
+    wp_deregister_script( 'retina' );   
+
+    // Embeds is to cleanly embed videos and images from URLs
+    wp_dequeue_script( 'wp-embed' );
+    wp_deregister_script( 'wp-embed' );
+
 }
 
 add_action( 'wp_print_scripts', 'inspirama_dequeue_useless_scripts' );
+
+
+
+function inspirama_asychronous_deferred_scripts( $tag, $handle, $src ) {
+
+    // the handles of the enqueued scripts we want to async
+    $defer_scripts = array( 
+        'jquery-core',
+        'jquery-migrate',
+        'jquery',
+        'iss-suggest',
+        'mustache',
+        'iss',
+        'admin-bar',
+        'debug-bar',
+        'opinionstage-shortcodes',
+        'inspirama_tracking',
+        'inspirama_typed',
+        'inspirama_smooth_scroll',
+        'bootstrap',
+        'custom' 
+    );
+
+    if ( in_array( $handle, $defer_scripts ) ) {
+        return '<script type="text/javascript" src="' . $src . '" async="async"></script>' . "\n";
+    }
+
+    return $tag;
+}
+
+add_filter( 'script_loader_tag', 'inspirama_asychronous_deferred_scripts', 10, 3  );
 
 
 
