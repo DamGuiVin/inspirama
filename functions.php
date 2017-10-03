@@ -69,10 +69,18 @@ add_action( 'wp_print_scripts', 'inspirama_dequeue_useless_scripts' );
 function inspirama_asychronous_deferred_scripts( $tag, $handle, $src ) {
 
     // the handles of the enqueued scripts we want to async
-    $defer_scripts = array( 
+    $async_scripts = array( 
         'jquery-core',
+        //'jquery',
+    );
+
+    if ( in_array( $handle, $async_scripts ) ) {
+        return '<script type="text/javascript" src="' . $src . '" async="async"></script>' . "\n";
+    }
+
+    // The handles of the enqueued scripts we want to defer
+    $defer_scripts = array( 
         'jquery-migrate',
-        'jquery',
         'iss-suggest',
         'mustache',
         'iss',
@@ -83,11 +91,12 @@ function inspirama_asychronous_deferred_scripts( $tag, $handle, $src ) {
         'inspirama_typed',
         'inspirama_smooth_scroll',
         'bootstrap',
-        'custom' 
+        'custom',
+        'underscore'
     );
 
     if ( in_array( $handle, $defer_scripts ) ) {
-        return '<script type="text/javascript" src="' . $src . '" async="async"></script>' . "\n";
+        return '<script type="text/javascript" src="' . $src . '" defer="defer"></script>' . "\n";
     }
 
     return $tag;
