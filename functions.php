@@ -1,105 +1,117 @@
 <?php
 
 //.......................................................................................................
-// Enqueueing Scripts and Styles in the Footer
+// Enqueueing Scripts and Styles
 //.......................................................................................................
-
-/*
-// Make JavaScript Asynchronous in Wordpress
-// BUT BREAKS THE WHOLE PAGE LAYOUT FOR GOOD EVEN AFTER FULL LOADING
-add_filter( 'script_loader_tag', function ( $tag, $handle ) {    
-    if( is_admin() ) {
-        return $tag;
-    }
-    return str_replace( ' src', ' async src', $tag );
-}, 10, 2 );
-*/
-
-// Fix to only have to append #asyncload to scripts urls to make them asynchronous
-function ikreativ_async_scripts( $url ) {
-
-    if ( strpos( $url, '#asyncload') === false ){
-        return $url;
-    }
-    else if ( is_admin() ){
-        return str_replace( '#asyncload', '', $url );
-    }
-    else {
-        return str_replace( '#asyncload', '', $url )."' async='async"; 
-    }
-}
-
-add_filter( 'clean_url', 'ikreativ_async_scripts', 11, 1 );
-
 
 function inspirama_enqueue_scripts() {
 
-    wp_register_script( 'inspirama_tracking', get_stylesheet_directory_uri() . '/js/tracking.min.js' . '#asyncload', '', false, true );
-    wp_register_script( 'inspirama_previewer', get_stylesheet_directory_uri() . '/js/previewer.min.js' . '#asyncload', array('jquery'), false, true );
-    wp_register_script( 'inspirama_typed', get_stylesheet_directory_uri() . '/js/typed.min.js' . '#asyncload', array('jquery'), false, true );
-    wp_register_script( 'inspirama_smooth_scroll', get_stylesheet_directory_uri() . '/js/smooth_scroll.min.js' . '#asyncload', array('jquery'), false, true);
+    wp_register_script( 'inspirama_tracking', get_stylesheet_directory_uri() . '/js/tracking.min.js', '', false, true );
+    wp_register_script( 'inspirama_previewer', get_stylesheet_directory_uri() . '/js/previewer.min.js', array('jquery'), false, true );
+    wp_register_script( 'inspirama_typed', get_stylesheet_directory_uri() . '/js/typed.min.js', array('jquery'), false, true );
+    wp_register_script( 'inspirama_smooth_scroll', get_stylesheet_directory_uri() . '/js/smooth_scroll.min.js', array('jquery'), false, true);
 
     // Always load
     wp_enqueue_script( 'inspirama_tracking' );
 
     // Homepage only : typed.js and smooth_scroll.js
     if( is_front_page() ){
-        wp_enqueue_script('inspirama_typed', '', false, true );
+        wp_enqueue_script('inspirama_typed');
         $list_names_php = get_all_people_names();
         wp_localize_script( 'inspirama_typed', 'list_names', $list_names_php );
 
-        wp_enqueue_script('inspirama_smooth_scroll', '', false, true );
+        wp_enqueue_script('inspirama_smooth_scroll');
     }
 
     // Person only : previewer.js
     if( is_singular('person') ){
-        wp_enqueue_script( 'inspirama_previewer', '', false, true );
+        wp_enqueue_script( 'inspirama_previewer' );
     }
 }
 
 add_action( 'wp_enqueue_scripts', 'inspirama_enqueue_scripts' );
 
-// This part removes jquery migrate (loaded by default by WP)
-add_filter( 'wp_default_scripts', $af = static function( &$scripts) {
-    if(!is_admin()) {
-        $scripts->remove( 'jquery');
-        $scripts->add( 'jquery', false, array( 'jquery-core' ), '1.12.4' );
-    }    
-}, PHP_INT_MAX );
-unset( $af );
 
-/*
+
 function inspirama_enqueue_styles() {
 
     // This enqueues the parent theme's style.css before the child's (faster than using @import in our style.css)
+    $themeVersion = wp_get_theme()->get('Version');
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
-    wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array( 'parent-style' ) );
+    wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array( 'parent-style' ), $themeVersion );
+
 }
 
-add_action( 'wp_print_styles', 'inspirama_enqueue_styles', 0 );
-*/
+add_action( 'wp_enqueue_scripts', 'inspirama_enqueue_styles' );
 
-function inspirama_dequeue_unnecessary_scripts() {
 
+
+function inspirama_dequeue_useless_scripts() {
+
+    // Modernizer is to handle various browser versions
     wp_dequeue_script( 'modernizer' );
     wp_deregister_script( 'modernizer' );
     
+    // Retina is to handle high resolution images
     wp_dequeue_script( 'retina' );
-    wp_deregister_script( 'retina' );
+    wp_deregister_script( 'retina' );   
 
-    // TEMPORARY : custom.js is Oren script we do not need except for HP backrground
-    // The rest is not used. Need to fix this so we do not call custom.js at all
-    wp_dequeue_script( 'custom' );
-    wp_deregister_script( 'custom' );
-    if( is_front_page() ){
-        wp_register_script( 'custom', get_template_directory_uri() . '/js/custom.js', false, null, true );
-        wp_enqueue_script( 'custom', '', false, true );
-    }
+    // Embeds is to cleanly embed videos and images from URLs
+    wp_dequeue_script( 'wp-embed' );
+    wp_deregister_script( 'wp-embed' );
+
 }
 
-add_action( 'wp_print_scripts', 'inspirama_dequeue_unnecessary_scripts', 100 );
+add_action( 'wp_print_scripts', 'inspirama_dequeue_useless_scripts' );
 
-function inspirama_dequeue_unnecessary_styles() {
+
+
+function inspirama_asychronous_deferred_scripts( $tag, $handle, $src ) {
+
+    // Script optimization only if we are on the website and not the admin
+    // Otherwise broken dependencies for admin plugins
+    if ( ! is_user_logged_in() ) {
+
+        // The handles of the enqueued scripts we want to async
+        $async_scripts = array( 
+            'jquery-core',
+            //'jquery',
+        );
+
+        if ( in_array( $handle, $async_scripts ) ) {
+            return '<script type="text/javascript" src="' . $src . '" async="async"></script>' . "\n";
+        }
+
+        // The handles of the enqueued scripts we want to defer
+        $defer_scripts = array( 
+            'jquery-migrate',
+            'iss-suggest',
+            'mustache',
+            'iss',
+            'admin-bar',
+            'debug-bar',
+            'opinionstage-shortcodes',
+            'inspirama_tracking',
+            'inspirama_typed',
+            'inspirama_smooth_scroll',
+            'bootstrap',
+            'custom',
+            'underscore'
+        );
+
+        if ( in_array( $handle, $defer_scripts ) ) {
+            return '<script type="text/javascript" src="' . $src . '" defer="defer"></script>' . "\n";
+        }
+    }
+
+    return $tag;
+}
+
+add_filter( 'script_loader_tag', 'inspirama_asychronous_deferred_scripts', 10, 3  );
+
+
+
+function inspirama_dequeue_useless_styles() {
 
     wp_dequeue_style( 'fontAwesome' );
     wp_deregister_style( 'fontAwesome' );
@@ -108,39 +120,9 @@ function inspirama_dequeue_unnecessary_styles() {
     wp_deregister_style( 'themeora-fontAwesome' );
 }
 
-add_action( 'wp_enqueue_scripts', 'inspirama_dequeue_unnecessary_styles', 100 );
+add_action( 'wp_print_styles', 'inspirama_dequeue_useless_styles' );
 
-// Pushes all enqueueing actions to the Footer rather than the Header
-remove_action('wp_head', 'wp_print_scripts');
-remove_action('wp_head', 'wp_print_head_scripts', 9);
-remove_action('wp_head', 'wp_enqueue_scripts', 1);
 
-add_action('wp_footer', 'wp_enqueue_scripts');
-add_action('wp_footer', 'wp_print_scripts');
-add_action('wp_footer', 'wp_print_head_scripts');
-
-/*
-// Same idea but more specifically for css
-function dequeue_all_styles() {
-    global $wp_styles, $all_enqueue_styles;
-    $all_enqueue_styles = $wp_styles->queue;
-
-    foreach($wp_styles->queue as $dequeue_style) {
-        wp_dequeue_style($dequeue_style);
-    }
-
-    function enqueue_all_styles() {
-        global $all_enqueue_styles;
-        foreach($all_enqueue_styles as $enqueue_style) {
-            wp_enqueue_style($enqueue_style);
-        }
-    }
-
-    add_action('wp_footer', 'enqueue_all_styles', 0);
-}
-
-add_action('wp_print_styles', 'dequeue_all_styles');
-*/
 
 
 //.......................................................................................................
@@ -180,8 +162,8 @@ function recommendation_taxonomy() {
 add_action('init', 'recommendation_taxonomy');
 
 
-function display_new_recommendation_meta () { ?>
-    
+function display_new_recommendation_meta () {
+    ?>
     <div class="form-field">
         <label>
             <?php _e( 'Book Title' ); ?>
