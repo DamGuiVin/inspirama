@@ -47,7 +47,8 @@
     <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/respond.js"></script>
     <![endif]-->
 
-
+    <link rel="stylesheet" id="parent-style-css" href="<?php echo get_template_directory_uri() . '/style.css'; ?>" type="text/css" media="">
+    <link rel="stylesheet" id="child-style-css" href="<?php echo get_stylesheet_directory_uri() . '/style.css'; ?>" type="text/css" media="">
 
     <?php wp_head(); ?>
 
