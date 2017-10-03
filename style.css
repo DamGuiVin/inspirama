@@ -420,12 +420,14 @@ header.welcome-screen h2 {
 header.full-width-container-home {
     background-size: cover;
     height: 95vh;
+    margin-top: 50px;
     padding: 0;
 }
 
 header.full-width-container-category {
     background-size: cover;
     height: 100px;
+    margin-top: 50px;
     padding: 0;
 }
 
@@ -439,6 +441,7 @@ header.full-width-container-category.welcome-screen h1.category-title {
 .full-width-container-book {
     padding: 0;
     padding-top: 3%;
+    margin-top: 50px;
 }
 
 /* Container of the welcome message */
@@ -1034,13 +1037,7 @@ input[type="text"]:focus {
     margin: 5%;
     margin-right: 20%;
     margin-left: 20%;
-}
 
-.book-preview-invitation a,
-.book-preview-invitation a:visited, 
-.book-preview-invitationa:active,
-.book-preview-invitation a:focus, 
-.book-preview-invitation a:hover {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 1em;
     color: white;
@@ -1049,7 +1046,6 @@ input[type="text"]:focus {
     color: white;
     margin: 15px;
 }
-
 
 .book-preview-invitation:hover {
     box-shadow: 0 0 10px #77B8C1;
@@ -1106,6 +1102,16 @@ input[type="text"]:focus {
     line-height: 120%;
 }
 
+.book-page-affiliation {
+    text-align: center;
+    margin-top: 50px;
+    background-color: #F6F4E0;
+    border: 2px solid #F6F4E0;
+    border-radius: 10px;
+    margin: 0;
+    margin-top: 50px;
+}
+
 .book-page-recommendations {
 }
 
@@ -1145,6 +1151,7 @@ input[type="text"]:focus {
 .full-width-container {
     padding: 0;
     margin : 0;
+    margin-top: 50px;
 }
 
 @media screen and (max-width: 768px) {
