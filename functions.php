@@ -48,6 +48,11 @@ add_action( 'wp_enqueue_scripts', 'inspirama_enqueue_styles' );
 
 function inspirama_dequeue_useless_scripts() {
 
+    // Custom is an Oren script for images and menu fade in. 
+    // Slows down Homepage background loading
+    wp_dequeue_script( 'custom' );
+    wp_deregister_script( 'custom' );
+
     // Modernizer is to handle various browser versions
     wp_dequeue_script( 'modernizer' );
     wp_deregister_script( 'modernizer' );
@@ -95,7 +100,6 @@ function inspirama_asychronous_deferred_scripts( $tag, $handle, $src ) {
             'inspirama_typed',
             'inspirama_smooth_scroll',
             'bootstrap',
-            'custom',
             'underscore'
         );
 
