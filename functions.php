@@ -37,8 +37,9 @@ function inspirama_enqueue_styles() {
 
     // This enqueues the parent theme's style.css before the child's (faster than using @import in our style.css)
     $themeVersion = wp_get_theme()->get('Version');
-    wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
-    wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array( 'parent-style' ), $themeVersion );
+    $parent_style = 'base-style'; // this is the stylesheet handle defined in Oren
+    wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css' );
+    wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array( $parent_style ), $themeVersion );
 
 }
 
@@ -119,11 +120,15 @@ add_filter( 'script_loader_tag', 'inspirama_asychronous_deferred_scripts', 10, 3
 
 function inspirama_dequeue_useless_styles() {
 
+    // These are styles loaded by Oren that we don't need
     wp_dequeue_style( 'fontAwesome' );
     wp_deregister_style( 'fontAwesome' );
 
     wp_dequeue_style( 'themeora-fontAwesome' );
     wp_deregister_style( 'themeora-fontAwesome' );
+
+    wp_dequeue_style( 'google-fonts' );
+    wp_deregister_style( 'google-fonts' );
 }
 
 add_action( 'wp_print_styles', 'inspirama_dequeue_useless_styles' );
