@@ -115,7 +115,7 @@ header .full-width-container {
 		text-indent: 0px;
 		padding: 30px;
 		margin-left: 0px;
-        }
+    }
 
     header.welcome-screen h1 {
         font-size: 4em;
@@ -123,11 +123,7 @@ header .full-width-container {
         font-family: 'Oswald';
         text-align: center;
 		text-indent: 0px;
-        }
-
-    .welcome-screen{
-        background-position: center top;    
-        }
+    }
 }
 
 /* Titre secondaire */
@@ -418,7 +414,6 @@ header.welcome-screen h2 {
 
 /* Welcome banner : make the height 90% of the screen to leave space for the above Navigation bar */
 header.full-width-container-home {
-    background-size: cover;
     height: 95vh;
     margin-top: 50px;
     padding: 0;

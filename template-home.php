@@ -34,7 +34,7 @@ if ( get_header_image() ) {
 
 <!-- Homepage Presentation -->
 <a href="#personnalites" class="go-to-portfolio-homepage">
-    <header style="background: url(<?php echo $background_image; ?>);" class="full-width-container-home welcome-screen" role="banner">
+    <header style="background: url(<?php echo $background_image; ?>); background-position: center top; background-size: cover;" class="full-width-container-home welcome-screen" role="banner">
 
         <!-- Homepage welcome Text -->
         <div class="container welcome-container-home">
