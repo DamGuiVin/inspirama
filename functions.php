@@ -79,7 +79,7 @@ function inspirama_asychronous_deferred_scripts( $tag, $handle, $src ) {
 
         // The handles of the enqueued scripts we want to async
         $async_scripts = array( 
-            'jquery-core',
+            //'jquery-core', // We cannot async this because too risky for dependencies gotta find another solution
             //'jquery',
         );
 
@@ -99,6 +99,7 @@ function inspirama_asychronous_deferred_scripts( $tag, $handle, $src ) {
             'inspirama_tracking',
             'inspirama_typed',
             'inspirama_smooth_scroll',
+            'inspirama_previewer',
             'custom',
             'bootstrap',
             'underscore'
