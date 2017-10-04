@@ -6,10 +6,14 @@
 
 function inspirama_enqueue_scripts() {
 
-    wp_register_script( 'inspirama_tracking', get_stylesheet_directory_uri() . '/js/tracking.min.js', '', false, true );
-    wp_register_script( 'inspirama_previewer', get_stylesheet_directory_uri() . '/js/previewer.min.js', array('jquery'), false, true );
-    wp_register_script( 'inspirama_typed', get_stylesheet_directory_uri() . '/js/typed.min.js', array('jquery'), false, true );
-    wp_register_script( 'inspirama_smooth_scroll', get_stylesheet_directory_uri() . '/js/smooth_scroll.min.js', array('jquery'), false, true);
+    // We need to append the version to the scripts so that 
+    // the user cache gets refreshed if any change happened 
+    $themeVersion = wp_get_theme()->get('Version');
+
+    wp_register_script( 'inspirama_tracking', get_stylesheet_directory_uri() . '/js/tracking.min.js', array('jquery'), $themeVersion, true );
+    wp_register_script( 'inspirama_previewer', get_stylesheet_directory_uri() . '/js/previewer.min.js', array('jquery'), $themeVersion, true );
+    wp_register_script( 'inspirama_typed', get_stylesheet_directory_uri() . '/js/typed.min.js', array('jquery'), $themeVersion, true );
+    wp_register_script( 'inspirama_smooth_scroll', get_stylesheet_directory_uri() . '/js/smooth_scroll.min.js', array('jquery'), $themeVersion, true);
 
     // Always load
     wp_enqueue_script( 'inspirama_tracking' );
