@@ -10,22 +10,45 @@
 
 
 
-<!-- Hotjar Tracking Code for www.inspirama.co -->
-<script>
-    (function(h,o,t,j,a,r){
+<head>
+
+    <!-- Hotjar Tracking Code for www.inspirama.co -->
+    <script>
+        (function(h,o,t,j,a,r){
         h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
         h._hjSettings={hjid:539732,hjsv:5};
         a=o.getElementsByTagName('head')[0];
         r=o.createElement('script');r.async=1;
         r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
         a.appendChild(r);
-    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
-<!-- End Hotjar Tracking Code for www.inspirama.co -->
+        })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+    <!-- End Hotjar Tracking Code for www.inspirama.co -->
 
 
+    <!-- Google Analytics Tracking Code for www.inspirama.co -->
+    <script>
+        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+        ga('create', 'UA-102775935-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics Tracking Code for www.inspirama.co -->
 
-<head>
+
+    <!-- Opinion Stage Tracking Code for www.inspirama.co -->
+    <script>
+        window.AutoEngageSettings = {"id":"3586408"};
+        (function(d, s, id){
+        var js,fjs = d.getElementsByTagName(s)[0],r = Math.floor(new Date().getTime() / 1000000);
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id; js.async=1;
+        js.src = 'https://www.opinionstage.com/assets/autoengage.js?' + r;
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'os-jssdk'));
+    </script>
+    <!-- End Opinion Stage Tracking Code for www.inspirama.co -->
+
 
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />  
@@ -49,7 +72,6 @@
 
     <link rel="stylesheet" id="parent-style-css" href="<?php echo get_template_directory_uri() . '/style.css'; ?>" type="text/css" media="">
     <link rel="stylesheet" id="child-style-css" href="<?php echo get_stylesheet_directory_uri() . '/style.css'; ?>" type="text/css" media="">
-
     <?php wp_head(); ?>
 
 </head>

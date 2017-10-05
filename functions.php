@@ -10,13 +10,9 @@ function inspirama_enqueue_scripts() {
     // the user cache gets refreshed if any change happened 
     $themeVersion = wp_get_theme()->get('Version');
 
-    wp_register_script( 'inspirama_tracking', get_stylesheet_directory_uri() . '/js/tracking.min.js', array('jquery'), $themeVersion, true );
     wp_register_script( 'inspirama_previewer', get_stylesheet_directory_uri() . '/js/previewer.min.js', array('jquery'), $themeVersion, true );
     wp_register_script( 'inspirama_typed', get_stylesheet_directory_uri() . '/js/typed.min.js', array('jquery'), $themeVersion, true );
     wp_register_script( 'inspirama_smooth_scroll', get_stylesheet_directory_uri() . '/js/smooth_scroll.min.js', array('jquery'), $themeVersion, true);
-
-    // Always load
-    wp_enqueue_script( 'inspirama_tracking' );
 
     // Homepage only : typed.js and smooth_scroll.js
     if( is_front_page() ){
@@ -101,7 +97,6 @@ function inspirama_asychronous_deferred_scripts( $tag, $handle, $src ) {
             'admin-bar',
             'debug-bar',
             'opinionstage-shortcodes',
-            'inspirama_tracking',
             'inspirama_typed',
             'inspirama_smooth_scroll',
             'inspirama_previewer',
