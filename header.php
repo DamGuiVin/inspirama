@@ -62,16 +62,11 @@
 
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
-    <!-- Appel des polices utilisees : TEMPORAIRE. Sauvegarde dans notre base a plus long terme -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Source+Sans+Pro|Gidugu|Oswald|Raleway|Lato">
-
     <!--[if lt IE 9]>
     <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/html5shiv.min.js"></script>
     <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/respond.js"></script>
     <![endif]-->
 
-    <link rel="stylesheet" id="parent-style-css" href="<?php echo get_template_directory_uri() . '/style.css'; ?>" type="text/css" media="">
-    <link rel="stylesheet" id="child-style-css" href="<?php echo get_stylesheet_directory_uri() . '/style.css'; ?>" type="text/css" media="">
     <?php wp_head(); ?>
 
 </head>
