@@ -110,7 +110,7 @@ if ( $wp_query ) :
         <!-- Books Mosaic -->  
         <div class="text-center">
         	<br/>
-                <h2>Livres recommandés par <?php echo $person_name; ?></h2>
+                <h2>Livres recommandés par<?php echo ' ' . $person_name; ?></h2>
         	<br/>
         </div>
 
@@ -209,11 +209,11 @@ if ( $wp_query ) :
                                         </div>                                  
                                         <div class="portfolio-book-author">
                                             <?php if( $book_author != ' ') : ?>
-                                                <h4>de <?php echo $book_author; ?></h4>
+                                                <h4>de<?php echo ' ' . $book_author; ?></h4>
                                             <?php endif; ?>
                                         </div>                                    
                                         <div class="portfolio-book-invitation">
-                                            <h4>L'avis de <?php echo $person_name; ?></h4>
+                                            <h4>L'avis de<?php echo ' ' . $person_name; ?></h4>
                                         </div>
                                     </div>
                                 </div>
@@ -224,7 +224,7 @@ if ( $wp_query ) :
                                 </div>
                                 <div class="portfolio-book-subtitle-author">
                                     <?php if( $book_author != ' ') : ?>
-                                        de <?php echo $book_author; ?>
+                                        de<?php echo ' ' . $book_author; ?>
                                     <?php endif; ?>
                                 </div>
 
@@ -243,11 +243,11 @@ if ( $wp_query ) :
                         
                         <!-- Button Effect -->
                         <div class="button-effect">
-                            <img src="<?php echo get_stylesheet_directory_uri() . '/img/add_book.png' ; ?>" class="portfolio-book-more" alt="Suggérer une lecture de <?php echo $person_name; ?>" />
+                            <img src="<?php echo get_stylesheet_directory_uri() . '/img/add_book.png' ; ?>" class="portfolio-book-more" alt="Suggérer une lecture de<?php echo ' ' . $person_name; ?>" />
                            
                             <div class="portfolio-book-details">                                                                                                      
                                 <div class="portfolio-book-more-invitation">
-                                    <h4>Suggérer une nouvelle lecture de <?php echo $person_name; ?></h4>
+                                    <h4>Suggérer une nouvelle lecture de<?php echo ' ' . $person_name; ?></h4>
                                 </div>
                             </div>
                         </div>
@@ -269,7 +269,7 @@ else : ?>
     <div class="text-center">
         <br><br><br><br>
         <p>
-            Désolé, les livres recommandés par <?php echo $person_name; ?> sont indisponibles pour l'instant. 
+            Désolé, les livres recommandés par<?php echo ' ' . $person_name . ' '; ?>sont indisponibles pour l'instant. 
             <br>Continuez à explorer Inspirama pour plus de lectures inspirantes !
         </p>
         <br><br><br><br>

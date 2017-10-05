@@ -136,7 +136,7 @@ $wp_query = new WP_Query( $args );
 
                             <h2 class="book-page-author">
                                 <?php if( $book_author != ' ') : ?>
-                                    de <?php echo $book_author; ?>
+                                    de<?php echo ' ' . $book_author; ?>
                                 <?php endif ?>
                             </h2>
                         </div>
@@ -150,19 +150,19 @@ $wp_query = new WP_Query( $args );
                         <div class="row">
                             <?php if( $book_genre ) : ?>
                                 <div class="col-md-3">
-                                    Genre : <?php echo $book_genre; ?>
+                                    Genre :<?php echo ' ' . $book_genre; ?>
                                 </div>
                             <?php endif; ?>
 
                             <?php if( $book_theme ) : ?>
                                 <div class="col-md-3">
-                                    Theme : <?php echo $book_theme; ?>
+                                    Theme :<?php echo ' ' . $book_theme; ?>
                                 </div>
                             <?php endif; ?>
 
                             <?php if( $book_rewards ) : ?>
                                 <div class="col-md-3">
-                                    Prix Littéraires : <?php echo $book_rewards; ?>
+                                    Prix Littéraires :<?php echo ' ' . $book_rewards; ?>
                                 </div>
                             <?php endif; ?>
                             
@@ -178,7 +178,7 @@ $wp_query = new WP_Query( $args );
                         <hr>
                         <div class="text-center">
                             <br/>
-                                <h2>Ils recommandent <?php echo $book_title; ?></h2>
+                                <h2>Ils recommandent<?php echo ' ' . $book_title; ?></h2>
                             <br/>
                         </div>
 
@@ -274,7 +274,7 @@ $wp_query = new WP_Query( $args );
                 <hr>
                 <div class="text-center">
                     <br/>
-                        <h2>Résumé de <?php echo $book_title; ?></h2>
+                        <h2>Résumé de<?php echo ' ' . $book_title; ?></h2>
                     <br/>
                 </div>
                 <div class="book-page-recommendation-summary">
