@@ -24,7 +24,7 @@ get_header();
                     <div class="col-md-4">
                         <?php if ( has_post_thumbnail( $post->ID ) ) : ?>
                             <div class="person-page-large-portrait">
-                                <?php echo get_the_post_thumbnail( $post->ID, array(300,300) ); ?>
+                                <?php echo get_the_post_thumbnail( $post->ID ); ?>
                             </div>
                         <?php endif; ?>
                     </div>

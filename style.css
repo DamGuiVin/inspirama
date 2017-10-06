@@ -670,6 +670,8 @@ input[type="text"]:focus {
     margin: auto;
     margin-top: 25px;
     margin-bottom: 25px;
+    width: 300px;
+    height: 300px;
 }
 
 /* Titre : *nom de la personne* et *Livre recommandé par *nom de la personne**  */
