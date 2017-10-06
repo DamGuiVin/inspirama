@@ -737,7 +737,7 @@ input[type="text"]:focus {
 
 .portfolio-book-more {
     position: absolute;
-    height: 320px;
+    max-height: 320px;
     margin: 20px;
     left: 0;
     right: 0;
