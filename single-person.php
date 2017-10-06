@@ -21,7 +21,7 @@ get_header();
                 while ( have_posts() ) : the_post(); ?>
                     
                     <!-- Person Image -->
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-sm-4 col-xs-4">
                         <?php if ( has_post_thumbnail( $post->ID ) ) : ?>
                             <div class="person-page-large-portrait">
                                 <?php echo get_the_post_thumbnail( $post->ID ); ?>
@@ -30,7 +30,7 @@ get_header();
                     </div>
 
                     <!-- Person Name, Intro and Bio -->
-                    <div class="col-md-8">
+                    <div class="col-md-8 col-sm-8 col-xs-8">
 
                         <div class="person-page-name">
                             <h1><?php the_title(); ?></h1>

@@ -20,6 +20,29 @@ a:hover {
 }
 
 
+/* Turn on a 13x13 scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+
+
+/* The thumb itself */
+::-webkit-scrollbar-thumb:vertical {
+    height: 50px;
+    background-color: #77B8C1;
+    border-radius: 10px;
+}
+ 
+
+/* Track below and above */
+::-webkit-scrollbar-track-piece {
+    -webkit-box-shadow: inset 0 0 6px #b9d9df; 
+    border-radius: 10px;
+}
+
+
 
 /* Social Media Buttons
 -------------------------------------------------------------- */
@@ -670,8 +693,6 @@ input[type="text"]:focus {
     margin: auto;
     margin-top: 25px;
     margin-bottom: 25px;
-    width: 300px;
-    height: 300px;
 }
 
 /* Titre : *nom de la personne* et *Livre recommandé par *nom de la personne**  */
@@ -688,10 +709,11 @@ input[type="text"]:focus {
 
 .person-page-bio {
     padding: 5px;
-    height: 220px;
+    max-height: 220px;
     overflow: auto;
     margin-bottom: 25px;
     text-align: justify;
+    border-left: 2px solid #77B8C1;
 }
 
 .portfolio-books-wrapper {
@@ -704,15 +726,12 @@ input[type="text"]:focus {
 
 .portfolio-book-image {
     position: absolute;
-    height: 320px;
+    max-height: 320px;
     margin: 20px;
-    display: block;
     left: 0;
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 3px;
-    vertical-align: center;
     box-shadow: 3px 3px 30px #888888;
 }
 
@@ -720,14 +739,12 @@ input[type="text"]:focus {
     position: absolute;
     height: 320px;
     margin: 20px;
-    display: block;
     left: 0;
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    border: 2px dashed black;
-    border-radius: 30px;
-    vertical-align: center;
+    border: 3px solid #77B8C1;
+    border-radius: 10px;
     box-shadow: 3px 3px 30px #888888;
 }
 
@@ -772,7 +789,7 @@ input[type="text"]:focus {
     margin-right: auto;
     padding: 0 20px;
     text-align: center;
-    vertical-align:middle;
+    vertical-align: middle;
     display: table;
     background: #fff;
     background: rgba(255,255,255,0.8);
@@ -860,31 +877,25 @@ input[type="text"]:focus {
 @media screen and (max-width: 768px) {
     .masonry-item:nth-of-type(even) .portfolio-link .portfolio-book-image,
     .masonry-item:nth-of-type(even) .portfolio-link .portfolio-book-more {
-        width: 45%;
-        left: 5%;
+        left: 10%;
         right: auto;
-        margin-left: 0px;
-        margin-right: 0px;
+        max-width: 40%;
     }
 
     .masonry-item:nth-of-type(odd) .portfolio-link .portfolio-book-image,
     .masonry-item:nth-of-type(odd) .portfolio-link .portfolio-book-more {
-        width: 45%;
-        right: 5%;
+        right: 10%;
         left: auto;
-        margin-left: 0px;
-        margin-right: 0px;
+        max-width: 40%;
     }
 
     .masonry-item:nth-of-type(even) .portfolio-link .portfolio-book-details {
         width: 50%;
-        right: 0;
         left: auto;    
     }
 
     .masonry-item:nth-of-type(odd) .portfolio-link .portfolio-book-details {
         width: 50%;
-        left: 0;
         right: auto; 
     }
 
@@ -1176,7 +1187,7 @@ input[type="text"]:focus {
 .logo-inspirama {
     padding: 5px 5px 0px 5px;
     display: inline-block;
-    vertical-align: center;
+    vertical-align: middle;
 }
 
 
