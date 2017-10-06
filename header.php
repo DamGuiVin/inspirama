@@ -37,7 +37,7 @@
 
 
     <!-- Opinion Stage Tracking Code for www.inspirama.co -->
-    <script>
+    <!-- <script>
         window.AutoEngageSettings = {"id":"3586408"};
         (function(d, s, id){
         var js,fjs = d.getElementsByTagName(s)[0],r = Math.floor(new Date().getTime() / 1000000);
@@ -46,9 +46,9 @@
         js.src = 'https://www.opinionstage.com/assets/autoengage.js?' + r;
         fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'os-jssdk'));
-    </script>
+    </script>-->
     <!-- End Opinion Stage Tracking Code for www.inspirama.co -->
-
+    
 
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />  
