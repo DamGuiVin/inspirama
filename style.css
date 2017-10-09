@@ -724,6 +724,10 @@ input[type="text"]:focus {
     height: 360px;
 }
 
+.button-effect-more {
+    height: 360px;
+}
+
 .portfolio-book-image {
     position: absolute;
     max-height: 320px;
