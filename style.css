@@ -20,10 +20,10 @@ a:hover {
 }
 
 
-/* Turn on a 13x13 scrollbar */
+/* Turn on a 12x12 scrollbar */
 ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
 }
 
 
@@ -134,8 +134,50 @@ header .full-width-container {
 
 
 /* Texte qui apparait sur les images de portfolio*/
-.portfolio-details {
-    height: 100%;
+.portfolio-link .portfolio-details {
+    padding: 0px;
+}
+
+.portfolio-details .details-person-name h2 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 3vw;
+    color: black;
+    text-transform: uppercase;
+    vertical-align: top;
+    padding-top: 5%;
+}
+
+.portfolio-details .details-person-introduction h4 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 2vw;
+    color: black;
+    padding: 0 5px;
+}
+
+/* Text Découvrez les recommandations de lecture de : */
+.portfolio-details .details-person-invitation,
+.portfolio-details .details-person-more-invitation {
+    background-color: #77B8C1;
+    border: 2px solid #77B8C1;
+    border-radius: 30px;
+    margin: 5%;
+    margin-bottom: 10%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.portfolio-details .details-person-invitation h4,
+.portfolio-details .details-person-more-invitation h4 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.5vw;
+    color: white;
+}
+
+.portfolio-details .details-person-invitation:hover,
+.portfolio-details .details-person-more-invitation:hover {
+    box-shadow: 0 0 10px #77B8C1;
 }
 
 @media screen and (max-width: 768px) {
@@ -167,19 +209,20 @@ header .full-width-container {
         box-shadow: 0px 10px 25px 3px;
     }
 
-    .portfolio-link > .portfolio-details .details-person-name h2 {
-        font-size: 1.5em;
-        font-weight: bold;
+    .portfolio-details .details-person-name h2 {
+        font-size: 4.3vw;
+        padding-top: 15%;
     }
 
-    .portfolio-link > .portfolio-details .details-person-introduction h4 {
-        font-size: 0.9em;
+    .portfolio-details .details-person-introduction h4 {
+        font-size: 2.7vw;
     }
+
 
     .portfolio-link > .portfolio-details .details-person-invitation h4,
     .portfolio-link > .portfolio-details .details-person-more-invitation h4 {
-        font-size: 0.9em;
         box-shadow: 0 0 10px #77B8C1;
+        font-size: 2.7vw;
     }
 
     .portfolio-link > .portfolio-details .details-person-more-invitation {
@@ -188,47 +231,7 @@ header .full-width-container {
     }
 }
 
-.portfolio-details .details-person-name h2 {
-	font-family: 'Source Sans Pro', sans-serif;
-    font-size: 3em;
-    color: black;
-    text-transform: uppercase;
-	vertical-align: top;
-    padding-top: 5%;
-}
 
-.portfolio-details .details-person-introduction h4 {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 1.3em;
-    color: black;
-}
-
-/* Text Découvrez les recommandations de lecture de : */
-.portfolio-details .details-person-invitation,
-.portfolio-details .details-person-more-invitation {
-    background-color: #77B8C1;
-    border: 2px solid #77B8C1;
-    border-radius: 30px;
-    margin: 5%;
-    margin-bottom: 10%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-
-.portfolio-details .details-person-invitation h4,
-.portfolio-details .details-person-more-invitation h4 {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 1em;
-    color: white;
-    text-decoration: bold;
-}
-
-.portfolio-details .details-person-invitation:hover,
-.portfolio-details .details-person-more-invitation:hover {
-    box-shadow: 0 0 10px #77B8C1;
-}
 
 /* Image de portfolio */
 .img-adapt {
