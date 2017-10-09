@@ -37,22 +37,15 @@ if ( get_header_image() ) {
     <header style="background: url(<?php echo $background_image; ?>); background-position: center top; background-size: cover;" class="full-width-container-home welcome-screen" role="banner">
 
         <!-- Homepage welcome Text -->
-        <div class="container welcome-container-home">
-            <div class="row welcome-row">
-                <div class="col-md-10">
-                    <?php while ( have_posts() ) : the_post(); ?>
-                        <div id="bg">
-                            <h1 class="title-homepage">
-                                <?php the_title(); ?><span class="element"></span><span class="typed-cursor"></span>
-                            </h1>
-                            <h2 class="">
-                                <?php the_content(); ?>
-                            </h2>
-                        </div>
-                        <?php if ( has_excerpt() ) {the_excerpt();} ?>
-                    <?php endwhile; ?>
+        <div class="welcome-container-home">
+            <?php while ( have_posts() ) : the_post(); ?>
+                <div id="bg">
+                    <h1 class="title-homepage">
+                        <?php the_title(); ?><span class="element"></span><span class="typed-cursor"></span>
+                    </h1>
                 </div>
-            </div>
+                <?php if ( has_excerpt() ) {the_excerpt();} ?>
+            <?php endwhile; ?>
 
             <!-- Jumping icon section beginning -->
             <div class="scroll-down" address="true"></div>
