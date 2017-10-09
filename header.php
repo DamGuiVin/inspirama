@@ -89,7 +89,7 @@
 
 
     <!-- Navigation Bar -->
-    <nav id="navigation-bar" class="navbar navbar-default navbar-fixed-top">
+    <nav id="navigation-bar" class="navbar navbar-default navbar-fixed-top" style="<?php if ( is_user_logged_in() ) { echo 'margin-top:32px'; } ?>">
         <div class="container-fluid">
 
             <!-- Logo Section -->
