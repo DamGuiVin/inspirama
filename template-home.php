@@ -73,7 +73,7 @@ wp_reset_query();
 $args = array(
     'post_type' => 'person',
     'post_status' => 'publish',
-    'posts_per_page' => -1,
+    'posts_per_page' => 20,
     'orderby' => 'rand'
     );
 
