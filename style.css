@@ -425,6 +425,7 @@ header.full-width-container-category.welcome-screen h1.category-title {
     text-shadow: 1px 1px black;
     text-align: center;
     margin: 0;
+    font-size: 2em;
 }
 
 .full-width-container-book {
