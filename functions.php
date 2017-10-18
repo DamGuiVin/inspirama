@@ -13,12 +13,16 @@ function inspirama_enqueue_scripts() {
     wp_register_script( 'inspirama_previewer', get_stylesheet_directory_uri() . '/js/previewer.min.js', array('jquery'), $themeVersion, true );
     wp_register_script( 'inspirama_typed', get_stylesheet_directory_uri() . '/js/typed.min.js', array('jquery'), $themeVersion, true );
     wp_register_script( 'inspirama_smooth_scroll', get_stylesheet_directory_uri() . '/js/smooth_scroll.min.js', array('jquery'), $themeVersion, true);
+    wp_register_script( 'inspirama_ajax', get_stylesheet_directory_uri() . '/js/ajax.js', array('jquery'), $themeVersion, true);
 
     // Homepage only : typed.js and smooth_scroll.js
     if( is_front_page() ){
         wp_enqueue_script('inspirama_typed');
         $list_names_php = get_all_people_names();
         wp_localize_script( 'inspirama_typed', 'list_names', $list_names_php );
+
+        wp_enqueue_script('inspirama_ajax');
+        wp_localize_script( 'inspirama_ajax', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ), 'we_value' => 1234 ) );
 
         wp_enqueue_script('inspirama_smooth_scroll');
     }
@@ -101,6 +105,7 @@ function inspirama_asychronous_deferred_scripts( $tag, $handle, $src ) {
             'inspirama_typed',
             'inspirama_smooth_scroll',
             'inspirama_previewer',
+            'inspirama_ajax',
             'custom',
             'bootstrap',
             'underscore'
@@ -1015,6 +1020,63 @@ function get_all_people_names() {
 }
 
 
+
+
+//.......................................................................................................
+// Homepage : calling data with AJAX 
+//.......................................................................................................
+
+add_action( 'wp_ajax_inspirama_get_random_person', 'inspirama_get_random_person' );
+add_action( 'wp_ajax_nopriv_inspirama_get_random_person', 'inspirama_get_random_person' );
+
+function inspirama_get_random_person () {
+
+    $args = array(
+        'post_type' => 'person',
+        'post_status' => 'publish',
+        'posts_per_page' => 1,
+        'orderby' => 'rand'
+        );
+
+    $posts_array = get_posts( $args );
+    $post_id = $posts_array[0]->ID;
+    $person_name = $posts_array[0]->post_title;
+    $person_intoduction = get_post_meta( $post_id, 'introduction', true);
+    $person_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ) )[0];
+
+    $response['name'] = $person_name;
+    $response['intro'] = $person_intoduction;
+    $response['image'] = $person_image;
+    $response['error'] = 'The server could not retrieve the required data';
+
+    wp_send_json( $response );
+}
+
+add_action( 'wp_ajax_inspirama_get_random_book', 'inspirama_get_random_book' );
+add_action( 'wp_ajax_nopriv_inspirama_get_random_book', 'inspirama_get_random_book' );
+
+function inspirama_get_random_book () {
+
+    $args = array(
+        'post_type' => 'book',
+        'post_status' => 'publish',
+        'posts_per_page' => 1,
+        'orderby' => 'rand'
+        );
+
+    $posts_array = get_posts( $args );
+    $post_id = $posts_array[0]->ID;
+    $book_title = $posts_array[0]->post_title;
+    $book_author = get_post_meta( $post_id, 'author', true);
+    $person_cover = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ) )[0];
+
+    $response['title'] = $book_title;
+    $response['author'] = $book_author;
+    $response['cover'] = $person_cover;
+    $response['error'] = 'The server could not retrieve the required data';
+
+    wp_send_json( $response );
+}
 
 
 ?>
