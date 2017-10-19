@@ -20,13 +20,35 @@ a:hover {
 }
 
 
+blockquote.quote {
+    background: #f9f9f9;
+    border-left: 0;
+    border-radius: 10px;
+    margin: 1.5em 0;
+    padding: 0.5em 10px;
+    quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote.quote:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.3em;
+    vertical-align: -0.4em;
+    left: 0px;
+    position: relative;
+}
+blockquote.quote p,
+blockquote.quote h2 {
+    margin: 10px 2em;
+}
+
+
 /* Turn on a 12x12 scrollbar */
 ::-webkit-scrollbar {
     width: 12px;
     height: 12px;
 }
-
-
 
 /* The thumb itself */
 ::-webkit-scrollbar-thumb:vertical {
@@ -35,7 +57,6 @@ a:hover {
     border-radius: 10px;
 }
  
-
 /* Track below and above */
 ::-webkit-scrollbar-track-piece {
     -webkit-box-shadow: inset 0 0 6px #b9d9df; 
@@ -104,12 +125,16 @@ a:hover {
 
 
 
-/* Contact page Template
+/* Default Page Template
 -------------------------------------------------------------- */
 
 /* Bandeau du haut sur les pages template-contact */
 .welcome-screen {
     background-color: #77B8C1
+}
+
+.default-page-content {
+    margin-top: 20px;
 }
 
 
