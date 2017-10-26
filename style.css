@@ -10,6 +10,22 @@ Description: WP adaptation
 /* Global Classes
 -------------------------------------------------------------- */
 
+:root {
+    --font_2: 'Amatic SC', cursive;
+    --font_1: 'Roboto Condensed', sans-serif;
+    /*
+    'Roboto Condensed', sans-serif;
+    'Crimson Text', serif;
+    'Vidaloka', serif;
+    'Arvo', serif;
+    'Kalam', cursive;
+    'Boogaloo', cursive;
+    'Cabin Sketch', cursive;
+    'Amatic SC', cursive;
+    */
+}
+
+
 a,
 a:visited, 
 a:active,
@@ -17,6 +33,11 @@ a:focus,
 a:hover {
     color: black;
     text-decoration: none ! important;
+}
+
+
+ul {
+    list-style-type: none;
 }
 
 
@@ -261,6 +282,7 @@ header .full-width-container {
 /* Image de portfolio */
 .img-adapt {
 	padding:0;
+    border-radius: 60px;
 }
 
 @media screen and ( min-width: 768px ) {
@@ -516,7 +538,7 @@ header.full-width-container-category.welcome-screen h1.category-title {
 /* Navigation Menu
 -------------------------------------------------------------- */
 #navigation-bar {
-    font-family: 'Oswald';
+    font-family: var(--font_2);
     font-size:1.2em;
     height: 50px;
     margin: 0;
@@ -1068,7 +1090,7 @@ input[type="text"]:focus {
 .book-page-title {
     padding-top: 0;
     margin-top: 0;
-    font-family: 'Oswald';
+    font-family: var(--font_2);
     font-size: 2.4em;
     line-height: 120%;
 }
@@ -1076,7 +1098,7 @@ input[type="text"]:focus {
 .book-page-author {
     padding-top: 0;
     margin-top: 0;
-    font-family: 'Oswald';
+    font-family: var(--font_2);
     font-size: 1.8em;
     line-height: 120%;
 }
@@ -1084,7 +1106,7 @@ input[type="text"]:focus {
 .book-page-details {
     padding-top: 20px;
     margin-top: 0;
-    font-family: 'Oswald';
+    font-family: var(--font_2);
     font-size: 1.2em;
     line-height: 120%;
 }
@@ -1097,14 +1119,17 @@ input[type="text"]:focus {
     border-radius: 10px;
     margin: 0;
     margin-top: 50px;
+    font-family: var(--font_1);
 }
 
 .book-page-recommendations {
+    font-family: var(--font_2);
 }
 
 .book-page-recommendations-text {
     padding : 10px;
 	text-align : justify;
+    font-family: var(--font_1);
 }
 
 .book-page-recommendations-person {
@@ -1129,10 +1154,16 @@ input[type="text"]:focus {
     font-size: 0.7em;
 }
 
+.book-page-summary-title h2 {
+    font-family: var(--font_2);
+    margin:0;
+}
+
 .book-page-recommendation-summary {
     padding : 10px;
     padding-bottom: 40px;
 	text-align : justify;
+    font-family: var(--font_1);
 }
 
 .full-width-container {

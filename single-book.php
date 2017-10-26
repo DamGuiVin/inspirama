@@ -144,7 +144,6 @@ $wp_query = new WP_Query( $args );
                     </div>
                 </div>
 
-                <hr>
                 <div>
                     <div class="container book-page-details">
                         <div class="row">
@@ -175,11 +174,9 @@ $wp_query = new WP_Query( $args );
                 <?php if ( $wp_query->have_posts() ) : ?>
 
                     <div class = "book-page-recommendations">
-                        <hr>
+
                         <div class="text-center">
-                            <br/>
-                                <h2>Ils recommandent<?php echo ' ' . $book_title; ?></h2>
-                            <br/>
+                            <h2>Ils recommandent<?php echo ' ' . $book_title; ?></h2>
                         </div>
 
                         <ul>
@@ -209,7 +206,7 @@ $wp_query = new WP_Query( $args );
                                 $iterator = $iterator + 1;
 
                                 if( $recommendation_text and $recommendation_text != ' ') : ?>
-                                    <hr>
+                                    
                                     <li>
 
                                         <div class="container book-page-recommendations">
@@ -238,7 +235,7 @@ $wp_query = new WP_Query( $args );
                                                 <div class="col-md-3">
                                                     <div class="book-page-recommendations-person">
                                                         <a href="<?php echo the_permalink($person_page_id); ?>" class="portfolio-link">
-                                                            <img src="<?php echo $previewImage[0] ?>" class="img-adapt" alt="<?php echo $person_name; ?>" height="150" width="150"/>
+                                                            <img src="<?php echo $previewImage[0] ?>" class="img-adapt" alt="<?php echo $person_name; ?>" height="120" width="120"/>
                                                             <div class="portfolio-details">
                                                                 <div class="details-person-name">
                                                                     <h2 class="details-person-name"><?php echo $person_name; ?></h2>
@@ -271,11 +268,9 @@ $wp_query = new WP_Query( $args );
 
 
                 <!-- Book Summary Section --> 
-                <hr>
-                <div class="text-center">
-                    <br/>
-                        <h2>Résumé de<?php echo ' ' . $book_title; ?></h2>
-                    <br/>
+                
+                <div class="text-center book-page-summary-title">
+                    <h2>Résumé de<?php echo ' ' . $book_title; ?></h2>
                 </div>
                 <div class="book-page-recommendation-summary">
             		<?php if ( $book_summary ) : echo $book_summary; 
