@@ -1015,6 +1015,112 @@ function get_all_people_names() {
 }
 
 
+function get_top_recommendations( $array_book_names ) {
+
+    // The array we will use to output the data
+    $top_recommendations = array();
+
+    // The recommendations IDs
+    $all_recommendations = get_terms( array( 'taxonomy' => 'recommendation', 'orderby' => 'name' ));
+
+    // Getting the books info before calling the associated people and recommendations
+    $args = array(
+        'post_type' => 'book',
+        'post_name__in' => $array_book_names,
+        'post_status' => 'publish',
+        'posts_per_page' => -1,
+        'orderby' => 'rand'
+        );
+
+    $books_query = new WP_Query( $args );
+
+    if ( $books_query->have_posts() ) {
+        while ( $books_query->have_posts() ) {
+
+            // Saving info about the current book
+            $books_query->the_post();
+            $book_post = $books_query->post;
+            $book_id = $book_post->ID;
+            $book_slug = $book_post->post_name;
+            $book_title = $book_post->post_title;
+            $book_author = get_post_meta( $book_id, 'author', true);
+            $book_image = wp_get_attachment_image_src( get_post_thumbnail_id( $book_id ) )[0];
+
+            $current_book = array(
+                'book_title' => $book_title,
+                'book_author' => $book_author,
+                'book_image' => $book_image );
+
+            // Getting the recommendations about the current book
+            $recommendations_ids = array();
+            foreach( $all_recommendations as $term ) {
+                $key = get_term_meta( $term->term_id, 'book_title', true );
+                if( $key == $book_slug ) {
+                    $recommendations_ids[] = $term->term_id;
+                }
+            }
+
+            // Getting the people from the recommendations
+            $args = array(
+                'post_type' => 'person',
+                'post_status' => 'publish',
+                'posts_per_page' => -1,
+                'orderby' => 'title',
+                'order' => 'ASC',
+                'tax_query' => array(
+                        array(
+                        'taxonomy' => 'recommendation',
+                        'field'    => 'term_id',
+                        'terms'    => $recommendations_ids,
+                    ),
+                ),
+            );
+
+            $people_query = new WP_Query( $args );
+            
+            if ( $people_query->have_posts() ) {
+
+                $iterator = 0;
+                $current_recommendation_array = array();
+
+                while ( $people_query->have_posts() ) {
+                    
+                    // Recover person information
+                    $people_query->the_post();
+                    $person_post = $people_query->post;
+                    $person_id = $person_post->ID;
+                    $person_name = $person_post->post_title;
+                    $person_introduction = get_post_meta( $person_id, 'introduction', true);
+                    $person_image = wp_get_attachment_image_src( get_post_thumbnail_id( $person_id ) )[0];
+
+                    // Recover useful attributes from the Recommendation
+                    $recommendation_id = $recommendations_ids[ $iterator ];
+                    $recommendation = get_term_by( 'id', $recommendation_id, 'recommendation' );
+                    $recommendation_text = $recommendation->description;
+                    $recommendation_sources_titles = explode( ';', get_term_meta( $recommendation_id, 'sources_titles', true) );
+                    $recommendation_sources_urls =  explode( ';', get_term_meta( $recommendation_id, 'sources_urls', true) );
+
+                    $current_recommendation = array(
+                        'person_name' => $person_name,
+                        'person_introduction' => $person_introduction,
+                        'person_image' => $person_image,
+                        'text' => $recommendation_text,
+                        'sources_titles' => $recommendation_sources_titles,
+                        'sources_urls' => $recommendation_sources_urls
+                        );
+
+                    array_push( $current_recommendation_array, $current_recommendation );
+
+                    $iterator = $iterator + 1;        
+                } 
+                $current_book['recommendations'] = $current_recommendation_array;
+            }
+            array_push( $top_recommendations, $current_book);
+        }
+    }
+    return $top_recommendations;
+}
+
 
 
 ?>

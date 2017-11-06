@@ -21,16 +21,9 @@ get_header();
 //........................................................................
 
 // Get the homepage's background image. Use header_image if set, featured image if not
-$background_image = '';
+$background_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full-size' )[0]; 
 
-if ( wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full-size' ) ) {
-    $background_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full-size' );
-    $background_image = $background_image[0];
-}
-
-if ( get_header_image() ) {
-    $background_image = get_header_image();
-} ?>
+?>
 
 <!-- Homepage Presentation -->
 <a href="#personnalites" class="go-to-portfolio-homepage">
@@ -44,8 +37,14 @@ if ( get_header_image() ) {
                         <?php the_title(); ?><span class="element"></span><span class="typed-cursor"></span>
                     </h1>
                 </div>
-                <?php if ( has_excerpt() ) {the_excerpt();} ?>
             <?php endwhile; ?>
+
+            <div class="hp-recommendation">
+                <?php 
+                $top_recommendations = get_top_recommendations( array('memoires-dun-chasseur', 'les-freres-karamazov') );
+                print_r( $top_recommendations[0]) . '\n' ;
+                ?>
+            </div>
 
             <!-- Jumping icon section beginning -->
             <div class="scroll-down" address="true"></div>
