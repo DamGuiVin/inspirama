@@ -26,7 +26,7 @@ $background_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->I
 ?>
 
 <!-- Homepage Presentation -->
-<a href="#personnalites" class="go-to-portfolio-homepage">
+
     <header style="background: url(<?php echo $background_image; ?>); background-position: center top; background-size: cover;" class="full-width-container-home welcome-screen" role="banner">
 
         <!-- Homepage welcome Text -->
@@ -37,13 +37,35 @@ $background_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->I
                         <?php the_title(); ?><span class="element"></span><span class="typed-cursor"></span>
                     </h1>
                 </div>
-            <?php endwhile; ?>
+            <?php endwhile;
 
-            <div class="hp-recommendation">
-                <?php 
-                $top_recommendations = get_top_recommendations( array('memoires-dun-chasseur', 'les-freres-karamazov') );
-                print_r( $top_recommendations[0]) . '\n' ;
-                ?>
+            $top_recommendations = get_top_recommendations( array('les-freres-karamazov') ); ?>
+            <div class="container">
+                <div class="row">
+                    <div class="hp-recommendations col-md-10 col-md-offset-1">
+                        <div class="recommended-book col-xs-2">
+                            <img src="<?php echo $top_recommendations[0]['book_image']; ?>">
+                            <h3><?php echo $top_recommendations[0]['book_title']; ?></h3>
+                            <h4><?php echo $top_recommendations[0]['book_author']; ?></h4>
+                        </div>
+                        <div class="list-recommendations col-xs-10">
+                            <ul>
+                                <?php foreach( $top_recommendations[0]['recommendations'] as $i => $one_recommendation ) : ?>
+                                    <?php if ( $i < 3 ) : ?>
+                                        <li>
+                                            <div class="one-recommendation">
+                                                <blockquote><?php echo $one_recommendation['text']; ?></blockquote>
+                                                <h3>- <?php echo $one_recommendation['person_name']; ?></h3>
+                                                <h4><?php echo $one_recommendation['person_introduction']; ?></h4>
+                                                <img src="<?php echo $one_recommendation['person_image']; ?>">
+                                            </div>
+                                        </li>
+                                    <?php endif ?>
+                                <?php endforeach ?>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Jumping icon section beginning -->
@@ -54,7 +76,7 @@ $background_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->I
         <!-- End Homepage Welcome Text -->
 
     </header>
-</a>
+
 <!-- End Homepage Presentation -->
 <?php
 

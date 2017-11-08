@@ -1084,33 +1084,39 @@ function get_top_recommendations( $array_book_names ) {
                 $current_recommendation_array = array();
 
                 while ( $people_query->have_posts() ) {
-                    
-                    // Recover person information
-                    $people_query->the_post();
-                    $person_post = $people_query->post;
-                    $person_id = $person_post->ID;
-                    $person_name = $person_post->post_title;
-                    $person_introduction = get_post_meta( $person_id, 'introduction', true);
-                    $person_image = wp_get_attachment_image_src( get_post_thumbnail_id( $person_id ) )[0];
 
+                    // Increment the post in $people_query
+                    $people_query->the_post();
+                    
                     // Recover useful attributes from the Recommendation
                     $recommendation_id = $recommendations_ids[ $iterator ];
                     $recommendation = get_term_by( 'id', $recommendation_id, 'recommendation' );
-                    $recommendation_text = $recommendation->description;
-                    $recommendation_sources_titles = explode( ';', get_term_meta( $recommendation_id, 'sources_titles', true) );
-                    $recommendation_sources_urls =  explode( ';', get_term_meta( $recommendation_id, 'sources_urls', true) );
+                    $recommendation_text = extract_blockquotes_content( $recommendation->description );
+                    
+                    // Only keep the recommendation if it contains a blockquote
+                    if ( $recommendation_text != '' ) {
+                        $recommendation_sources_titles = explode( ';', get_term_meta( $recommendation_id, 'sources_titles', true) );
+                        $recommendation_sources_urls =  explode( ';', get_term_meta( $recommendation_id, 'sources_urls', true) );
 
-                    $current_recommendation = array(
-                        'person_name' => $person_name,
-                        'person_introduction' => $person_introduction,
-                        'person_image' => $person_image,
-                        'text' => $recommendation_text,
-                        'sources_titles' => $recommendation_sources_titles,
-                        'sources_urls' => $recommendation_sources_urls
-                        );
+                        // Recover person information
+                        $person_post = $people_query->post;
+                        $person_id = $person_post->ID;
+                        $person_name = $person_post->post_title;
+                        $person_introduction = get_post_meta( $person_id, 'introduction', true);
+                        $person_image = wp_get_attachment_image_src( get_post_thumbnail_id( $person_id ) )[0];
 
-                    array_push( $current_recommendation_array, $current_recommendation );
+                        $current_recommendation = array(
+                            'person_name' => $person_name,
+                            'person_introduction' => $person_introduction,
+                            'person_image' => $person_image,
+                            'text' => $recommendation_text,
+                            'sources_titles' => $recommendation_sources_titles,
+                            'sources_urls' => $recommendation_sources_urls
+                            );
 
+                        array_push( $current_recommendation_array, $current_recommendation );
+                    }
+                    
                     $iterator = $iterator + 1;        
                 } 
                 $current_book['recommendations'] = $current_recommendation_array;
@@ -1119,6 +1125,25 @@ function get_top_recommendations( $array_book_names ) {
         }
     }
     return $top_recommendations;
+}
+
+
+function extract_blockquotes_content( $html_text ) {
+
+    preg_match_all('#<blockquote>(.+)<\/blockquote>#i', $html_text, $matches);
+    
+    $blockquotes_content = '';
+
+    if ( !empty( $matches[0] ) ) {
+        foreach ( $matches[1] as $i => $quote) {
+            if ( $i > 0 ) {
+                $blockquotes_content .= ' [...] ';
+            }
+            $blockquotes_content .= $quote ; 
+        }
+    }
+
+    return $blockquotes_content;
 }
 
 

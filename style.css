@@ -65,6 +65,16 @@ blockquote.quote h2 {
 
 
 
+/* Global Variables
+-------------------------------------------------------------- */
+:root {
+    --recommendation_font_size: 1.2vw;
+    --recommendation_line_height: 1.2;
+    --recommendation_lines_to_show: 2;
+}
+
+
+
 /* Social Media Buttons
 -------------------------------------------------------------- */
 
@@ -156,6 +166,134 @@ header .full-width-container {
     padding-left: 2vw;
     padding-right: 2vw;
 }
+
+.hp-recommendations {
+    background: rgba(254, 255, 244, 0.95);
+    border-radius: 3vw;
+    height: 45vh;
+}
+
+div.recommended-book,
+div.list-recommendations {
+    padding: 0;
+}
+
+.recommended-book {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.recommended-book h3,
+.recommended-book h4 {
+    font-size: 1vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.list-recommendations {
+    height: 100%;
+}
+
+.list-recommendations ul {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.list-recommendations li {
+    position: relative;
+    height: 15vh;
+}
+
+.one-recommendation {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #FFEA77;
+    width: 100%;
+    max-height: 90%;
+    border-radius: 2vh;
+    padding: 2vh;
+    padding-right: 17vh;
+}
+
+.one-recommendation blockquote {
+    background: #FFAB60;
+    display: block; /* Fallback for non-webkit */
+    display: -webkit-box;
+    height: var(--recommendation_font_size) * var(--$recommendation_line_height) * var(--recommendation_lines_to_show); /* Fallback for non-webkit */
+    margin: 0 auto;
+    font-size: var(--recommendation_font_size);
+    line-height: var(--recommendation_line_height);
+    -webkit-line-clamp: var(--recommendation_lines_to_show);
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.one-recommendation h3,
+.one-recommendation h4 {
+    font-size: 1vw;
+    text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.one-recommendation img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    height: 15vh;
+    border-radius: 8vh;
+}
+
+
+
+
+
+.hp-one-recommendation {
+    max-height: 100px;
+    border-radius: 1vw;
+    padding: 3%;
+    padding-right: 25%;
+}
+
+.hp-one-recommendation,
+.hp-one-recommendation .text,
+.hp-one-recommendation blockquote {
+    font-size: 1.2vw;
+    line-height: 1.5vw;
+    background: #FFEA77;
+}
+
+.hp-one-recommendation p {
+    text-align: right;
+    font-size: 1.2vw;
+    font-style: bold;
+    margin: 5px;
+}
+
+.hp-one-recommendation img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    width: 130px;
+    border-radius: 75px;
+}
+
+
+
+
+
 
 
 /* Texte qui apparait sur les images de portfolio*/
