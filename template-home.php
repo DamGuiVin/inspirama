@@ -44,7 +44,7 @@ $background_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->I
             <?php if ( !empty( $top_recommendations )) : ?>
 
                 <!-- Top Recommendations Carousel -->
-                <div id="recommandations-populaires" class="carousel slide" data-ride="carousel" data-interval="8000">
+                <div id="recommandations-populaires" class="carousel slide" data-ride="carousel" data-interval="0">
                     
                     <!-- Indicators -->
                     <ol class="carousel-indicators">
