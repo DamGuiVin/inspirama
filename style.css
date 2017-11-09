@@ -162,11 +162,12 @@ blockquote.quote:after {
 /* Home Page Template template-home.php
 -------------------------------------------------------------- */
 
-/* Bannière*/
-header .full-width-container {
+header.full-width-container {
     background-size: cover;
 }
 
+
+/* Typing text container */
 #bg {
     background: linear-gradient(45deg,rgba(250,250,250,0.8),rgba(250,250,250,1));
     border-radius: 6vw;
@@ -177,6 +178,8 @@ header .full-width-container {
     padding-right: 2vw;
 }
 
+
+/* Top Recommendations Section */
 div.hp-recommendations {
     background: rgba(254, 255, 244, 0.95);
     border-radius: 3vw;
@@ -191,12 +194,47 @@ div.hp-recommendations {
 }
 
 div.recommended-book {
+    height: 100%;
     padding: 0 0 0 2.5%;
 }
 
-.recommended-book h3,
+/*
+.recommended-book img {
+    padding: 2px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    .img-adapt: yhttps://stackoverflow.com/questions/12980153/image-moves-on-hover-chrome-opacity-issue
+}
+
+.recommended-book h3{
+    font-size: 18px;
+}
+.recommended-book h4 {
+    font-size: 13px;
+}
+*/
+
+.recommended-book img {
+    max-width: 100%;
+    max-height: 70%;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    top: 7.5%;
+}
+
+.recommended-book h3 {
+    font-size: 0.7em;
+    font-weight: bold;
+    position: absolute;
+    bottom: 10%;
+}
+
 .recommended-book h4 {
     font-size: 0.6em;
+    position: absolute;
+    bottom: 5%;
 }
 
 div.list-recommendations {
@@ -263,10 +301,6 @@ div.list-recommendations {
     height: 15vh;
     border-radius: 8vh;
 }
-
-
-
-
 
 
 /* Texte qui apparait sur les images de portfolio*/
