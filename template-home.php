@@ -45,8 +45,8 @@ $background_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->I
                     <div class="hp-recommendations col-md-10 col-md-offset-1">
                         <div class="recommended-book col-xs-2">
                             <img src="<?php echo $top_recommendations[0]['book_image']; ?>">
-                            <h3><?php echo $top_recommendations[0]['book_title']; ?></h3>
-                            <h4><?php echo $top_recommendations[0]['book_author']; ?></h4>
+                            <h3 class="one-line-ellipsis"><?php echo $top_recommendations[0]['book_title']; ?></h3>
+                            <h4 class="one-line-ellipsis"><?php echo $top_recommendations[0]['book_author']; ?></h4>
                         </div>
                         <div class="list-recommendations col-xs-10">
                             <ul>
@@ -54,9 +54,8 @@ $background_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->I
                                     <?php if ( $i < 3 ) : ?>
                                         <li>
                                             <div class="one-recommendation">
-                                                <blockquote><?php echo $one_recommendation['text']; ?></blockquote>
-                                                <h3>- <?php echo $one_recommendation['person_name']; ?></h3>
-                                                <h4><?php echo $one_recommendation['person_introduction']; ?></h4>
+                                                <blockquote class="quote"><?php echo $one_recommendation['text']; ?></blockquote>
+                                                <h3 class="one-line-ellipsis"><?php echo $one_recommendation['person_name']; ?></h3>
                                                 <img src="<?php echo $one_recommendation['person_image']; ?>">
                                             </div>
                                         </li>

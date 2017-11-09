@@ -1044,7 +1044,7 @@ function get_top_recommendations( $array_book_names ) {
             $book_slug = $book_post->post_name;
             $book_title = $book_post->post_title;
             $book_author = get_post_meta( $book_id, 'author', true);
-            $book_image = wp_get_attachment_image_src( get_post_thumbnail_id( $book_id ) )[0];
+            $book_image = wp_get_attachment_image_src( get_post_thumbnail_id( $book_id ), 'full' )[0];
 
             $current_book = array(
                 'book_title' => $book_title,
