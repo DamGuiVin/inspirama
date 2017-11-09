@@ -43,12 +43,14 @@ $background_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->I
             <div class="container">
                 <div class="row">
                     <div class="hp-recommendations col-md-10 col-md-offset-1">
-                        <div class="recommended-book col-xs-2">
-                            <img src="<?php echo $top_recommendations[0]['book_image']; ?>">
+                        <div class="recommended-book col-xs-3">
+                            <a href="<?php echo $top_recommendations[0]['book_url']; ?>">
+                                <img class="img-adapt" src="<?php echo $top_recommendations[0]['book_image']; ?>">
+                            </a>
                             <h3 class="one-line-ellipsis"><?php echo $top_recommendations[0]['book_title']; ?></h3>
                             <h4 class="one-line-ellipsis"><?php echo $top_recommendations[0]['book_author']; ?></h4>
                         </div>
-                        <div class="list-recommendations col-xs-10">
+                        <div class="list-recommendations col-xs-9">
                             <ul>
                                 <?php foreach( $top_recommendations[0]['recommendations'] as $i => $one_recommendation ) : ?>
                                     <?php if ( $i < 3 ) : ?>
@@ -56,7 +58,9 @@ $background_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->I
                                             <div class="one-recommendation">
                                                 <blockquote class="quote"><?php echo $one_recommendation['text']; ?></blockquote>
                                                 <h3 class="one-line-ellipsis"><?php echo $one_recommendation['person_name']; ?></h3>
-                                                <img src="<?php echo $one_recommendation['person_image']; ?>">
+                                                <a href="<?php echo $one_recommendation['person_url']; ?>">
+                                                    <img class="img-adapt" src="<?php echo $one_recommendation['person_image']; ?>">
+                                                </a>
                                             </div>
                                         </li>
                                     <?php endif ?>

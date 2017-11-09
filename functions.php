@@ -1045,11 +1045,13 @@ function get_top_recommendations( $array_book_names ) {
             $book_title = $book_post->post_title;
             $book_author = get_post_meta( $book_id, 'author', true);
             $book_image = wp_get_attachment_image_src( get_post_thumbnail_id( $book_id ), 'full' )[0];
+            $book_url = get_the_permalink( $book_id );
 
             $current_book = array(
                 'book_title' => $book_title,
                 'book_author' => $book_author,
-                'book_image' => $book_image );
+                'book_image' => $book_image,
+                'book_url' => $book_url );
 
             // Getting the recommendations about the current book
             $recommendations_ids = array();
@@ -1104,11 +1106,13 @@ function get_top_recommendations( $array_book_names ) {
                         $person_name = $person_post->post_title;
                         $person_introduction = get_post_meta( $person_id, 'introduction', true);
                         $person_image = wp_get_attachment_image_src( get_post_thumbnail_id( $person_id ) )[0];
+                        $person_url = get_the_permalink( $person_id );
 
                         $current_recommendation = array(
                             'person_name' => $person_name,
                             'person_introduction' => $person_introduction,
                             'person_image' => $person_image,
+                            'person_url' => $person_url,
                             'text' => $recommendation_text,
                             'sources_titles' => $recommendation_sources_titles,
                             'sources_urls' => $recommendation_sources_urls
