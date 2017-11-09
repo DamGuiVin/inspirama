@@ -25,6 +25,7 @@ $background_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->I
 
 ?>
 
+
 <!-- Homepage Presentation -->
 
     <header style="background: url(<?php echo $background_image; ?>); background-position: center top; background-size: cover;" class="full-width-container-home welcome-screen" role="banner">
@@ -37,39 +38,113 @@ $background_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->I
                         <?php the_title(); ?><span class="element"></span><span class="typed-cursor"></span>
                     </h1>
                 </div>
-            <?php endwhile;
+            <?php endwhile; ?>
 
-            $top_recommendations = get_top_recommendations( array('les-freres-karamazov') ); ?>
-            <div class="container">
-                <div class="row">
-                    <div class="hp-recommendations col-md-10 col-md-offset-1">
-                        <div class="recommended-book col-xs-3">
-                            <a href="<?php echo $top_recommendations[0]['book_url']; ?>">
-                                <img class="img-adapt" src="<?php echo $top_recommendations[0]['book_image']; ?>">
-                            </a>
-                            <h3 class="one-line-ellipsis"><?php echo $top_recommendations[0]['book_title']; ?></h3>
-                            <h4 class="one-line-ellipsis"><?php echo $top_recommendations[0]['book_author']; ?></h4>
-                        </div>
-                        <div class="list-recommendations col-xs-9">
-                            <ul>
-                                <?php foreach( $top_recommendations[0]['recommendations'] as $i => $one_recommendation ) : ?>
-                                    <?php if ( $i < 3 ) : ?>
-                                        <li>
-                                            <div class="one-recommendation">
-                                                <blockquote class="quote"><?php echo $one_recommendation['text']; ?></blockquote>
-                                                <h3 class="one-line-ellipsis"><?php echo $one_recommendation['person_name']; ?></h3>
-                                                <a href="<?php echo $one_recommendation['person_url']; ?>">
-                                                    <img class="img-adapt" src="<?php echo $one_recommendation['person_image']; ?>">
-                                                </a>
+            <?php $top_recommendations = get_top_recommendations( array('les-freres-karamazov', 'le-cycle-de-fondation-tome-2-fondation-et-empire') ); ?>
+            <?php if ( !empty( $top_recommendations )) : ?>
+
+                <!-- Top Recommendations Carousel -->
+                <div id="recommandations-populaires" class="carousel slide" data-ride="carousel" data-interval="8000">
+                    
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#recommandations-populaires" data-slide-to="0" class="active"></li>
+                        <?php for ( $i = 1; $i < count( $top_recommendations ); $i++ ) : ?>
+                            <li data-target="#recommandations-populaires" data-slide-to="<?php echo $i; ?>"></li>
+                        <?php endfor ?>
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+
+                        <?php foreach ( $top_recommendations as $i => $one_book_recommendations) : ?>
+                            <?php if ( $i == 0 ) : ?>
+
+                                <div class="item active">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="hp-recommendations col-xs-10 col-xs-offset-1">
+                                                <div class="recommended-book col-xs-3">
+                                                    <a href="<?php echo $one_book_recommendations['book_url']; ?>">
+                                                        <img class="img-adapt" src="<?php echo $one_book_recommendations['book_image']; ?>">
+                                                    </a>
+                                                    <h3 class="one-line-ellipsis"><?php echo $one_book_recommendations['book_title']; ?></h3>
+                                                    <h4 class="one-line-ellipsis"><?php echo $one_book_recommendations['book_author']; ?></h4>
+                                                </div>
+                                                <div class="list-recommendations col-xs-9">
+                                                    <ul>
+                                                        <?php foreach ( $one_book_recommendations['recommendations'] as $i => $one_person_recommendation ) : ?>
+                                                            <?php if ( $i < 3 ) : ?>
+                                                                <li>
+                                                                    <div class="one-recommendation">
+                                                                        <blockquote class="quote"><?php echo $one_person_recommendation['text']; ?></blockquote>
+                                                                        <h3 class="one-line-ellipsis"><?php echo $one_person_recommendation['person_name']; ?></h3>
+                                                                        <a href="<?php echo $one_person_recommendation['person_url']; ?>">
+                                                                            <img class="img-adapt" src="<?php echo $one_person_recommendation['person_image']; ?>">
+                                                                        </a>
+                                                                    </div>
+                                                                </li>
+                                                            <?php endif ?>
+                                                        <?php endforeach ?>
+                                                    </ul>
+                                                </div>
                                             </div>
-                                        </li>
-                                    <?php endif ?>
-                                <?php endforeach ?>
-                            </ul>
-                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            <?php else : ?>
+
+                                <div class="item">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="hp-recommendations col-xs-10 col-xs-offset-1">
+                                                <div class="recommended-book col-xs-3">
+                                                    <a href="<?php echo $one_book_recommendations['book_url']; ?>">
+                                                        <img class="img-adapt" src="<?php echo $one_book_recommendations['book_image']; ?>">
+                                                    </a>
+                                                    <h3 class="one-line-ellipsis"><?php echo $one_book_recommendations['book_title']; ?></h3>
+                                                    <h4 class="one-line-ellipsis"><?php echo $one_book_recommendations['book_author']; ?></h4>
+                                                </div>
+                                                <div class="list-recommendations col-xs-9">
+                                                    <ul>
+                                                        <?php foreach ( $one_book_recommendations['recommendations'] as $i => $one_person_recommendation ) : ?>
+                                                            <?php if ( $i < 3 ) : ?>
+                                                                <li>
+                                                                    <div class="one-recommendation">
+                                                                        <blockquote class="quote"><?php echo $one_person_recommendation['text']; ?></blockquote>
+                                                                        <h3 class="one-line-ellipsis"><?php echo $one_person_recommendation['person_name']; ?></h3>
+                                                                        <a href="<?php echo $one_person_recommendation['person_url']; ?>">
+                                                                            <img class="img-adapt" src="<?php echo $one_person_recommendation['person_image']; ?>">
+                                                                        </a>
+                                                                    </div>
+                                                                </li>
+                                                            <?php endif ?>
+                                                        <?php endforeach ?>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            <?php endif ?>  
+                        <?php endforeach ?> 
                     </div>
+
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#recommandations-populaires" data-slide="prev">
+                        <div class="glyphicon glyphicon-chevron-left"></div>
+                        <span class="sr-only">Précédent</span>
+                    </a>
+                    <a class="right carousel-control" href="#recommandations-populaires" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        <span class="sr-only">Suivant</span>
+                    </a>
+
                 </div>
-            </div>
+            <?php endif ?>
+
 
             <!-- Jumping icon section beginning -->
             <div class="scroll-down" address="true"></div>
