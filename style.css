@@ -204,6 +204,8 @@ div.hp-recommendations {
 .recommended-book {
     position: absolute;
     top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
 
@@ -231,6 +233,8 @@ div.recommended-book {
     position: absolute;
     max-height: 70%;
     top: 40%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     max-width: 80%;
     right: 0;
@@ -270,6 +274,8 @@ div.list-recommendations {
 .list-recommendations ul {
     position: absolute;
     top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     width: 95%;
     margin-left: 2.5%;
@@ -285,6 +291,8 @@ div.list-recommendations {
 .one-recommendation {
     position: absolute;
     top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     background: #FFEA77;
     width: 100%;
@@ -321,6 +329,8 @@ div.list-recommendations {
 .one-recommendation img {
     position: absolute;
     top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     right: 0;
     height: 14.5vh;
@@ -650,6 +660,8 @@ header.full-width-container-category.welcome-screen h1.category-title {
     position: absolute;
     top: calc(50% - 12px);
     left: calc(50% - 9px);
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
     transform: rotate(-45deg);
     display: block;
     width: 18px;
