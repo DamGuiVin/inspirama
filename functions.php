@@ -20,7 +20,7 @@ function inspirama_enqueue_scripts() {
         $list_names_php = get_all_people_names();
         wp_localize_script( 'inspirama_typed', 'list_names', $list_names_php );
 
-        //wp_enqueue_script('inspirama_smooth_scroll');
+        wp_enqueue_script('inspirama_smooth_scroll');
     }
 
     // Person only : previewer.js
