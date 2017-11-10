@@ -20,7 +20,7 @@ function inspirama_enqueue_scripts() {
         $list_names_php = get_all_people_names();
         wp_localize_script( 'inspirama_typed', 'list_names', $list_names_php );
 
-        wp_enqueue_script('inspirama_smooth_scroll');
+        //wp_enqueue_script('inspirama_smooth_scroll');
     }
 
     // Person only : previewer.js
@@ -1148,6 +1148,100 @@ function extract_blockquotes_content( $html_text ) {
     }
 
     return $blockquotes_content;
+}
+
+
+function recommendations_carousel_item ( $book_reco_array, $max_people_per_book = 3 ) {
+
+    ?>
+    <div class='container'>
+        <div class='row'>
+            <div class='hp-recommendations col-xs-10 col-xs-offset-1'>
+
+                <!-- Book Section -->
+                <div class='recommended-book col-xs-3'>
+                    <a href='<?php echo $book_reco_array['book_url']; ?>'>
+                        <img class='img-adapt' src='<?php echo $book_reco_array['book_image']; ?>'>
+                    </a>                    
+                    <h3 class='one-line-ellipsis'><?php echo $book_reco_array['book_title']; ?></h3>
+                    <h4 class='one-line-ellipsis'><?php echo $book_reco_array['book_author']; ?></h4>
+                </div>
+
+                <!-- Recommendations and People Section -->
+                <div class='list-recommendations col-xs-9'>
+                    <ul>
+                        <?php foreach ( $book_reco_array['recommendations'] as $i => $one_person_recommendation ) : ?>
+                            <?php if ( $i < $max_people_per_book ) : ?>
+                                <li>
+                                    <div class='one-recommendation'>
+                                        <blockquote class='quote'><?php echo $one_person_recommendation['text']; ?></blockquote>
+                                        <h3 class='one-line-ellipsis'><?php echo $one_person_recommendation['person_name']; ?></h3>
+                                        <a href='<?php echo $one_person_recommendation['person_url']; ?>'>
+                                            <img class='img-adapt' src='<?php echo $one_person_recommendation['person_image']; ?>'>
+                                        </a>
+                                    </div>
+                                </li>
+                            <?php endif ?>
+                        <?php endforeach ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php
+}
+
+
+function recommendations_carousel ( $books_slugs_array ) {
+
+    $top_recommendations = get_top_recommendations( $books_slugs_array );
+    
+    if ( !empty( $top_recommendations )) : ?>
+
+        <!-- Top Recommendations Carousel -->
+        <div id="recommandations-populaires" class="carousel slide" data-ride="carousel" data-interval="0">
+            
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#recommandations-populaires" data-slide-to="0" class="active"></li>
+                <?php for ( $i = 1; $i < count( $top_recommendations ); $i++ ) : ?>
+                    <li data-target="#recommandations-populaires" data-slide-to="<?php echo $i; ?>"></li>
+                <?php endfor ?>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+
+                <?php foreach ( $top_recommendations as $i => $book_reco_array) : ?>
+                    <?php if ( $i == 0 ) : ?>
+
+                        <div class="item active">
+                            <?php recommendations_carousel_item( $book_reco_array ); ?>
+                        </div>
+
+                    <?php else : ?>
+
+                        <div class="item">
+                            <?php recommendations_carousel_item( $book_reco_array ); ?>
+                        </div>
+
+                    <?php endif ?>  
+                <?php endforeach ?> 
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#recommandations-populaires" data-slide="prev">
+                <div class="glyphicon glyphicon-chevron-left"></div>
+                <span class="sr-only">Précédent</span>
+            </a>
+            <a class="right carousel-control" href="#recommandations-populaires" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Suivant</span>
+            </a>
+
+        </div>
+    <?php endif;
+
 }
 
 
