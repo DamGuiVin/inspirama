@@ -209,7 +209,7 @@ div.hp-recommendations {
 
 div.recommended-book {
     height: 100%;
-    padding: 0 0 0 2.5%;
+    padding: 0;
 }
 
 /*
@@ -228,32 +228,43 @@ div.recommended-book {
 */
 
 .recommended-book img {
-    max-width: 100%;
-    max-height: 70%;
     position: absolute;
+    max-height: 70%;
+    top: 40%;
+    transform: translateY(-50%);
+    max-width: 80%;
     right: 0;
     left: 0;
     margin-right: auto;
     margin-left: auto;
-    top: 7.5%;
 }
 
 .recommended-book h3 {
+    position: absolute;
+    margin: 0; 
+    top: 80%;
+    width: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+    text-align: center;
     font-size: 0.7em;
     font-weight: bold;
-    position: absolute;
-    bottom: 10%;
 }
 
 .recommended-book h4 {
-    font-size: 0.6em;
     position: absolute;
-    bottom: 5%;
+    margin: 0;
+    top: 87.5%;
+    width: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+    text-align: center;
+    font-size: 0.6em;
 }
 
 div.list-recommendations {
     height: 100%;
-    padding: 0 2.5% 0 2.5%;
+    padding: 0;
 }
 
 .list-recommendations ul {
@@ -261,9 +272,9 @@ div.list-recommendations {
     top: 50%;
     transform: translateY(-50%);
     width: 95%;
-    list-style: none;
-    margin: 0;
+    margin-left: 2.5%;
     padding: 0;
+    list-style: none;
 }
 
 .list-recommendations li {
@@ -303,7 +314,7 @@ div.list-recommendations {
     position: absolute;
     bottom: 0;
     right: 17vh;
-    font-size: 0.6em;
+    font-size: 0.7em;
     font-weight: bold;
 }
 

@@ -1154,12 +1154,12 @@ function extract_blockquotes_content( $html_text ) {
 function recommendations_carousel_item ( $book_reco_array, $max_people_per_book = 3 ) {
 
     ?>
-    <div class='container'>
+    <div class='container-fluid'>
         <div class='row'>
             <div class='hp-recommendations col-xs-10 col-xs-offset-1'>
 
                 <!-- Book Section -->
-                <div class='recommended-book col-xs-3'>
+                <div class='recommended-book col-xs-4'>
                     <a href='<?php echo $book_reco_array['book_url']; ?>'>
                         <img class='img-adapt' src='<?php echo $book_reco_array['book_image']; ?>'>
                     </a>                    
@@ -1168,7 +1168,7 @@ function recommendations_carousel_item ( $book_reco_array, $max_people_per_book 
                 </div>
 
                 <!-- Recommendations and People Section -->
-                <div class='list-recommendations col-xs-9'>
+                <div class='list-recommendations col-xs-8'>
                     <ul>
                         <?php foreach ( $book_reco_array['recommendations'] as $i => $one_person_recommendation ) : ?>
                             <?php if ( $i < $max_people_per_book ) : ?>
