@@ -43,7 +43,9 @@ $background_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->I
             <!-- Top Recommendations Carousel -->
             <?php recommendations_carousel( array(  
                 'les-freres-karamazov', 
-                'le-cycle-de-fondation-tome-2-fondation-et-empire') ); ?>
+                'le-cycle-de-fondation-tome-2-fondation-et-empire',
+                'vagabonding',
+                'le-petit-prince') ); ?>
 
             <!-- Jumping icon section beginning -->
             <div class="scroll-down" address="true"></div>
