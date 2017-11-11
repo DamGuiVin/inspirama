@@ -1115,8 +1115,7 @@ function get_top_recommendations( $array_book_names ) {
                             'person_url' => $person_url,
                             'text' => $recommendation_text,
                             'sources_titles' => $recommendation_sources_titles,
-                            'sources_urls' => $recommendation_sources_urls
-                            );
+                            'sources_urls' => $recommendation_sources_urls );
 
                         array_push( $current_recommendation_array, $current_recommendation );
                     }
@@ -1199,7 +1198,7 @@ function recommendations_carousel ( $books_slugs_array ) {
     if ( !empty( $top_recommendations )) : ?>
 
         <!-- Top Recommendations Carousel -->
-        <div id="recommandations-populaires" class="carousel slide" data-ride="carousel" data-interval="0">
+        <div id="recommandations-populaires" class="carousel slide" data-ride="carousel" data-interval="8000">
             
             <!-- Indicators -->
             <ol class="carousel-indicators">
@@ -1243,6 +1242,134 @@ function recommendations_carousel ( $books_slugs_array ) {
     <?php endif;
 
 }
+
+
+function get_top_books_by_5() {
+
+    $top_books = array();
+    $books_batch = array();
+    $iterator = 0;
+
+    $args = array(
+        'post_type' => 'book',
+        'post_status' => 'publish',
+        'posts_per_page' => 15,
+        'orderby' => 'rand'
+        );
+
+    $books_query = new WP_Query( $args );
+
+    if ( $books_query->have_posts() ) {
+        while ( $books_query->have_posts() ) {
+
+            // Saving info about the current book
+            $books_query->the_post();
+            $book_post = $books_query->post;
+            $book_id = $book_post->ID;
+            $book_title = $book_post->post_title;
+            $book_author = get_post_meta( $book_id, 'author', true);
+            $book_image = wp_get_attachment_image_src( get_post_thumbnail_id( $book_id ), 'full' )[0];
+            $book_url = get_the_permalink( $book_id );
+
+            array_push( $books_batch,  array(
+                'book_title' => $book_title,
+                'book_author' => $book_author,
+                'book_image' => $book_image,
+                'book_url' => $book_url ));
+
+            if ( $iterator == 4 ) {
+                array_push( $top_books, $books_batch );
+                $books_batch = array();
+                $iterator = 0;
+            }
+
+            $iterator++;
+        }
+    }
+
+    return $top_books;
+}
+
+
+function books_carousel_item( $books_batch ) {
+
+    ?>
+    <div class='container-fluid'>
+        <div class='row'>
+            <div class='top-books col-xs-10 col-xs-offset-1'>
+                <ul class="list-books">
+                    <?php foreach ( $books_batch as $book ) : ?>
+                        <li>
+                            <div class="recommended-book">
+                                <a href='<?php echo $book['book_url']; ?>'>
+                                    <img class='img-adapt' src='<?php echo $book['book_image']; ?>'>
+                                </a>                    
+                                <h3 class='one-line-ellipsis'><?php echo $book['book_title']; ?></h3>
+                                <h4 class='one-line-ellipsis'><?php echo $book['book_author']; ?></h4>
+                            </div>
+                        </li>
+                    <?php endforeach ?>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <?php
+
+}
+
+
+function books_carousel() {
+
+    $top_books = get_top_books_by_5();
+    
+    if ( !empty( $top_books )) : ?>
+
+        <!-- Top Books Carousel -->
+        <div id="livres-populaires" class="carousel slide" data-ride="carousel" data-interval="8000">
+            
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#livres-populaires" data-slide-to="0" class="active"></li>
+                <?php for ( $i = 1; $i < count( $top_books ); $i++ ) : ?>
+                    <li data-target="#livres-populaires" data-slide-to="<?php echo $i; ?>"></li>
+                <?php endfor ?>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+
+                <?php foreach ( $top_books as $i => $books_batch ) : ?>
+                    <?php if ( $i == 0 ) : ?>
+
+                        <div class="item active">
+                            <?php books_carousel_item( $books_batch ); ?>
+                        </div>
+
+                    <?php else : ?>
+
+                        <div class="item">
+                            <?php books_carousel_item( $books_batch ); ?>
+                        </div>
+
+                    <?php endif ?>  
+                <?php endforeach ?> 
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#livres-populaires" data-slide="prev">
+                <div class="glyphicon glyphicon-chevron-left"></div>
+                <span class="sr-only">Précédent</span>
+            </a>
+            <a class="right carousel-control" href="#livres-populaires" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Suivant</span>
+            </a>
+
+        </div>
+    <?php endif;
+
+}
+
 
 
 

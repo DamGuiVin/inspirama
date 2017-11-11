@@ -55,9 +55,51 @@ $background_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->I
     </header>
 
 <!-- End Homepage Presentation -->
+
+
+
+<!-- Top Books Section -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="WAZAAAAA">
+            
+            <h2>Les livres recommandés par les 
+                <div class="dropdown people-categories-dropdown">
+                    <button class="btn btn-basic dropdown-toggle" type="button" data-toggle="dropdown">
+                        Artistes<span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Entrepreneurs</a></li>
+                        <li><a href="#">Artistes</a></li>
+                        <li><a href="#">Politiciens</a></li>
+                        <li><a href="#">Autres</a></li>
+                    </ul>
+                </div>
+            </h2>
+
+            <?php books_carousel(); ?>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <?php
 
-
+/*
 
 //........................................................................
 // HOMEPAGE PERSONS SECTION : RECOVERING PERSONS
@@ -129,7 +171,7 @@ if ( $wp_query->have_posts() ) : ?>
 <?php endif; 
 wp_reset_query();
 
-
+*/
 
 //........................................................................
 // FOOTER SECTION 

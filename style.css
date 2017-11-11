@@ -167,22 +167,38 @@ blockquote.quote:after {
 /* Home Page Template template-home.php
 -------------------------------------------------------------- *
 
-/* Recommendations Carousel */
-#recommandations-populaires .carousel-control {
+/* All Carousels */
+#recommandations-populaires .carousel-control,
+#livres-populaires .carousel-control {
     background: none;
     background-image: none;
     box-shadow: none;
     color: rgba(254, 255, 244, 0.95);
 }
 
-#recommandations-populaires .carousel-control:hover {
+#recommandations-populaires .carousel-control:hover,
+#livres-populaires .carousel-control:hover {
     opacity: 0.7;
 }
 
-#recommandations-populaires .carousel-indicators {
+#recommandations-populaires .carousel-indicators,
+#livres-populaires .carousel-indicators {
     bottom: -7vh;
 }
 
+@media screen and (max-width: 600px) { 
+    #recommandations-populaires .carousel-control .glyphicon-chevron-right,
+    #livres-populaires .carousel-control .glyphicon-chevron-right {
+        transform: translateX(50%);
+    }
+
+    #recommandations-populaires .carousel-control .glyphicon-chevron-left,
+    #livres-populaires .carousel-control .glyphicon-chevron-left {
+        transform: translateX(-50%)
+    }
+}
+
+/* Recommendations Carousel */
 div.hp-recommendations {
     background: rgba(254, 255, 244, 0.95);
     border-radius: 3vw;
@@ -307,16 +323,6 @@ div.list-recommendations {
     border-radius: 8vh;
 }
 
-@media screen and (max-width: 600px) { 
-    #recommandations-populaires .carousel-control .glyphicon-chevron-right {
-        transform: translateX(50%);
-    }
-
-    #recommandations-populaires .carousel-control .glyphicon-chevron-left {
-        transform: translateX(-50%)
-    }
-}
-
 @media screen and (max-width: 768px) { 
 
     div.hp-recommendations {
@@ -358,6 +364,79 @@ div.list-recommendations {
         height: 13vh;
     }
 }
+
+
+
+
+
+
+
+
+
+
+/* Top Books Carousel */
+div.WAZAAAAA {
+    position: absolute;
+    top: 85vh;
+    width: 100%;
+}
+
+.WAZAAAAA h2 {
+    width: 80%;
+    text-align: center;
+    margin-left: 10%;
+    color: rgba(254, 255, 244, 1);
+}
+
+.btn-basic {
+    background: rgba(254, 255, 244, 1);
+}
+
+#livres-populaires {
+}
+
+div.top-books {
+    background: rgba(254, 255, 244, 0.95);
+    border-radius: 3vw;
+    padding: 0 3vw;
+    height: 40vh;
+}
+
+.people-categories-dropdown {
+    display: inline-block;
+}
+
+ul.list-books {
+    padding: 0; 
+    height: 100%;
+}
+
+.list-books li {
+    position: relative;
+    display: inline-block;
+    width: 19%;
+    height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -644,7 +723,7 @@ h1#typing-title {
 
 /* Welcome banner */
 header.full-width-container-home {
-    height: 95vh;
+    height: 200vh;
     margin-top: 50px;
     padding: 0;
 }
@@ -679,7 +758,7 @@ header.full-width-container-category.welcome-screen h1.category-title {
 /* Jumping icon to go to the portfolio of people on homepage and category pages */
 .scroll-down {
     position: absolute;
-    bottom: 30px;
+    bottom: 100px;
     left: calc(50% - 30px);
     display: block;
     width: 60px;
