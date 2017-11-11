@@ -113,7 +113,7 @@ wp_reset_query();
 $args = array(
     'post_type' => 'person',
     'post_status' => 'publish',
-    'posts_per_page' => 20,
+    'posts_per_page' => 4,
     'orderby' => 'rand'
     );
 
@@ -169,10 +169,38 @@ if ( $wp_query->have_posts() ) : ?>
     <!-- End Persons Mosaic -->  
 
 <?php endif; 
-wp_reset_query();
+wp_reset_query(); ?>
+
+
+
+<div class="container">
+    <div class="row">  
+        <h2>AJAX</h2>
+        <div class="col-xs-6">
+            <button type="button" id="pick-person">Personne au hasard</button>
+            <p id="picked-name"></p>
+            <p id="picked-intro"></p>
+            <img id="picked-portrait" src="" />
+        </div>
+        <div class="col-xs-6">
+            <button type="button" id="pick-book">Livre au hasard</button>
+            <p id="picked-title"></p>
+            <p id="picked-author"></p>
+            <img id="picked-cover" src="" />
+        </div> 
+        
+    </div>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 
 */
 
+
+
+
+
+<?php
 //........................................................................
 // FOOTER SECTION 
 //........................................................................
