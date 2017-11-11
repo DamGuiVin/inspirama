@@ -33,11 +33,9 @@ $background_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->I
         <!-- Homepage welcome Text -->
         <div class="welcome-container-home">
             <?php while ( have_posts() ) : the_post(); ?>
-                <div id="bg">
-                    <h1 class="title-homepage">
-                        <?php the_title(); ?><span class="element"></span><span class="typed-cursor"></span>
-                    </h1>
-                </div>
+                <h1 id="typing-title" class="one-line-ellipsis">
+                    <?php the_title(); ?><span class="element"></span><span class="typed-cursor"></span>
+                </h1>
             <?php endwhile; ?>
 
             <!-- Top Recommendations Carousel -->
