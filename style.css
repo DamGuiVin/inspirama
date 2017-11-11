@@ -190,34 +190,15 @@ div.hp-recommendations {
     padding: 0;
 }
 
-.recommended-book {
-    position: absolute;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
-
 div.recommended-book {
     height: 100%;
     padding: 0;
 }
 
-/*
 .recommended-book img {
+    /*    
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    .img-adapt: yhttps://stackoverflow.com/questions/12980153/image-moves-on-hover-chrome-opacity-issue
-}
-
-.recommended-book h3{
-    font-size: 18px;
-}
-.recommended-book h4 {
-    font-size: 13px;
-}
-*/
-
-.recommended-book img {
+    */
     position: absolute;
     max-height: 70%;
     top: 40%;
@@ -497,6 +478,7 @@ div.list-recommendations {
 
     -webkit-animation: person-animation 0.5s;
     -webkit-animation-fill-mode: forwards;
+    -webkit-transform-style: preserve-3d;
 
     -moz-animation: person-animation 0.5s;
     -moz-animation-fill-mode: forwards;
