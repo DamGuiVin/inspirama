@@ -56,7 +56,11 @@
     <!-- Google Suite Tracking Code for www.inspirama.co -->
     <meta name="google-site-verification" content="Vzc8nFFP9VcKYdqrlRngLMUmP2shcv7z52S7uL0TUbc" />  
     
-    <link rel="alternate" href="<?php echo get_permalink(); ?>" hreflang="fr-fr" />
+    <?php $current_permalink = get_the_permalink();
+    if( is_category() ) { 
+        $current_permalink = str_replace( '/./', '/', get_term_link( get_queried_object() )); 
+    } ?>
+    <link rel="alternate" href="<?php echo $current_permalink; ?>" hreflang="fr-fr" />
     
     <link rel="profile" href="http://gmpg.org/xfn/11">
 
