@@ -27,6 +27,7 @@
                 type: 'POST',
                 url: ajax_object.ajax_url,
                 data: {
+                    'category_name' : category_name,
                     'action': 'inspirama_get_books_carousel'
                 }, 
 

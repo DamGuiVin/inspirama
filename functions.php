@@ -1387,6 +1387,8 @@ add_action( 'wp_ajax_nopriv_inspirama_get_books_carousel', 'inspirama_get_books_
 
 function inspirama_get_books_carousel() {
 
+    $category_name = $_POST['category_name'];
+
     $selected_books = get_top_books_by_5();
 
     $response['selected_books'] = $selected_books;
