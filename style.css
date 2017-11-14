@@ -199,6 +199,20 @@ blockquote.quote:after {
 }
 
 /* Recommendations Carousel */
+#recommandations-populaires {
+    position: absolute;
+    top: 30vh;
+    width: 100%;
+}
+
+#recommandations-populaires h2 {
+    width: 80%;
+    text-align: center;
+    margin-left: 10%;
+    color: rgba(254, 255, 244, 1);
+    margin-top: -5%;
+}
+
 div.hp-recommendations {
     background: rgba(254, 255, 244, 0.95);
     border-radius: 3vw;
@@ -388,8 +402,12 @@ div.WAZAAAAA {
     color: rgba(254, 255, 244, 1);
 }
 
-.btn-basic {
+#books-carousel-people-categories .btn-basic {
     background: rgba(254, 255, 244, 1);
+}
+
+#books-carousel-people-categories .btn .caret {
+    margin-left: 4px;
 }
 
 #livres-populaires {
@@ -402,7 +420,7 @@ div.top-books {
     height: 40vh;
 }
 
-.people-categories-dropdown {
+.books-carousel-people-categories {
     display: inline-block;
 }
 
@@ -418,6 +436,27 @@ ul.list-books {
     height: 100%;
 }
 
+#loading-image {
+    /*display: none;*/
+    /*background: rgba(254, 255, 244, 0.95);
+    border-radius: 3vw;
+    padding: 0 3vw;
+    height: 40vh;
+    width: 100%;*/
+
+    display: none;
+    position: absolute;
+    top: 0;
+    background: rgba(254, 255, 244, 1);
+}
+
+#loading-image img {
+    position: absolute;
+    height: 30vh;
+    width: 50vh;
+    top: calc(50% - 15vh);
+    left: calc(50% - 25vh);
+}
 
 
 
