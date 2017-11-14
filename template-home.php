@@ -57,7 +57,7 @@ $background_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->I
             <h2>Les livres recommandés par les 
                 <div id="books-carousel-people-categories" class="dropdown books-carousel-people-categories">
                     <button class="btn btn-basic dropdown-toggle" type="button" data-toggle="dropdown">
-                        Artistes<span class="caret"></span>
+                        ______<span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
                         <li><a href="#books-carousel-people-categories">Entrepreneurs</a></li>
