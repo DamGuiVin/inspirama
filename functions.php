@@ -1251,7 +1251,7 @@ function recommendations_carousel ( $books_slugs_array ) {
 }
 
 
-function get_top_books_by_5() {
+function get_top_books( $people_category_name = 'all', $books_per_batch = 5, $num_batches = 3 ) {
 
     $top_books = array();
     $books_batch = array();
@@ -1260,7 +1260,7 @@ function get_top_books_by_5() {
     $args = array(
         'post_type' => 'book',
         'post_status' => 'publish',
-        'posts_per_page' => 15,
+        'posts_per_page' => $books_per_batch * $num_batches,
         'orderby' => 'rand'
         );
 
@@ -1327,7 +1327,7 @@ function books_carousel_item( $books_batch ) {
 
 function books_carousel() {
 
-    $top_books = get_top_books_by_5();
+    $top_books = get_top_books();
     
     if ( !empty( $top_books )) : ?>
 
@@ -1389,7 +1389,7 @@ function inspirama_get_books_carousel() {
 
     $category_name = $_POST['category_name'];
 
-    $selected_books = get_top_books_by_5();
+    $selected_books = get_top_books( $category_name );
 
     $response['selected_books'] = $selected_books;
     $response['error'] = 'The server could not retrieve the required data';
