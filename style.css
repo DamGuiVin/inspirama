@@ -402,8 +402,14 @@ div.WAZAAAAA {
     color: rgba(254, 255, 244, 1);
 }
 
-#books-carousel-people-categories .btn-basic {
+#books-carousel-people-categories .btn {
     background: rgba(254, 255, 244, 1);
+    border-radius: 2vw;
+}
+
+#books-carousel-people-categories .btn:hover,
+#books-carousel-people-categories .btn:focus {
+    border-color: #3555b7;
 }
 
 #books-carousel-people-categories .btn .caret {
