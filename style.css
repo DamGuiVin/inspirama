@@ -402,13 +402,13 @@ div.WAZAAAAA {
     color: rgba(254, 255, 244, 1);
 }
 
-#books-carousel-people-categories:focus {
-    outline: none;
-}
-
 #books-carousel-people-categories .btn {
     background: rgba(254, 255, 244, 1);
     border-radius: 2vw;
+}
+
+#books-carousel-people-categories .btn:active {
+    outline: 0;
 }
 
 #books-carousel-people-categories .btn:hover,
