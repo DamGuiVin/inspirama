@@ -47,20 +47,20 @@ $background_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->I
 // CAROUSELS SECTION
 //........................................................................
 
-    $args['books_slugs_array'] = array(  
+    $recommended_books['books_slugs_array'] = array(  
         'les-freres-karamazov', 
         'le-cycle-de-fondation-tome-2-fondation-et-empire',
         'vagabonding',
         'le-petit-prince');
 
     inspirama_carousel_wrapper( 
-        $carousel_title = 'Carroussel de recommandations',
+        $carousel_title = 'Les recommandations les plus populaires',
         array(),
         $carousel_type = 'recommendations',
-        $args);
+        $recommended_books);
     
     inspirama_carousel_wrapper( 
-        $carousel_title = 'Carroussel de livres',
+        $carousel_title = 'Les livres recommandés par les',
         array('Artistes', 'Entrepreneurs', 'Politiciens', 'Autres'),
         $carousel_type = 'books');
 

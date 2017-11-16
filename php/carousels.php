@@ -35,7 +35,7 @@ function inspirama_carousel_wrapper(
 function inspirama_dropdown( $dropdown_elements, $wrapper_name ) {
 	
 	if( !empty( $dropdown_elements ) ) : 
-		$dropdown_name = sanitize_title_with_dashes( $wrapper_name . '-dropdown' );
+		$dropdown_name = sanitize_title( remove_accents( $wrapper_name . '-dropdown' ));
 		?>
 
 		<div id="<?php echo $dropdown_name; ?>" class="dropdown inspirama-carousel-dropdown">
@@ -60,7 +60,7 @@ function inspirama_dropdown( $dropdown_elements, $wrapper_name ) {
 
 function inspirama_carousel( $carousel_title, $carousel_type, $args ) {
 
-	$carousel_title = sanitize_title_with_dashes( $carousel_title );
+	$carousel_title = sanitize_title( remove_accents( $carousel_title ));
 	$carousel_data = inspirama_carousel_data( $carousel_type, $args );
     
     if ( !empty( $carousel_data )) : ?>
