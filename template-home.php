@@ -19,15 +19,10 @@ get_header();
 //........................................................................
 // HOMEPAGE PRESENTATION SECTION
 //........................................................................
-
-// Get the homepage's background image. Use header_image if set, featured image if not
-$background_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full-size' )[0]; 
-
 ?>
 
-
 <!-- Homepage Presentation -->
-<header style="background: url(<?php echo $background_image; ?>); background-position: center top; background-size: cover; background-attachment: fixed;" class="full-width-container-home welcome-screen" role="banner">
+<header class="full-width-container-home welcome-screen" role="banner">
 
     <!-- Homepage welcome Text -->
     <div class="welcome-container-home">

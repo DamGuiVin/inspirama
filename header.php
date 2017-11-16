@@ -79,15 +79,15 @@
 
 
 
-<body <?php body_class(); ?>>
-<div class="page-wrapper" data-scroll-speed="500">   
+<body <?php body_class(); ?>>  
 
 
+<div class="page-wrapper" data-scroll-speed="500"> 
 
-
-
-
-
+    <?php if( is_front_page() ) : 
+        $background_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full-size' )[0]; ?>
+        <div class="parallax" style="background-image: url(<?php echo $background_image; ?>);"></div>
+    <?php endif ?>
 
 
     <!-- Navigation Bar -->
