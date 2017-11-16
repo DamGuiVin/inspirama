@@ -164,58 +164,94 @@ blockquote.quote:after {
 
 
 
-/* Home Page Template template-home.php
+/* Homepage Template template-home.php
 -------------------------------------------------------------- *
 
-/* All Carousels */
-#recommandations-populaires .carousel-control,
-#livres-populaires .carousel-control {
-    background: none;
-    background-image: none;
-    box-shadow: none;
-    color: rgba(254, 255, 244, 0.95);
+/* Inspirama Carousel */
+.inspirama-carousel-wrapper {
+    background: #1c1c1c;
 }
 
-#recommandations-populaires .carousel-control:hover,
-#livres-populaires .carousel-control:hover {
-    opacity: 0.7;
-}
-
-#recommandations-populaires .carousel-indicators,
-#livres-populaires .carousel-indicators {
-    bottom: -7vh;
-}
-
-@media screen and (max-width: 600px) { 
-    #recommandations-populaires .carousel-control .glyphicon-chevron-right,
-    #livres-populaires .carousel-control .glyphicon-chevron-right {
-        transform: translateX(50%);
-    }
-
-    #recommandations-populaires .carousel-control .glyphicon-chevron-left,
-    #livres-populaires .carousel-control .glyphicon-chevron-left {
-        transform: translateX(-50%)
-    }
-}
-
-/* Recommendations Carousel */
-#recommandations-populaires {
-    position: absolute;
-    top: 30vh;
-    width: 100%;
-}
-
-#recommandations-populaires h2 {
+.inspirama-carousel-wrapper h2 {
     width: 80%;
     text-align: center;
     margin-left: 10%;
     color: rgba(254, 255, 244, 1);
-    margin-top: -5%;
 }
 
-div.hp-recommendations {
+.inspirama-carousel-dropdown {
+    display: inline-block;
+}
+
+.inspirama-carousel-dropdown .btn {
+    background: rgba(254, 255, 244, 1);
+    border-radius: 2vw;
+}
+
+.inspirama-carousel-dropdown .btn:active {
+    outline: 0 !important;
+}
+
+.inspirama-carousel-dropdown .btn:hover,
+.inspirama-carousel-dropdown .btn:focus {
+    border-color: #3555b7;
+}
+
+.inspirama-carousel-dropdown .btn .caret {
+    margin-left: 4px;
+}
+
+.inspirama-carousel{
+    margin-bottom: 7vh;
+}
+
+.inspirama-carousel > .carousel-control {
+    background: none !important;
+    box-shadow: none;
+    color: rgba(254, 255, 244, 0.95);
+}
+
+.inspirama-carousel > .carousel-control:hover {
+    opacity: 0.7;
+}
+
+.inspirama-carousel > .carousel-indicators {
+    bottom: -7vh;
+}
+
+.inspirama-carousel-item {
     background: rgba(254, 255, 244, 0.95);
     border-radius: 3vw;
+}
+
+div.ajax-loading {
+    display: none;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background: rgba(254, 255, 244, 1);
+}
+
+.ajax-loading img {
+    position: absolute;
+    height: 30vh;
+    width: 50vh;
+    top: calc(50% - 15vh);
+    left: calc(50% - 25vh);
+}
+
+@media screen and (max-width: 600px) { 
+    .inspirama-carousel .carousel-control .glyphicon-chevron-right {
+        transform: translateX(50%);
+    }
+
+    .inspirama-carousel .carousel-control .glyphicon-chevron-left {
+        transform: translateX(-50%)
+    }
+}
+
+/* Recommendations Carousel Item */
+.recommendations-carousel-item {
     height: 47vh;
     padding: 0;
 }
@@ -339,7 +375,7 @@ div.list-recommendations {
 
 @media screen and (max-width: 768px) { 
 
-    div.hp-recommendations {
+    div.recommendations-carousel-item {
         height: 57vh;
     }
 
@@ -379,59 +415,10 @@ div.list-recommendations {
     }
 }
 
-
-
-
-
-
-
-
-
-
-/* Top Books Carousel */
-div.WAZAAAAA {
-    position: absolute;
-    top: 85vh;
-    width: 100%;
-}
-
-.WAZAAAAA h2 {
-    width: 80%;
-    text-align: center;
-    margin-left: 10%;
-    color: rgba(254, 255, 244, 1);
-}
-
-#books-carousel-people-categories .btn {
-    background: rgba(254, 255, 244, 1);
-    border-radius: 2vw;
-}
-
-#books-carousel-people-categories .btn:active {
-    outline: 0;
-}
-
-#books-carousel-people-categories .btn:hover,
-#books-carousel-people-categories .btn:focus {
-    border-color: #3555b7;
-}
-
-#books-carousel-people-categories .btn .caret {
-    margin-left: 4px;
-}
-
-#livres-populaires {
-}
-
-div.top-books {
-    background: rgba(254, 255, 244, 0.95);
-    border-radius: 3vw;
+/* Books Carousel Item */
+.books-carousel-item {
     padding: 0 3vw;
     height: 40vh;
-}
-
-.books-carousel-people-categories {
-    display: inline-block;
 }
 
 ul.list-books {
@@ -446,27 +433,17 @@ ul.list-books {
     height: 100%;
 }
 
-#loading-image {
-    /*display: none;*/
-    /*background: rgba(254, 255, 244, 0.95);
-    border-radius: 3vw;
-    padding: 0 3vw;
-    height: 40vh;
-    width: 100%;*/
+/* People Carousel Item */
 
-    display: none;
-    position: absolute;
-    top: 0;
-    background: rgba(254, 255, 244, 1);
-}
 
-#loading-image img {
-    position: absolute;
-    height: 30vh;
-    width: 50vh;
-    top: calc(50% - 15vh);
-    left: calc(50% - 25vh);
-}
+
+
+
+
+
+
+
+
 
 
 
