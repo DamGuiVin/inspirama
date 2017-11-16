@@ -134,7 +134,7 @@ function get_top_recommendations( $array_book_names ) {
                         array_push( $current_recommendation_array, $current_recommendation );
                     }
                     
-                    $iterator = $iterator + 1;        
+                    $iterator += 1;        
                 } 
                 $current_book['recommendations'] = $current_recommendation_array;
             }
@@ -190,6 +190,8 @@ function get_top_books( $people_category_name = 'all', $books_per_batch = 5, $nu
     if ( $books_query->have_posts() ) {
         while ( $books_query->have_posts() ) {
 
+            $iterator++;
+
             // Saving info about the current book
             $books_query->the_post();
             $book_post = $books_query->post;
@@ -205,13 +207,11 @@ function get_top_books( $people_category_name = 'all', $books_per_batch = 5, $nu
                 'book_image' => $book_image,
                 'book_url' => $book_url ));
 
-            if ( $iterator == ( $books_per_batch - 1 )) {
+            if ( $iterator == $books_per_batch ) {
                 array_push( $top_books, $books_batch );
                 $books_batch = array();
                 $iterator = 0;
             }
-
-            $iterator++;
         }
     }
 
@@ -242,6 +242,8 @@ function get_top_people( $people_per_batch = 4, $num_batches = 3 ) {
     if ( $people_query->have_posts() ) {
         while ( $people_query->have_posts() ) {
 
+            $iterator++;
+
             // Saving info about the current person
             $people_query->the_post();
             $person_post = $people_query->post;
@@ -257,13 +259,11 @@ function get_top_people( $people_per_batch = 4, $num_batches = 3 ) {
                 'person_image' => $person_image,
                 'person_url' => $person_url ));
 
-            if ( $iterator == ( $people_per_batch - 1 )) {
+            if ( $iterator == $people_per_batch ) {
                 array_push( $top_people, $people_batch );
                 $people_batch = array();
                 $iterator = 0;
             }
-
-            $iterator++;
         }
     }
 
