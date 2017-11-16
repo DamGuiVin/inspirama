@@ -103,6 +103,16 @@ div.recommended-book {
     padding: 0;
 }
 
+.recommended-book a,
+.recommended-book a:hover,
+.recommended-book a:active,
+.recommended-book a:focus,
+.recommended-book a:visited {
+    display: block;
+    height: 100%;
+    color: black;
+}
+
 .recommended-book img {
     /*    
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -288,3 +298,24 @@ People Carousel Item
 -------------------------------------------------------------- 
 */
 
+.people-carousel-item {
+    padding: 0 3vw;
+    height: 40vh;
+}
+
+ul.list-people {
+    padding: 0; 
+    height: 100%;
+}
+
+.list-people li {
+    position: relative;
+    display: inline-block;
+    width: 24%;
+    height: 100%;
+}
+
+.people-carousel-item .recommended-book img {
+    max-width: 95%;
+    border-radius: 50%;
+}

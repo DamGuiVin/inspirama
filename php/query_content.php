@@ -169,7 +169,7 @@ function extract_blockquotes_content( $html_text ) {
 
 //.......................................................................................................
 // Recover the top books within a given category 
-// NB : THIS IS NOT FULLY FUNCTIONAL YET AS IT ONLY RETURNS RADOM BOOKS
+// NB : THIS IS NOT FULLY FUNCTIONAL YET AS IT ONLY RETURNS RANDOM BOOKS
 //.......................................................................................................
 
 function get_top_books( $people_category_name = 'all', $books_per_batch = 5, $num_batches = 3 ) {
@@ -205,7 +205,7 @@ function get_top_books( $people_category_name = 'all', $books_per_batch = 5, $nu
                 'book_image' => $book_image,
                 'book_url' => $book_url ));
 
-            if ( $iterator == 4 ) {
+            if ( $iterator == ( $books_per_batch - 1 )) {
                 array_push( $top_books, $books_batch );
                 $books_batch = array();
                 $iterator = 0;
@@ -216,6 +216,58 @@ function get_top_books( $people_category_name = 'all', $books_per_batch = 5, $nu
     }
 
     return $top_books;
+}
+
+
+//.......................................................................................................
+// Recover the top people within a given category 
+// NB : THIS IS NOT FULLY FUNCTIONAL YET AS IT ONLY RETURNS RANDOM PEOPLE
+//.......................................................................................................
+
+function get_top_people( $people_per_batch = 4, $num_batches = 3 ) {
+
+    $top_people = array();
+    $people_batch = array();
+    $iterator = 0;
+
+    $args = array(
+        'post_type' => 'person',
+        'post_status' => 'publish',
+        'posts_per_page' => $people_per_batch * $num_batches,
+        'orderby' => 'rand'
+        );
+
+    $people_query = new WP_Query( $args );
+
+    if ( $people_query->have_posts() ) {
+        while ( $people_query->have_posts() ) {
+
+            // Saving info about the current person
+            $people_query->the_post();
+            $person_post = $people_query->post;
+            $person_id = $person_post->ID;
+            $person_name = $person_post->post_title;
+            $person_intro = get_post_meta( $person_id, 'introduction', true);
+            $person_image = wp_get_attachment_image_src( get_post_thumbnail_id( $person_id ), 'full' )[0];
+            $person_url = get_the_permalink( $person_id );
+
+            array_push( $people_batch,  array(
+                'person_name' => $person_name,
+                'person_intro' => $person_intro,
+                'person_image' => $person_image,
+                'person_url' => $person_url ));
+
+            if ( $iterator == ( $people_per_batch - 1 )) {
+                array_push( $top_people, $people_batch );
+                $people_batch = array();
+                $iterator = 0;
+            }
+
+            $iterator++;
+        }
+    }
+
+    return $top_people;
 }
 
 ?>

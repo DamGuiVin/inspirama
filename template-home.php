@@ -64,6 +64,11 @@ $background_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->I
         array('Artistes', 'Entrepreneurs', 'Politiciens', 'Autres'),
         $carousel_type = 'books');
 
+    inspirama_carousel_wrapper( 
+        $carousel_title = 'Les personnes les plus populaires',
+        array(),
+        $carousel_type = 'people');
+
 
 
 //........................................................................

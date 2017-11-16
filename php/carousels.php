@@ -195,6 +195,7 @@ function recommendations_carousel_item ( $book_reco_array, $max_people_per_book 
     <?php
 }
 
+
 //.......................................................................................................
 // Individual slide of the Inspirama Books Carousel 
 //.......................................................................................................
@@ -205,15 +206,13 @@ function books_carousel_item( $books_batch ) {
     <div class='books-carousel-item inspirama-carousel-item col-xs-10 col-xs-offset-1'>
         <ul class='list-books'>
             <?php foreach ( $books_batch as $book ) : ?>
-                <li>
-                    <div class='recommended-book'>
-                        <a href='<?php echo $book['book_url']; ?>'>
-                            <img class='img-adapt' src='<?php echo $book['book_image']; ?>'>
-                        </a>                    
+                <li class='recommended-book'>
+                    <a href='<?php echo $book['book_url']; ?>'>
+                        <img class='img-adapt' src='<?php echo $book['book_image']; ?>'>
                         <h3 class='one-line-ellipsis'><?php echo $book['book_title']; ?></h3>
                         <h4 class='one-line-ellipsis'><?php echo $book['book_author']; ?></h4>
-                    </div>
-                </li>
+                    </a>                    
+                    </li>
             <?php endforeach ?>
         </ul>
     </div>
@@ -221,8 +220,33 @@ function books_carousel_item( $books_batch ) {
 
 }
 
+
 //.......................................................................................................
-// AJAX calls for updating the carousel to the selected category
+// Individual slide of the Inspirama People Carousel 
+//.......................................................................................................
+
+function people_carousel_item( $people_batch ) {
+
+    ?>
+    <div class='people-carousel-item inspirama-carousel-item col-xs-10 col-xs-offset-1'>
+        <ul class='list-people'>
+            <?php foreach ( $people_batch as $person ) : ?>
+                <li class='recommended-book'>
+                    <a href='<?php echo $person['person_url']; ?>'>
+                        <img class='img-adapt' src='<?php echo $person['person_image']; ?>'>
+                        <h3 class='one-line-ellipsis'><?php echo $person['person_name']; ?></h3>
+                        <h4 class='one-line-ellipsis'><?php echo $person['person_intro']; ?></h4>
+                    </a>
+                </li>
+            <?php endforeach ?>
+        </ul>
+    </div>
+    <?php
+}
+
+
+//.......................................................................................................
+// AJAX calls for updating the Inspirama Books Carousel to the selected category
 //.......................................................................................................
 
 add_action( 'wp_ajax_inspirama_get_books_carousel', 'inspirama_get_books_carousel' );
@@ -239,14 +263,5 @@ function inspirama_get_books_carousel() {
     
     wp_send_json( $response );
 }
-
-
-
-
-
-
-
-
-
 
 ?>
