@@ -45,11 +45,17 @@ function inspirama_enqueue_styles() {
     wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css' );
     wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array( $parent_style ), $themeVersion );
 
-    // Enqueues Inspirama fonts
     wp_enqueue_style( 'inspirama_fonts', "https://fonts.googleapis.com/css?family=Roboto+Slab|Source+Sans+Pro|Gidugu|Oswald|Raleway|Lato" );
+    wp_enqueue_style( 'inspirama_social_media_style', get_stylesheet_directory_uri() . '/css/social_media.css', array( 'child-style' ), $themeVersion );
 
-    // Enqueues css for Inspirama carousels
-    wp_enqueue_style( 'carousels-style', get_stylesheet_directory_uri() . '/css/carousels.css', array( 'child-style' ), $themeVersion );
+    if( is_front_page() ){
+        wp_enqueue_style( 'inspirama_carousels_style', get_stylesheet_directory_uri() . '/css/carousels.css', array( 'child-style' ), $themeVersion );
+        wp_enqueue_style( 'inspirama_typed_style', get_stylesheet_directory_uri() . '/css/typed.css', array( 'child-style' ), $themeVersion );
+    }
+    
+    if( is_singular('person') ){
+        wp_enqueue_style( 'inspirama_previewer_style', get_stylesheet_directory_uri() . '/css/previewer.css', array( 'child-style' ), $themeVersion );
+    }
 }
 
 add_action( 'wp_enqueue_scripts', 'inspirama_enqueue_styles' );
