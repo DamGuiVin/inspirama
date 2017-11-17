@@ -69,7 +69,7 @@ $args = array(
 );
 
 // Book Recommendations : Sending the WP_Query
-$wp_query = new WP_Query( $args );
+$recommendations_query = new WP_Query( $args );
 
 
 
@@ -84,7 +84,7 @@ $wp_query = new WP_Query( $args );
 
             <div class="col-md-3 img-responsive center-block">
                 <?php if ( has_post_thumbnail() ) {
-                    the_post_thumbnail( array(800,6400) );
+                    the_post_thumbnail();
                 } ?>
 
                 <!-- Affiliation Section -->  
@@ -171,7 +171,7 @@ $wp_query = new WP_Query( $args );
                 <!-- End Book Details Section --> 
 
                 <!-- Book Recommendations Section --> 
-                <?php if ( $wp_query->have_posts() ) : ?>
+                <?php if ( $recommendations_query->have_posts() ) : ?>
 
                     <div class = "book-page-recommendations">
 
@@ -185,10 +185,10 @@ $wp_query = new WP_Query( $args );
                             // The iterator will let us keep track of at which Book in the Recommendation array we are
                             $iterator = 0;
 
-                            while ( $wp_query->have_posts() ) : $wp_query->the_post();
+                            while ( $recommendations_query->have_posts() ) : $recommendations_query->the_post();
 
                                 // Recover useful attributes from the Person
-                                $person_page_id = $wp_query->post->ID;
+                                $person_page_id = $recommendations_query->post->ID;
                                 $person_name = get_the_title();
                                 $person_introduction = get_post_meta( $person_page_id, 'introduction', true);
 

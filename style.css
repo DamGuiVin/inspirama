@@ -315,7 +315,6 @@ input.inspirama-round-button:focus {
 /* Image de portfolio */
 .img-adapt {
 	padding:0;
-    border-radius: 60px;
 }
 
 @media screen and ( min-width: 768px ) {
