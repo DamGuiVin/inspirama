@@ -45,7 +45,7 @@ function inspirama_enqueue_styles() {
     wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css' );
     wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array( $parent_style ), $themeVersion );
 
-    wp_enqueue_style( 'inspirama_fonts', "https://fonts.googleapis.com/css?family=Roboto+Slab|Source+Sans+Pro|Gidugu|Oswald|Raleway|Lato" );
+    wp_enqueue_style( 'inspirama_fonts', "https://fonts.googleapis.com/css?family=Amatic+SC|Arvo|Boogaloo|Cabin+Sketch|Crimson+Text|Kalam|Roboto+Condensed|Vidaloka" );
     wp_enqueue_style( 'inspirama_social_media_style', get_stylesheet_directory_uri() . '/css/social_media.css', array( 'child-style' ), $themeVersion );
 
     if( is_front_page() ){
