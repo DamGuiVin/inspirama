@@ -55,8 +55,10 @@
 
     <!-- Google Suite Tracking Code for www.inspirama.co -->
     <meta name="google-site-verification" content="Vzc8nFFP9VcKYdqrlRngLMUmP2shcv7z52S7uL0TUbc" />  
-
-    <link rel="alternate" href="https://www.inspirama.co<?php echo parse_url($_SERVER[‘REQUEST_URI’],PHP_URL_PATH); ?>" hreflang="fr" />
+    
+    <?php $current_permalink = get_the_permalink();
+    if( is_category() ) { $current_permalink = get_term_link( get_queried_object() ); } ?>
+    <link rel="alternate" href="<?php echo $current_permalink; ?>" hreflang="fr-fr" />
     
     <link rel="profile" href="http://gmpg.org/xfn/11">
 
@@ -77,15 +79,16 @@
 
 
 
-<body <?php body_class(); ?>>
-<div class="page-wrapper" data-scroll-speed="500">   
+<body <?php body_class(); ?>>  
 
 
+<div class="page-wrapper" data-scroll-speed="500"> 
 
-
-
-
-
+    <!-- Include Parallax element when appropriate -->
+    <?php if( is_front_page() ) : 
+        $background_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full-size' )[0]; ?>
+        <div class="parallax" style="background-image: url(<?php echo $background_image; ?>);"></div>
+    <?php endif ?>
 
 
     <!-- Navigation Bar -->
@@ -110,7 +113,7 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <?php if ( has_nav_menu('primary_menu') ) {
                     wp_nav_menu( array(
-                        'container' =>false,
+                        'container' => false,
                         'theme_location' => 'primary_menu',
                         'menu_class' => 'nav navbar-nav',
                         'echo' => true,
@@ -124,14 +127,6 @@
                 } ?>        
 
                 <ul class="nav navbar-nav navbar-right" id="myNavbar"> 
-
-                    <!--Beginning Search -->
-                    <li>           
-                        <div class="search-form-menu">
-                            <?php get_search_form(); ?> 
-                        </div> 
-                    </li>
-                    <!--End search -->
                     
                     <!--Beginning A propos -->
                     <li id="navigation-about">

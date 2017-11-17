@@ -219,10 +219,10 @@ if ( $wp_query ) :
                                 </div>
 
                                 <!--  Book Details -->
-                                <div class="portfolio-book-subtitle-title">
+                                <div class="portfolio-book-subtitle-title one-line-ellipsis">
                                     <?php echo $book_title; ?>
                                 </div>
-                                <div class="portfolio-book-subtitle-author">
+                                <div class="portfolio-book-subtitle-author one-line-ellipsis">
                                     <?php if( $book_author != ' ') : ?>
                                         de<?php echo ' ' . $book_author; ?>
                                     <?php endif; ?>

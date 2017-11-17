@@ -1,17 +1,6 @@
-<?php
+<form method="get" class="inspirama-open-search" action="<?php echo esc_url(home_url('/')); ?>" >
 
-$form = '<form method="get" class="search-form-menu" action="' . esc_url(home_url('/')) . '">
+	<input type="text" class="inspirama-round-button" name="s" placeholder="<?php echo esc_attr_x('Chercher une personne, un livre...', 'Site search', 'oren' ); ?>" value="<?php echo get_search_query(); ?>" />
+	<input type="image" class="inspirama-round-button" name="s" src="<?php echo get_stylesheet_directory_uri() . '/img/search.png'; ?>" />
 
-<div class="search-form-inline-container">
-	<input class="search-form glowing-border" type="text" name="s" placeholder="' . esc_attr_x('Rechercher', 'Site search', 'oren' ) . '" value="' . get_search_query() . '"  />
-</div>
-
-<div class="search-form-inline-container">
-	<input class="search-icon" type="image" src="' . get_stylesheet_directory_uri() . '/img/search.png' . '" height="25" width="25" name="s"/>
-</div>
-
-</form>';
-
-echo $form;
-
-?>
+</form>

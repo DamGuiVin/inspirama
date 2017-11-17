@@ -6,25 +6,8 @@ Description: WP adaptation
 */
 
 
-
 /* Global Classes
 -------------------------------------------------------------- */
-
-:root {
-    --font_2: 'Amatic SC', cursive;
-    --font_1: 'Roboto Condensed', sans-serif;
-    /*
-    'Roboto Condensed', sans-serif;
-    'Crimson Text', serif;
-    'Vidaloka', serif;
-    'Arvo', serif;
-    'Kalam', cursive;
-    'Boogaloo', cursive;
-    'Cabin Sketch', cursive;
-    'Amatic SC', cursive;
-    */
-}
-
 
 a,
 a:visited, 
@@ -35,35 +18,42 @@ a:hover {
     text-decoration: none ! important;
 }
 
-
 ul {
     list-style-type: none;
 }
 
-
 blockquote.quote {
-    background: #f9f9f9;
     border-left: 0;
-    border-radius: 10px;
-    margin: 1.5em 0;
-    padding: 0.5em 10px;
+    margin: 0;
+    padding: 0;
     quotes: "\201C""\201D""\2018""\2019";
+    text-align: justify;
 }
+
 blockquote.quote:before {
     color: #ccc;
     content: open-quote;
-    font-size: 4em;
+    font-size: 3.5em;
+    font-weight: bold;
     line-height: 0.1em;
-    margin-right: 0.3em;
+    margin-right: 0.2em;
     vertical-align: -0.4em;
     left: 0px;
     position: relative;
 }
-blockquote.quote p,
-blockquote.quote h2 {
-    margin: 10px 2em;
+
+blockquote.quote:after {
+  content: close-quote;
+  visibility:hidden; 
+  /* to hide closing quote – don’t use display:none here,
+    because that would mean close-quote is absent again */
 }
 
+.one-line-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 /* Turn on a 12x12 scrollbar */
 ::-webkit-scrollbar {
@@ -86,62 +76,102 @@ blockquote.quote h2 {
 
 
 
-/* Social Media Buttons
+/* Global Variables
+-------------------------------------------------------------- */
+:root {
+    --recommendation_font_size: 0.7em;
+    --recommendation_line_height: 1.2;
+    --recommendation_lines_to_show: 3;
+    --font_2: 'Amatic SC', cursive;
+    --font_1: 'Roboto Condensed', sans-serif;
+    /*
+    'Roboto Condensed', sans-serif;
+    'Crimson Text', serif;
+    'Vidaloka', serif;
+    'Arvo', serif;
+    'Kalam', cursive;
+    'Boogaloo', cursive;
+    'Cabin Sketch', cursive;
+    'Amatic SC', cursive;
+    */
+}
+
+@media screen and (max-width: 768px) {
+    :root {
+        --recommendation_lines_to_show: 5;
+    }
+} 
+
+
+
+/* Inspirama buttons and other active elements styling
 -------------------------------------------------------------- */
 
-.social-media-container {
-    margin-right: auto;
-    margin-left: auto;
+.inspirama-round-button,
+input.inspirama-round-button,
+button.inspirama-round-button {
+    border-radius: 3vh;
+    background: rgba(254, 255, 244, 0.95);
 }
 
-.social-media-icon {
-    padding: 2px;
-    position: relative;
-    right: 0px;
+.inspirama-round-button:focus,
+.inspirama-round-button:hover,
+.inspirama-round-button:active,
+input.inspirama-round-button:focus,
+input.inspirama-round-button:hover,
+input.inspirama-round-button:active,
+button.inspirama-round-button:focus,
+button.inspirama-round-button:hover,
+button.inspirama-round-button:active {
+    outline: 0 !important;
+    border: 1px solid #3555b7;
 }
 
-.social-media-icon:hover {
-    animation : social-media-animation 0.3s;
-    animation-fill-mode : forwards;
-
-    -webkit-animation : social-media-animation 0.3s;
-    -webkit-animation-fill-mode : forwards;
-
-    -moz-animation : social-media-animation 0.3s;
-    -moz-animation-fill-mode : forwards;
+input.inspirama-round-button:active,
+input.inspirama-round-button:focus {
+    -webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+    box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
 }
 
-@keyframes social-media-animation {
-    from {
-        top: 0px;
-        opacity: 1;
-    } 
-    to {
-        top: -7px;
-        opacity: 0.5;
-    }
+
+
+/* Inspirama Searchform
+-------------------------------------------------------------- */
+
+.inspirama-open-search input {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    height: 5vh;
 }
 
-@-webkit-keyframes social-media-animation {
-    from {
-        top: 0px;
-        opacity: 1;
-    } 
-    to {
-        top: -7px;
-        opacity: 0.5;
-    }
+.inspirama-open-search input[type=text] {
+    width: calc(100% - 6vh);
+    max-width: none;
+    font-size: 0.9em;
 }
 
-@-moz-keyframes social-media-animation {
-    from {
-        top: 0px;
-        opacity: 1;
-    } 
-    to {
-        top: -7px;
-        opacity: 0.5;
-    }
+.inspirama-open-search input[type=image] {
+    padding: 1vh;
+}
+
+/* Search Placeholders (text inviting to type in the field) */
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:     #1f1a14;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #1f1a14;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #1f1a14;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #1f1a14;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color:    #1f1a14;
 }
 
 
@@ -160,24 +190,27 @@ blockquote.quote h2 {
 
 
 
-/* Home Page Template template-home.php
--------------------------------------------------------------- */
+/* Homepage Template template-home.php
+-------------------------------------------------------------- *
 
-/* Bannière*/
-header .full-width-container {
-    background-size: cover;
+/* Homepage parallax background */
+.parallax {
+    position: fixed;
+    z-index: -10;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center; 
+    background-size: cover; 
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
-#bg {
-    background: linear-gradient(45deg,rgba(250,250,250,0.8),rgba(250,250,250,1));
-    border-radius: 6vw;
-    margin-left: auto;
-    margin-right: auto;
-	width: 80%;
-    padding-left: 2vw;
-    padding-right: 2vw;
+/* Homepage opensearch container */
+.homepage-open-search {
+    height: 5vh;
+    margin: 3vh 0;
 }
-
 
 /* Texte qui apparait sur les images de portfolio*/
 .portfolio-link .portfolio-details {
@@ -292,6 +325,7 @@ header .full-width-container {
 
     -webkit-animation: person-animation 0.5s;
     -webkit-animation-fill-mode: forwards;
+    -webkit-transform-style: preserve-3d;
 
     -moz-animation: person-animation 0.5s;
     -moz-animation-fill-mode: forwards;
@@ -413,11 +447,7 @@ footer.container{
     }
 }
 
-@media (max-width: 768px) {
-
-    footer.full-width-container {
-    }
-    
+@media (max-width: 768px) {    
     .fat-footer{
         min-height: 440px;
     }
@@ -433,15 +463,10 @@ h5 {
 /* Header & Banner on Pages
 -------------------------------------------------------------- */
 
-/* Titre principal NB: impossible de modifier la couleur par css : elle est modifiable via le customizer dans le back office*/
-header.welcome-screen h1 {
-    font-size: 2.9vw;
-    font-family: 'Oswald';
-}
-
-/* Welcome banner : make the height 90% of the screen to leave space for the above Navigation bar */
+/* Welcome banner */
 header.full-width-container-home {
-    height: 95vh;
+    background: none; 
+    height: 15vh;
     margin-top: 50px;
     padding: 0;
 }
@@ -470,21 +495,14 @@ header.full-width-container-category.welcome-screen h1.category-title {
 
 /* Container of the welcome message */
 .welcome-container-home {
-    padding-top: 12%;
+    padding-top: 5%;
 }
 
 /* Jumping icon to go to the portfolio of people on homepage and category pages */
 .scroll-down {
-    opacity: 1;
-    -webkit-transition: all .5s ease-in 3s;
-    transition: all .5s ease-in 3s;
-}
-
-.scroll-down {
     position: absolute;
-    bottom: 30px;
-    left: 50%;
-    margin-left: -16px;
+    bottom: 100px;
+    left: calc(50% - 30px);
     display: block;
     width: 60px;
     height: 60px;
@@ -502,6 +520,8 @@ header.full-width-container-category.welcome-screen h1.category-title {
     position: absolute;
     top: calc(50% - 12px);
     left: calc(50% - 9px);
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
     transform: rotate(-45deg);
     display: block;
     width: 18px;
@@ -594,79 +614,19 @@ ul#myNavbar.navbar-right {
     }
 }
 
-
-/* Searchform
--------------------------------------------------------------- */
-
-#myNavbar.navbar-collapse.collapse.in div.search-form-menu {
-    width: 250px;
-    height: 40px;
-    padding: 10px;
-    margin-top: -30px;
-    margin-bottom: 10px;
-}
-
-form.search-form-menu{
-    display: inline-block;
-    height: 30px;
-    padding-top: 10px;
-    margin: 0;
-    width: 190px;
-}
-
-.search-form-inline-container {
-    display: inline-block;
-    height: 30px;
-    vertical-align: top;
-}
-
-input.search-form {
-    width: 160px;
-    height: 30px;
-}
-
-input.search-icon{
-    display: inline-block;
-    margin-top: 3px;
-}
-
-input[type="text"] {
-    margin: 0;
-    padding: 0;
-    text-indent: 10px;
-    color: black;
-    border: 2px solid #77B8C1;
-    border-radius: 20px;
-}
-
-input[type="text"]:focus { 
-    outline: none;
-    border-color: #77B8C1;
-    box-shadow: 0 0 5px #77B8C1;
-    vertical-align: top;
-}
-
-/* Search Placeholders (text inviting to type in the field) */
-::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color:     #1f1a14;
-}
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color:    #1f1a14;
-   opacity:  1;
-}
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color:    #1f1a14;
-   opacity:  1;
-}
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color:    #1f1a14;
-}
-::-ms-input-placeholder { /* Microsoft Edge */
-   color:    #1f1a14;
-}
-
 .search-no-results .search-form {
     margin: 0;
+}
+
+
+
+/* 404
+-------------------------------------------------------------- */
+
+.error404 .search-form {
+    max-width: 200px;
+    position: relative;
+    margin: 0px auto;
 }
 
 
@@ -844,9 +804,6 @@ input[type="text"]:focus {
     padding-left: 5%;
     padding-right: 5%;
     font-family: 'Source Sans Pro', sans-serif;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .portfolio-book-subtitle-author {
@@ -860,9 +817,6 @@ input[type="text"]:focus {
     padding-right: 5%;
     margin-bottom: 5px;
     font-family: 'Source Sans Pro', sans-serif;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;  
 }
 
 .portfolio-book-details .portfolio-book-more h2 {
@@ -930,155 +884,6 @@ input[type="text"]:focus {
 
     .portfolio-book-subtitle-author {
         display: none;
-    }
-}
-
-
-
-/* Person Page : Book Preview;
--------------------------------------------------------------- */
-
-/* The container for the whole Preview */
-.book-preview {
-    clear: both;
-    padding: 3em;
-    background: #F6F4E0;
-    color:black;
-    position: relative;
-    overflow: auto;
-    display: none;
-    height: 450px;
-    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 10px 0 rgba(0, 0, 0, 0.25) inset;
-}
-
-/* The closing cross on the Preview */
-.book-preview-close {
-    position: absolute;
-    z-index: 10;
-    top: 1em;
-    right: 1em;
-    width: 30px;
-    height: 30px;
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2Fy ZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAA AAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5U Y3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6 eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8w Mi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRw Oi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpE ZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRv YmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNv bS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20v eGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRv YmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0i eG1wLmlpZDpCNDg5MkEwM0ZEM0MxMUUzOTAyNDlCRDA2MTgzMjhENCIgeG1wTU06 RG9jdW1lbnRJRD0ieG1wLmRpZDpCNDg5MkEwNEZEM0MxMUUzOTAyNDlCRDA2MTgz MjhENCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAu aWlkOkI0ODkyQTAxRkQzQzExRTM5MDI0OUJEMDYxODMyOEQ0IiBzdFJlZjpkb2N1 bWVudElEPSJ4bXAuZGlkOkI0ODkyQTAyRkQzQzExRTM5MDI0OUJEMDYxODMyOEQ0 Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8 P3hwYWNrZXQgZW5kPSJyIj8+8NlNEgAAAVBJREFUeNrs29EOgiAUgOHoLeC5Mq17 3/+2DTeSOmvWFFSoYf5nO2tuTTwfYEKlnHOHPcfxsPMAAAAAAAAAAAAAAAAAAAAA AAAAAAAgJZRS/kX32fZp/PE30p9b2tByvD78nmDG1H3e3DNsn9fcPebPKed20pZO uebcAK17jy4nghTffbTRlgRgBr0zRLhkKP4yUryVNssACPRSEsJE8a/RVRRABKFZ UXwTKr5IgEiv1QuKr+eMpiIBUhHmFl80QGQInwPFn5dMoaIBAr1pxxCkeLtk1BQP EEGoBu+plha/GYBA7/rjk6SdM0o2CxBBWFX85gACQ31yavwdgFz0aQLhMSV+taDb /X4AU4CbIB+DPAjxKMxiiOUwGyJsibEpyrY4X4zw1Vime4CWXjFfXMAZaUOn3gMU f5jg9wEAAAAAAAAAAAAAAAAAAAD7i7sAAwB/21/1MhzmOwAAAABJRU5ErkJggg=='
-    );
-    background-size: 30px 30px;
-    background-repeat: no-repeat;
-}
-
-/* The image container in the Preview */
-.book-preview-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 33%;
-    margin: 0;
-    padding: 10px;
-    border-right: 1px dotted black;
-    text-align: center;
-}
-
-.book-preview-content h2 {
-    margin-top: 10px;
-    font-size: 1.5em;
-}
-
-.book-preview-content h4 {
-    margin: 5px;
-    font-size: 1em;
-}
-
-/* The image inside the .image figure */
-.image img {
-    position: relative;
-    display: block;
-    height: 250px;
-    margin: 10px;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.book-preview-affiliation {
-    margin: 10px;
-}
-
-.book-preview-affiliation h3 {
-    font-size: 1.3em;
-}
-
-/* The description container in the Preview */
-.book-preview-desc {
-    position: absolute;
-    top: 0;
-    left: 33%;
-    width: 67%;
-    padding: 1.5em;
-}
-
-.book-preview-desc h3 {
-    font-size: 1.3em;
-    padding-bottom: 2px;
-    border-bottom: 1px solid black;
-    margin-bottom: 0.3em;
-}
-
-.book-preview-recommendation {
-    padding: 0.5em;
-    text-align: justify;
-}
-
-.book-preview-recommendation blockquote {
-    font-size: 1em;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    line-height: 1.5em
-}
-
-.book-preview-sources {
-    padding: 0.5em;
-}
-
-.book-preview-invitation {
-    background-color: #77B8C1;
-    border: 2px solid #77B8C1;
-    border-radius: 30px;
-    text-align: center;
-    padding: 10px;
-    margin: 5%;
-    margin-right: 20%;
-    margin-left: 20%;
-
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 1em;
-    color: white;
-    text-decoration: none;
-    text-decoration: bold;
-    color: white;
-    margin: 15px;
-}
-
-.book-preview-invitation:hover {
-    box-shadow: 0 0 10px #77B8C1;
-}
-
-@media (max-width: 768px) {
-    .book-preview-desc {
-        top: 0;
-        left: 0;
-        width: 100%;
-        margin: 0;
-        padding: 10px;
-        text-align: center;
-    }
-
-    .book-preview {
-        height: 360px;
-    }
-
-    .book-preview-affiliation,
-    .book-preview-desc-smartphone {
-        width: 80%;
-        margin-right: auto;
-        margin-left: auto;
     }
 }
 
@@ -1263,33 +1068,6 @@ input[type="submit"]:hover {
 
 
 
-/* Animated cursor for text animation typed.js
--------------------------------------------------------------- */
-
-.typed-cursor{
-    opacity: 1;
-    -webkit-animation: blink 0.7s infinite;
-    -moz-animation: blink 0.7s infinite;
-    animation: blink 0.7s infinite;
-}
-@keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
-}
-@-webkit-keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
-}
-@-moz-keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
-}
-
-
-
 /* Search Search.php
 -------------------------------------------------------------- */
 
@@ -1340,15 +1118,5 @@ input[type="submit"]:hover {
     }
 }
 
-
-
-/* 404
--------------------------------------------------------------- */
-
-.error404 .search-form {
-    max-width: 200px;
-    position: relative;
-    margin: 0px auto;
-}
 
 
