@@ -35,6 +35,15 @@ get_header();
 
 </header>
 
+<!-- Open text search bar -->
+<div class="container-fluid homepage-open-search">
+    <div class="row">
+        <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3">
+            <?php get_search_form(); ?>
+        </div>
+    </div>
+</div>
+
 
 
 <?php 

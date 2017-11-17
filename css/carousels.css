@@ -19,21 +19,7 @@ Inspirama Carousel
     display: inline-block;
 }
 
-.inspirama-carousel-dropdown .btn {
-    background: rgba(254, 255, 244, 1);
-    border-radius: 2vw;
-}
-
-.inspirama-carousel-dropdown .btn:active {
-    outline: 0 !important;
-}
-
-.inspirama-carousel-dropdown .btn:hover,
-.inspirama-carousel-dropdown .btn:focus {
-    border-color: #3555b7;
-}
-
-.inspirama-carousel-dropdown .btn .caret {
+.inspirama-carousel-dropdown .caret {
     margin-left: 4px;
 }
 

@@ -18,7 +18,6 @@ a:hover {
     text-decoration: none ! important;
 }
 
-
 blockquote.quote {
     border-left: 0;
     margin: 0;
@@ -51,7 +50,6 @@ blockquote.quote:after {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
 
 /* Turn on a 12x12 scrollbar */
 ::-webkit-scrollbar {
@@ -89,6 +87,79 @@ blockquote.quote:after {
 } 
 
 
+
+/* Inspirama buttons and other active elements styling
+-------------------------------------------------------------- */
+
+.inspirama-round-button,
+input.inspirama-round-button,
+button.inspirama-round-button {
+    border-radius: 3vh;
+    background: rgba(254, 255, 244, 0.95);
+}
+
+.inspirama-round-button:focus,
+.inspirama-round-button:hover,
+.inspirama-round-button:active,
+input.inspirama-round-button:focus,
+input.inspirama-round-button:hover,
+input.inspirama-round-button:active,
+button.inspirama-round-button:focus,
+button.inspirama-round-button:hover,
+button.inspirama-round-button:active {
+    outline: 0 !important;
+    border: 1px solid #3555b7;
+}
+
+input.inspirama-round-button:active,
+input.inspirama-round-button:focus {
+    -webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+    box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+}
+
+
+
+/* Inspirama Searchform
+-------------------------------------------------------------- */
+
+.inspirama-open-search input {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    height: 5vh;
+}
+
+.inspirama-open-search input[type=text] {
+    width: calc(100% - 6vh);
+    max-width: none;
+    font-size: 0.9em;
+}
+
+.inspirama-open-search input[type=image] {
+    padding: 1vh;
+}
+
+/* Search Placeholders (text inviting to type in the field) */
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:     #1f1a14;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #1f1a14;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #1f1a14;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #1f1a14;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color:    #1f1a14;
+}
+
+
+
 /* Default Page Template
 -------------------------------------------------------------- */
 
@@ -117,6 +188,12 @@ blockquote.quote:after {
     background-size: cover; 
     background-attachment: fixed;
     background-repeat: no-repeat;
+}
+
+/* Homepage opensearch container */
+.homepage-open-search {
+    height: 5vh;
+    margin: 3vh 0;
 }
 
 /* Texte qui apparait sur les images de portfolio*/
@@ -376,7 +453,7 @@ h5 {
 /* Welcome banner */
 header.full-width-container-home {
     background: none; 
-    height: 20vh;
+    height: 15vh;
     margin-top: 50px;
     padding: 0;
 }
@@ -524,79 +601,19 @@ ul#myNavbar.navbar-right {
     }
 }
 
-
-/* Searchform
--------------------------------------------------------------- */
-
-#myNavbar.navbar-collapse.collapse.in div.search-form-menu {
-    width: 250px;
-    height: 40px;
-    padding: 10px;
-    margin-top: -30px;
-    margin-bottom: 10px;
-}
-
-form.search-form-menu{
-    display: inline-block;
-    height: 30px;
-    padding-top: 10px;
-    margin: 0;
-    width: 190px;
-}
-
-.search-form-inline-container {
-    display: inline-block;
-    height: 30px;
-    vertical-align: top;
-}
-
-input.search-form {
-    width: 160px;
-    height: 30px;
-}
-
-input.search-icon{
-    display: inline-block;
-    margin-top: 3px;
-}
-
-input[type="text"] {
-    margin: 0;
-    padding: 0;
-    text-indent: 10px;
-    color: black;
-    border: 2px solid #77B8C1;
-    border-radius: 20px;
-}
-
-input[type="text"]:focus { 
-    outline: none;
-    border-color: #77B8C1;
-    box-shadow: 0 0 5px #77B8C1;
-    vertical-align: top;
-}
-
-/* Search Placeholders (text inviting to type in the field) */
-::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color:     #1f1a14;
-}
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color:    #1f1a14;
-   opacity:  1;
-}
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color:    #1f1a14;
-   opacity:  1;
-}
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color:    #1f1a14;
-}
-::-ms-input-placeholder { /* Microsoft Edge */
-   color:    #1f1a14;
-}
-
 .search-no-results .search-form {
     margin: 0;
+}
+
+
+
+/* 404
+-------------------------------------------------------------- */
+
+.error404 .search-form {
+    max-width: 200px;
+    position: relative;
+    margin: 0px auto;
 }
 
 
@@ -1079,15 +1096,5 @@ input[type="submit"]:hover {
     }
 }
 
-
-
-/* 404
--------------------------------------------------------------- */
-
-.error404 .search-form {
-    max-width: 200px;
-    position: relative;
-    margin: 0px auto;
-}
 
 

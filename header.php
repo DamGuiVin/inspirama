@@ -84,6 +84,7 @@
 
 <div class="page-wrapper" data-scroll-speed="500"> 
 
+    <!-- Include Parallax element when appropriate -->
     <?php if( is_front_page() ) : 
         $background_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full-size' )[0]; ?>
         <div class="parallax" style="background-image: url(<?php echo $background_image; ?>);"></div>
@@ -112,7 +113,7 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <?php if ( has_nav_menu('primary_menu') ) {
                     wp_nav_menu( array(
-                        'container' =>false,
+                        'container' => false,
                         'theme_location' => 'primary_menu',
                         'menu_class' => 'nav navbar-nav',
                         'echo' => true,
@@ -126,14 +127,6 @@
                 } ?>        
 
                 <ul class="nav navbar-nav navbar-right" id="myNavbar"> 
-
-                    <!--Beginning Search -->
-                    <li>           
-                        <div class="search-form-menu">
-                            <?php get_search_form(); ?> 
-                        </div> 
-                    </li>
-                    <!--End search -->
                     
                     <!--Beginning A propos -->
                     <li id="navigation-about">

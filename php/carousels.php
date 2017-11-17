@@ -39,7 +39,7 @@ function inspirama_dropdown( $dropdown_elements, $wrapper_name ) {
 		?>
 
 		<div id="<?php echo $dropdown_name; ?>" class="dropdown inspirama-carousel-dropdown">
-	        <button class="btn btn-basic dropdown-toggle" type="button" data-toggle="dropdown">
+	        <button class="btn btn-basic dropdown-toggle inspirama-round-button" type="button" data-toggle="dropdown">
 	            ______<span class="caret"></span>
 	        </button>
 	        <ul class="dropdown-menu">
