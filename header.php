@@ -88,6 +88,17 @@
     <?php if( is_front_page() ) : 
         $background_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full-size' )[0]; ?>
         <div class="parallax" style="background-image: url(<?php echo $background_image; ?>);"></div>
+    <?php elseif( is_singular('book') ) :
+        $background_image = get_stylesheet_directory_uri() . '/img/backgrounds/coffee.jpg' ;
+        /*
+        paper.png
+        wood.jpg
+        forest.jpg
+        space.jpg
+        coffee.jpg
+        planks.jpg
+        */ ?>
+        <div class="parallax" style="background-image: url(<?php echo $background_image; ?>);"></div>
     <?php endif ?>
 
 

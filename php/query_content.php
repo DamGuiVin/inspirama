@@ -270,4 +270,34 @@ function get_top_people( $people_per_batch = 4, $num_batches = 3 ) {
     return $top_people;
 }
 
+
+//.......................................................................................................
+// Book page : Recover the affiliation information for a book
+//.......................................................................................................
+
+function get_affiliation_data( $book_page_id ) {
+
+    $affiliation_data = array();
+
+    // Affiliates URLs
+    $affiliation_data[ 'leslibraires_url' ] = get_post_meta( $book_page_id, 'leslibraires_url', true );
+    $affiliation_data[ 'amazon_url'] = get_post_meta( $book_page_id, 'amazon_url', true );
+    $affiliation_data[ 'fnac_url' ] = get_post_meta( $book_page_id, 'fnac_url', true );
+    $affiliation_data[ 'priceminister_url' ] = get_post_meta( $book_page_id, 'priceminister_url', true );
+    $affiliation_data[ 'recyclivre_url' ] = get_post_meta( $book_page_id, 'recyclivre_url', true );
+    $affiliation_data[ 'ebook_url' ] = get_post_meta( $book_page_id, 'ebook_url', true );
+    $affiliation_data[ 'gutenberg_url' ] = get_post_meta( $book_page_id, 'gutenberg_url', true );
+
+    // Affiliates Logos
+    $affiliation_data[ 'les_libraires_logo' ] = get_stylesheet_directory_uri() . '/img/les_libraires.png' ;
+    $affiliation_data[ 'amazon_logo' ] = get_stylesheet_directory_uri() . '/img/amazon.png' ;
+    $affiliation_data[ 'fnac_logo' ] = get_stylesheet_directory_uri() . '/img/fnac.png' ;
+    $affiliation_data[ 'priceminister_logo' ] = get_stylesheet_directory_uri() . '/img/priceminister.png' ;
+    $affiliation_data[ 'recyclivre_logo' ] = get_stylesheet_directory_uri() . '/img/recyclivre.png' ;
+    $affiliation_data[ 'ebooks_logo' ] = get_stylesheet_directory_uri() . '/img/ebooks.png' ;
+    $affiliation_data[ 'gutenberg_logo' ] = get_stylesheet_directory_uri() . '/img/gutenberg.png' ;
+
+    return $affiliation_data;
+}
+
 ?>

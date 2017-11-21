@@ -20,7 +20,7 @@ Description: WP adaptation
     --color_yellow: #FFEA77;
     --color_black: #1c1c1c;
 
-    --font_original: 'Crimson Text', serif;
+    --font_original: 'Arvo', serif;
     --font_base: 'Roboto Condensed', sans-serif;
     /*
     'Roboto Condensed', sans-serif;
@@ -212,6 +212,7 @@ input.inspirama-round-button:focus {
     background-size: cover; 
     background-attachment: fixed;
     background-repeat: no-repeat;
+    filter: brightness(0.75);
 }
 
 /* Homepage opensearch container */
@@ -492,12 +493,6 @@ header.full-width-container-category.welcome-screen h1.category-title {
     text-align: center;
     margin: 0;
     font-size: 2em;
-}
-
-.full-width-container-book {
-    padding: 0;
-    padding-top: 3%;
-    margin-top: 50px;
 }
 
 /* Container of the welcome message */
@@ -899,107 +894,158 @@ ul#myNavbar.navbar-right {
 /* Book Page
 -------------------------------------------------------------- */
 
-.book-page-title {
-    padding-top: 0;
-    margin-top: 0;
-    font-family: var(--font_original);
+.book-page {
+    margin-top: 50px;
+    color: var( --color_white );
+}
+
+.book-page > .row {
+    margin: 10vh 0;
+}
+
+.book-page header {
+    text-align: left;
+    height: 100%
+}
+
+.book-page h1, 
+.book-page h2,
+.book-page h3, 
+.book-page h4 {
+    font-family: var( --font_original );
+}
+
+.book-page h1 {
     font-size: 2.4em;
-    line-height: 120%;
+    margin-top: 5vh;
 }
 
-.book-page-author {
-    padding-top: 0;
-    margin-top: 0;
-    font-family: var(--font_original);
+.book-page h2 {
     font-size: 1.8em;
-    line-height: 120%;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--color_yellow);
 }
 
-.book-page-details {
-    padding-top: 20px;
-    margin-top: 0;
-    font-family: var(--font_original);
+.book-page ul{
+    padding: 0
+}
+
+.book-info {
+    font-family: var( --font_original );
     font-size: 1.2em;
-    line-height: 120%;
+    margin: 20px 0;
 }
 
-.book-page-affiliation {
+.book-cover img {
+    max-height: 65vh;
+}
+
+.book-page a {
+    color: var(--color_yellow);
+}
+
+.book-affiliation {
+    margin-top: 10px;
+    background-color: var(--color_black); 
+    border-radius: 6px;
     text-align: center;
-    margin-top: 50px;
-    background-color: #F6F4E0;
-    border: 2px solid #F6F4E0;
-    border-radius: 10px;
-    margin: 0;
-    margin-top: 50px;
-    font-family: var(--font_base);
-}
-
-.book-page-recommendations {
-    font-family: var(--font_original);
-}
-
-.book-page-recommendations-text {
-    padding : 10px;
-	text-align : justify;
-    font-family: var(--font_base);
-}
-
-.book-page-recommendations-person {
-    margin : 10px;
-}
-
-.book-page-recommendations-person .portfolio-link > .portfolio-details {
-    height: 150px;
+    font-size: 1.8em;
+    font-family: var( --font_original );
+    color: var( --color_white );
     width: 150px;
 }
 
-.book-page-recommendations-person .portfolio-link > .portfolio-details .details-person-name h2 {
-    font-size: 1.1em;
-    font-weight: bold;
+.book-affiliation:hover {
+    background-color: var(--color_yellow);
+    color: var( --color_black );
 }
 
-.book-page-recommendations-person .portfolio-link > .portfolio-details .details-person-introduction h4{
-    font-size: 0.7em;
+.book-affiliation img {
+    height: 50px; 
 }
 
-.book-page-recommendations-person .portfolio-link > .portfolio-details .details-person-invitation h4 {
-    font-size: 0.7em;
+li.book-recommendation {
+    margin: 20px;
 }
 
-.book-page-summary-title h2 {
-    font-family: var(--font_original);
-    margin:0;
+.book-recommendation h3,
+.book-recommendation h4 {
+    display: inline-block;
+    margin-bottom: 20px;
 }
 
-.book-page-recommendation-summary {
-    padding : 10px;
-    padding-bottom: 40px;
-	text-align : justify;
+.book-recommendation h3 {
+    font-size: 1.5em;
+}
+
+.book-recommendation h4 {
+    font-size: 1em;
+}
+
+.book-recommendation-text {
     font-family: var(--font_base);
 }
 
-.full-width-container {
-    padding: 0;
-    margin : 0;
-    margin-top: 50px;
+.book-recommendation-text blockquote {
+    margin: 0;
+    padding: 5px 20px;
+    font-size: 1em;
+    font-style: italic;
+    line-height: 1.6;
 }
 
-@media screen and (max-width: 768px) {
-    .book-page-recommendations-person {
-        box-shadow: 0px 10px 25px 3px;
-    }
-
-    .book-page-recommendations-person .portfolio-link > .portfolio-details {
-        right: 0;
-        left: auto;
-        opacity: 1;
-        width: 50%;
-    }
-
-    .book-page-recommendations-person .portfolio-link > .portfolio-details .details-person-invitation {
-        box-shadow: 0 0 10px #77B8C1;
-    }
+.book-recommendation-sources {
+    font-family: var( --font_original );
+    margin-top: 10px;
 }
+
+.book-recommendation-sources li {
+    display: inline-block;
+}
+
+.book-recommendation img {
+    border-radius: 9vw;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
