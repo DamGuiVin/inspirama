@@ -125,26 +125,10 @@ $recommendations_query = new WP_Query( $args );
             
 
             <!-- Book Affiliation -->  
-            <?php get_book_affiliation( $book_page_id ); ?>
-            <!--
-            <div id="dropdown_name; ?>" class="dropdown inspirama-carousel-dropdown">
-                <button class="btn btn-basic dropdown-toggle inspirama-round-button" type="button" data-toggle="dropdown">
-                    Acheter<span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a target="_blank" href="<?php echo $book_amazon_url; ?>" title="Amazon">
-                            <img class="social-media-icon" src="<?php echo $book_amazon_logo; ?>" alt="" />
-                        </a>
-                    </li>
-                    <li>
-                        <a target="_blank" href="<?php echo $book_fnac_url; ?>" title="Amazon">
-                            <img class="social-media-icon" src="<?php echo $book_fnac_logo; ?>" alt="" />
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            -->
+            <?php get_affiliation_dropdown( $book_page_id ); ?>
+            
+            
+            
 
         </div>
 

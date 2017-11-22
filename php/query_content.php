@@ -279,23 +279,33 @@ function get_affiliation_data( $book_page_id ) {
 
     $affiliation_data = array();
 
-    // Affiliates URLs
-    $affiliation_data[ 'leslibraires_url' ] = get_post_meta( $book_page_id, 'leslibraires_url', true );
-    $affiliation_data[ 'amazon_url'] = get_post_meta( $book_page_id, 'amazon_url', true );
-    $affiliation_data[ 'fnac_url' ] = get_post_meta( $book_page_id, 'fnac_url', true );
-    $affiliation_data[ 'priceminister_url' ] = get_post_meta( $book_page_id, 'priceminister_url', true );
-    $affiliation_data[ 'recyclivre_url' ] = get_post_meta( $book_page_id, 'recyclivre_url', true );
-    $affiliation_data[ 'ebook_url' ] = get_post_meta( $book_page_id, 'ebook_url', true );
-    $affiliation_data[ 'gutenberg_url' ] = get_post_meta( $book_page_id, 'gutenberg_url', true );
+    $brands_slugs = array(
+        'leslibraires',
+        'amazon',
+        'fnac',
+        'priceminister',
+        'recyclivre',
+        'ebooks',
+        'gutenberg' );
 
-    // Affiliates Logos
-    $affiliation_data[ 'les_libraires_logo' ] = get_stylesheet_directory_uri() . '/img/les_libraires.png' ;
-    $affiliation_data[ 'amazon_logo' ] = get_stylesheet_directory_uri() . '/img/amazon.png' ;
-    $affiliation_data[ 'fnac_logo' ] = get_stylesheet_directory_uri() . '/img/fnac.png' ;
-    $affiliation_data[ 'priceminister_logo' ] = get_stylesheet_directory_uri() . '/img/priceminister.png' ;
-    $affiliation_data[ 'recyclivre_logo' ] = get_stylesheet_directory_uri() . '/img/recyclivre.png' ;
-    $affiliation_data[ 'ebooks_logo' ] = get_stylesheet_directory_uri() . '/img/ebooks.png' ;
-    $affiliation_data[ 'gutenberg_logo' ] = get_stylesheet_directory_uri() . '/img/gutenberg.png' ;
+    $brands_names = array(
+        'Les Libraires',
+        'Amazon',
+        'La Fnac',
+        'Price Minister',
+        'Recyclivre',
+        'eBooks',
+        'Gutenberg Project' );
+
+    foreach ( $brands_slugs as $i => $brand ) {
+
+        $url = get_post_meta( $book_page_id, $brand . '_url', true );
+        $logo = get_stylesheet_directory_uri() . '/img/' . $brand . '.png' ;
+
+        if ( $url ) {
+            array_push( $affiliation_data, array( $brands_names[$i], $url, $logo ) );
+        }
+    }
 
     return $affiliation_data;
 }

@@ -958,25 +958,51 @@ ul#myNavbar.navbar-right {
     max-height: 400px;
 }
 
-.book-affiliation {
-    margin-top: 10px;
+.inspirama-affiliation-dropdown .btn {
     background-color: var(--color_black); 
-    border-radius: 6px;
-    text-align: center;
-    font-size: 1.8em;
+    border-radius: 2vh;
     font-family: var( --font_original );
-    color: var( --color_white );
-    width: 150px;
+    color: var( --color_white ) !important;
+    font-size: 1.2em;
 }
 
-.book-affiliation:hover {
+.inspirama-affiliation-dropdown .btn:hover { 
+    border-color: var(--color_yellow);
     background-color: var(--color_yellow);
-    color: var( --color_black );
+    color: var( --color_black ) !important;
 }
 
-.book-affiliation img {
-    height: 50px; 
+.inspirama-affiliation-dropdown .btn:focus {
+    border-color: var(--color_black);
 }
+
+.inspirama-affiliation-dropdown .glyphicon {
+    margin-left: 5px;
+    font-size: 0.8em;
+}
+
+.inspirama-affiliation-dropdown .dropdown-menu {
+    background-color: var(--color_black);
+}
+
+.inspirama-affiliation-dropdown li {
+    display: inline-block;
+}
+
+.inspirama-affiliation-dropdown img {
+    height: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 li.book-recommendation {
     margin: 30px 0;

@@ -356,7 +356,7 @@ function display_book_meta_fields( $book_page ) {
     $book_fnac_url = esc_html( get_post_meta( $book_id, 'fnac_url', true ) );
     $book_priceminister_url = esc_html( get_post_meta( $book_id, 'priceminister_url', true ) );
     $book_recyclivre_url = esc_html( get_post_meta( $book_id, 'recyclivre_url', true ) );
-    $book_ebook_url = esc_html( get_post_meta( $book_id, 'ebook_url', true ) );
+    $book_ebooks_url = esc_html( get_post_meta( $book_id, 'ebooks_url', true ) );
     $book_gutenberg_url = esc_html( get_post_meta( $book_id, 'gutenberg_url', true ) );
 
     // HTML structure of the meta box
@@ -404,7 +404,7 @@ function display_book_meta_fields( $book_page ) {
         </tr>
         <tr>
             <td style="width: 100%">EBooks</td>
-            <td><input type="text" size="80" name="book_ebook_url" value="<?php echo $book_ebook_url; ?>" /></td>
+            <td><input type="text" size="80" name="book_ebooks_url" value="<?php echo $book_ebooks_url; ?>" /></td>
         </tr>
         <tr>
             <td style="width: 100%">Gutenberg Project</td>
@@ -455,8 +455,8 @@ function add_book_meta_fields( $book_id, $book_page ) {
         if ( isset( $_POST['book_recyclivre_url'] ) && $_POST['book_recyclivre_url'] != '' ) {
         update_post_meta( $book_id, 'recyclivre_url', $_POST['book_recyclivre_url'] );
         }
-        if ( isset( $_POST['book_ebook_url'] ) && $_POST['book_ebook_url'] != '' ) {
-        update_post_meta( $book_id, 'ebook_url', $_POST['book_ebook_url'] );
+        if ( isset( $_POST['book_ebooks_url'] ) && $_POST['book_ebooks_url'] != '' ) {
+        update_post_meta( $book_id, 'ebooks_url', $_POST['book_ebooks_url'] );
         }
         if ( isset( $_POST['book_gutenberg_url'] ) && $_POST['book_gutenberg_url'] != '' ) {
         update_post_meta( $book_id, 'gutenberg_url', $_POST['book_gutenberg_url'] );

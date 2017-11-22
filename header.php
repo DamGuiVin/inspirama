@@ -93,7 +93,7 @@
         /*
         paper.png
         wood.jpg
-        forest.jpg
+        trees.jpg
         space.jpg
         coffee.jpg
         planks.jpg
