@@ -179,8 +179,8 @@ function recommendations_carousel_item ( $book_reco_array, $max_people_per_book 
                 <?php foreach ( $book_reco_array['recommendations'] as $i => $one_person_recommendation ) : ?>
                     <?php if ( $i < $max_people_per_book ) : ?>
                         <li>
-                            <div class='one-recommendation'>
-                                <blockquote class='quote'><?php echo $one_person_recommendation['text']; ?></blockquote>
+                            <div class='one-recommendation inspirama-quote'>
+                                <blockquote><?php echo $one_person_recommendation['text']; ?></blockquote>
                                 <h3 class='one-line-ellipsis'><?php echo $one_person_recommendation['person_name']; ?></h3>
                                 <a href='<?php echo $one_person_recommendation['person_url']; ?>'>
                                     <img class='img-adapt' src='<?php echo $one_person_recommendation['person_image']; ?>'>

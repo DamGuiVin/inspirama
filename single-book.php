@@ -85,22 +85,24 @@ $recommendations_query = new WP_Query( $args );
 <div class="book-page container">
     <header class="row">
 
-        <div class="col-sm-6 col-sm-offset-1">
+        <!-- Book Cover --> 
+        <div class="book-cover col-sm-4 col-sm-push-7">
+            <img src='<?php echo $book_image; ?>'>
+        </div>
 
-            <!-- Book Title --> 
+        <!-- Book Presentation --> 
+        <div class="col-sm-6 col-sm-pull-4 col-sm-offset-1">
+
             <h1><?php echo $book_title; ?></h1>
 
-            <!-- Book Author --> 
             <?php if( $book_author != ' ') : ?>
                 <h2>de<?php echo ' ' . $book_author; ?></h2>
             <?php endif ?>
 
-            <!-- Book Summary --> 
             <?php if ( $book_summary ) : ?>
                 <div><?php echo $book_summary; ?></div>
             <?php endif; ?>
 
-            <!-- Book Infos --> 
             <div class="book-info row">
                 <em class="col-md-4">
                     <?php if( $book_genre ) : ?>
@@ -146,12 +148,6 @@ $recommendations_query = new WP_Query( $args );
 
         </div>
 
-        <div class="book-cover col-sm-4">
-
-            <!-- Book Cover --> 
-            <img src='<?php echo $book_image; ?>'>
-
-        </div>
     </header>
 
     <!-- Book Recommendations Section --> 
@@ -192,13 +188,20 @@ $recommendations_query = new WP_Query( $args );
                             
                             <li class="book-recommendation row">
 
+                                <!-- Recommender Portait --> 
+                                <div class="col-sm-3">
+                                    <a href="<?php echo the_permalink($person_page_id); ?>">
+                                        <img class="img-adapt" src="<?php echo $previewImage[0] ?>" alt="<?php echo $person_name; ?>"/>
+                                    </a>
+                                </div>
+
                                 <!-- Recommendation Text --> 
-                                <div class="col-xs-9">
+                                <div class="col-sm-9">
 
                                     <h3><?php echo $person_name; ?></h3>
-                                    <h4><?php echo ' - ' . $person_introduction; ?></h4>
+                                    <h4><?php echo ' - ' . $person_introduction . ' - '; ?></h4>
 
-                                    <div class="book-recommendation-text">
+                                    <div class="book-recommendation-text inspirama-quote">
                                         <?php echo $recommendation_text; ?>
                                     </div>
 
@@ -216,12 +219,6 @@ $recommendations_query = new WP_Query( $args );
 
                                 </div>
 
-                                <!-- Recommender Portait --> 
-                                <div class="col-xs-3">
-                                    <a href="<?php echo the_permalink($person_page_id); ?>">
-                                        <img class="img-adapt" src="<?php echo $previewImage[0] ?>" alt="<?php echo $person_name; ?>"/>
-                                    </a>
-                                </div>
                             </li>
                         <?php endif; ?>
                     <?php endwhile; ?>
