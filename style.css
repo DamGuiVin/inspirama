@@ -947,6 +947,7 @@ ul#myNavbar.navbar-right {
 }
 
 .book-page a {
+    display: inline-block;
     color: var(--color_yellow);
     -webkit-filter: brightness(0.85);
     filter: brightness(0.85);
@@ -1058,13 +1059,11 @@ li.book-recommendation:after {
 
 .book-recommendation h3 {
     font-size: 1.5em;
-    color: var(--color_white);
     margin: 0;
 }
 
 .book-recommendation h4 {
     font-size: 1em;
-    color: var(--color_white);
     margin: 5px 0 20px 0;
 }
 
