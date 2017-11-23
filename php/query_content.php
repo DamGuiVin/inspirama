@@ -24,125 +24,196 @@ function get_all_people_names() {
     return $list_names;
 }
 
+
 //.......................................................................................................
-// Recovers all info necessary for the recommendations associated with the input book slugs 
+// Recovers the top recommendations along with book and people data 
 // NB : extract_blockquotes_content() ignores the recommendations without blockquotes
 //.......................................................................................................
 
-function get_top_recommendations( $array_book_names ) {
+function get_top_recommendations() {
+
+    $top_books = array(  
+        'les-freres-karamazov', 
+        'le-cycle-de-fondation-tome-2-fondation-et-empire',
+        'vagabonding',
+        'le-petit-prince');
+
+    $top_books_recommendations = array();
+
+    foreach( $top_books as $book ) {
+        array_push( $top_books_recommendations, get_book_recommendations( $book, true ) );
+    }
+
+    return $top_books_recommendations;
+}
+
+
+//.......................................................................................................
+// Recovers all info necessary for the recommendations associated with the input book slug
+//.......................................................................................................
+
+function get_book_recommendations( $book_slug, $only_blockquotes = false ) {
 
     // The array we will use to output the data
-    $top_recommendations = array();
-
-    // The recommendations IDs
-    $all_recommendations = get_terms( array( 'taxonomy' => 'recommendation', 'orderby' => 'name' ));
+    $book_recommendations = array();
 
     // Getting the books info before calling the associated people and recommendations
     $args = array(
         'post_type' => 'book',
-        'post_name__in' => $array_book_names,
+        'name' => $book_slug,
         'post_status' => 'publish',
         'posts_per_page' => -1,
         'orderby' => 'rand'
         );
 
-    $books_query = new WP_Query( $args );
+    $book_query = new WP_Query( $args );
 
-    if ( $books_query->have_posts() ) {
-        while ( $books_query->have_posts() ) {
+    if ( $book_query->have_posts() ) {
+        while ( $book_query->have_posts() ) {
 
-            // Saving info about the current book
-            $books_query->the_post();
-            $book_post = $books_query->post;
+            // Saving info about the book
+            $book_query->the_post();
+            $book_post = $book_query->post;
             $book_id = $book_post->ID;
-            $book_slug = $book_post->post_name;
             $book_title = $book_post->post_title;
             $book_author = get_post_meta( $book_id, 'author', true);
             $book_image = wp_get_attachment_image_src( get_post_thumbnail_id( $book_id ), 'full' )[0];
             $book_url = get_the_permalink( $book_id );
 
-            $current_book = array(
+            $book_recommendations = array(
                 'book_title' => $book_title,
                 'book_author' => $book_author,
                 'book_image' => $book_image,
                 'book_url' => $book_url );
 
-            // Getting the recommendations about the current book
-            $recommendations_ids = array();
-            foreach( $all_recommendations as $term ) {
-                $key = get_term_meta( $term->term_id, 'book_title', true );
-                if( $key == $book_slug ) {
-                    $recommendations_ids[] = $term->term_id;
-                }
+            $recommendations_ids = get_recommendations_ids_from_book_slug( $book_slug );
+         
+            $recommendations_data = array();
+
+            foreach( $recommendations_ids as $recommendation_id) {
+                $one_recommendation_data = get_recommendation_data( $recommendation_id, $only_blockquotes );
+                if( $one_recommendation_data ) { array_push( $recommendations_data, $one_recommendation_data ); }
             }
 
-            // Getting the people from the recommendations
-            $args = array(
-                'post_type' => 'person',
-                'post_status' => 'publish',
-                'posts_per_page' => -1,
-                'orderby' => 'title',
-                'order' => 'ASC',
-                'tax_query' => array(
-                        array(
-                        'taxonomy' => 'recommendation',
-                        'field'    => 'term_id',
-                        'terms'    => $recommendations_ids,
-                    ),
-                ),
-            );
-
-            $people_query = new WP_Query( $args );
-            
-            if ( $people_query->have_posts() ) {
-
-                $iterator = 0;
-                $current_recommendation_array = array();
-
-                while ( $people_query->have_posts() ) {
-
-                    // Increment the post in $people_query
-                    $people_query->the_post();
-                    
-                    // Recover useful attributes from the Recommendation
-                    $recommendation_id = $recommendations_ids[ $iterator ];
-                    $recommendation = get_term_by( 'id', $recommendation_id, 'recommendation' );
-                    $recommendation_text = extract_blockquotes_content( $recommendation->description );
-                    
-                    // Only keep the recommendation if it contains a blockquote
-                    if ( $recommendation_text != '' ) {
-                        $recommendation_sources_titles = explode( ';', get_term_meta( $recommendation_id, 'sources_titles', true) );
-                        $recommendation_sources_urls =  explode( ';', get_term_meta( $recommendation_id, 'sources_urls', true) );
-
-                        // Recover person information
-                        $person_post = $people_query->post;
-                        $person_id = $person_post->ID;
-                        $person_name = $person_post->post_title;
-                        $person_introduction = get_post_meta( $person_id, 'introduction', true);
-                        $person_image = wp_get_attachment_image_src( get_post_thumbnail_id( $person_id ) )[0];
-                        $person_url = get_the_permalink( $person_id );
-
-                        $current_recommendation = array(
-                            'person_name' => $person_name,
-                            'person_introduction' => $person_introduction,
-                            'person_image' => $person_image,
-                            'person_url' => $person_url,
-                            'text' => $recommendation_text,
-                            'sources_titles' => $recommendation_sources_titles,
-                            'sources_urls' => $recommendation_sources_urls );
-
-                        array_push( $current_recommendation_array, $current_recommendation );
-                    }
-                    
-                    $iterator += 1;        
-                } 
-                $current_book['recommendations'] = $current_recommendation_array;
-            }
-            array_push( $top_recommendations, $current_book);
+            $book_recommendations['recommendations'] = $recommendations_data;
         }
     }
-    return $top_recommendations;
+
+    return $book_recommendations;
 }
+
+
+//.......................................................................................................
+// Recovers the ID of the recommendation associated with the input book slug
+// NB : assumes unicity of the book 
+//.......................................................................................................
+
+function get_recommendations_ids_from_book_slug( $book_slug ) {
+
+    $all_recommendations = get_terms( array( 'taxonomy' => 'recommendation', 'orderby' => 'name' ));
+
+    $recommendations_ids = array();
+
+    foreach( $all_recommendations as $term ) {
+        $associated_book = get_term_meta( $term->term_id, 'book_title', true );
+        if( $associated_book == $book_slug ) {
+            $recommendations_ids[] = $term->term_id;
+        }
+    }
+
+    return $recommendations_ids;
+}
+
+
+//.......................................................................................................
+// Recovers the data for the RECOMMENDATION - PERSON pair (not the book), from the reco ids
+// NB : assumes unicity of the person 
+//.......................................................................................................
+
+function get_recommendation_data( $recommendation_id, $only_blockquotes = false ) {
+
+    // The associative array of data holding the recommendation and the person attached
+    // If the recommendation text is empty, the array will be returned empty
+    $recommendation_data = array();
+
+    $recommendation_object = get_term_by( 'id', $recommendation_id, 'recommendation' );
+    $recommendation_text = $recommendation_object->description;
+
+    // If required, extract and concatenate only the text in blockquotes, if any 
+    if( $only_blockquotes ) {
+        $recommendation_text = extract_blockquotes_content( $recommendation_text );
+    }
+    
+    // Only keep the recommendation if it contains a text
+    if ( $recommendation_text != '' ) {
+
+        // Recover all the person data
+        $recommendation_data = get_recommender_data_from_recommendation_id( $recommendation_id );
+        
+        // Add the recommendation data
+        $recommendation_data['text'] = $recommendation_text;
+        $recommendation_data['sources_titles'] = explode( ';', get_term_meta( $recommendation_id, 'sources_titles', true) );
+        $recommendation_data['sources_urls'] =  explode( ';', get_term_meta( $recommendation_id, 'sources_urls', true) );
+    }     
+    
+    return $recommendation_data;
+}
+
+
+//.......................................................................................................
+// Recovers the PERSON data from te recommendation ID
+// NB : assumes unicity of the person 
+//.......................................................................................................
+
+function get_recommender_data_from_recommendation_id( $recommendation_id ) {
+
+    // The array of recommender data we will return
+    // There should normally be only 1 person associated with 1 recommendation ID
+    $recommender = array();
+
+    // Getting the people (there should only be one!) associated to the recommendation
+    $args = array(
+        'post_type' => 'person',
+        'post_status' => 'publish',
+        'posts_per_page' => -1,
+        'orderby' => 'title',
+        'order' => 'ASC',
+        'tax_query' => array(
+                array(
+                'taxonomy' => 'recommendation',
+                'field'    => 'term_id',
+                'terms'    => $recommendation_id,
+            ),
+        ),
+    );
+
+    $people_query = new WP_Query( $args );
+    
+    if ( $people_query->have_posts() ) {
+        while ( $people_query->have_posts() ) {
+
+            // Increment the post in $people_query
+            $people_query->the_post();
+
+            // Recover person information
+            $person_post = $people_query->post;
+            $person_id = $person_post->ID;
+            $person_name = $person_post->post_title;
+            $person_introduction = get_post_meta( $person_id, 'introduction', true);
+            $person_image = wp_get_attachment_image_src( get_post_thumbnail_id( $person_id ) )[0];
+            $person_url = get_the_permalink( $person_id );
+
+            $recommender = array(
+                'person_name' => $person_name,
+                'person_introduction' => $person_introduction,
+                'person_image' => $person_image,
+                'person_url' => $person_url );
+        }
+    }
+
+    return $recommender;
+}
+
 
 //.......................................................................................................
 // Recommendations : extracts the text within blockquotes, strips the blockquotes
@@ -166,6 +237,7 @@ function extract_blockquotes_content( $html_text ) {
 
     return $blockquotes_content;
 }
+
 
 //.......................................................................................................
 // Recover the top books within a given category 

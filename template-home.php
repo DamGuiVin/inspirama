@@ -51,17 +51,10 @@ get_header();
 // CAROUSELS SECTION
 //........................................................................
 
-    $recommended_books['books_slugs_array'] = array(  
-        'les-freres-karamazov', 
-        'le-cycle-de-fondation-tome-2-fondation-et-empire',
-        'vagabonding',
-        'le-petit-prince');
-
     inspirama_carousel_wrapper( 
         $carousel_title = 'Les recommandations les plus populaires',
         array(),
-        $carousel_type = 'recommendations',
-        $recommended_books);
+        $carousel_type = 'recommendations');
     
     inspirama_carousel_wrapper( 
         $carousel_title = 'Les livres recommandés par les',

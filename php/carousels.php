@@ -122,7 +122,7 @@ function inspirama_carousel_data( $carousel_type, $args ) {
 	switch ( $carousel_type ) {
 
 	    case "recommendations":
-	        return get_top_recommendations( $args['books_slugs_array'] );
+	        return get_top_recommendations();
 
 	    case "people":
 	       	return get_top_people();
