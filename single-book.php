@@ -123,12 +123,8 @@ $recommendations_query = new WP_Query( $args );
                 </em>
             </div>
             
-
             <!-- Book Affiliation -->  
             <?php get_affiliation_dropdown( $book_page_id ); ?>
-            
-            
-            
 
         </div>
 
@@ -140,7 +136,12 @@ $recommendations_query = new WP_Query( $args );
             <div class="col-sm-10 col-sm-offset-1">
 
                 <h2>
-                    <?php echo $num_recommendations; ?> personnalité(s) recommande(nt) <?php echo ' ' . $book_title; ?>
+                    <?php if( $num_recommendations == 1 ) : ?>
+                        Une personnalité recommande
+                    <?php else : ?>
+                        <?php echo $num_recommendations . ' '; ?>personnalités recommandent
+                    <?php endif; ?>
+                    <?php echo ' ' . $book_title; ?>
                 </h2>
 
                 <ul>
@@ -173,18 +174,20 @@ $recommendations_query = new WP_Query( $args );
                             <li class="book-recommendation row">
 
                                 <!-- Recommender Portait --> 
-                                <div class="col-sm-3">
+                                <div class="col-sm-3 recommender-portrait">
                                     <a href="<?php echo the_permalink($person_page_id); ?>">
-                                        <img class="img-adapt" src="<?php echo $previewImage[0] ?>" alt="<?php echo $person_name; ?>"/>
+                                        <img src="<?php echo $previewImage[0] ?>" alt="<?php echo $person_name; ?>"/>
+                                        <p><?php echo $person_name; ?></p>
                                     </a>
                                 </div>
 
                                 <!-- Recommendation Text --> 
                                 <div class="col-sm-9">
-
-                                    <h3><?php echo $person_name; ?></h3>
-                                    <h4><?php echo ' - ' . $person_introduction . ' - '; ?></h4>
-
+                                    <a href="<?php echo the_permalink($person_page_id); ?>">
+                                        <h3><?php echo $person_name; ?></h3>
+                                        <h4><?php echo ' - ' . $person_introduction . ' - '; ?></h4>
+                                    </a>
+                                    
                                     <div class="book-recommendation-text inspirama-quote">
                                         <?php echo $recommendation_text; ?>
                                     </div>

@@ -92,23 +92,38 @@ ul {
     text-overflow: ellipsis;
 }
 
-/* Turn on a 12x12 scrollbar */
+/* Scrollbar */
 ::-webkit-scrollbar {
     width: 12px;
     height: 12px;
 }
 
-/* The thumb itself */
 ::-webkit-scrollbar-thumb:vertical {
     height: 50px;
     background-color: #77B8C1;
     border-radius: 10px;
 }
- 
-/* Track below and above */
+
 ::-webkit-scrollbar-track-piece {
     -webkit-box-shadow: inset 0 0 6px #b9d9df; 
     border-radius: 10px;
+}
+
+
+
+/* Global Animations
+-------------------------------------------------------------- */
+
+@keyframes inspirama_fade_out {
+    from {opacity: 1;} to {opacity: 0.2;}
+}
+
+@-webkit-keyframes inspirama_fade_out {
+    from {opacity: 1;} to {opacity: 0.2;}
+}
+
+@-moz-keyframes inspirama_fade_out {
+    from {opacity: 1;} to {opacity: 0.2;}
 }
 
 
@@ -330,15 +345,15 @@ input.inspirama-round-button:focus {
 
 @media screen and ( min-width: 768px ) {
     .img-adapt:hover {
-    animation: person-animation 0.5s;
-    animation-fill-mode: forwards;
+        animation: person-animation 0.5s;
+        animation-fill-mode: forwards;
 
-    -webkit-animation: person-animation 0.5s;
-    -webkit-animation-fill-mode: forwards;
-    -webkit-transform-style: preserve-3d;
+        -webkit-animation: person-animation 0.5s;
+        -webkit-animation-fill-mode: forwards;
+        -webkit-transform-style: preserve-3d;
 
-    -moz-animation: person-animation 0.5s;
-    -moz-animation-fill-mode: forwards;
+        -moz-animation: person-animation 0.5s;
+        -moz-animation-fill-mode: forwards;
     }
 
     @keyframes person-animation {
@@ -993,16 +1008,42 @@ ul#myNavbar.navbar-right {
     height: 50px;
 }
 
+.recommender-portrait img {
+    border-radius: 50%;
+    max-height: 120px;
+}
 
+.recommender-portrait img:hover {
+    -webkit-animation: inspirama_fade_out 0.5s;
+    -webkit-animation-fill-mode: forwards;
 
+    -moz-animation: inspirama_fade_out 0.5s;
+    -moz-animation-fill-mode: forwards;
 
+    animation: inspirama_fade_out 0.5s;
+    animation-fill-mode: forwards;
+}
 
+.recommender-portrait p {
+    display: none;
+}
 
-
-
-
-
-
+@media screen and (min-width: 992px) {
+    .recommender-portrait p {
+        display: block;
+        position: absolute;
+        z-index: -1;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        width: 110px;
+        text-align: center;
+        font-family: var(--font_original);
+        color: var(--color_white);
+        font-size: 1.2em;
+    }
+}
 
 li.book-recommendation {
     margin: 30px 0;
@@ -1017,11 +1058,13 @@ li.book-recommendation:after {
 
 .book-recommendation h3 {
     font-size: 1.5em;
+    color: var(--color_white);
     margin: 0;
 }
 
 .book-recommendation h4 {
     font-size: 1em;
+    color: var(--color_white);
     margin: 5px 0 20px 0;
 }
 
@@ -1042,11 +1085,6 @@ li.book-recommendation:after {
 
 .book-recommendation-sources li {
     display: inline-block;
-}
-
-.book-recommendation img {
-    border-radius: 50%;
-    max-height: 120px;
 }
 
 @media screen and (max-width: 768px) {
