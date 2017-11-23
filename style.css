@@ -1086,6 +1086,10 @@ li.book-recommendation:after {
     display: inline-block;
 }
 
+.book-recommendation-sources a {
+    display: inline;
+}
+
 @media screen and (max-width: 768px) {
     .book-recommendation {
         text-align: center;
