@@ -71,30 +71,22 @@ function get_book_recommendations( $book_slug, $only_blockquotes = false ) {
     if ( $book_query->have_posts() ) {
         while ( $book_query->have_posts() ) {
 
-            // Saving info about the book
+            // Iterating on the WP post loop
             $book_query->the_post();
-            $book_post = $book_query->post;
-            $book_id = $book_post->ID;
-            $book_title = $book_post->post_title;
-            $book_author = get_post_meta( $book_id, 'author', true);
-            $book_image = wp_get_attachment_image_src( get_post_thumbnail_id( $book_id ), 'full' )[0];
-            $book_url = get_the_permalink( $book_id );
+            $book_id = $book_query->post->ID;
 
-            $book_recommendations = array(
-                'book_title' => $book_title,
-                'book_author' => $book_author,
-                'book_image' => $book_image,
-                'book_url' => $book_url );
+            // Getting data about the book
+            $book_recommendations = get_book_data( $book_id, true, true );
 
-            $recommendations_ids = get_recommendations_ids_from_book_slug( $book_slug );
-         
+            // Getting the ids of the recommendations associated with the book
+            $recommendations_ids = get_recommendations_ids_from_book_slug( $book_recommendations['book_slug'] );
+
+            // Getting the data about each of the recommendations
             $recommendations_data = array();
-
             foreach( $recommendations_ids as $recommendation_id) {
                 $one_recommendation_data = get_recommendation_data( $recommendation_id, $only_blockquotes );
                 if( $one_recommendation_data ) { array_push( $recommendations_data, $one_recommendation_data ); }
             }
-
             $book_recommendations['recommendations'] = $recommendations_data;
         }
     }
@@ -115,10 +107,10 @@ function get_recommendations_ids_from_book_slug( $book_slug ) {
     $recommendations_ids = array();
 
     foreach( $all_recommendations as $term ) {
+        
         $associated_book = get_term_meta( $term->term_id, 'book_title', true );
-        if( $associated_book == $book_slug ) {
-            $recommendations_ids[] = $term->term_id;
-        }
+        
+        if( $associated_book == $book_slug ) { $recommendations_ids[] = $term->term_id; }
     }
 
     return $recommendations_ids;
@@ -264,21 +256,15 @@ function get_top_books( $people_category_name = 'all', $books_per_batch = 5, $nu
 
             $iterator++;
 
-            // Saving info about the current book
-            $books_query->the_post();
-            $book_post = $books_query->post;
-            $book_id = $book_post->ID;
-            $book_title = $book_post->post_title;
-            $book_author = get_post_meta( $book_id, 'author', true);
-            $book_image = wp_get_attachment_image_src( get_post_thumbnail_id( $book_id ), 'full' )[0];
-            $book_url = get_the_permalink( $book_id );
+            // Iterating on the WP post loop
+            $book_query->the_post();
+            $book_id = $book_query->post->ID;
 
-            array_push( $books_batch,  array(
-                'book_title' => $book_title,
-                'book_author' => $book_author,
-                'book_image' => $book_image,
-                'book_url' => $book_url ));
+            // Getting data about the book
+            $book_data = get_book_data( $book_id, false, false );
 
+            // Building the batches
+            array_push( $books_batch, $book_data );
             if ( $iterator == $books_per_batch ) {
                 array_push( $top_books, $books_batch );
                 $books_batch = array();
@@ -344,10 +330,37 @@ function get_top_people( $people_per_batch = 4, $num_batches = 3 ) {
 
 
 //.......................................................................................................
-// Book page : Recover the affiliation information for a book
+// Book : Recover all the data for a book
 //.......................................................................................................
 
-function get_affiliation_data( $book_page_id ) {
+function get_book_data( $book_id, $with_details = false, $with_affiliation = false ) {
+
+    $book_data['book_title'] = get_the_title($book_id );
+    $book_data['book_slug'] = get_post_field( 'post_name', $book_id );
+    $book_data['book_author'] = get_post_meta( $book_id, 'author', true);
+    $book_data['book_image'] = wp_get_attachment_image_src( get_post_thumbnail_id( $book_id ), 'full' )[0];
+    $book_data['book_url'] = get_the_permalink( $book_id );
+    
+    if( $with_details ) {
+        $book_data['book_summary'] = get_post_meta( $book_id, 'summary', true);
+        $book_data['book_genre'] = get_post_meta( $book_id, 'genre', true);
+        $book_data['book_theme'] = get_post_meta( $book_id, 'theme', true);
+        $book_data['book_rewards'] = get_post_meta( $book_id, 'rewards', true);
+    }
+    
+    if( $with_affiliation ) {
+        $book_data['book_affiliation'] = get_affiliation_data( $book_id );
+    }
+
+    return $book_data;
+}
+
+
+//.......................................................................................................
+// Book : Recover the affiliation information for a book
+//.......................................................................................................
+
+function get_affiliation_data( $book_id ) {
 
     $affiliation_data = array();
 
@@ -371,7 +384,7 @@ function get_affiliation_data( $book_page_id ) {
 
     foreach ( $brands_slugs as $i => $brand ) {
 
-        $url = get_post_meta( $book_page_id, $brand . '_url', true );
+        $url = get_post_meta( $book_id, $brand . '_url', true );
         $logo = get_stylesheet_directory_uri() . '/img/' . $brand . '.png' ;
 
         if ( $url ) {
@@ -381,5 +394,6 @@ function get_affiliation_data( $book_page_id ) {
 
     return $affiliation_data;
 }
+
 
 ?>

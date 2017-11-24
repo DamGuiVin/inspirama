@@ -4,10 +4,9 @@
 // Get the affiliation section of a book
 //.......................................................................................................
 
-function get_affiliation_dropdown( $book_page_id ) {
+function get_affiliation_dropdown( $affiliation_data ) {
 
-    $affiliation_data = get_affiliation_data( $book_page_id ); ?>
-
+    ?>
     <div class="dropdown inspirama-affiliation-dropdown">
         <button class="btn btn-basic dropdown-toggle" type="button" data-toggle="dropdown">
             Acheter<span class='glyphicon glyphicon-chevron-down'></span>
@@ -24,7 +23,6 @@ function get_affiliation_dropdown( $book_page_id ) {
 
         </ul>
     </div>
-
     <?php
 }
 
