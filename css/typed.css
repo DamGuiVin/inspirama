@@ -7,7 +7,7 @@ h1#typing-title {
     padding: 0 2vw;
     font-size: 3.0vw;
     line-height: 3;
-    font-family: 'Oswald';
+    font-family: var(--font_original)
 }
 
 @media screen and ( min-width: 600px ) {
