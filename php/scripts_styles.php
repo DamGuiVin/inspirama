@@ -53,6 +53,10 @@ function inspirama_enqueue_styles() {
         wp_enqueue_style( 'inspirama_typed_style', get_stylesheet_directory_uri() . '/css/typed.css', array( 'child-style' ), $themeVersion );
     }
     
+    if( is_singular('book') ){
+        wp_enqueue_style( 'inspirama_book_style', get_stylesheet_directory_uri() . '/css/books.css', array( 'child-style' ), $themeVersion );
+    }
+
     if( is_singular('person') ){
         wp_enqueue_style( 'inspirama_previewer_style', get_stylesheet_directory_uri() . '/css/previewer.css', array( 'child-style' ), $themeVersion );
     }
