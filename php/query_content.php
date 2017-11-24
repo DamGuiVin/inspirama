@@ -257,8 +257,8 @@ function get_top_books( $people_category_name = 'all', $books_per_batch = 5, $nu
             $iterator++;
 
             // Iterating on the WP post loop
-            $book_query->the_post();
-            $book_id = $book_query->post->ID;
+            $books_query->the_post();
+            $book_id = $books_query->post->ID;
 
             // Getting data about the book
             $book_data = get_book_data( $book_id, false, false );
