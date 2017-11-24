@@ -235,7 +235,7 @@ function people_carousel_item( $people_batch ) {
                     <a href='<?php echo $person['person_url']; ?>'>
                         <img class='img-adapt' src='<?php echo $person['person_image']; ?>'>
                         <h3 class='one-line-ellipsis'><?php echo $person['person_name']; ?></h3>
-                        <h4 class='one-line-ellipsis'><?php echo $person['person_intro']; ?></h4>
+                        <h4 class='one-line-ellipsis'><?php echo $person['person_introduction']; ?></h4>
                     </a>
                 </li>
             <?php endforeach ?>

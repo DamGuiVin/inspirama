@@ -184,22 +184,12 @@ function get_recommender_data_from_recommendation_id( $recommendation_id ) {
     if ( $people_query->have_posts() ) {
         while ( $people_query->have_posts() ) {
 
-            // Increment the post in $people_query
+            // Iterating on the WP post loop
             $people_query->the_post();
+            $person_id = $people_query->post->ID;
 
-            // Recover person information
-            $person_post = $people_query->post;
-            $person_id = $person_post->ID;
-            $person_name = $person_post->post_title;
-            $person_introduction = get_post_meta( $person_id, 'introduction', true);
-            $person_image = wp_get_attachment_image_src( get_post_thumbnail_id( $person_id ) )[0];
-            $person_url = get_the_permalink( $person_id );
-
-            $recommender = array(
-                'person_name' => $person_name,
-                'person_introduction' => $person_introduction,
-                'person_image' => $person_image,
-                'person_url' => $person_url );
+            // Getting the person data
+            $recommender = get_person_data( $person_id );
         }
     }
 
@@ -302,21 +292,15 @@ function get_top_people( $people_per_batch = 4, $num_batches = 3 ) {
 
             $iterator++;
 
-            // Saving info about the current person
+            // Iterating on the WP post loop
             $people_query->the_post();
-            $person_post = $people_query->post;
-            $person_id = $person_post->ID;
-            $person_name = $person_post->post_title;
-            $person_intro = get_post_meta( $person_id, 'introduction', true);
-            $person_image = wp_get_attachment_image_src( get_post_thumbnail_id( $person_id ), 'full' )[0];
-            $person_url = get_the_permalink( $person_id );
+            $person_id = $people_query->post->ID;
 
-            array_push( $people_batch,  array(
-                'person_name' => $person_name,
-                'person_intro' => $person_intro,
-                'person_image' => $person_image,
-                'person_url' => $person_url ));
+            // Getting the person data
+            $person_data = get_person_data( $person_id );
 
+            // Building batches of people
+            array_push( $people_batch, $person_data );
             if ( $iterator == $people_per_batch ) {
                 array_push( $top_people, $people_batch );
                 $people_batch = array();
@@ -395,5 +379,20 @@ function get_affiliation_data( $book_id ) {
     return $affiliation_data;
 }
 
+
+//.......................................................................................................
+// Person : Recover all the data for a person
+//.......................................................................................................
+
+function get_person_data( $person_id ) {
+
+    $person_data['person_name'] = get_the_title($person_id );
+    $person_data['person_slug'] = get_post_field( 'post_name', $person_id );
+    $person_data['person_image'] = wp_get_attachment_image_src( get_post_thumbnail_id( $person_id ), 'full' )[0];
+    $person_data['person_url'] = get_the_permalink( $person_id );
+    $person_data['person_introduction'] = get_post_meta( $person_id, 'introduction', true);
+
+    return $person_data;
+}
 
 ?>
