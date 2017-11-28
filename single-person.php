@@ -48,7 +48,7 @@ $num_recommendations = count( $person_recommendations['recommendations'] ); ?>
                     <?php if( $num_recommendations == 1 ) : ?>
                         Un livre recommandé par
                     <?php else : ?>
-                        <?php echo $num_recommendations . ' '; ?>recommandés par
+                        <?php echo $num_recommendations . ' '; ?>livres recommandés par
                     <?php endif; ?>
                     <?php echo ' ' . $person_recommendations['person_name']; ?>
                 </h2>
