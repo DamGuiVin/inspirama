@@ -99,6 +99,9 @@
         planks.jpg
         */ ?>
         <div class="parallax" style="background-image: url(<?php echo $background_image; ?>);"></div>
+    <?php elseif( is_singular('person') ) :
+        $background_image = get_stylesheet_directory_uri() . '/img/backgrounds/trees.jpg' ; ?>
+        <div class="parallax" style="background-image: url(<?php echo $background_image; ?>);"></div>
     <?php endif ?>
 
 

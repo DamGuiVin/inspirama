@@ -58,6 +58,7 @@ function inspirama_enqueue_styles() {
     }
 
     if( is_singular('person') ){
+        wp_enqueue_style( 'inspirama_previewer_style', get_stylesheet_directory_uri() . '/css/people.css', array( 'child-style' ), $themeVersion );
         wp_enqueue_style( 'inspirama_previewer_style', get_stylesheet_directory_uri() . '/css/previewer.css', array( 'child-style' ), $themeVersion );
     }
 }
