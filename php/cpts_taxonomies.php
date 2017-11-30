@@ -466,4 +466,17 @@ function add_book_meta_fields( $book_id, $book_page ) {
 
 
 
+//.......................................................................................................
+// Admin Menu : remove the Posts, Comments and Users links
+//.......................................................................................................
+
+add_action( 'admin_menu', 'inspirama_remove_admin_menu_items' );
+
+function inspirama_remove_admin_menu_items() {
+    remove_menu_page('edit.php');               // Posts
+    remove_menu_page('edit-comments.php');      // Comments 
+    remove_menu_page('users.php');              // Users
+}
+
+
 ?>
