@@ -169,13 +169,13 @@ function person_cpt() {
                 // The singular name
                 'singular_name' => __( 'Personne' ),
                 // The Wp-Admin menu text for creating a new CPT
-                'add_new' => __('Add New Person'),
+                'add_new' => __('Ajouter une nouvele Personne'),
                 // the Wp-Admin text when creating a new CPT
-                'add_new_item' => __('Create a new Person'),   
+                'add_new_item' => __('Créer une nouvelle Personne'),   
                 // The message when searching
-                'search_items' => __( 'Look for a Person' ), 
+                'search_items' => __( 'Chercher une Personne' ), 
                 // The message after failed search
-                'not_found' => __( 'Person not found' )
+                'not_found' => __( 'Personne introuvable' )
                 ),
         
             // Public status implies certain functionalities. Keep at true
@@ -229,17 +229,17 @@ function book_cpt() {
             'labels' => array(
 
                 // The plural name
-                'name' => __( 'Books' ),
+                'name' => __( 'Livres' ),
                 // The singular name
-                'singular_name' => __( 'Book' ),
+                'singular_name' => __( 'Livre' ),
                 // The Wp-Admin menu text for creating a new CPT
-                'add_new' => __('Add New Book'),
+                'add_new' => __('Ajouter un Livre'),
                 // The Wp-Admin text when creating a new CPT
-                'add_new_item' => __('Create a new Book'),   
+                'add_new_item' => __('Créer un nouveau Livre'),   
                 // The message when searching
-                'search_items' => __( 'Look for a Book' ), 
+                'search_items' => __( 'Chercher un Livre' ), 
                 // The message after failed search
-                'not_found' => __( 'Book not found' )
+                'not_found' => __( 'Livre introuvable' )
                 ),
         
             // Public status implies certain functionalities. Keep at true
@@ -476,6 +476,107 @@ function inspirama_remove_admin_menu_items() {
     remove_menu_page('edit.php');               // Posts
     remove_menu_page('edit-comments.php');      // Comments 
     remove_menu_page('users.php');              // Users
+}
+
+
+
+//.......................................................................................................
+// Recommendation Vustom Post Type
+//.......................................................................................................
+
+// Create a custom post type for Recommendation
+function recommendation_cpt() {
+
+    register_post_type('recommendation', array(
+        'labels' => array(
+            'name' => __( 'Recommandations' ),
+            'singular_name' => __( 'Recommandations' ),
+            'add_new' => __('Ajouter une nouvelle Recommandation'),
+            'add_new_item' => __('Créer une nouvelle Recommandation'), 
+            'search_items' => __( 'Chercher une Recommandation' ), 
+            'not_found' => __( 'Recommandation introuvable' )
+            ),
+
+        // We don't want permalinks to go to a recommendation page (no public query)
+        // we only want to be able to edit it on the Admin 
+        // and to query the necessary data in php (private query)
+        'public' => false,
+        'show_in_nav_menus' => true, 
+        'show_ui' => true,
+
+        // Enables the archives
+        'has_archive' => false )
+    ); 
+}
+
+add_action( 'init', 'recommendation_cpt' );
+
+
+add_action("admin_init", "my_admin_recommendation");
+
+function my_admin_recommendation() {
+    
+    // Person meta box
+    add_meta_box(
+        "recommendation_meta_box", 
+        "Détails de la Recommandation", 
+        "display_recommendation_meta_fields", 
+        "recommendation", 
+        "normal", 
+        "high");
+}
+
+function display_recommendation_meta_fields( $recommendation_page ) {
+
+    $people = get_all_names_and_ids_by_cpt( 'person' );
+    $current_person_id = esc_html( get_post_meta( $recommendation_page->ID, 'person_id', true ) );
+    $current_person_name = $people[ $current_person_id ];
+
+    $books = get_all_names_and_ids_by_cpt( 'book' );
+    $current_book_id = esc_html( get_post_meta( $recommendation_page->ID, 'book_id', true ) );
+    $current_book_name = $books[ $current_book_id ];
+
+    ?>
+    <table>
+        <tr>
+            <td style="width: 100%">Recommandeur(euse)</td>
+            <td>
+                <select name="person_id">
+                    <?php foreach( $people as $id => $name ) : ?>
+                        <option value="<?php echo $id; ?>" "<?php selected( $current_person_name, $name); ?>"><?php echo $name; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 100%">Livre recommandé</td>
+            <td>
+                <select name="book_id">
+                    <?php foreach( $books as $id => $name ) : ?>
+                        <option value="<?php echo $id; ?>" "<?php selected( $current_book_name, $name); ?>"><?php echo $name; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <?php
+}
+
+
+add_action( 'save_post', 'add_recommendation_meta_fields', 10, 2 );
+
+function add_recommendation_meta_fields( $recommendation_id, $recommendation_page ) {
+    
+    if( $recommendation_page->post_type == 'recommendation') {
+
+        if ( isset( $_POST['person_id'] ) && $_POST['person_id'] != '' ) {
+            update_post_meta( $recommendation_id, 'person_id', $_POST['person_id'] );
+        }
+
+        if ( isset( $_POST['book_id'] ) && $_POST['book_id'] != '' ) {
+            update_post_meta( $recommendation_id, 'book_id', $_POST['book_id'] );
+        }
+    }
 }
 
 

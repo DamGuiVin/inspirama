@@ -30,6 +30,8 @@
 
                 <?php endif; ?>
 
+                <?php print_r( get_post_type_archive_link('recommendation')); ?>
+
             </div><!-- col-md-10 -->
 
         </div><!-- end row -->

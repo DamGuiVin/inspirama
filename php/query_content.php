@@ -24,6 +24,36 @@ function get_all_people_names() {
     return $list_names;
 }
 
+function get_all_names_and_ids_by_cpt( $cpt = 'person' ) {
+
+    $list_names_and_ids = [];
+
+    $args = array(
+        'post_type' => $cpt,
+        'post_status' => 'publish',
+        'posts_per_page' => -1,
+        'orderby' => 'title',
+        'order' => 'ASC',
+        );
+
+    $cpt_query = new WP_Query( $args );
+
+    if ( $cpt_query->have_posts() ) {
+        while ( $cpt_query->have_posts() ) {
+
+            // Iterating on the WP post loop
+            $cpt_query->the_post();
+            $cpt_id = $cpt_query->post->ID;
+            $cpt_name = $cpt_query->post->post_title;
+
+            $list_names_and_ids[ $cpt_id ] = $cpt_name;
+        }
+    }
+
+    return $list_names_and_ids;
+}
+
+
 
 //.......................................................................................................
 // Recovers the top recommendations along with book and people data 
