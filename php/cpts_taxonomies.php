@@ -149,6 +149,70 @@ add_action( 'created_recommendation', 'recommendation_save_meta', 10, 2 );
 
 
 
+//.......................................................................................................
+// Inspirama Custom Taxonomies : Declaration
+//.......................................................................................................
+
+// Job taxonomy for People (Category type)
+add_action('init', 'job_taxonomy');
+
+function job_taxonomy() {
+    
+    $labels = array(
+        'name' => _x( 'Fonction', 'taxonomy general name' ),
+        'singular_name' => _x('Fonction', 'taxonomy singular name'),
+        'search_items' => __('Chercher une Fonction'),
+        'all_items' => __('Toutes les Fonctions'),
+        'edit_item' => __('Modifier la Fonction'),
+        'update_item' => __('Mettre à jour la Fonction'),
+        'add_new_item' => __('Ajouter une nouvelle Fonction'),
+        'new_item_name' => __('Nouvelle Fonction:'),
+        'add_or_remove_items' => __('Supprimer la Fonction'),
+        'not_found' => __('Fonction introuvable.')
+    );
+
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'hierarchical' => true,
+        'show_ui' => true
+    );
+
+    register_taxonomy('person_job', array('person'), $args);
+}
+
+
+
+// Genre taxonomy for Books (Category type)
+add_action('init', 'genre_taxonomy');
+
+function genre_taxonomy() {
+    
+    $labels = array(
+        'name' => _x( 'Genre', 'taxonomy general name' ),
+        'singular_name' => _x('Genre', 'taxonomy singular name'),
+        'search_items' => __('Chercher un Genre'),
+        'all_items' => __('Tous les Genres'),
+        'edit_item' => __('Modifier le Genre'),
+        'update_item' => __('Mettre à jour le Genre'),
+        'add_new_item' => __('Ajouter un nouveau Genre'),
+        'new_item_name' => __('Nouveau Genre:'),
+        'add_or_remove_items' => __('Supprimer le Genre'),
+        'not_found' => __('Genre introuvable.')
+    );
+
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'hierarchical' => true,
+        'show_ui' => true
+    );
+
+    register_taxonomy('book_genre', array('book'), $args);
+}
+
+
+
 
 //.......................................................................................................
 // Inspirama Custom Post Types : Declaration
@@ -183,13 +247,11 @@ function person_cpt() {
         'supports' => array(
             'title',
             'editor',
-            'thumbnail',
-            'page-attributes' ),
+            'thumbnail' ),
 
         // Declares the taxonomies that can be used on the CPT
         'taxonomies' => array(
             'category',
-            'post_tag',
             'recommendation' ),
 
         // Makes sure we can query by index.php?person={person_slug_name}
@@ -235,11 +297,10 @@ function book_cpt() {
         // Main fields 
         'supports' => array(
             'title',
-            'thumbnail',
-            'page-attributes' ),
+            'thumbnail' ),
 
         // Declares the taxonomies that can be used on the CPT
-        'taxonomies' => array( 'post_tag' ),
+        'taxonomies' => array(),
         
         // Makes sure we can query by index.php?book={book_slug_name}
         'publicly_queryable' => true,
@@ -470,6 +531,53 @@ function save_recommendation_meta_fields( $recommendation_id, $recommendation_pa
 
 
 //.......................................................................................................
+// Admin Post Management Screen : choose columns to display
+//.......................................................................................................
+
+// Manage columns for Recommendation post type
+add_action('manage_recommendation_posts_columns','manage_columns_for_recommendation');
+
+function manage_columns_for_recommendation( $columns ) {
+    
+    // Remove columns
+    unset($columns['date']);
+    unset($columns['comments']);
+    unset($columns['author']);
+
+    // Add new columns
+    $columns['recommendation_person'] = 'Personne';
+    $columns['recommendation_book'] = 'Livre'; 
+
+    return $columns;
+}
+
+// Populate columns for Recommenation post type
+add_action('manage_recommendation_posts_custom_column','populate_recommendation_columns',10,2);
+
+function populate_recommendation_columns( $column, $post_id ) {
+
+    // Person column
+    if( $column == 'recommendation_person' ){ 
+        $person_id = get_post_meta( $post_id, 'person_id', true );
+        $person_name = get_the_title( $person_id );
+
+        if( $person_id && $person_name ){ echo $person_name; }
+        else { echo '_';}
+    }
+
+    // Book column
+    if( $column == 'recommendation_book' ){ 
+        $book_id = get_post_meta( $post_id, 'book_id', true );
+        $book_name = get_the_title( $book_id );
+
+        if( $book_id && $book_name ){ echo $book_name; }
+        else { echo '_';}
+    }
+}
+
+
+
+//.......................................................................................................
 // Admin Menu : remove the Posts, Comments and Users links
 //.......................................................................................................
 
@@ -480,5 +588,8 @@ function inspirama_remove_admin_menu_items() {
     remove_menu_page('edit-comments.php');      // Comments 
     remove_menu_page('users.php');              // Users
 }
+
+
+
 
 ?>
