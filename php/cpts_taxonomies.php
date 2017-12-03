@@ -340,7 +340,11 @@ function recommendation_cpt() {
         'show_ui' => true,
 
         // Enables the archives
-        'has_archive' => false )
+        'has_archive' => false,
+
+        // Main fields 
+        'supports' => array(
+            'editor' ) )
     ); 
 }
 
@@ -432,8 +436,45 @@ function display_cpt_meta_fields( $cpt_page ) {
 }
 
 
-// Saving the CPT meta data for Book and Person 
-// (different from Recommendation because do not require dropwdowns)
+// Meta fields declaration function for Recommendation
+function display_recommendation_meta_fields( $recommendation_page ) {
+ 
+    $people = get_all_names_and_ids_by_cpt( 'person' );
+    $current_person_id = esc_html( get_post_meta( $recommendation_page->ID, 'recommendation_person_id', true ) );
+    $current_person_name = $people[ $current_person_id ];
+
+    $books = get_all_names_and_ids_by_cpt( 'book' );
+    $current_book_id = esc_html( get_post_meta( $recommendation_page->ID, 'recommendation_book_id', true ) );
+    $current_book_name = $books[ $current_book_id ];
+
+    ?>
+    <table>
+        <tr>
+            <td style="width: 100%">Recommandeur(euse)</td>
+            <td>
+                <select name="recommendation_person_id">
+                    <?php foreach( $people as $id => $name ) : ?>
+                        <option value="<?php echo $id; ?>" "<?php selected( $current_person_name, $name); ?>"><?php echo $name; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 100%">Livre recommandé</td>
+            <td>
+                <select name="recommendation_book_id">
+                    <?php foreach( $books as $id => $name ) : ?>
+                        <option value="<?php echo $id; ?>" "<?php selected( $current_book_name, $name); ?>"><?php echo $name; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <?php
+}
+
+
+// Saving the CPT meta data for Book, Person and Recommendation
 add_action( 'save_post', 'save_cpt_meta_fields', 10, 2 );
 
 function save_cpt_meta_fields( $cpt_id, $cpt_page ) {
@@ -464,66 +505,17 @@ function save_cpt_meta_fields( $cpt_id, $cpt_page ) {
             'introduction' );
     }
 
+    elseif ( $cpt_page->post_type == 'recommendation' ) {
+        $prefix = 'recommendation';
+        $keys = array(
+            'person_id',
+            'book_id' );
+    }
+
     foreach ( $keys as $key ) {
         $meta_field = $prefix . '_' . $key;
         if ( isset( $_POST[ $meta_field ] ) && $_POST[ $meta_field ] != '' ) {
             update_post_meta( $cpt_id, $key, $_POST[ $meta_field ] );
-        }
-    }
-}
-
-
-// Meta fields declaration function for Recommendation
-function display_recommendation_meta_fields( $recommendation_page ) {
-
-    $people = get_all_names_and_ids_by_cpt( 'person' );
-    $current_person_id = esc_html( get_post_meta( $recommendation_page->ID, 'person_id', true ) );
-    $current_person_name = $people[ $current_person_id ];
-
-    $books = get_all_names_and_ids_by_cpt( 'book' );
-    $current_book_id = esc_html( get_post_meta( $recommendation_page->ID, 'book_id', true ) );
-    $current_book_name = $books[ $current_book_id ];
-
-    ?>
-    <table>
-        <tr>
-            <td style="width: 100%">Recommandeur(euse)</td>
-            <td>
-                <select name="person_id">
-                    <?php foreach( $people as $id => $name ) : ?>
-                        <option value="<?php echo $id; ?>" "<?php selected( $current_person_name, $name); ?>"><?php echo $name; ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 100%">Livre recommandé</td>
-            <td>
-                <select name="book_id">
-                    <?php foreach( $books as $id => $name ) : ?>
-                        <option value="<?php echo $id; ?>" "<?php selected( $current_book_name, $name); ?>"><?php echo $name; ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </td>
-        </tr>
-    </table>
-    <?php
-}
-
-
-// Saving the CPT meta data for Recommendation
-add_action( 'save_post', 'save_recommendation_meta_fields', 10, 2 );
-
-function save_recommendation_meta_fields( $recommendation_id, $recommendation_page ) {
-    
-    if( $recommendation_page->post_type == 'recommendation') {
-
-        if ( isset( $_POST['person_id'] ) && $_POST['person_id'] != '' ) {
-            update_post_meta( $recommendation_id, 'person_id', $_POST['person_id'] );
-        }
-
-        if ( isset( $_POST['book_id'] ) && $_POST['book_id'] != '' ) {
-            update_post_meta( $recommendation_id, 'book_id', $_POST['book_id'] );
         }
     }
 }
@@ -558,7 +550,7 @@ function populate_recommendation_columns( $column, $post_id ) {
 
     // Person column
     if( $column == 'recommendation_person' ){ 
-        $person_id = get_post_meta( $post_id, 'person_id', true );
+        $person_id = get_post_meta( $post_id, 'recommendation_person_id', true );
         $person_name = get_the_title( $person_id );
 
         if( $person_id && $person_name ){ echo $person_name; }
@@ -567,7 +559,7 @@ function populate_recommendation_columns( $column, $post_id ) {
 
     // Book column
     if( $column == 'recommendation_book' ){ 
-        $book_id = get_post_meta( $post_id, 'book_id', true );
+        $book_id = get_post_meta( $post_id, 'recommendation_book_id', true );
         $book_name = get_the_title( $book_id );
 
         if( $book_id && $book_name ){ echo $book_name; }
