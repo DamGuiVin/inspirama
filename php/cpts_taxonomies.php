@@ -344,6 +344,7 @@ function recommendation_cpt() {
 
         // Main fields 
         'supports' => array(
+            'title',
             'editor' ) )
     ); 
 }
@@ -510,6 +511,8 @@ function save_cpt_meta_fields( $cpt_id, $cpt_page ) {
         $keys = array(
             'person_id',
             'book_id' );
+
+        THIS IS NOT WORKING IT DOES NOT SAVE THE DATA FROM THE DROPDOWNS FOR RECOMMENDATIONS
     }
 
     foreach ( $keys as $key ) {
