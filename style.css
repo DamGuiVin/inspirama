@@ -115,15 +115,15 @@ ul {
 -------------------------------------------------------------- */
 
 @keyframes inspirama_fade_out {
-    from {opacity: 1;} to {opacity: 0.2;}
+    from {opacity: 1;} to {opacity: 0.1;}
 }
 
 @-webkit-keyframes inspirama_fade_out {
-    from {opacity: 1;} to {opacity: 0.2;}
+    from {opacity: 1;} to {opacity: 0.1;}
 }
 
 @-moz-keyframes inspirama_fade_out {
-    from {opacity: 1;} to {opacity: 0.2;}
+    from {opacity: 1;} to {opacity: 0.1;}
 }
 
 
@@ -650,6 +650,74 @@ ul#myNavbar.navbar-right {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Person Page
 -------------------------------------------------------------- */
 
@@ -905,6 +973,109 @@ ul#myNavbar.navbar-right {
         display: none;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
