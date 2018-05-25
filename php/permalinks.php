@@ -59,6 +59,22 @@ function custom_permalinks( $permalink, $post, $leavename, $sample ) {
         $permalink = home_url( str_replace( $rewritecodes, $replacements, $struct ) );
     }
 
+    // Permalinks for Recommendation post types
+    elseif ( $post->post_type == 'recommendation' && get_option( 'permalink_structure' ) ) {
+
+        $struct = '/recommandations/%postname%/';
+
+        $rewritecodes = array(
+            '%postname%'
+        );
+
+        $replacements = array(
+            $post->post_name
+        );
+
+        $permalink = home_url( str_replace( $rewritecodes, $replacements, $struct ) );
+    }
+
     return $permalink;
 }
 
@@ -81,7 +97,6 @@ function custom_category_permalink( $termlink ){
 //.......................................................................................................
 // Custom Permalinks : Search Results
 //.......................................................................................................
-
 
 add_action( 'template_redirect', 'search_url_redirect_url' );
 

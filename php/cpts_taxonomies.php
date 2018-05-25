@@ -149,63 +149,114 @@ add_action( 'created_recommendation', 'recommendation_save_meta', 10, 2 );
 
 
 
+//.......................................................................................................
+// Inspirama Custom Taxonomies : Declaration
+//.......................................................................................................
+
+// Job taxonomy for People (Category type)
+add_action('init', 'job_taxonomy');
+
+function job_taxonomy() {
+    
+    $labels = array(
+        'name' => _x( 'Fonction', 'taxonomy general name' ),
+        'singular_name' => _x('Fonction', 'taxonomy singular name'),
+        'search_items' => __('Chercher une Fonction'),
+        'all_items' => __('Toutes les Fonctions'),
+        'edit_item' => __('Modifier la Fonction'),
+        'update_item' => __('Mettre à jour la Fonction'),
+        'add_new_item' => __('Ajouter une nouvelle Fonction'),
+        'new_item_name' => __('Nouvelle Fonction:'),
+        'add_or_remove_items' => __('Supprimer la Fonction'),
+        'not_found' => __('Fonction introuvable.')
+    );
+
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'hierarchical' => true,
+        'show_ui' => true
+    );
+
+    register_taxonomy('person_job', array('person'), $args);
+}
+
+
+
+// Genre taxonomy for Books (Category type)
+add_action('init', 'genre_taxonomy');
+
+function genre_taxonomy() {
+    
+    $labels = array(
+        'name' => _x( 'Genre', 'taxonomy general name' ),
+        'singular_name' => _x('Genre', 'taxonomy singular name'),
+        'search_items' => __('Chercher un Genre'),
+        'all_items' => __('Tous les Genres'),
+        'edit_item' => __('Modifier le Genre'),
+        'update_item' => __('Mettre à jour le Genre'),
+        'add_new_item' => __('Ajouter un nouveau Genre'),
+        'new_item_name' => __('Nouveau Genre:'),
+        'add_or_remove_items' => __('Supprimer le Genre'),
+        'not_found' => __('Genre introuvable.')
+    );
+
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'hierarchical' => true,
+        'show_ui' => true
+    );
+
+    register_taxonomy('book_genre', array('book'), $args);
+}
+
+
+
 
 //.......................................................................................................
-// Custom Person and Book Post Types
+// Inspirama Custom Post Types : Declaration
 //.......................................................................................................
 
+// Person CPT
+add_action( 'init', 'person_cpt' );
 
-// Create a custom post type for Person
 function person_cpt() {
 
-    register_post_type('person',
-        
-        array(
+    register_post_type('person', array(
 
-            'labels' => array(
+        'labels' => array(
+            'name' => __( 'Personnes' ),
+            'singular_name' => __( 'Personne' ),
+            'add_new' => __('Ajouter une nouvele Personne'),
+            'add_new_item' => __('Créer une nouvelle Personne'), 
+            'search_items' => __( 'Chercher une Personne' ), 
+            'not_found' => __( 'Personne introuvable' )
+            ),
+    
+        // Public status implies certain functionalities. Keep at true
+        'public' => true,
 
-                // The plural name
-                'name' => __( 'Personnes' ),
-                // The singular name
-                'singular_name' => __( 'Personne' ),
-                // The Wp-Admin menu text for creating a new CPT
-                'add_new' => __('Add New Person'),
-                // the Wp-Admin text when creating a new CPT
-                'add_new_item' => __('Create a new Person'),   
-                // The message when searching
-                'search_items' => __( 'Look for a Person' ), 
-                // The message after failed search
-                'not_found' => __( 'Person not found' )
-                ),
-        
-            // Public status implies certain functionalities. Keep at true
-            'public' => true,
+        // Hierarchical posts have parent/child abilities
+        'hierarchical' => false,
 
-            // Hierarchical posts have parent/child abilities
-            'hierarchical' => false,
+        // Enables the archives
+        'has_archive' => true,
 
-            // Enables the archives
-            'has_archive' => true,
+        // Main fields 
+        'supports' => array(
+            'title',
+            'editor',
+            'thumbnail' ),
 
-            // Main fields 
-            'supports' => array(
-                'title',
-                'editor',
-                'thumbnail',
-                'page-attributes'
-                ),
+        // Declares the taxonomies that can be used on the CPT
+        'taxonomies' => array(
+            'category',
+            'recommendation' ),
 
-            // Declares the taxonomies that can be used on the CPT
-            'taxonomies' => array(
-                'category',
-                'post_tag',
-                'recommendation'
-                ),
-
-            // Makes sure we can query by index.php?person={person_slug_name}
-            'publicly_queryable' => true,
-            'query_var'          => true,
-        )
+        // Makes sure we can query by index.php?person={person_slug_name}
+        'publicly_queryable' => true,
+        'query_var'          => true )
 
     ); 
 
@@ -217,57 +268,43 @@ function person_cpt() {
     );
 }
 
-add_action( 'init', 'person_cpt' );
 
+// Book CPT
+add_action( 'init', 'book_cpt' );
 
-// Create a custom post type for Book
 function book_cpt() {
-    register_post_type('book',
+
+    register_post_type('book', array(
+
+        'labels' => array(
+            'name' => __( 'Livres' ),
+            'singular_name' => __( 'Livre' ),
+            'add_new' => __('Ajouter un Livre'),
+            'add_new_item' => __('Créer un nouveau Livre'), 
+            'search_items' => __( 'Chercher un Livre' ), 
+            'not_found' => __( 'Livre introuvable' )
+            ),
+    
+        // Public status implies certain functionalities. Keep at true
+        'public' => true,
+
+        // Hierarchical posts have parent/child abilities
+        'hierarchical' => false,
+
+        // Enables the archives
+        'has_archive' => true,
+
+        // Main fields 
+        'supports' => array(
+            'title',
+            'thumbnail' ),
+
+        // Declares the taxonomies that can be used on the CPT
+        'taxonomies' => array(),
         
-        array(
-
-            'labels' => array(
-
-                // The plural name
-                'name' => __( 'Books' ),
-                // The singular name
-                'singular_name' => __( 'Book' ),
-                // The Wp-Admin menu text for creating a new CPT
-                'add_new' => __('Add New Book'),
-                // The Wp-Admin text when creating a new CPT
-                'add_new_item' => __('Create a new Book'),   
-                // The message when searching
-                'search_items' => __( 'Look for a Book' ), 
-                // The message after failed search
-                'not_found' => __( 'Book not found' )
-                ),
-        
-            // Public status implies certain functionalities. Keep at true
-            'public' => true,
-
-            // Hierarchical posts have parent/child abilities
-            'hierarchical' => false,
-
-            // Enables the archives
-            'has_archive' => true,
-
-            // Main fields 
-            'supports' => array(
-                'title',
-                'thumbnail',
-                'page-attributes',
-                ),
-
-            // Declares the taxonomies that can be used on the CPT
-            'taxonomies' => array(
-                'post_tag',
-                ),
-            
-            // Makes sure we can query by index.php?book={person_slug_name}
-            'publicly_queryable' => true,
-            'query_var'          => true,
-        )
-
+        // Makes sure we can query by index.php?book={book_slug_name}
+        'publicly_queryable' => true,
+        'query_var'          => true )
     );
 
     // The rewrite rule that will translate the custom Permalink into a WP_Query
@@ -278,19 +315,56 @@ function book_cpt() {
     );
 }
 
-add_action( 'init', 'book_cpt' );
+
+// Recommendation CPT
+add_action( 'init', 'recommendation_cpt' );
+
+function recommendation_cpt() {
+
+    register_post_type('recommendation', array(
+
+        'labels' => array(
+            'name' => __( 'Recommandations' ),
+            'singular_name' => __( 'Recommandations' ),
+            'add_new' => __('Ajouter une nouvelle Recommandation'),
+            'add_new_item' => __('Créer une nouvelle Recommandation'), 
+            'search_items' => __( 'Chercher une Recommandation' ), 
+            'not_found' => __( 'Recommandation introuvable' )
+            ),
+
+        // We don't want permalinks to go to a recommendation page (no public query)
+        // we only want to be able to edit it on the Admin 
+        // and to query the necessary data in php (private query)
+        'public' => false,
+        'show_in_nav_menus' => true, 
+        'show_ui' => true,
+
+        // Enables the archives
+        'has_archive' => false,
+
+        // Main fields 
+        'supports' => array(
+            'title',
+            'editor' ) )
+    ); 
+}
 
 
-// Add Meta Fields for the Person and Book pages on Wp-Admin
-add_action("admin_init", "my_admin");
 
-function my_admin(){
+//.......................................................................................................
+// Inspirama Custom Post Types : Meta Fields
+//.......................................................................................................
+
+// Add Meta Fields for the Custom Post Types on the Admin
+add_action("admin_init", "inspirama_admin");
+
+function inspirama_admin(){
     
     // Person meta box
     add_meta_box(
         "person_meta_box", 
-        "Person Details", 
-        "display_person_meta_fields", 
+        "Détails de la Personne", 
+        "display_cpt_meta_fields", 
         "person", 
         "normal", 
         "high");
@@ -298,169 +372,201 @@ function my_admin(){
     // Book meta box
     add_meta_box(
         "book_meta_box", 
-        "Book Details", 
-        "display_book_meta_fields", 
+        "Détails du Livre", 
+        "display_cpt_meta_fields", 
         "book", 
+        "normal", 
+        "high");
+
+    // Recommendation meta box
+    add_meta_box(
+        "recommendation_meta_box", 
+        "Détails de la Recommandation", 
+        "display_recommendation_meta_fields", 
+        "recommendation", 
         "normal", 
         "high");
 }
 
-function display_person_meta_fields( $person_page ) {
 
-    // Retrieve the person page ID 
-    $person_id = $person_page->ID;
+// Meta fields declaration function for Book and Person 
+// (different from Recommendation CPT because don't need dropdowns on content data)
+function display_cpt_meta_fields( $cpt_page ) {
 
-    // Retrieve the meta variables
-    $person_intro = esc_html( get_post_meta( $person_id, 'introduction', true ) );
-    
+    // Retrieve the cpt page ID 
+    $cpt_id = $cpt_page->ID;
+    $cpt_meta_data = [];
+    $key = [];
+    $prefix = '';
+
+    if( $cpt_page->post_type == 'book') {
+        $prefix = 'book';
+        $keys = array(
+            array( 'author', 'Auteur'),
+            array( 'summary', 'Résumé'),
+            array( 'genre', 'Genre'),
+            array( 'theme', 'Thème'),
+            array( 'rewards', 'Prix Littéraires'),
+            array( 'leslibraires_url', 'URL Les Libraires'),
+            array( 'amazon_url', 'URL Amazon'),
+            array( 'fnac_url', 'URL Fnac'),
+            array( 'priceminister_url', 'URL Price Minister'),
+            array( 'recyclivre_url', 'URL Recyclivre'),
+            array( 'ebooks_url', 'URL eBooks'),
+            array( 'gutenberg_url', 'URL Gutenberg Project') );
+    }
+
+    elseif ( $cpt_page->post_type == 'person' ) {
+        $prefix = 'person';
+        $keys = array(
+            array( 'introduction', 'Phrase d\'introduction') );
+    }
+
     // HTML structure of the meta box
     ?>
     <table>
+        <?php foreach( $keys as $key ) : 
+            $cpt_meta_datum = esc_html( get_post_meta( $cpt_id, $key[0], true ) ); ?>
+            <tr>
+                <td style="width: 100%"><?php echo $key[1]; ?></td>
+                <td><input type="text" size="80" name="<?php echo $prefix . '_' . $key[0]; ?>" value="<?php echo $cpt_meta_datum; ?>" /></td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+    <?php
+}
+
+
+// Meta fields declaration function for Recommendation
+function display_recommendation_meta_fields( $recommendation_page ) {
+ 
+    $people = get_all_names_and_ids_by_cpt( 'person' );
+    $current_person_id = esc_html( get_post_meta( $recommendation_page->ID, 'recommendation_person_id', true ) );
+    $current_person_name = $people[ $current_person_id ];
+
+    $books = get_all_names_and_ids_by_cpt( 'book' );
+    $current_book_id = esc_html( get_post_meta( $recommendation_page->ID, 'recommendation_book_id', true ) );
+    $current_book_name = $books[ $current_book_id ];
+
+    ?>
+    <table>
         <tr>
-            <td style="width: 100%">Introduction Text</td>
-            <td><input type="text" size="80" name="person_introduction" value="<?php echo $person_intro; ?>" /></td>
+            <td style="width: 100%">Recommandeur(euse)</td>
+            <td>
+                <select name="recommendation_person_id">
+                    <?php foreach( $people as $id => $name ) : ?>
+                        <option value="<?php echo $id; ?>" "<?php selected( $current_person_name, $name); ?>"><?php echo $name; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 100%">Livre recommandé</td>
+            <td>
+                <select name="recommendation_book_id">
+                    <?php foreach( $books as $id => $name ) : ?>
+                        <option value="<?php echo $id; ?>" "<?php selected( $current_book_name, $name); ?>"><?php echo $name; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </td>
         </tr>
     </table>
     <?php
 }
 
 
-add_action( 'save_post', 'add_person_meta_fields', 10, 2 );
+// Saving the CPT meta data for Book, Person and Recommendation
+add_action( 'save_post', 'save_cpt_meta_fields', 10, 2 );
 
-function add_person_meta_fields( $person_id, $person_page ) {
+function save_cpt_meta_fields( $cpt_id, $cpt_page ) {
     
-    // Make sure it is a Person page
-    if( $person_page->post_type == 'person') {
+    $key = [];
+    $prefix = '';
 
-        // Store needed data in the post meta table
-        if ( isset( $_POST['person_introduction'] ) && $_POST['person_introduction'] != '' ) {
-        update_post_meta( $person_id, 'introduction', $_POST['person_introduction'] );
+    if( $cpt_page->post_type == 'book') {
+        $prefix = 'book';
+        $keys = array(
+            'author',
+            'summary',
+            'genre', 
+            'theme',
+            'rewards',
+            'leslibraires_url',
+            'amazon_url',
+            'fnac_url',
+            'priceminister_url',
+            'recyclivre_url',
+            'ebooks_url',
+            'gutenberg_url' );
+    }
+
+    elseif ( $cpt_page->post_type == 'person' ) {
+        $prefix = 'person';
+        $keys = array(
+            'introduction' );
+    }
+
+    elseif ( $cpt_page->post_type == 'recommendation' ) {
+        $prefix = 'recommendation';
+        $keys = array(
+            'person_id',
+            'book_id' );
+
+        THIS IS NOT WORKING IT DOES NOT SAVE THE DATA FROM THE DROPDOWNS FOR RECOMMENDATIONS
+    }
+
+    foreach ( $keys as $key ) {
+        $meta_field = $prefix . '_' . $key;
+        if ( isset( $_POST[ $meta_field ] ) && $_POST[ $meta_field ] != '' ) {
+            update_post_meta( $cpt_id, $key, $_POST[ $meta_field ] );
         }
     }
 }
 
-function display_book_meta_fields( $book_page ) {
 
-    // Retrieve the person page ID 
-    $book_id = $book_page->ID;
 
-    // Retrieve the meta variables  
-    $book_author = esc_html( get_post_meta( $book_id, 'author', true ) );
-    $book_summary = esc_html( get_post_meta( $book_id, 'summary', true ) );
-    $book_genre = esc_html( get_post_meta( $book_id, 'genre', true ) );
-    $book_theme = esc_html( get_post_meta( $book_id, 'theme', true ) );
-    $book_rewards = esc_html( get_post_meta( $book_id, 'rewards', true ) );
+//.......................................................................................................
+// Admin Post Management Screen : choose columns to display
+//.......................................................................................................
 
-    $book_leslibraires_url = esc_html( get_post_meta( $book_id, 'leslibraires_url', true ) );
-    $book_amazon_url = esc_html( get_post_meta( $book_id, 'amazon_url', true ) );
-    $book_fnac_url = esc_html( get_post_meta( $book_id, 'fnac_url', true ) );
-    $book_priceminister_url = esc_html( get_post_meta( $book_id, 'priceminister_url', true ) );
-    $book_recyclivre_url = esc_html( get_post_meta( $book_id, 'recyclivre_url', true ) );
-    $book_ebooks_url = esc_html( get_post_meta( $book_id, 'ebooks_url', true ) );
-    $book_gutenberg_url = esc_html( get_post_meta( $book_id, 'gutenberg_url', true ) );
+// Manage columns for Recommendation post type
+add_action('manage_recommendation_posts_columns','manage_columns_for_recommendation');
 
-    // HTML structure of the meta box
-    ?>
-    <table>
-        <tr>
-            <td style="width: 100%">Author</td>
-            <td><input type="text" size="80" name="book_author" value="<?php echo $book_author; ?>" /></td>
-        </tr>
-        <tr>
-            <td style="width: 100%">Genre</td>
-            <td><input type="text" size="80" name="book_genre" value="<?php echo $book_genre; ?>" /></td>
-        </tr>
-        <tr>
-            <td style="width: 100%">Theme</td>
-            <td><input type="text" size="80" name="book_theme" value="<?php echo $book_theme; ?>" /></td>
-        </tr>
-        <tr>
-            <td style="width: 100%">Rewards</td>
-            <td><input type="text" size="80" name="book_rewards" value="<?php echo $book_rewards; ?>" /></td>
-        </tr>
-        <tr>
-            <td style="width: 100%">Summary</td>
-            <td><textarea rows="12" cols="80" name="book_summary"><?php echo $book_summary; ?></textarea></td>
-        </tr>
-        <tr>
-            <td style="width: 100%">Les Libraires</td>
-            <td><input type="text" size="80" name="book_leslibraires_url" value="<?php echo $book_leslibraires_url; ?>" /></td>
-        </tr>
-        <tr>
-            <td style="width: 100%">Amazon</td>
-            <td><input type="text" size="80" name="book_amazon_url" value="<?php echo $book_amazon_url; ?>" /></td>
-        </tr>
-        <tr>
-            <td style="width: 100%">Fnac</td>
-            <td><input type="text" size="80" name="book_fnac_url" value="<?php echo $book_fnac_url; ?>" /></td>
-        </tr>
-        <tr>
-            <td style="width: 100%">Price Minister</td>
-            <td><input type="text" size="80" name="book_priceminister_url" value="<?php echo $book_priceminister_url; ?>" /></td>
-        </tr>
-        <tr>
-            <td style="width: 100%">Recyclivre</td>
-            <td><input type="text" size="80" name="book_recyclivre_url" value="<?php echo $book_recyclivre_url; ?>" /></td>
-        </tr>
-        <tr>
-            <td style="width: 100%">EBooks</td>
-            <td><input type="text" size="80" name="book_ebooks_url" value="<?php echo $book_ebooks_url; ?>" /></td>
-        </tr>
-        <tr>
-            <td style="width: 100%">Gutenberg Project</td>
-            <td><input type="text" size="80" name="book_gutenberg_url" value="<?php echo $book_gutenberg_url; ?>" /></td>
-        </tr>
-    </table>
-    <?php
+function manage_columns_for_recommendation( $columns ) {
+    
+    // Remove columns
+    unset($columns['date']);
+    unset($columns['comments']);
+    unset($columns['author']);
+
+    // Add new columns
+    $columns['recommendation_person'] = 'Personne';
+    $columns['recommendation_book'] = 'Livre'; 
+
+    return $columns;
 }
 
+// Populate columns for Recommenation post type
+add_action('manage_recommendation_posts_custom_column','populate_recommendation_columns',10,2);
 
-add_action( 'save_post', 'add_book_meta_fields', 10, 2 );
+function populate_recommendation_columns( $column, $post_id ) {
 
-function add_book_meta_fields( $book_id, $book_page ) {
-    
-    // Make sure it is a Book page
-    if( $book_page->post_type == 'book') {
+    // Person column
+    if( $column == 'recommendation_person' ){ 
+        $person_id = get_post_meta( $post_id, 'recommendation_person_id', true );
+        $person_name = get_the_title( $person_id );
 
-        // Store needed data in the post meta table
+        if( $person_id && $person_name ){ echo $person_name; }
+        else { echo '_';}
+    }
 
-        if ( isset( $_POST['book_author'] ) && $_POST['book_author'] != '' ) {
-        update_post_meta( $book_id, 'author', $_POST['book_author'] );
-        }
-        if ( isset( $_POST['book_summary'] ) && $_POST['book_summary'] != '' ) {
-        update_post_meta( $book_id, 'summary', $_POST['book_summary'] );
-        }
-        if ( isset( $_POST['book_genre'] ) && $_POST['book_genre'] != '' ) {
-        update_post_meta( $book_id, 'genre', $_POST['book_genre'] );
-        }
-        if ( isset( $_POST['book_theme'] ) && $_POST['book_theme'] != '' ) {
-        update_post_meta( $book_id, 'theme', $_POST['book_theme'] );
-        }
-        if ( isset( $_POST['book_rewards'] ) && $_POST['book_rewards'] != '' ) {
-        update_post_meta( $book_id, 'rewards', $_POST['book_rewards'] );
-        }
+    // Book column
+    if( $column == 'recommendation_book' ){ 
+        $book_id = get_post_meta( $post_id, 'recommendation_book_id', true );
+        $book_name = get_the_title( $book_id );
 
-        if ( isset( $_POST['book_leslibraires_url'] ) && $_POST['book_leslibraires_url'] != '' ) {
-        update_post_meta( $book_id, 'leslibraires_url', $_POST['book_leslibraires_url'] );
-        }
-        if ( isset( $_POST['book_amazon_url'] ) && $_POST['book_amazon_url'] != '' ) {
-        update_post_meta( $book_id, 'amazon_url', $_POST['book_amazon_url'] );
-        }
-        if ( isset( $_POST['book_fnac_url'] ) && $_POST['book_fnac_url'] != '' ) {
-        update_post_meta( $book_id, 'fnac_url', $_POST['book_fnac_url'] );
-        }
-        if ( isset( $_POST['book_priceminister_url'] ) && $_POST['book_priceminister_url'] != '' ) {
-        update_post_meta( $book_id, 'priceminister_url', $_POST['book_priceminister_url'] );
-        }
-        if ( isset( $_POST['book_recyclivre_url'] ) && $_POST['book_recyclivre_url'] != '' ) {
-        update_post_meta( $book_id, 'recyclivre_url', $_POST['book_recyclivre_url'] );
-        }
-        if ( isset( $_POST['book_ebooks_url'] ) && $_POST['book_ebooks_url'] != '' ) {
-        update_post_meta( $book_id, 'ebooks_url', $_POST['book_ebooks_url'] );
-        }
-        if ( isset( $_POST['book_gutenberg_url'] ) && $_POST['book_gutenberg_url'] != '' ) {
-        update_post_meta( $book_id, 'gutenberg_url', $_POST['book_gutenberg_url'] );
-        }
+        if( $book_id && $book_name ){ echo $book_name; }
+        else { echo '_';}
     }
 }
 
@@ -477,6 +583,8 @@ function inspirama_remove_admin_menu_items() {
     remove_menu_page('edit-comments.php');      // Comments 
     remove_menu_page('users.php');              // Users
 }
+
+
 
 
 ?>
