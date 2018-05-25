@@ -84,7 +84,7 @@ function get_book_recommendations( $book_slug, $only_blockquotes = false ) {
             // Getting the data about each of the recommendations
             $recommendations_data = array();
             foreach( $recommendations_ids as $recommendation_id) {
-                $one_recommendation_data = get_recommendation_data( $recommendation_id, $only_blockquotes );
+                $one_recommendation_data = get_recommendation_data( $recommendation_id, $only_blockquotes, true );
                 if( $one_recommendation_data ) { array_push( $recommendations_data, $one_recommendation_data ); }
             }
             $book_recommendations['recommendations'] = $recommendations_data;
@@ -122,7 +122,7 @@ function get_recommendations_ids_from_book_slug( $book_slug ) {
 // NB : assumes unicity of the person 
 //.......................................................................................................
 
-function get_recommendation_data( $recommendation_id, $only_blockquotes = false ) {
+function get_recommendation_data( $recommendation_id, $only_blockquotes = false, $with_person = false, $with_book = false ) {
 
     // The associative array of data holding the recommendation and the person attached
     // If the recommendation text is empty, the array will be returned empty
@@ -132,22 +132,26 @@ function get_recommendation_data( $recommendation_id, $only_blockquotes = false 
     $recommendation_text = $recommendation_object->description;
 
     // If required, extract and concatenate only the text in blockquotes, if any 
-    if( $only_blockquotes ) {
+    if ( $only_blockquotes ) {
         $recommendation_text = extract_blockquotes_content( $recommendation_text );
     }
     
     // Only keep the recommendation if it contains a text
     if ( $recommendation_text != '' ) {
 
-        // Recover all the person data
-        $recommendation_data = get_recommender_data_from_recommendation_id( $recommendation_id );
-        
         // Add the recommendation data
         $recommendation_data['text'] = $recommendation_text;
         $recommendation_data['sources_titles'] = explode( ';', get_term_meta( $recommendation_id, 'sources_titles', true) );
         $recommendation_data['sources_urls'] =  explode( ';', get_term_meta( $recommendation_id, 'sources_urls', true) );
-    }     
+    }    
+
+    if ( $with_person ) {
+        $recommendation_data += get_recommender_data_from_recommendation_id( $recommendation_id );
+    }
     
+    if ( $with_book ) {
+        $recommendation_data += get_book_data_from_recommendation_id( $recommendation_id );
+    }
     return $recommendation_data;
 }
 
@@ -167,9 +171,7 @@ function get_recommender_data_from_recommendation_id( $recommendation_id ) {
     $args = array(
         'post_type' => 'person',
         'post_status' => 'publish',
-        'posts_per_page' => -1,
-        'orderby' => 'title',
-        'order' => 'ASC',
+        'posts_per_page' => 1,
         'tax_query' => array(
                 array(
                 'taxonomy' => 'recommendation',
@@ -194,6 +196,42 @@ function get_recommender_data_from_recommendation_id( $recommendation_id ) {
     }
 
     return $recommender;
+}
+
+
+//.......................................................................................................
+// Recovers the BOOK data from te recommendation ID
+// NB : assumes unicity of the book 
+//.......................................................................................................
+
+function get_book_data_from_recommendation_id( $recommendation_id ) {
+
+    // The array of recommender data we will return
+    // There should normally be only 1 person associated with 1 recommendation ID
+    $book_data = array();
+
+    $book_slug = get_term_meta( $recommendation_id, 'book_title', true );
+
+        $args = array(
+        'post_type' => 'book',
+        'name' => $book_slug,
+        'post_status' => 'publish',
+        'posts_per_page' => 1 );
+
+        $book_query = new WP_Query( $args );
+
+        if ( $book_query->have_posts() ) {
+            while ( $book_query->have_posts() ) {
+
+                // Iterating on the WP post loop
+                $book_query->the_post();
+                $book_id = $book_query->post->ID;
+
+                $book_data = get_book_data( $book_id, false, false );
+            }
+        }
+
+    return $book_data;
 }
 
 
@@ -386,13 +424,35 @@ function get_affiliation_data( $book_id ) {
 
 function get_person_data( $person_id ) {
 
-    $person_data['person_name'] = get_the_title($person_id );
+    $person_data['person_name'] = get_the_title( $person_id );
     $person_data['person_slug'] = get_post_field( 'post_name', $person_id );
     $person_data['person_image'] = wp_get_attachment_image_src( get_post_thumbnail_id( $person_id ), 'full' )[0];
     $person_data['person_url'] = get_the_permalink( $person_id );
     $person_data['person_introduction'] = get_post_meta( $person_id, 'introduction', true);
+    $person_data['person_bio'] = get_post_field( 'post_content', $person_page_id );
 
     return $person_data;
 }
+
+
+//.......................................................................................................
+// Recovers all info necessary for the recommendations associated with the input person slug
+//.......................................................................................................
+
+function get_person_recommendations( $person_id, $only_blockquotes = false ) {
+
+    // The array we will use to output the data
+    $person_recommendations = get_person_data( $person_id );
+    $person_recommendations['recommendations'] = array();
+
+    $recommendations_array = get_the_terms( $person_id, 'recommendation' );
+    foreach( $recommendations_array as $recommendation ){
+        $recommendation_data = get_recommendation_data( $recommendation->term_id, $only_blockquotes, false, true );
+        array_push( $person_recommendations['recommendations'], $recommendation_data );
+    }
+    
+    return $person_recommendations;
+}
+
 
 ?>

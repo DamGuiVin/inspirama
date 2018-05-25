@@ -9,21 +9,15 @@ get_header();
 
 
 //........................................................................
-// BOOK PRESENTATION SECTION : RECOVERING PEOPLE
+// BOOK SECTION
 //........................................................................
 
-// Book Details
 $book_page_id = get_the_id();
 $book_slug_title = get_post_field( 'post_name', get_post() );
 
 $book_recommendations = get_book_recommendations( $book_slug_title );
-$num_recommendations = count( $book_recommendations['recommendations'] );
+$num_recommendations = count( $book_recommendations['recommendations'] ); ?>
 
-//........................................................................
-// BOOK PRESENTATION SECTION : RECOVERING PEOPLE
-//........................................................................
-
-?>
 <div class="book-page container">
     <header class="row">
 
